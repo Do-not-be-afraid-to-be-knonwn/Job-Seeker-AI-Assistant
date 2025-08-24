@@ -26,5 +26,22 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
     })();
     // Indicate async response
     return true;
+  } else if (msg.type === "USER_FEEDBACK") {
+    (async () => {
+      const payload = msg.payload;
+      try {
+        const response = await fetch("https://api.joblyzer.net/feedback", {
+          method: "POST",
+          body: JSON.stringify(payload),
+        });
+        if (!response.ok) {
+          throw new Error(`HTTP error ${response.status}`);
+        }
+        sendResponse({ success: true });
+      } catch (error) {
+        sendResponse({ success: false, error: error.message });
+      }
+    })();
+    return true;
   }
 });

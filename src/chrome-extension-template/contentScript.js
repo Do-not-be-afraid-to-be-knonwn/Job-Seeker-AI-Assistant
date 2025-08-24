@@ -129,6 +129,44 @@ const createSidebarStyles = () => {
       font-size: 15px;
       text-align: center;
     }
+    .job-ai-feedback-buttons {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .job-ai-feedback-btn {
+      background: #e5e7eb;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+    .job-ai-feedback-btn:hover {
+      background: #d1d5db;
+    }
+    .job-ai-feedback-comment {
+      width: 100%;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      padding: 8px;
+      margin-bottom: 8px;
+      font-family: inherit;
+      font-size: 14px;
+    }
+    .job-ai-feedback-submit {
+      align-self: flex-end;
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .job-ai-feedback-submit:hover {
+      background: #1e40af;
+    }
   `;
   document.head.appendChild(style);
 };
@@ -155,7 +193,12 @@ const createSidebar = () => {
   return sidebar;
 };
 
-const updateSidebarContent = (sidebar, data, error = null) => {
+const updateSidebarContent = (
+  sidebar,
+  data,
+  error = null,
+  jobContext = null
+) => {
   const content = sidebar.querySelector(".job-ai-sidebar-content");
 
   // Show loading state if both data and error are null
@@ -219,6 +262,46 @@ const updateSidebarContent = (sidebar, data, error = null) => {
       </div>
     </div>
   `;
+
+  if (data) {
+    const feedbackCard = document.createElement("div");
+    feedbackCard.className = "job-ai-card";
+    feedbackCard.innerHTML = `
+      <div class="job-ai-card-title"><span class="job-ai-card-icon">💬</span>Feedback</div>
+      <div class="job-ai-feedback-buttons">
+        <button class="job-ai-feedback-btn" data-rating="up">👍</button>
+        <button class="job-ai-feedback-btn" data-rating="down">👎</button>
+      </div>
+      <textarea class="job-ai-feedback-comment" placeholder="Additional comments" rows="3"></textarea>
+      <button class="job-ai-feedback-submit">Submit</button>
+    `;
+    content.appendChild(feedbackCard);
+
+    const sendFeedback = (payload) => {
+      chrome.runtime.sendMessage({
+        type: "USER_FEEDBACK",
+        payload: { ...payload, job: jobContext, extraction: data },
+      });
+    };
+
+    feedbackCard.querySelectorAll(".job-ai-feedback-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const rating = btn.dataset.rating;
+        sendFeedback({ rating });
+      });
+    });
+
+    const submitBtn = feedbackCard.querySelector(".job-ai-feedback-submit");
+    submitBtn.addEventListener("click", () => {
+      const comment = feedbackCard
+        .querySelector(".job-ai-feedback-comment")
+        .value.trim();
+      if (comment) {
+        sendFeedback({ comment });
+        feedbackCard.querySelector(".job-ai-feedback-comment").value = "";
+      }
+    });
+  }
 };
 
 // 初始化侧边栏
@@ -285,10 +368,10 @@ document.addEventListener("click", async (event) => {
     (response) => {
       console.log("Received response:", response);
       if (response && response.success) {
-        updateSidebarContent(sidebar, response.extraction);
+        updateSidebarContent(sidebar, response.extraction, null, jobData);
       } else {
         const error = response?.error || "Failed to extract job information";
-        updateSidebarContent(sidebar, null, error);
+        updateSidebarContent(sidebar, null, error, jobData);
       }
     }
   );
