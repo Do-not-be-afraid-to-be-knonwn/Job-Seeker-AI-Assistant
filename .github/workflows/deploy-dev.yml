@@ -30,7 +30,7 @@ jobs:
 
       - name: Ensure app directory exists on EC2
         run: |
-          ssh -o StrictHostKeyChecking=yes "${{ secrets.EC2_USER }}@${{ secrets.DEV_EC2_HOST }}" "mkdir -p '${{ secrets.DEV_EC2_PATH }}'"
+          ssh -o StrictHostKeyChecking=yes "${{ secrets.DEV_EC2_USER }}@${{ secrets.DEV_EC2_HOST }}" "mkdir -p '${{ secrets.DEV_EC2_PATH }}'"
 
       - name: Sync repository to EC2 (rsync)
         run: |
