@@ -4,3 +4,4 @@ dist
 /Job-Seeker-AI-Assistant/
 *.csv
 /.vscode
+*.jsonl

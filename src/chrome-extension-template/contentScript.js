@@ -376,3 +376,8 @@ document.addEventListener("click", async (event) => {
     }
   );
 });
+
+// Export for testing purposes when running in Node environment
+if (typeof module !== "undefined") {
+  module.exports = { updateSidebarContent };
+}
