@@ -1,6 +1,8 @@
 import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
+import fs from "fs/promises";
+import path from "path";
 import { makeExtractSkillsChain } from "./src/chains/extractSkills.chain";
 import { makeExtractDomainChain } from "./src/chains/extractDomain.chain";
 import { makeExtractYearsChain } from "./src/chains/extractYearsFewShot.chain";
@@ -9,6 +11,12 @@ import { makeSmartExtractLevelChain } from "./src/chains/smartExtractLevel.chain
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
+// Some clients may omit the content-type header when sending JSON
+// (e.g., the chrome extension feedback fetch). Parse plain text bodies
+// so we can still handle those requests and manually JSON.parse them.
+app.use(bodyParser.text({ type: "*/*" }));
+
+const feedbackFile = path.join(__dirname, "feedback.jsonl");
 
 // POST /extract-all
 app.post("/extract-all", async (req, res) => {
@@ -92,7 +100,29 @@ app.post("/extract-all", async (req, res) => {
   });
 });
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Chain server running on http://localhost:${PORT}`);
+// POST /feedback
+app.post("/feedback", async (req, res) => {
+  try {
+    // Body may already be parsed JSON or a raw string.
+    const body = typeof req.body === "string" ? JSON.parse(req.body) : req.body;
+    const entry = {
+      timestamp: new Date().toISOString(),
+      ...body,
+    };
+
+    await fs.appendFile(feedbackFile, JSON.stringify(entry) + "\n");
+    res.json({ success: true });
+  } catch (error) {
+    console.error("Feedback error:", error);
+    res.status(500).json({ success: false, error: (error as any)?.message });
+  }
 });
+
+const PORT = process.env.PORT || 3000;
+if (process.env.NODE_ENV !== "test") {
+  app.listen(PORT, () => {
+    console.log(`Chain server running on http://localhost:${PORT}`);
+  });
+}
+
+export default app;
