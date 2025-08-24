@@ -42,7 +42,7 @@ jobs:
             --exclude ".env" \
             --exclude "logs/" \
             -e "ssh -o StrictHostKeyChecking=yes" \
-            ./ "${{ secrets.EC2_USER }}@${{ secrets.DEV_EC2_HOST }}:${{ secrets.DEV_EC2_PATH }}/"
+            ./ "${{ secrets.DEV_EC2_USER }}@${{ secrets.DEV_EC2_HOST }}:${{ secrets.DEV_EC2_PATH }}/"
 
       - name: Run restart script on EC2
         env:
