@@ -21,16 +21,16 @@ jobs:
       - name: Set up SSH agent with EC2 key
         uses: webfactory/ssh-agent@v0.9.0
         with:
-          ssh-private-key: ${{ secrets.EC2_SSH_KEY }}
+          ssh-private-key: ${{ secrets.DEV_EC2_SSH_KEY }}
 
       - name: Add EC2 host to known_hosts
         run: |
           mkdir -p ~/.ssh
-          ssh-keyscan -H "${{ secrets.EC2_HOST }}" >> ~/.ssh/known_hosts
+          ssh-keyscan -H "${{ secrets.DEV_EC2_HOST }}" >> ~/.ssh/known_hosts
 
       - name: Ensure app directory exists on EC2
         run: |
-          ssh -o StrictHostKeyChecking=yes "${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }}" "mkdir -p '${{ secrets.EC2_PATH }}'"
+          ssh -o StrictHostKeyChecking=yes "${{ secrets.EC2_USER }}@${{ secrets.DEV_EC2_HOST }}" "mkdir -p '${{ secrets.DEV_EC2_PATH }}'"
 
       - name: Sync repository to EC2 (rsync)
         run: |
@@ -42,10 +42,10 @@ jobs:
             --exclude ".env" \
             --exclude "logs/" \
             -e "ssh -o StrictHostKeyChecking=yes" \
-            ./ "${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }}:${{ secrets.EC2_PATH }}/"
+            ./ "${{ secrets.EC2_USER }}@${{ secrets.DEV_EC2_HOST }}:${{ secrets.DEV_EC2_PATH }}/"
 
       - name: Run restart script on EC2
         env:
-          APP_DIR: ${{ secrets.EC2_PATH }}
+          APP_DIR: ${{ secrets.DEV_EC2_PATH }}
         run: |
-          ssh -o StrictHostKeyChecking=yes "${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }}" "cd \"$APP_DIR\" && chmod +x deploy/restart.sh && ./deploy/restart.sh"
+          ssh -o StrictHostKeyChecking=yes "${{ secrets.DEV_EC2_USER }}@${{ secrets.DEV_EC2_HOST }}" "cd \"$APP_DIR\" && chmod +x deploy/restart.sh && ./deploy/restart.sh"
