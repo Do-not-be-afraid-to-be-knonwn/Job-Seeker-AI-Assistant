@@ -1,0 +1,51 @@
+name: Deploy dev to EC2
+
+on:
+  push:
+    branches: ["dev"]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-dev
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up SSH agent with EC2 key
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.EC2_SSH_KEY }}
+
+      - name: Add EC2 host to known_hosts
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -H "${{ secrets.EC2_HOST }}" >> ~/.ssh/known_hosts
+
+      - name: Ensure app directory exists on EC2
+        run: |
+          ssh -o StrictHostKeyChecking=yes "${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }}" "mkdir -p '${{ secrets.EC2_PATH }}'"
+
+      - name: Sync repository to EC2 (rsync)
+        run: |
+          rsync -az --delete \
+            --exclude ".git/" \
+            --exclude ".github/" \
+            --exclude "node_modules/" \
+            --exclude ".venv/" \
+            --exclude ".env" \
+            --exclude "logs/" \
+            -e "ssh -o StrictHostKeyChecking=yes" \
+            ./ "${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }}:${{ secrets.EC2_PATH }}/"
+
+      - name: Run restart script on EC2
+        env:
+          APP_DIR: ${{ secrets.EC2_PATH }}
+        run: |
+          ssh -o StrictHostKeyChecking=yes "${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }}" "cd \"$APP_DIR\" && chmod +x deploy/restart.sh && ./deploy/restart.sh"
