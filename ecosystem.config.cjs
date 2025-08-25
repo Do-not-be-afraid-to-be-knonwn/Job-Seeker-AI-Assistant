@@ -10,7 +10,7 @@ module.exports = {
       interpreter: "none",
       env: {
         NODE_ENV: process.env.NODE_ENV || "production",
-        PORT: process.env.PORT || "3000",
+        PORT: process.env.PORT || "443",
         // Any other ENV vars will be injected from .env via restart.sh + --update-env
       },
       autorestart: true,
