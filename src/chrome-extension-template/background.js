@@ -3,7 +3,7 @@ console.log("Background script loaded!");
 const FEEDBACK_QUEUE_KEY = "feedbackQueue";
 const MAX_ATTEMPTS = 8;
 const PROCESS_INTERVAL_MS = 60 * 1000;
-const API_URL = process.env.API_ORIGIN;
+const API_URL = "http://ec2-54-166-244-73.compute-1.amazonaws.com:3000";
 
 // Helpers for chrome.storage.local
 async function getQueue() {
@@ -44,7 +44,7 @@ async function processQueue() {
     }
 
     try {
-      const response = await fetch("https://" + API_URL + "/feedback", {
+      const response = await fetch(API_URL + "/feedback", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(item.payload),
@@ -78,7 +78,7 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
       const job = msg.job;
       console.log("Job received:", job);
       try {
-        const response = await fetch("https://" + API_URL + "/extract-all/", {
+        const response = await fetch(API_URL + "/extract-all/", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
