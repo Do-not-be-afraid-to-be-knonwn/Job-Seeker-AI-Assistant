@@ -7,6 +7,7 @@ import { makeExtractSkillsChain } from "./src/chains/extractSkills.chain";
 import { makeExtractDomainChain } from "./src/chains/extractDomain.chain";
 import { makeExtractYearsChain } from "./src/chains/extractYearsFewShot.chain";
 import { makeSmartExtractLevelChain } from "./src/chains/smartExtractLevel.chain";
+import authRouter from "./src/auth/googleAuth";
 
 const app = express();
 app.use(cors());
@@ -15,6 +16,7 @@ app.use(bodyParser.json());
 // (e.g., the chrome extension feedback fetch). Parse plain text bodies
 // so we can still handle those requests and manually JSON.parse them.
 app.use(bodyParser.text({ type: "*/*" }));
+app.use("/auth", authRouter);
 
 const feedbackFile = path.join(__dirname, "feedback.jsonl");
 

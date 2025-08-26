@@ -2,11 +2,12 @@
   "manifest_version": 3,
   "name": "Job Seeker AI Assistant",
   "version": "1.0.0",
-  "permissions": ["scripting", "activeTab"],
+  "permissions": ["identity", "storage", "alarms", "scripting", "activeTab"],
   "host_permissions": ["https://*.indeed.com/*"],
   "description": "Help job seekers  extract Key Information from a Job Description",
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "background.js",
+    "type": "module"
   },
 
   "content_scripts": [
