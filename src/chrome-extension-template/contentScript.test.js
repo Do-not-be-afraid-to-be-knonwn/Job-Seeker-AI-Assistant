@@ -1,7 +1,7 @@
 /** @jest-environment jsdom */
 
 const { fireEvent } = require('@testing-library/dom');
-const { updateSidebarContent } = require('./contentScript');
+const { updateSidebarContent, createSidebar } = require('./contentScript');
 
 describe('feedback interactions', () => {
   let sendMessageMock;
@@ -49,6 +49,30 @@ describe('feedback interactions', () => {
     });
     expect(sendMessageMock).toHaveBeenCalledTimes(1);
     expect(textarea.value).toBe('');
+  });
+});
+
+describe('auth buttons', () => {
+  let sendMessageMock;
+
+  beforeEach(() => {
+    document.body.innerHTML = '';
+    sendMessageMock = jest.fn();
+    global.chrome = { runtime: { sendMessage: sendMessageMock } };
+  });
+
+  test('signin button sends AUTH_LOGIN', () => {
+    const sidebar = createSidebar();
+    const btn = sidebar.querySelector('.job-ai-login');
+    fireEvent.click(btn);
+    expect(sendMessageMock).toHaveBeenCalledWith({ type: 'AUTH_LOGIN' });
+  });
+
+  test('signout button sends AUTH_LOGOUT', () => {
+    const sidebar = createSidebar();
+    const btn = sidebar.querySelector('.job-ai-logout');
+    fireEvent.click(btn);
+    expect(sendMessageMock).toHaveBeenCalledWith({ type: 'AUTH_LOGOUT' });
   });
 });
 

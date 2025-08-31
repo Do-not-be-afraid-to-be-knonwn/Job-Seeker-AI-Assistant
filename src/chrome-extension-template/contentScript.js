@@ -58,6 +58,24 @@ const createSidebarStyles = () => {
     .job-ai-sidebar-close:hover {
       background: #1e40af;
     }
+    .job-ai-auth {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      padding: 8px 18px;
+    }
+    .job-ai-auth-btn {
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 6px 12px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .job-ai-auth-btn:hover {
+      background: #1e40af;
+    }
     .job-ai-sidebar-content {
       padding: 24px 18px 24px 18px;
     }
@@ -181,6 +199,10 @@ const createSidebar = () => {
       <span>Job AI Assistant</span>
       <button class="job-ai-sidebar-close">&times;</button>
     </div>
+    <div class="job-ai-auth">
+      <button class="job-ai-auth-btn job-ai-login">Sign In</button>
+      <button class="job-ai-auth-btn job-ai-logout">Sign Out</button>
+    </div>
     <div class="job-ai-sidebar-content">
       <div class="job-ai-loading">Analyzing job posting...</div>
     </div>
@@ -188,6 +210,14 @@ const createSidebar = () => {
   const closeBtn = sidebar.querySelector(".job-ai-sidebar-close");
   closeBtn.addEventListener("click", () => {
     sidebar.classList.remove("open");
+  });
+  const loginBtn = sidebar.querySelector(".job-ai-login");
+  loginBtn.addEventListener("click", () => {
+    chrome.runtime.sendMessage({ type: "AUTH_LOGIN" });
+  });
+  const logoutBtn = sidebar.querySelector(".job-ai-logout");
+  logoutBtn.addEventListener("click", () => {
+    chrome.runtime.sendMessage({ type: "AUTH_LOGOUT" });
   });
   document.body.appendChild(sidebar);
   return sidebar;
@@ -390,5 +420,5 @@ document.addEventListener("click", async (event) => {
 
 // Export for testing purposes when running in Node environment
 if (typeof module !== "undefined") {
-  module.exports = { updateSidebarContent };
+  module.exports = { updateSidebarContent, createSidebar };
 }
