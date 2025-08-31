@@ -4,12 +4,15 @@
   "version": "1.0.0",
   "permissions": ["identity", "storage", "alarms", "scripting", "activeTab"],
   "host_permissions": ["https://*.indeed.com/*"],
-  "description": "Help job seekers  extract Key Information from a Job Description",
+  "description": "Help job seekers extract Key Information from a Job Description",
+  "oauth2": {
+    "client_id": "114029742286-q8o712v5ipsnbub88p60vpb9vo5n93r2.apps.googleusercontent.com",
+    "scopes": ["openid", "email", "profile"]
+  },
   "background": {
     "service_worker": "background.js",
     "type": "module"
   },
-
   "content_scripts": [
     {
       "matches": ["https://*.indeed.com/*"],

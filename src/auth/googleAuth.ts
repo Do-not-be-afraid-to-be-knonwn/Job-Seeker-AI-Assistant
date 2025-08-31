@@ -55,7 +55,13 @@ function signJwt(sub: string | undefined, scope: string) {
   return segments.join(".");
 }
 
-router.get("/google/start", (_req, res) => {
+router.post("/google/start", (req, res) => {
+  const { redirectUri } = req.body;
+
+  // Use Chrome's dynamic redirect URI instead of hardcoded one
+  const actualRedirectUri = redirectUri || REDIRECT_URI;
+  console.log("Using redirect URI:", actualRedirectUri);
+
   const state = crypto.randomUUID();
   const codeVerifier = base64url(crypto.randomBytes(32));
   const challenge = base64url(
@@ -64,9 +70,12 @@ router.get("/google/start", (_req, res) => {
   pkceStore.set(state, codeVerifier);
 
   const url = new URL("https://accounts.google.com/o/oauth2/v2/auth");
-  url.searchParams.set("client_id", CLIENT_ID);
+  url.searchParams.set(
+    "client_id",
+    "114029742286-q8o712v5ipsnbub88p60vpb9vo5n93r2.apps.googleusercontent.com"
+  );
   url.searchParams.set("response_type", "code");
-  url.searchParams.set("redirect_uri", REDIRECT_URI);
+  url.searchParams.set("redirect_uri", actualRedirectUri);
   url.searchParams.set("scope", "openid email profile");
   url.searchParams.set("state", state);
   url.searchParams.set("code_challenge", challenge);
@@ -76,18 +85,21 @@ router.get("/google/start", (_req, res) => {
 });
 
 router.post("/exchange", async (req, res) => {
-  const { code, state } = req.body;
+  const { code, state, redirectUri } = req.body;
   const codeVerifier = pkceStore.get(state);
   pkceStore.delete(state);
   if (!codeVerifier) {
     return res.status(400).json({ error: "invalid_state" });
   }
 
+  // Use the same redirect URI that was used in the auth request
+  const actualRedirectUri = redirectUri || REDIRECT_URI;
+
   const params = new URLSearchParams({
     code,
     client_id: CLIENT_ID,
     client_secret: CLIENT_SECRET,
-    redirect_uri: REDIRECT_URI,
+    redirect_uri: actualRedirectUri,
     grant_type: "authorization_code",
     code_verifier: codeVerifier,
   });

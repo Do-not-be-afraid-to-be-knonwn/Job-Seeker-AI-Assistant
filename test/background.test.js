@@ -2,7 +2,7 @@
 process.env.NODE_ENV = "test";
 const FEEDBACK_QUEUE_KEY = "feedbackQueue";
 const storage = { [FEEDBACK_QUEUE_KEY]: [] };
-const API_URL = process.env.API_ORIGIN;
+const API_URL = process.env.API_ORIGIN || "localhost:3000";
 
 global.chrome = {
   storage: {
@@ -16,6 +16,16 @@ global.chrome = {
     },
   },
   runtime: { onMessage: { addListener: () => {} } },
+  alarms: {
+    create: (name, info) => {
+      // Mock alarm creation
+    },
+    onAlarm: {
+      addListener: (fn) => {
+        // Mock alarm listener registration
+      },
+    },
+  },
 };
 
 const {
@@ -53,7 +63,7 @@ describe("Background Script Tests", () => {
     expect(storage[FEEDBACK_QUEUE_KEY]).toEqual([]);
 
     const second = calls[1];
-    expect(second.url).toBe("https://" + API_URL + "/feedback");
+    expect(second.url).toBe("http://localhost:3000/feedback");
     expect(second.options.method).toBe("POST");
     expect(second.options.headers["Content-Type"]).toBe("application/json");
     expect(second.options.body).toBe(JSON.stringify(payload));

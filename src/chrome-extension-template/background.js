@@ -3,7 +3,7 @@ console.log("Background script loaded!");
 const FEEDBACK_QUEUE_KEY = "feedbackQueue";
 const MAX_ATTEMPTS = 8;
 const PROCESS_INTERVAL_MS = 60 * 1000;
-const API_URL = "http://ec2-54-166-244-73.compute-1.amazonaws.com:3000";
+const API_URL = "http://localhost:3000";
 
 const AUTH_TOKEN_KEY = "authTokens";
 const AUTH_SECRET_KEY = "authSecret";
@@ -122,20 +122,29 @@ async function loadAuth() {
 }
 
 async function login() {
-  const start = await fetch(API_URL + "/auth/google/start").then((r) =>
-    r.json()
-  );
+  // Send Chrome's redirect URL to server - this is the critical fix
+  const redirectUri = chrome.identity.getRedirectURL();
+  console.log("Chrome redirect URI:", redirectUri);
+
+  const start = await fetch(API_URL + "/auth/google/start", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ redirectUri }),
+  }).then((r) => r.json());
+
   const redirect = await chrome.identity.launchWebAuthFlow({
     url: start.authUrl,
     interactive: true,
   });
+  console.log("Redirect:", redirect);
+
   const url = new URL(redirect);
   const code = url.searchParams.get("code");
   const state = url.searchParams.get("state");
   const tokens = await fetch(API_URL + "/auth/exchange", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ code, state }),
+    body: JSON.stringify({ code, state, redirectUri }),
   }).then((r) => r.json());
   await saveAuth(tokens);
   scheduleRefresh();

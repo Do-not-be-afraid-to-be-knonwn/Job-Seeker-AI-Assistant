@@ -18,6 +18,16 @@ global.chrome = {
     },
   },
   runtime: { onMessage: { addListener: () => {} } },
+  alarms: {
+    create: (name, info) => {
+      // Mock alarm creation
+    },
+    onAlarm: {
+      addListener: (fn) => {
+        // Mock alarm listener registration
+      },
+    },
+  },
 };
 
 describe("feedback end-to-end", () => {
