@@ -20,7 +20,9 @@ interface SessionTokens {
 const sessions = new Map<string, SessionTokens>();
 
 // Generate ephemeral RSA key pair for JWT signing
-const { publicKey, privateKey } = crypto.generateKeyPairSync("rsa", { modulusLength: 2048 });
+const { publicKey, privateKey } = crypto.generateKeyPairSync("rsa", {
+  modulusLength: 2048,
+});
 const jwk = publicKey.export({ format: "jwk" }) as any;
 jwk.kid = crypto.randomUUID();
 
@@ -103,19 +105,21 @@ router.post("/exchange", async (req, res) => {
   const refreshToken = crypto.randomUUID();
   sessions.set(refreshToken, tokens as SessionTokens);
   const idPayload = tokens.id_token
-    ? JSON.parse(Buffer.from(tokens.id_token.split(".")[1], "base64").toString())
+    ? JSON.parse(
+        Buffer.from(tokens.id_token.split(".")[1], "base64").toString()
+      )
     : {};
   const jwt = signJwt(idPayload.sub, tokens.scope);
   res.json({ jwt, refresh_token: refreshToken });
 });
 
 router.post("/refresh", async (req, res) => {
-  const { refresh_token } = req.body;
-  const session = sessions.get(refresh_token as string);
+  const { refreshtoken } = req.body;
+  const session = sessions.get(refreshtoken as string);
   if (!session) {
     return res.status(401).json({ error: "invalid_refresh" });
   }
-  sessions.delete(refresh_token as string);
+  sessions.delete(refreshtoken as string);
 
   const params = new URLSearchParams({
     client_id: CLIENT_ID,
@@ -139,7 +143,9 @@ router.post("/refresh", async (req, res) => {
   const newRefresh = crypto.randomUUID();
   sessions.set(newRefresh, session);
   const idPayload = session.id_token
-    ? JSON.parse(Buffer.from(session.id_token.split(".")[1], "base64").toString())
+    ? JSON.parse(
+        Buffer.from(session.id_token.split(".")[1], "base64").toString()
+      )
     : {};
   const jwt = signJwt(idPayload.sub, session.scope);
   res.json({ jwt, refresh_token: newRefresh });

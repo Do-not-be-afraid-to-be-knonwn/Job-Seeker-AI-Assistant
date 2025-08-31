@@ -363,18 +363,29 @@ document.addEventListener("click", async (event) => {
   //console.log(`Sending job data: ${jobData.description}`);
 
   // 发送消息并处理响应
-  chrome.runtime.sendMessage(
-    { type: "INDEED_JOB_DETAIL", job: jobData },
-    (response) => {
-      console.log("Received response:", response);
-      if (response && response.success) {
-        updateSidebarContent(sidebar, response.extraction, null, jobData);
-      } else {
-        const error = response?.error || "Failed to extract job information";
-        updateSidebarContent(sidebar, null, error, jobData);
+  try {
+    chrome.runtime.sendMessage(
+      { type: "INDEED_JOB_DETAIL", job: jobData },
+      (response) => {
+        if (chrome.runtime.lastError) {
+          console.error("Extension context invalidated:", chrome.runtime.lastError.message);
+          updateSidebarContent(sidebar, null, "Extension needs to be refreshed", jobData);
+          return;
+        }
+        
+        console.log("Received response:", response);
+        if (response && response.success) {
+          updateSidebarContent(sidebar, response.extraction, null, jobData);
+        } else {
+          const error = response?.error || "Failed to extract job information";
+          updateSidebarContent(sidebar, null, error, jobData);
+        }
       }
-    }
-  );
+    );
+  } catch (error) {
+    console.error("Extension context invalidated:", error);
+    updateSidebarContent(sidebar, null, "Extension needs to be refreshed", jobData);
+  }
 });
 
 // Export for testing purposes when running in Node environment
