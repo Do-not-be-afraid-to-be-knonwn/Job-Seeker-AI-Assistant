@@ -185,6 +185,61 @@ const createSidebarStyles = () => {
     .job-ai-feedback-submit:hover {
       background: #1e40af;
     }
+    .job-ai-success-notification {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #10b981;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+      z-index: 10001;
+      font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      animation: slideInFromRight 0.3s ease-out;
+      transition: opacity 0.3s ease-out;
+    }
+    .job-ai-success-notification.hiding {
+      opacity: 0;
+    }
+    @keyframes slideInFromRight {
+      from {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+    .job-ai-auth-status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      font-size: 12px;
+    }
+    .job-ai-auth-status.signed-in {
+      color: #10b981;
+      background: #ecfdf5;
+    }
+    .job-ai-auth-status.signed-out {
+      color: #ef4444;
+      background: #fef2f2;
+    }
+    .job-ai-auth-indicator {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+    .job-ai-auth-indicator.online {
+      background: #10b981;
+    }
+    .job-ai-auth-indicator.offline {
+      background: #ef4444;
+    }
   `;
   document.head.appendChild(style);
 };
@@ -199,9 +254,13 @@ const createSidebar = () => {
       <span>Job AI Assistant</span>
       <button class="job-ai-sidebar-close">&times;</button>
     </div>
+    <div class="job-ai-auth-status signed-out" id="authStatus">
+      <div class="job-ai-auth-indicator offline"></div>
+      <span>Not signed in</span>
+    </div>
     <div class="job-ai-auth">
       <button class="job-ai-auth-btn job-ai-login">Sign In</button>
-      <button class="job-ai-auth-btn job-ai-logout">Sign Out</button>
+      <button class="job-ai-auth-btn job-ai-logout" style="display: none;">Sign Out</button>
     </div>
     <div class="job-ai-sidebar-content">
       <div class="job-ai-loading">Analyzing job posting...</div>
@@ -213,14 +272,122 @@ const createSidebar = () => {
   });
   const loginBtn = sidebar.querySelector(".job-ai-login");
   loginBtn.addEventListener("click", () => {
-    chrome.runtime.sendMessage({ type: "AUTH_LOGIN" });
+    console.log('Login button clicked');
+    chrome.runtime.sendMessage({ type: "AUTH_LOGIN" }, (response) => {
+      console.log('Login response:', response);
+      if (response && response.success) {
+        showSuccessNotification("✅ Successfully signed in to Job AI Assistant!");
+        updateAuthStatus(true);
+      } else {
+        const errorMsg = response?.error || "Sign in failed. Please try again.";
+        console.error('Login failed:', errorMsg);
+        showSuccessNotification(`❌ ${errorMsg}`, false);
+        updateAuthStatus(false);
+      }
+    });
   });
   const logoutBtn = sidebar.querySelector(".job-ai-logout");
   logoutBtn.addEventListener("click", () => {
-    chrome.runtime.sendMessage({ type: "AUTH_LOGOUT" });
+    console.log('Logout button clicked');
+    chrome.runtime.sendMessage({ type: "AUTH_LOGOUT" }, (response) => {
+      console.log('Logout response:', response);
+      if (response && response.success) {
+        showSuccessNotification("👋 Successfully signed out!");
+        updateAuthStatus(false);
+      } else {
+        console.error('Logout failed:', response?.error);
+        // Even if logout "fails", we should probably still show as logged out
+        updateAuthStatus(false);
+      }
+    });
   });
   document.body.appendChild(sidebar);
+  
+  // Check authentication status on sidebar creation
+  checkAuthenticationStatus(sidebar);
+  
   return sidebar;
+};
+
+// Function to show success notifications
+const showSuccessNotification = (message, isSuccess = true) => {
+  // Remove any existing notifications
+  const existingNotification = document.querySelector('.job-ai-success-notification');
+  if (existingNotification) {
+    existingNotification.remove();
+  }
+
+  const notification = document.createElement('div');
+  notification.className = 'job-ai-success-notification';
+  notification.textContent = message;
+  
+  // Change color for error messages
+  if (!isSuccess) {
+    notification.style.background = '#ef4444';
+    notification.style.boxShadow = '0 4px 12px rgba(239, 68, 68, 0.3)';
+  }
+  
+  document.body.appendChild(notification);
+
+  // Auto-hide after 4 seconds
+  setTimeout(() => {
+    notification.classList.add('hiding');
+    setTimeout(() => {
+      if (notification.parentNode) {
+        notification.remove();
+      }
+    }, 300); // Wait for fade out animation
+  }, 4000);
+};
+
+// Function to update authentication status display
+const updateAuthStatus = (isAuthenticated) => {
+  console.log('Updating auth status to:', isAuthenticated);
+  currentAuthStatus = isAuthenticated; // Track current status
+  
+  const authStatus = document.getElementById('authStatus');
+  const loginBtn = document.querySelector('.job-ai-login');
+  const logoutBtn = document.querySelector('.job-ai-logout');
+  const indicator = authStatus?.querySelector('.job-ai-auth-indicator');
+  const statusText = authStatus?.querySelector('span');
+
+  if (isAuthenticated) {
+    authStatus?.classList.remove('signed-out');
+    authStatus?.classList.add('signed-in');
+    indicator?.classList.remove('offline');
+    indicator?.classList.add('online');
+    if (statusText) statusText.textContent = 'Signed in';
+    
+    if (loginBtn) loginBtn.style.display = 'none';
+    if (logoutBtn) logoutBtn.style.display = 'block';
+  } else {
+    authStatus?.classList.remove('signed-in');
+    authStatus?.classList.add('signed-out');
+    indicator?.classList.remove('online');
+    indicator?.classList.add('offline');
+    if (statusText) statusText.textContent = 'Not signed in';
+    
+    if (loginBtn) loginBtn.style.display = 'block';
+    if (logoutBtn) logoutBtn.style.display = 'none';
+  }
+};
+
+// Function to check current authentication status
+const checkAuthenticationStatus = (sidebar) => {
+  console.log('Checking authentication status...');
+  chrome.runtime.sendMessage({ type: "CHECK_AUTH_STATUS" }, (response) => {
+    if (chrome.runtime.lastError) {
+      console.error('Auth status check failed:', chrome.runtime.lastError);
+      // Extension context might be invalid, assume not authenticated
+      updateAuthStatus(false);
+      return;
+    }
+    
+    console.log('Auth status response:', response);
+    const isAuthenticated = response && response.isAuthenticated;
+    console.log('Is authenticated:', isAuthenticated);
+    updateAuthStatus(isAuthenticated);
+  });
 };
 
 const updateSidebarContent = (
@@ -336,6 +503,7 @@ const updateSidebarContent = (
 
 // 初始化侧边栏
 let sidebar = null;
+let currentAuthStatus = null; // Track current authentication status
 
 // 工具函数：等待职位描述面板加载完成
 const waitForJobPanel = () => {
@@ -364,6 +532,12 @@ document.addEventListener("click", async (event) => {
   if (!sidebar) {
     createSidebarStyles();
     sidebar = createSidebar();
+  } else {
+    // If sidebar already exists, restore the previous auth status
+    if (currentAuthStatus !== null) {
+      console.log('Restoring auth status:', currentAuthStatus);
+      updateAuthStatus(currentAuthStatus);
+    }
   }
 
   // 显示侧边栏并显示加载状态
@@ -407,7 +581,19 @@ document.addEventListener("click", async (event) => {
         if (response && response.success) {
           updateSidebarContent(sidebar, response.extraction, null, jobData);
         } else {
-          const error = response?.error || "Failed to extract job information";
+          let error = response?.error || "Failed to extract job information";
+          
+          // Add authentication prompt if auth is required
+          if (response?.requiresAuth) {
+            error += " Please use the Sign In button above.";
+            // Only update auth status if we don't already know the status
+            // This prevents overriding a known good status
+            if (currentAuthStatus !== false) {
+              console.log('Job extraction requires auth, updating status to false');
+              updateAuthStatus(false);
+            }
+          }
+          
           updateSidebarContent(sidebar, null, error, jobData);
         }
       }

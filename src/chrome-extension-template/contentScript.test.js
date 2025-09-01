@@ -65,14 +65,20 @@ describe('auth buttons', () => {
     const sidebar = createSidebar();
     const btn = sidebar.querySelector('.job-ai-login');
     fireEvent.click(btn);
-    expect(sendMessageMock).toHaveBeenCalledWith({ type: 'AUTH_LOGIN' });
+    
+    // Should have CHECK_AUTH_STATUS (on sidebar creation) and AUTH_LOGIN (on button click)
+    expect(sendMessageMock).toHaveBeenCalledWith({ type: 'CHECK_AUTH_STATUS' }, expect.any(Function));
+    expect(sendMessageMock).toHaveBeenCalledWith({ type: 'AUTH_LOGIN' }, expect.any(Function));
   });
 
   test('signout button sends AUTH_LOGOUT', () => {
     const sidebar = createSidebar();
     const btn = sidebar.querySelector('.job-ai-logout');
     fireEvent.click(btn);
-    expect(sendMessageMock).toHaveBeenCalledWith({ type: 'AUTH_LOGOUT' });
+    
+    // Should have CHECK_AUTH_STATUS (on sidebar creation) and AUTH_LOGOUT (on button click)
+    expect(sendMessageMock).toHaveBeenCalledWith({ type: 'CHECK_AUTH_STATUS' }, expect.any(Function));
+    expect(sendMessageMock).toHaveBeenCalledWith({ type: 'AUTH_LOGOUT' }, expect.any(Function));
   });
 });
 

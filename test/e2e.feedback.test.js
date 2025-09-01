@@ -59,7 +59,7 @@ describe("feedback end-to-end", () => {
     serverProc.kill();
   });
 
-  test("records feedback in feedback.jsonl", async () => {
+  test("feedback endpoint requires authentication", async () => {
     const {
       enqueueFeedback,
       processQueue,
@@ -73,16 +73,42 @@ describe("feedback end-to-end", () => {
       return await realFetch(url, options);
     };
 
-    await enqueueFeedback({ jobId: "123", feedback: "great job" });
+    // Test that direct unauthenticated request to feedback endpoint fails
+    const response = await fetch("http://localhost:3000/feedback", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ jobId: "123", feedback: "test" })
+    });
+
+    expect(response.status).toBe(401);
+    const errorData = await response.json();
+    expect(errorData.error).toBe("Missing authorization header");
+
+    // Verify that queue processing also fails without authentication
+    await enqueueFeedback({ jobId: "456", feedback: "great job" });
     await processQueue();
 
     const feedbackPath = path.join(__dirname, "..", "feedback.jsonl");
-    // wait a moment for file to be written
-    await new Promise((r) => setTimeout(r, 100));
-    const content = await fs.readFile(feedbackPath, "utf-8");
-    const lines = content.trim().split("\n");
-    const last = JSON.parse(lines[lines.length - 1]);
-    expect(last.jobId).toBe("123");
-    expect(last.feedback).toBe("great job");
+    
+    // The feedback file should either not exist or not contain our test data
+    // because the requests were rejected due to missing authentication
+    try {
+      await fs.access(feedbackPath);
+      // If file exists, it should be empty or not contain our test data
+      const content = await fs.readFile(feedbackPath, "utf-8");
+      const lines = content.trim().split("\n").filter(Boolean);
+      const hasTestData = lines.some(line => {
+        try {
+          const data = JSON.parse(line);
+          return data.jobId === "456" && data.feedback === "great job";
+        } catch {
+          return false;
+        }
+      });
+      expect(hasTestData).toBe(false);
+    } catch (error) {
+      // File doesn't exist, which is expected
+      expect(error.code).toBe('ENOENT');
+    }
   });
 });

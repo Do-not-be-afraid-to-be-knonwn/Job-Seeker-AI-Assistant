@@ -85,10 +85,23 @@ router.post("/google/start", (req, res) => {
 });
 
 router.post("/exchange", async (req, res) => {
+  console.log('Exchange endpoint called with:', { 
+    hasCode: !!req.body.code, 
+    hasState: !!req.body.state, 
+    hasRedirectUri: !!req.body.redirectUri 
+  });
+  console.log('Environment check:', {
+    hasClientId: !!CLIENT_ID,
+    hasClientSecret: !!CLIENT_SECRET,
+    clientIdLength: CLIENT_ID.length,
+    redirectUri: REDIRECT_URI
+  });
+
   const { code, state, redirectUri } = req.body;
   const codeVerifier = pkceStore.get(state);
   pkceStore.delete(state);
   if (!codeVerifier) {
+    console.error('Invalid state - no code verifier found for state:', state);
     return res.status(400).json({ error: "invalid_state" });
   }
 
@@ -104,13 +117,26 @@ router.post("/exchange", async (req, res) => {
     code_verifier: codeVerifier,
   });
 
+  console.log('Making token exchange request to Google...');
   const tokenRes = await fetch("https://oauth2.googleapis.com/token", {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: params.toString(),
   });
   const tokens = (await tokenRes.json()) as any;
+  
+  console.log('Google token response:', {
+    ok: tokenRes.ok,
+    status: tokenRes.status,
+    hasAccessToken: !!tokens.access_token,
+    hasRefreshToken: !!tokens.refresh_token,
+    hasIdToken: !!tokens.id_token,
+    error: tokens.error,
+    errorDescription: tokens.error_description
+  });
+  
   if (!tokenRes.ok) {
+    console.error('Google token exchange failed:', tokens);
     return res.status(400).json(tokens);
   }
 
@@ -122,6 +148,13 @@ router.post("/exchange", async (req, res) => {
       )
     : {};
   const jwt = signJwt(idPayload.sub, tokens.scope);
+  
+  console.log('Sending response to client:', {
+    hasJwt: !!jwt,
+    hasRefreshToken: !!refreshToken,
+    jwtLength: jwt?.length
+  });
+  
   res.json({ jwt, refresh_token: refreshToken });
 });
 

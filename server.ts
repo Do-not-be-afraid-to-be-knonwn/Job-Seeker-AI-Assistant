@@ -8,6 +8,7 @@ import { makeExtractDomainChain } from "./src/chains/extractDomain.chain";
 import { makeExtractYearsChain } from "./src/chains/extractYearsFewShot.chain";
 import { makeSmartExtractLevelChain } from "./src/chains/smartExtractLevel.chain";
 import authRouter from "./src/auth/googleAuth";
+import { requireAuth, AuthenticatedRequest } from "./src/middleware/auth";
 
 const app = express();
 app.use(cors());
@@ -20,8 +21,8 @@ app.use("/auth", authRouter);
 
 const feedbackFile = path.join(__dirname, "feedback.jsonl");
 
-// POST /extract-all
-app.post("/extract-all", async (req, res) => {
+// POST /extract-all - Protected endpoint
+app.post("/extract-all", requireAuth, async (req: AuthenticatedRequest, res) => {
   const inputText =
     req.body.text || req.body.description || req.body.title || "";
   //console.log("Received request:", { inputText });
@@ -102,8 +103,8 @@ app.post("/extract-all", async (req, res) => {
   });
 });
 
-// POST /feedback
-app.post("/feedback", async (req, res) => {
+// POST /feedback - Protected endpoint
+app.post("/feedback", requireAuth, async (req: AuthenticatedRequest, res) => {
   try {
     // Body may already be parsed JSON or a raw string.
     const body = typeof req.body === "string" ? JSON.parse(req.body) : req.body;
