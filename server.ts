@@ -16,10 +16,51 @@ app.use(bodyParser.json());
 // Some clients may omit the content-type header when sending JSON
 // (e.g., the chrome extension feedback fetch). Parse plain text bodies
 // so we can still handle those requests and manually JSON.parse them.
-app.use(bodyParser.text({ type: "*/*" }));
+app.use(
+  bodyParser.text({
+    type: (req) => {
+      const ct = req.headers["content-type"] || "";
+      return ct.startsWith("text/") || ct === "application/json";
+    },
+  })
+);
 app.use("/auth", authRouter);
 
 const feedbackFile = path.join(__dirname, "feedback.jsonl");
+
+// POST /upload-resume - Upload a PDF resume and extract text
+app.post(
+  "/upload-resume",
+  bodyParser.raw({ type: "application/pdf", limit: "10mb" }),
+  async (req, res) => {
+    try {
+      if (!req.body || !(req.body instanceof Buffer) || req.body.length === 0) {
+        return res.status(400).json({ error: "No file uploaded" });
+      }
+
+      const uploadDir = path.join(__dirname, "uploads", "resumes");
+      await fs.mkdir(uploadDir, { recursive: true });
+      const filename = `resume-${Date.now()}.pdf`;
+      const pdfPath = path.join(uploadDir, filename);
+      await fs.writeFile(pdfPath, req.body);
+
+      const rawText = req.body.toString("utf8");
+      const matches = rawText.match(/\(([^)]+)\)/g);
+      const extracted = matches
+        ? matches.map((m) => m.slice(1, -1)).join(" ")
+        : "";
+      const textPath = pdfPath + ".txt";
+      await fs.writeFile(textPath, extracted, "utf8");
+
+      res.json({ success: true, file: filename, text: extracted });
+    } catch (error) {
+      console.error("Resume upload error:", error);
+      res
+        .status(500)
+        .json({ error: (error as any)?.message || "Failed to process resume" });
+    }
+  }
+);
 
 // POST /extract-all - Protected endpoint
 app.post("/extract-all", requireAuth, async (req: AuthenticatedRequest, res) => {
