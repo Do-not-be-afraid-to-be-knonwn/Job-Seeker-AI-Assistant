@@ -27,31 +27,21 @@ beforeEach(async () => {
 });
 
 describe('/feedback endpoint', () => {
-  test('accepts JSON and raw string bodies', async () => {
-    let res = await request(app).post('/feedback').send({ message: 'json body' });
-    expect(res.status).toBe(200);
-    let entries = await readEntries();
-    expect(entries).toHaveLength(1);
-    expect(entries[0].message).toBe('json body');
-
-    res = await request(app)
-      .post('/feedback')
-      .set('Content-Type', 'text/plain')
-      .send(JSON.stringify({ message: 'raw body' }));
-    expect(res.status).toBe(200);
-    entries = await readEntries();
-    expect(entries).toHaveLength(2);
-    expect(entries[1].message).toBe('raw body');
+  test('rejects requests without authentication', async () => {
+    const res = await request(app).post('/feedback').send({ message: 'json body' });
+    expect(res.status).toBe(401);
+    expect(res.body.error).toBe('Missing authorization header');
+    const entries = await readEntries();
+    expect(entries).toHaveLength(0);
   });
 
-  test('returns 500 for invalid JSON', async () => {
+  test('rejects requests with invalid authentication', async () => {
     const res = await request(app)
       .post('/feedback')
-      .set('Content-Type', 'text/plain')
-      .send('{invalid json}');
-    expect(res.status).toBe(500);
-    expect(res.body.success).toBe(false);
-    expect(res.body.error).toBeDefined();
+      .set('Authorization', 'Bearer invalid.token')
+      .send({ message: 'json body' });
+    expect(res.status).toBe(401);
+    expect(res.body.error).toBe('Invalid or expired token');
     const entries = await readEntries();
     expect(entries).toHaveLength(0);
   });

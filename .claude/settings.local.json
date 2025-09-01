@@ -4,7 +4,9 @@
       "Bash(npm test:*)",
       "Bash(taskkill:*)",
       "WebFetch(domain:developers.google.com)",
-      "WebFetch(domain:developer.chrome.com)"
+      "WebFetch(domain:developer.chrome.com)",
+      "Bash(node:*)",
+      "Bash(npx ts-node:*)"
     ],
     "deny": [],
     "ask": []
