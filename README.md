@@ -175,6 +175,16 @@ const levelResult = await levelChain({
 });
 ```
 
+### Upload Resume
+
+Upload a PDF resume and the server will store the original file along with a plain
+text version for later analysis:
+
+```bash
+curl -X POST -H "Content-Type: application/pdf" --data-binary @resume.pdf \
+  http://localhost:3000/upload-resume
+```
+
 ## 🧪 Testing
 
 ### Smoke Tests
