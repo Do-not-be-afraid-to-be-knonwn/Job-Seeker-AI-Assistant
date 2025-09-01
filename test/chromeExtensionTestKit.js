@@ -6,6 +6,7 @@ function loadBackgroundScript(backgroundPath) {
   const listeners = [];
   const storage = {};
 
+  const alarmListeners = [];
   const chrome = {
     storage: {
       local: {
@@ -35,6 +36,16 @@ function loadBackgroundScript(backgroundPath) {
             listener(message, {}, resolve);
           }
         });
+      },
+    },
+    alarms: {
+      create(name, info) {
+        // Mock alarm creation - just store the alarm info
+      },
+      onAlarm: {
+        addListener(fn) {
+          alarmListeners.push(fn);
+        },
       },
     },
   };
