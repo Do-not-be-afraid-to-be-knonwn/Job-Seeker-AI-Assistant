@@ -7,6 +7,7 @@ import { makeExtractSkillsChain } from "./src/chains/extractSkills.chain";
 import { makeExtractDomainChain } from "./src/chains/extractDomain.chain";
 import { makeExtractYearsChain } from "./src/chains/extractYearsFewShot.chain";
 import { makeSmartExtractLevelChain } from "./src/chains/smartExtractLevel.chain";
+import { jobResumeMatchingChain } from "./src/matching/core/jobResumeMatching.chain";
 import authRouter from "./src/auth/googleAuth";
 import { requireAuth, AuthenticatedRequest } from "./src/middleware/auth";
 
@@ -118,6 +119,111 @@ app.post("/feedback", requireAuth, async (req: AuthenticatedRequest, res) => {
   } catch (error) {
     console.error("Feedback error:", error);
     res.status(500).json({ success: false, error: (error as any)?.message });
+  }
+});
+
+// POST /match-resume - Job-Resume Matching endpoint
+app.post("/match-resume", requireAuth, async (req: AuthenticatedRequest, res) => {
+  try {
+    const { jobDescription, resumeContent, options } = req.body;
+
+    if (!jobDescription || !resumeContent) {
+      return res.status(400).json({
+        success: false,
+        error: "Both jobDescription and resumeContent are required"
+      });
+    }
+
+    const input = {
+      jobDescription,
+      resumeContent,
+      options: {
+        includeExplanation: true,
+        strictMode: false,
+        ...options
+      }
+    };
+
+    const result = await jobResumeMatchingChain.analyzeMatch(input);
+    
+    res.json({
+      success: true,
+      result
+    });
+
+  } catch (error) {
+    console.error("Job-resume matching error:", error);
+    res.status(500).json({
+      success: false,
+      error: error instanceof Error ? error.message : String(error)
+    });
+  }
+});
+
+// POST /match-batch - Batch Job-Resume Matching endpoint
+app.post("/match-batch", requireAuth, async (req: AuthenticatedRequest, res) => {
+  try {
+    const { pairs, options } = req.body;
+
+    if (!pairs || !Array.isArray(pairs)) {
+      return res.status(400).json({
+        success: false,
+        error: "pairs array is required"
+      });
+    }
+
+    const processedPairs = pairs.map((pair: any) => ({
+      jobDescription: pair.jobDescription,
+      resumeContent: pair.resumeContent,
+      options: {
+        includeExplanation: false, // Default to false for batch to save time
+        strictMode: false,
+        ...pair.options,
+        ...options
+      }
+    }));
+
+    const results = await jobResumeMatchingChain.analyzeBatchMatches(processedPairs);
+    
+    res.json({
+      success: true,
+      results
+    });
+
+  } catch (error) {
+    console.error("Batch job-resume matching error:", error);
+    res.status(500).json({
+      success: false,
+      error: error instanceof Error ? error.message : String(error)
+    });
+  }
+});
+
+// POST /match-quick - Quick scoring endpoint
+app.post("/match-quick", requireAuth, async (req: AuthenticatedRequest, res) => {
+  try {
+    const { pairs } = req.body;
+
+    if (!pairs || !Array.isArray(pairs)) {
+      return res.status(400).json({
+        success: false,
+        error: "pairs array is required"
+      });
+    }
+
+    const results = await jobResumeMatchingChain.getQuickScores(pairs);
+    
+    res.json({
+      success: true,
+      results
+    });
+
+  } catch (error) {
+    console.error("Quick matching error:", error);
+    res.status(500).json({
+      success: false,
+      error: error instanceof Error ? error.message : String(error)
+    });
   }
 });
 

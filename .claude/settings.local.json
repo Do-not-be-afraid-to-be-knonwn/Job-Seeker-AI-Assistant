@@ -6,7 +6,11 @@
       "WebFetch(domain:developers.google.com)",
       "WebFetch(domain:developer.chrome.com)",
       "Bash(node:*)",
-      "Bash(npx ts-node:*)"
+      "Bash(npx ts-node:*)",
+      "Bash(npm install:*)",
+      "Bash(mkdir:*)",
+      "Bash(timeout 300 npx ts-node src/matching/scripts/runJobResumeMatching.ts)",
+      "Bash(timeout 300 npx ts-node src/matching/scripts/runJobResumeMatching.ts single)"
     ],
     "deny": [],
     "ask": []
