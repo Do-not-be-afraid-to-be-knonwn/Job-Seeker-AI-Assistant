@@ -415,7 +415,7 @@ const updateSidebarContent = (
   }
   // Extract nested values
   const skills = data.skills?.result?.skills || [];
-  const domain = data.domains?.result?.domains || "Not detected";
+  const domains = data.domain?.result?.domains || [];
   const years = data.years?.result?.requestYears ?? "Not specified";
   const level = data.level?.result?.text?.level || "Not specified";
 
@@ -423,8 +423,8 @@ const updateSidebarContent = (
     <div class="job-ai-card">
       <div class="job-ai-card-title"><span class="job-ai-card-icon">🗂️</span>Domain</div>
       <div>${
-        domain
-          ? `<span class="job-ai-pill">${domain}</span>`
+        domains.length > 0
+          ? domains.map(d => `<span class="job-ai-pill">${d}</span>`).join('')
           : '<span style="color:#888">Not detected</span>'
       }</div>
     </div>
