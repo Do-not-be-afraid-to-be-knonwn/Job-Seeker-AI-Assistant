@@ -213,15 +213,27 @@ export class TextPreprocessingUtils {
     const positivePatterns = [
       /authorized\s+to\s+work/gi,
       /work\s+authorization/gi,
+      /u\.?s\.?\s+citizen/gi,
       /us\s+citizen/gi,
+      /u\.?s\.?\s+permanent\s+resident/gi,
       /permanent\s+resident/gi,
       /green\s+card/gi,
-      /visa\s+status/gi
+      /green[\s-]?card\s+holder/gi,
+      /lawful\s+permanent\s+resident/gi,
+      /have\s+work\s+authorization/gi,
+      /possess\s+work\s+authorization/gi,
+      /eligible\s+to\s+work/gi,
+      /legally\s+authorized/gi,
+      /no\s+sponsorship\s+required/gi,
+      /do\s+not\s+require\s+sponsorship/gi
     ];
 
     const negativePatterns = [
-      /(?:not\s+)?(?:require|need)\s+sponsorship/gi,
-      /visa\s+sponsorship\s+required/gi
+      /require[sd]?\s+(?:visa\s+)?sponsorship/gi,
+      /need[sd]?\s+(?:visa\s+)?sponsorship/gi,
+      /visa\s+sponsorship\s+required/gi,
+      /not\s+authorized\s+to\s+work/gi,
+      /will\s+require\s+sponsorship/gi
     ];
 
     const hasPositive = positivePatterns.some(pattern => pattern.test(text));

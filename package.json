@@ -12,7 +12,9 @@
     "smoke:local": "ts-node test/smoke/smokeTestLocal.ts",
     "export-metrics": "ts-node src/scripts/exportMetrics.ts",
     "test-setup": "ts-node test-setup.ts",
-    "test-new-api": "ts-node test-new-api.ts"
+    "test-new-api": "ts-node test-new-api.ts",
+    "validate:matching": "ts-node test/matching/runValidationDataset.ts",
+    "debug:test": "ts-node test/matching/debugSingleTest.ts"
   },
   "repository": {
     "type": "git",

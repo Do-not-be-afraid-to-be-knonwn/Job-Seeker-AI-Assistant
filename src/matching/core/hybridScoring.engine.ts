@@ -325,10 +325,11 @@ export class HybridScoringEngine {
   private applyGatePenalties(score: number, gateResults: any): number {
     let penalizedScore = score;
 
-    // Severe penalty for failing critical gates
-    if (!gateResults.locationGate.passed && gateResults.locationGate.required) {
-      penalizedScore = Math.min(score, 25); // Cap at 25 for work auth issues
-    }
+    // DISABLED: Work authorization gate penalty
+    // Reason: Most resumes don't include work authorization statements
+    // if (!gateResults.locationGate.passed && gateResults.locationGate.required) {
+    //   penalizedScore = Math.min(score, 25); // Cap at 25 for work auth issues
+    // }
 
     // Moderate penalty for skills gate failure
     if (!gateResults.skillsGate.passed) {

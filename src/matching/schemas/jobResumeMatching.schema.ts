@@ -163,10 +163,33 @@ export type GateResults = z.infer<typeof GateResultSchema>;
 export type QualityIndicators = z.infer<typeof QualityIndicatorsSchema>;
 export type KeyInsights = z.infer<typeof KeyInsightsSchema>;
 
+// Pre-extracted resume features schema
+export const PreExtractedResumeFeaturesSchema = z.object({
+  skills: z.array(z.string()),
+  domains: z.array(z.string()),
+  yearsOfExperience: z.number().nullable(),
+  currentLevel: z.string().nullable(),
+  education: z.string().nullable(),
+  workAuthStatus: z.boolean().nullable(),
+  location: z.string().nullable(),
+  // Optional: raw text sections if semantic analysis is needed
+  rawSections: z.object({
+    experience: z.string().optional(),
+    skills: z.string().optional(),
+    education: z.string().optional(),
+    summary: z.string().optional(),
+    rawText: z.string().optional()
+  }).optional()
+});
+
+export type PreExtractedResumeFeatures = z.infer<typeof PreExtractedResumeFeaturesSchema>;
+
 // Input validation schema for the matching function
 export const JobResumeMatchingInputSchema = z.object({
   jobDescription: z.string().min(100, "Job description must be at least 100 characters"),
-  resumeContent: z.string().min(50, "Resume content must be at least 50 characters"),
+  // Support both raw resume content and pre-extracted features
+  resumeContent: z.string().min(50, "Resume content must be at least 50 characters").optional(),
+  resumeFeatures: PreExtractedResumeFeaturesSchema.optional(),
   options: z.object({
     includeExplanation: z.boolean().optional().default(true),
     strictMode: z.boolean().optional().default(false),
@@ -185,7 +208,10 @@ export const JobResumeMatchingInputSchema = z.object({
       requireEducation: z.boolean().optional()
     }).optional()
   }).optional().default({})
-});
+}).refine(
+  data => data.resumeContent || data.resumeFeatures,
+  { message: "Either resumeContent or resumeFeatures must be provided" }
+);
 
 export type JobResumeMatchingInput = z.infer<typeof JobResumeMatchingInputSchema>;
 

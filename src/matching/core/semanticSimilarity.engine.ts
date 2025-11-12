@@ -1,13 +1,16 @@
-import { pipeline } from '@xenova/transformers';
-import { Matrix } from 'ml-matrix';
-import { JobSections, ResumeSections, TextPreprocessingUtils } from './textPreprocessing.utils';
+import { pipeline } from "@xenova/transformers";
+import {
+  JobSections,
+  ResumeSections,
+  TextPreprocessingUtils,
+} from "./textPreprocessing.utils";
 
 export interface SimilarityScores {
   requirementsMatch: number;
-  responsibilitiesMatch: number; 
+  responsibilitiesMatch: number;
   qualificationsMatch: number;
   overallSemantic: number;
-  confidence: 'low' | 'medium' | 'high';
+  confidence: "low" | "medium" | "high";
 }
 
 export interface EmbeddingCacheEntry {
@@ -26,7 +29,7 @@ export class SemanticSimilarityEngine {
   private cache: Map<string, EmbeddingCacheEntry> = new Map();
   private readonly CACHE_TTL = 1000 * 60 * 60; // 1 hour TTL
   private readonly MAX_CACHE_SIZE = 1000;
-  private readonly MODEL_NAME = 'Xenova/all-MiniLM-L6-v2'; // Lightweight, multilingual
+  private readonly MODEL_NAME = "Xenova/all-MiniLM-L6-v2"; // Lightweight, multilingual
 
   private constructor() {}
 
@@ -42,11 +45,15 @@ export class SemanticSimilarityEngine {
    */
   private async initializeModel(): Promise<void> {
     if (!this.embeddingModel) {
-      console.log('Loading semantic similarity model...');
-      this.embeddingModel = await pipeline('feature-extraction', this.MODEL_NAME, {
-        quantized: true // Smaller model size
-      });
-      console.log('Semantic similarity model loaded successfully');
+      console.log("Loading semantic similarity model...");
+      this.embeddingModel = await pipeline(
+        "feature-extraction",
+        this.MODEL_NAME,
+        {
+          quantized: true, // Smaller model size
+        }
+      );
+      console.log("Semantic similarity model loaded successfully");
     }
   }
 
@@ -59,7 +66,7 @@ export class SemanticSimilarityEngine {
 
     // Check cache first
     const cached = this.cache.get(cacheKey);
-    if (cached && (Date.now() - cached.timestamp) < this.CACHE_TTL) {
+    if (cached && Date.now() - cached.timestamp < this.CACHE_TTL) {
       return cached.embedding;
     }
 
@@ -72,8 +79,8 @@ export class SemanticSimilarityEngine {
 
     // Generate new embedding
     const result = await this.embeddingModel(normalizedText, {
-      pooling: 'mean',
-      normalize: true
+      pooling: "mean",
+      normalize: true,
     });
 
     // Extract embedding array from tensor
@@ -83,7 +90,7 @@ export class SemanticSimilarityEngine {
     this.cache.set(cacheKey, {
       text: normalizedText,
       embedding,
-      timestamp: Date.now()
+      timestamp: Date.now(),
     });
 
     return embedding;
@@ -94,7 +101,7 @@ export class SemanticSimilarityEngine {
    */
   private cosineSimilarity(a: number[], b: number[]): number {
     if (a.length !== b.length) {
-      throw new Error('Embedding vectors must have the same length');
+      throw new Error("Embedding vectors must have the same length");
     }
 
     const dotProduct = a.reduce((sum, val, idx) => sum + val * b[idx], 0);
@@ -112,7 +119,7 @@ export class SemanticSimilarityEngine {
    * Calculate comprehensive similarity between job and resume
    */
   async calculateSimilarity(
-    jobSections: JobSections, 
+    jobSections: JobSections,
     resumeSections: ResumeSections
   ): Promise<SimilarityScores> {
     try {
@@ -122,38 +129,57 @@ export class SemanticSimilarityEngine {
         jobResponsibilitiesEmbedding,
         jobQualificationsEmbedding,
         resumeExperienceEmbedding,
-        resumeSkillsEmbedding
+        resumeSkillsEmbedding,
       ] = await Promise.all([
         this.generateEmbedding(jobSections.requirements || jobSections.summary),
-        this.generateEmbedding(jobSections.responsibilities || jobSections.summary),
-        this.generateEmbedding(jobSections.qualifications || jobSections.summary),
-        this.generateEmbedding(resumeSections.experience || resumeSections.summary),
-        this.generateEmbedding(resumeSections.skills || resumeSections.rawText)
+        this.generateEmbedding(
+          jobSections.responsibilities || jobSections.summary
+        ),
+        this.generateEmbedding(
+          jobSections.qualifications || jobSections.summary
+        ),
+        this.generateEmbedding(
+          resumeSections.experience || resumeSections.summary
+        ),
+        this.generateEmbedding(resumeSections.skills || resumeSections.rawText),
       ]);
 
       // Create combined resume embedding (weighted average)
       const resumeEmbedding = this.weightedAverageEmbeddings([
         { embedding: resumeExperienceEmbedding, weight: 0.7 },
-        { embedding: resumeSkillsEmbedding, weight: 0.3 }
+        { embedding: resumeSkillsEmbedding, weight: 0.3 },
       ]);
 
       // Calculate section-wise similarities
-      const requirementsMatch = this.cosineSimilarity(resumeEmbedding, jobRequirementsEmbedding);
-      const responsibilitiesMatch = this.cosineSimilarity(resumeEmbedding, jobResponsibilitiesEmbedding);
-      const qualificationsMatch = this.cosineSimilarity(resumeEmbedding, jobQualificationsEmbedding);
+      const requirementsMatch = this.cosineSimilarity(
+        resumeEmbedding,
+        jobRequirementsEmbedding
+      );
+      const responsibilitiesMatch = this.cosineSimilarity(
+        resumeEmbedding,
+        jobResponsibilitiesEmbedding
+      );
+      const qualificationsMatch = this.cosineSimilarity(
+        resumeEmbedding,
+        jobQualificationsEmbedding
+      );
 
       // Calculate overall semantic similarity (weighted)
       const overallSemantic = this.calculateWeightedSimilarity({
         requirements: requirementsMatch,
         responsibilities: responsibilitiesMatch,
-        qualifications: qualificationsMatch
+        qualifications: qualificationsMatch,
       });
 
       // Determine confidence based on text quality and similarity consistency
       const confidence = this.assessConfidence({
         jobSections,
         resumeSections,
-        similarities: { requirementsMatch, responsibilitiesMatch, qualificationsMatch }
+        similarities: {
+          requirementsMatch,
+          responsibilitiesMatch,
+          qualificationsMatch,
+        },
       });
 
       return {
@@ -161,19 +187,18 @@ export class SemanticSimilarityEngine {
         responsibilitiesMatch: Math.round(responsibilitiesMatch * 1000) / 1000,
         qualificationsMatch: Math.round(qualificationsMatch * 1000) / 1000,
         overallSemantic: Math.round(overallSemantic * 1000) / 1000,
-        confidence
+        confidence,
       };
-
     } catch (error) {
-      console.error('Error calculating semantic similarity:', error);
-      
+      console.error("Error calculating semantic similarity:", error);
+
       // Return fallback scores
       return {
         requirementsMatch: 0.1,
         responsibilitiesMatch: 0.1,
         qualificationsMatch: 0.1,
         overallSemantic: 0.1,
-        confidence: 'low'
+        confidence: "low",
       };
     }
   }
@@ -189,14 +214,14 @@ export class SemanticSimilarityEngine {
 
     for (let i = 0; i < jobResumePairs.length; i += BATCH_SIZE) {
       const batch = jobResumePairs.slice(i, i + BATCH_SIZE);
-      const batchPromises = batch.map(pair => 
+      const batchPromises = batch.map((pair) =>
         this.calculateSimilarity(pair.job, pair.resume)
       );
-      
+
       const batchResults = await Promise.allSettled(batchPromises);
-      
+
       for (const result of batchResults) {
-        if (result.status === 'fulfilled') {
+        if (result.status === "fulfilled") {
           results.push(result.value);
         } else {
           // Add fallback for failed calculations
@@ -205,7 +230,7 @@ export class SemanticSimilarityEngine {
             responsibilitiesMatch: 0.1,
             qualificationsMatch: 0.1,
             overallSemantic: 0.1,
-            confidence: 'low'
+            confidence: "low",
           });
         }
       }
@@ -220,42 +245,47 @@ export class SemanticSimilarityEngine {
   async findBestSectionMatches(
     jobSections: JobSections,
     resumeSections: ResumeSections
-  ): Promise<{ section: string; similarity: number; jobSection: string; resumeSection: string }[]> {
+  ): Promise<
+    {
+      section: string;
+      similarity: number;
+      jobSection: string;
+      resumeSection: string;
+    }[]
+  > {
     const jobSectionList = [
-      { name: 'requirements', text: jobSections.requirements },
-      { name: 'responsibilities', text: jobSections.responsibilities },
-      { name: 'qualifications', text: jobSections.qualifications },
-      { name: 'summary', text: jobSections.summary }
-    ].filter(section => section.text && section.text.length > 50);
+      { name: "requirements", text: jobSections.requirements },
+      { name: "responsibilities", text: jobSections.responsibilities },
+      { name: "qualifications", text: jobSections.qualifications },
+      { name: "summary", text: jobSections.summary },
+    ].filter((section) => section.text && section.text.length > 50);
 
     const resumeSectionList = [
-      { name: 'experience', text: resumeSections.experience },
-      { name: 'skills', text: resumeSections.skills },
-      { name: 'education', text: resumeSections.education },
-      { name: 'summary', text: resumeSections.summary }
-    ].filter(section => section.text && section.text.length > 20);
+      { name: "experience", text: resumeSections.experience },
+      { name: "skills", text: resumeSections.skills },
+      { name: "education", text: resumeSections.education },
+      { name: "summary", text: resumeSections.summary },
+    ].filter((section) => section.text && section.text.length > 20);
 
     const matches = [];
 
     for (const jobSection of jobSectionList) {
       for (const resumeSection of resumeSectionList) {
         const similarity = await this.calculateTextSimilarity(
-          jobSection.text, 
+          jobSection.text,
           resumeSection.text
         );
-        
+
         matches.push({
           section: `${jobSection.name}-${resumeSection.name}`,
           similarity,
           jobSection: jobSection.name,
-          resumeSection: resumeSection.name
+          resumeSection: resumeSection.name,
         });
       }
     }
 
-    return matches
-      .sort((a, b) => b.similarity - a.similarity)
-      .slice(0, 5); // Top 5 matches
+    return matches.sort((a, b) => b.similarity - a.similarity).slice(0, 5); // Top 5 matches
   }
 
   /**
@@ -264,7 +294,7 @@ export class SemanticSimilarityEngine {
   async calculateTextSimilarity(text1: string, text2: string): Promise<number> {
     const [embedding1, embedding2] = await Promise.all([
       this.generateEmbedding(text1),
-      this.generateEmbedding(text2)
+      this.generateEmbedding(text2),
     ]);
 
     return this.cosineSimilarity(embedding1, embedding2);
@@ -296,7 +326,7 @@ export class SemanticSimilarityEngine {
     const weights = {
       requirements: 0.5,
       responsibilities: 0.3,
-      qualifications: 0.2
+      qualifications: 0.2,
     };
 
     return (
@@ -309,22 +339,32 @@ export class SemanticSimilarityEngine {
   private assessConfidence(data: {
     jobSections: JobSections;
     resumeSections: ResumeSections;
-    similarities: { requirementsMatch: number; responsibilitiesMatch: number; qualificationsMatch: number };
-  }): 'low' | 'medium' | 'high' {
+    similarities: {
+      requirementsMatch: number;
+      responsibilitiesMatch: number;
+      qualificationsMatch: number;
+    };
+  }): "low" | "medium" | "high" {
     const { jobSections, resumeSections, similarities } = data;
 
     // Text quality factors
     const jobTextLength = jobSections.rawText.length;
     const resumeTextLength = resumeSections.rawText.length;
-    const hasGoodSections = (
+    const hasGoodSections =
       jobSections.requirements.length > 100 &&
-      resumeSections.experience.length > 100
-    );
+      resumeSections.experience.length > 100;
 
     // Similarity consistency (low variance = high confidence)
-    const simValues = [similarities.requirementsMatch, similarities.responsibilitiesMatch, similarities.qualificationsMatch];
-    const mean = simValues.reduce((sum, val) => sum + val, 0) / simValues.length;
-    const variance = simValues.reduce((sum, val) => sum + Math.pow(val - mean, 2), 0) / simValues.length;
+    const simValues = [
+      similarities.requirementsMatch,
+      similarities.responsibilitiesMatch,
+      similarities.qualificationsMatch,
+    ];
+    const mean =
+      simValues.reduce((sum, val) => sum + val, 0) / simValues.length;
+    const variance =
+      simValues.reduce((sum, val) => sum + Math.pow(val - mean, 2), 0) /
+      simValues.length;
 
     // Confidence rules
     if (
@@ -334,24 +374,24 @@ export class SemanticSimilarityEngine {
       variance < 0.1 &&
       mean > 0.3
     ) {
-      return 'high';
+      return "high";
     } else if (
       jobTextLength > 500 &&
       resumeTextLength > 300 &&
       variance < 0.2 &&
       mean > 0.2
     ) {
-      return 'medium';
+      return "medium";
     }
 
-    return 'low';
+    return "low";
   }
 
   private hashText(text: string): string {
     let hash = 0;
     for (let i = 0; i < text.length; i++) {
       const char = text.charCodeAt(i);
-      hash = ((hash << 5) - hash) + char;
+      hash = (hash << 5) - hash + char;
       hash = hash & hash; // Convert to 32-bit integer
     }
     return hash.toString(36);
@@ -359,9 +399,10 @@ export class SemanticSimilarityEngine {
 
   private cleanupCache(): void {
     // Remove oldest entries if cache is too large
-    const entries = Array.from(this.cache.entries())
-      .sort(([, a], [, b]) => a.timestamp - b.timestamp);
-    
+    const entries = Array.from(this.cache.entries()).sort(
+      ([, a], [, b]) => a.timestamp - b.timestamp
+    );
+
     const toRemove = entries.slice(0, Math.floor(this.MAX_CACHE_SIZE * 0.2));
     toRemove.forEach(([key]) => this.cache.delete(key));
   }
@@ -384,7 +425,7 @@ export class SemanticSimilarityEngine {
     return {
       size: this.cache.size,
       maxSize: this.MAX_CACHE_SIZE,
-      oldestEntry: oldestTimestamp
+      oldestEntry: oldestTimestamp,
     };
   }
 
