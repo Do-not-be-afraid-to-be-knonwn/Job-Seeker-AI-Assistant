@@ -133,8 +133,11 @@ export class FeatureExtractionService {
       ]);
 
       // Process skills with requirements/preferred separation
+      // Skills chain wraps result in {result: {...}}, similar to years/level chains
+      const extractedSkills = skillsResult.status === 'fulfilled' ?
+        (skillsResult.value?.result ?? skillsResult.value) : { skills: [] };
       const skills = this.processJobSkills(
-        skillsResult.status === 'fulfilled' ? skillsResult.value : { skills: [] },
+        extractedSkills,
         jobSections
       );
 
@@ -143,16 +146,23 @@ export class FeatureExtractionService {
       const workAuthRequired = TextPreprocessingUtils.checkWorkAuthorization(primaryText);
       const location = this.extractLocation(jobSections.rawText);
 
+      // Years chain wraps result in {result: {...}}
+      const extractedYears = yearsResult.status === 'fulfilled' ?
+        (yearsResult.value?.result?.requestYears ?? yearsResult.value?.requestYears) : undefined;
+      // Level chain wraps result in {result: {...}}
+      const extractedLevel = levelResult.status === 'fulfilled' ?
+        (levelResult.value?.result?.level ?? levelResult.value?.level) : undefined;
+
       return {
         skills,
         domains: domainResult.status === 'fulfilled' ? (domainResult.value?.domains || []) : [],
-        yearsRequired: yearsResult.status === 'fulfilled' ? yearsResult.value?.requestYears : null,
-        levelRequired: levelResult.status === 'fulfilled' ? levelResult.value?.level : null,
+        yearsRequired: (extractedYears === 0 || extractedYears === undefined || extractedYears === null) ? null : extractedYears,
+        levelRequired: (extractedLevel === undefined || extractedLevel === null) ? null : extractedLevel,
         education,
         workAuthRequired,
         location,
         rawFeatures: {
-          skills: skillsResult.status === 'fulfilled' ? skillsResult.value : { skills: [] },
+          skills: extractedSkills,
           domain: domainResult.status === 'fulfilled' ? domainResult.value : { domains: [] },
           years: yearsResult.status === 'fulfilled' ? yearsResult.value : { requestYears: 0 },
           level: levelResult.status === 'fulfilled' ? levelResult.value : { level: 'Unknown' }
@@ -188,16 +198,26 @@ export class FeatureExtractionService {
       const workAuthStatus = TextPreprocessingUtils.checkWorkAuthorization(resumeSections.rawText);
       const location = this.extractLocation(resumeSections.rawText);
 
+      // Skills chain wraps result in {result: {...}}, similar to years/level chains
+      const extractedResumeSkills = skillsResult.status === 'fulfilled' ?
+        (skillsResult.value?.result ?? skillsResult.value) : { skills: [] };
+      // Years chain wraps result in {result: {...}}
+      const extractedYears = yearsResult.status === 'fulfilled' ?
+        (yearsResult.value?.result?.requestYears ?? yearsResult.value?.requestYears) : undefined;
+      // Level chain wraps result in {result: {...}}
+      const extractedLevel = levelResult.status === 'fulfilled' ?
+        (levelResult.value?.result?.level ?? levelResult.value?.level) : undefined;
+
       return {
-        skills: skillsResult.status === 'fulfilled' ? (skillsResult.value?.skills || []) : [],
+        skills: extractedResumeSkills.skills || [],
         domains: domainResult.status === 'fulfilled' ? (domainResult.value?.domains || []) : [],
-        yearsOfExperience: yearsResult.status === 'fulfilled' ? yearsResult.value.requestYears : null,
-        currentLevel: levelResult.status === 'fulfilled' ? levelResult.value.level : null,
+        yearsOfExperience: (extractedYears === 0 || extractedYears === undefined || extractedYears === null) ? null : extractedYears,
+        currentLevel: (extractedLevel === undefined || extractedLevel === null) ? null : extractedLevel,
         education,
         workAuthStatus,
         location,
         rawFeatures: {
-          skills: skillsResult.status === 'fulfilled' ? skillsResult.value : { skills: [] },
+          skills: extractedResumeSkills,
           domain: domainResult.status === 'fulfilled' ? domainResult.value : { domains: [] },
           years: yearsResult.status === 'fulfilled' ? yearsResult.value : { requestYears: 0 },
           level: levelResult.status === 'fulfilled' ? levelResult.value : { level: 'Unknown' }
@@ -289,13 +309,13 @@ export class FeatureExtractionService {
     all: string[];
   } {
     const allSkills = skillsResult.skills || [];
-    
+
     // Separate required vs preferred based on section context
     const requiredSkills = [];
     const preferredSkills = [];
-    
-    const requirementsText = jobSections.requirements.toLowerCase();
-    const qualificationsText = jobSections.qualifications.toLowerCase();
+
+    const requirementsText = (jobSections.requirements || '').toLowerCase();
+    const qualificationsText = (jobSections.qualifications || '').toLowerCase();
     
     for (const skill of allSkills) {
       const skillLower = skill.toLowerCase();
@@ -446,11 +466,11 @@ export class FeatureExtractionService {
 
     if (candidateYears === null) {
       return {
-        score: 0.5, // Unknown experience gets middle score
+        score: 0.0, // Null data = 0 score (cannot verify experience)
         requiredYears,
         candidateYears,
         yearsGap: requiredYears || 0,
-        gapSeverity: 'moderate' as const
+        gapSeverity: 'major' as const
       };
     }
 
@@ -498,11 +518,11 @@ export class FeatureExtractionService {
 
     if (!candidateLevel) {
       return {
-        score: 0.5,
+        score: 0.0, // Null data = 0 score (cannot verify level)
         requiredLevel,
         candidateLevel,
-        levelGap: 1,
-        isPromotable: true
+        levelGap: 3,
+        isPromotable: false
       };
     }
 
