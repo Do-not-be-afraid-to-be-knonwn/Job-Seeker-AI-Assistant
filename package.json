@@ -14,7 +14,11 @@
     "test-setup": "ts-node test-setup.ts",
     "test-new-api": "ts-node test-new-api.ts",
     "validate:matching": "ts-node test/matching/runValidationDataset.ts",
-    "debug:test": "ts-node test/matching/debugSingleTest.ts"
+    "debug:test": "ts-node test/matching/debugSingleTest.ts",
+    "lint": "eslint src/**/*.ts --max-warnings 0",
+    "lint:fix": "eslint src/**/*.ts --fix",
+    "type-check": "tsc --noEmit",
+    "prepare": "husky"
   },
   "repository": {
     "type": "git",
@@ -53,8 +57,14 @@
     "@types/express": "^5.0.3",
     "@types/jest": "^30.0.0",
     "@types/supertest": "^6.0.3",
+    "@typescript-eslint/eslint-plugin": "^8.46.4",
+    "@typescript-eslint/parser": "^8.46.4",
+    "eslint": "^9.39.1",
+    "eslint-config-prettier": "^10.1.8",
+    "husky": "^9.1.7",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^30.0.5",
+    "lint-staged": "^16.2.6",
     "supertest": "^6.3.4",
     "ts-jest": "^29.1.1",
     "typescript": "^5.8.3"

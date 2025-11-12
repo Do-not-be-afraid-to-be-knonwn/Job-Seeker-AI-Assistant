@@ -1,0 +1,13 @@
+node_modules/
+dist/
+coverage/
+*.log
+*.csv
+*.jsonl
+.env
+.env.*
+deploy/
+docs/
+test/
+Job-Seeker-AI-Assistant/
+job-ai-extractor/

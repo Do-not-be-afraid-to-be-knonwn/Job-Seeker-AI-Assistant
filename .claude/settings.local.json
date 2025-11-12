@@ -10,7 +10,17 @@
       "Bash(npm install:*)",
       "Bash(mkdir:*)",
       "Bash(timeout 300 npx ts-node src/matching/scripts/runJobResumeMatching.ts)",
-      "Bash(timeout 300 npx ts-node src/matching/scripts/runJobResumeMatching.ts single)"
+      "Bash(timeout 300 npx ts-node src/matching/scripts/runJobResumeMatching.ts single)",
+      "Bash(npm run validate:matching:*)",
+      "Bash(tee:*)",
+      "Bash(npm run debug:test:*)",
+      "Bash(npx tsc:*)",
+      "Bash(rm:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nFix: Skills extraction data flow in job-resume matching\n\nFixed critical bug where required skills were empty during matching despite\nsuccessful extraction. The issue was in featureExtraction.service.ts where\nthe skills chain returns results wrapped in {result: {...}} but the code\nwas accessing the data incorrectly.\n\nChanges:\n- Fixed extractJobFeatures to properly unwrap skillsResult.value.result\n- Fixed extractResumeFeatures with same unwrapping logic\n- Added safety checks for jobSections.requirements/qualifications\n- Improved null handling for experience/level matching (0 score instead of 0.5)\n- Added comprehensive validation test suite (20 test cases)\n\nImpact:\n- Skills now properly flow through the matching pipeline\n- Validation tests show 7/20 passing (35% pass rate)\n- FAIR category performing best (5/5 tests passing)\n- Remaining issues are scoring calibration, not feature extraction\n\nTest Results:\n- test-005 (iOS Match): 90/91 ✅ PASS\n- test-007 (Vue.js): 75/79 ✅ PASS  \n- test-010 (DevOps): 77/78 ✅ PASS\n- All FAIR matches (5/5) passing with correct scores\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git push:*)",
+      "Bash(git commit:*)",
+      "Bash(npm run smoke:local:*)"
     ],
     "deny": [],
     "ask": []
