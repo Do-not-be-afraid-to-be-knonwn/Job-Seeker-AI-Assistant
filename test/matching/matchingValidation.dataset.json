@@ -1,0 +1,600 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "created": "2025-10-29",
+    "description": "Comprehensive validation dataset for job-resume matching system with 20 realistic test cases",
+    "scoringSystem": {
+      "excellent": "85-95 points",
+      "good": "70-84 points",
+      "fair": "50-69 points",
+      "poor": "20-49 points"
+    },
+    "purpose": "Validate matching score accuracy and explanation quality across diverse scenarios"
+  },
+  "testCases": [
+    {
+      "id": "test-001",
+      "category": "excellent",
+      "name": "Perfect Senior Backend Engineer Match",
+      "expectedScore": { "min": 88, "max": 95 },
+      "expectedConfidence": "high",
+      "jobDescription": "Senior Backend Engineer - Python/Django\n\nWe're looking for an experienced backend engineer to join our fast-growing fintech platform. You'll be responsible for designing and implementing scalable microservices, optimizing database performance, and mentoring junior developers.\n\nRequired Skills:\n- 5+ years of professional software development experience\n- Expert-level Python and Django framework\n- Strong experience with PostgreSQL and database optimization\n- RESTful API design and implementation\n- AWS services (EC2, S3, RDS, Lambda)\n- Docker containerization\n- Git version control\n\nPreferred Skills:\n- Redis caching\n- Celery task queues\n- Kubernetes orchestration\n- CI/CD pipelines\n- Experience in fintech or financial services\n\nResponsibilities:\n- Design and develop backend services for our payment processing platform\n- Write clean, maintainable, and well-tested code\n- Collaborate with frontend team on API contracts\n- Optimize database queries and application performance\n- Participate in code reviews and mentor junior developers\n- Work in an agile environment with 2-week sprints\n\nQualifications:\n- Bachelor's degree in Computer Science or related field\n- 5+ years of backend development experience\n- Strong problem-solving and communication skills\n- Experience working in agile teams\n\nLocation: Remote (US only)\nWork Authorization: Must be authorized to work in the United States",
+      "resumeContent": "Sarah Chen\nSenior Backend Engineer\nsarah.chen@email.com | Seattle, WA | US Citizen\n\nPROFESSIONAL SUMMARY\nSenior Backend Engineer with 7+ years of experience building scalable web services and APIs. Deep expertise in Python/Django ecosystem, microservices architecture, and cloud infrastructure. Proven track record of optimizing high-traffic systems and mentoring development teams.\n\nTECHNICAL SKILLS\nLanguages: Python, SQL, JavaScript, Go\nFrameworks: Django, Django REST Framework, Flask, FastAPI\nDatabases: PostgreSQL, MySQL, Redis, MongoDB\nCloud & DevOps: AWS (EC2, S3, RDS, Lambda, CloudWatch), Docker, Git, Jenkins\nTools & Practices: RESTful APIs, Microservices, TDD, Agile/Scrum, Code Review\n\nPROFESSIONAL EXPERIENCE\n\nSenior Backend Engineer | PaymentTech Inc. | Seattle, WA | 2020 - Present\n- Architected and implemented microservices-based payment processing system handling $50M+ monthly transactions\n- Designed RESTful APIs consumed by web and mobile applications serving 500K+ active users\n- Optimized PostgreSQL database queries, reducing average API response time from 800ms to 120ms\n- Implemented Redis caching layer, improving system throughput by 300%\n- Built asynchronous task processing with Celery for background jobs and notifications\n- Deployed services to AWS using Docker containers on EC2, with S3 for file storage\n- Established CI/CD pipeline using Jenkins, reducing deployment time from 2 hours to 15 minutes\n- Mentored 3 junior developers, conducting code reviews and pair programming sessions\n- Technologies: Python, Django, PostgreSQL, Redis, Celery, AWS, Docker, Jenkins\n\nBackend Engineer | FinanceApp Solutions | San Francisco, CA | 2018 - 2020\n- Developed backend services for personal finance management platform\n- Created Django REST Framework APIs for mobile and web clients\n- Integrated third-party financial data providers using RESTful APIs\n- Implemented user authentication and authorization with OAuth 2.0\n- Wrote comprehensive unit and integration tests achieving 85% code coverage\n- Collaborated with frontend team in agile sprints using Jira and Confluence\n- Technologies: Python, Django, PostgreSQL, AWS RDS, Git\n\nSoftware Engineer | TechStartup Co. | San Francisco, CA | 2017 - 2018\n- Built web applications using Django and PostgreSQL\n- Developed RESTful APIs for internal tools and customer-facing features\n- Participated in agile development process with daily standups and sprint planning\n- Technologies: Python, Django, PostgreSQL, JavaScript, Git\n\nEDUCATION\nBachelor of Science in Computer Science\nUniversity of Washington | 2013 - 2017\nGPA: 3.7/4.0\n\nCERTIFICATIONS\n- AWS Certified Developer - Associate (2021)\n- Python Institute PCAP Certification (2019)",
+      "groundTruth": {
+        "shouldMatch": true,
+        "reasoning": "Perfect alignment on all dimensions: 7 years experience exceeds 5+ requirement, expert Python/Django skills, strong AWS/Docker experience, fintech background, meets education and work auth requirements",
+        "expectedStrengths": [
+          "Exceeds experience requirements (7 years vs 5 required)",
+          "Excellent technical skills coverage with Python, Django, PostgreSQL, AWS, Docker, Redis",
+          "Strong domain expertise in fintech/payment processing"
+        ],
+        "expectedConcerns": [
+          "Minor: No Kubernetes experience mentioned (preferred skill only)"
+        ],
+        "expectedGateResults": {
+          "skillsGate": "pass",
+          "experienceGate": "pass",
+          "locationGate": "pass",
+          "educationGate": "pass"
+        },
+        "testFocus": "Validates excellent match detection with all requirements met and some exceeded"
+      }
+    },
+    {
+      "id": "test-002",
+      "category": "excellent",
+      "name": "Strong Frontend React Developer Match",
+      "expectedScore": { "min": 85, "max": 92 },
+      "expectedConfidence": "high",
+      "jobDescription": "Frontend Engineer - React & TypeScript\n\nJoin our product team to build beautiful, performant user interfaces for our SaaS platform serving enterprise clients.\n\nRequired Skills:\n- 4+ years of frontend development experience\n- Expert knowledge of React.js and modern JavaScript (ES6+)\n- TypeScript proficiency\n- HTML5, CSS3, responsive design\n- State management (Redux, Context API, or similar)\n- RESTful API integration\n- Git version control\n\nPreferred Skills:\n- Next.js framework\n- GraphQL and Apollo Client\n- CSS-in-JS libraries (styled-components, Emotion)\n- Jest and React Testing Library\n- Webpack/Vite build tools\n- Figma for design collaboration\n\nResponsibilities:\n- Build responsive, accessible web applications\n- Implement pixel-perfect designs from Figma mockups\n- Optimize application performance and bundle sizes\n- Write maintainable, well-tested component code\n- Collaborate with designers and backend engineers\n- Participate in code reviews and technical planning\n\nQualifications:\n- Bachelor's degree in Computer Science or equivalent experience\n- 4+ years of professional frontend development\n- Portfolio of production web applications\n- Strong communication and teamwork skills\n\nLocation: New York, NY or Remote\nWork Authorization: Required",
+      "resumeContent": "Alex Rodriguez\nSenior Frontend Engineer\nalex.rodriguez@email.com | New York, NY | (555) 123-4567\nPortfolio: alexrodriguez.dev | GitHub: github.com/alexrod\nWork Authorization: U.S. permanent resident open to remote U.S. roles\n\nPROFESSIONAL SUMMARY\nPassionate Frontend Engineer with 5+ years building modern web applications using React, TypeScript, and Next.js. Specialized in creating intuitive user experiences with clean, maintainable code. Strong advocate for accessibility, performance optimization, and testing best practices.\n\nTECHNICAL SKILLS\nCore: React.js, TypeScript, JavaScript (ES6+), HTML5, CSS3\nFrameworks & Libraries: Next.js, Redux, Redux Toolkit, React Query, styled-components\nTesting: Jest, React Testing Library, Cypress\nTools: Git, Webpack, Vite, npm/yarn, Figma, VS Code\nAPIs: RESTful APIs, GraphQL, Apollo Client\nConcepts: Responsive Design, Accessibility (WCAG 2.1), Performance Optimization, Component-Driven Development\n\nPROFESSIONAL EXPERIENCE\n\nSenior Frontend Engineer | CloudSaaS Inc. | New York, NY | 2021 - Present\n- Led frontend development for enterprise dashboard application serving 10,000+ users\n- Built reusable React component library with TypeScript, reducing development time by 40%\n- Implemented Next.js server-side rendering, improving SEO and initial load time by 60%\n- Integrated GraphQL APIs using Apollo Client for efficient data fetching\n- Established comprehensive testing strategy with Jest and React Testing Library (90% coverage)\n- Optimized bundle size using code splitting and lazy loading, reducing main bundle from 800KB to 250KB\n- Collaborated with UX designers to implement Figma designs with pixel-perfect accuracy\n- Ensured WCAG 2.1 AA accessibility compliance across all features\n- Mentored 2 junior frontend developers through pair programming and code reviews\n- Technologies: React, TypeScript, Next.js, GraphQL, Apollo Client, styled-components, Jest\n\nFrontend Developer | MediaTech Solutions | Brooklyn, NY | 2019 - 2021\n- Developed customer-facing web applications for digital media platform\n- Built interactive UI components using React and Redux for state management\n- Implemented responsive designs supporting mobile, tablet, and desktop breakpoints\n- Integrated RESTful APIs for content management and user authentication\n- Wrote unit and integration tests using Jest and Enzyme\n- Participated in agile ceremonies and sprint planning\n- Technologies: React, JavaScript, Redux, CSS3, RESTful APIs, Git\n\nJunior Frontend Developer | StartupXYZ | New York, NY | 2019 - 2019\n- Created landing pages and marketing websites using React and CSS\n- Implemented form validation and API integration\n- Collaborated with design team to translate mockups into code\n- Technologies: React, JavaScript, HTML5, CSS3, Bootstrap\n\nEDUCATION\nBachelor of Science in Computer Science\nNew York University | 2015 - 2019\n\nOPEN SOURCE & PROJECTS\n- React UI Component Library: Published npm package with 500+ weekly downloads\n- Personal Portfolio: Built with Next.js, TypeScript, and styled-components (alexrodriguez.dev)\n- Contributor to React Testing Library documentation",
+      "groundTruth": {
+        "shouldMatch": true,
+        "reasoning": "Strong match with 5 years experience exceeding 4+ requirement, expert React/TypeScript/Next.js skills, GraphQL experience, testing expertise, and excellent portfolio",
+        "expectedStrengths": [
+          "Exceeds experience requirements (5 years vs 4 required)",
+          "Excellent frontend skills with React, TypeScript, Next.js, GraphQL",
+          "Strong testing culture with Jest and React Testing Library"
+        ],
+        "expectedConcerns": [],
+        "expectedGateResults": {
+          "skillsGate": "pass",
+          "experienceGate": "pass",
+          "locationGate": "pass",
+          "educationGate": "pass"
+        },
+        "testFocus": "Validates detection of excellent match with preferred skills mastered"
+      }
+    },
+    {
+      "id": "test-003",
+      "category": "excellent",
+      "name": "Perfect Full Stack Match with Broad Skills",
+      "expectedScore": { "min": 87, "max": 94 },
+      "expectedConfidence": "high",
+      "jobDescription": "Full Stack Engineer - Node.js & React\n\nWe're building the next generation of collaboration tools and need a talented full stack engineer who can work across our entire technology stack.\n\nRequired Skills:\n- 3+ years of full stack development experience\n- Strong JavaScript/TypeScript skills\n- Backend: Node.js, Express.js, RESTful APIs\n- Frontend: React, modern CSS\n- Databases: PostgreSQL or MySQL\n- Git and agile development practices\n\nPreferred Skills:\n- MongoDB or other NoSQL databases\n- GraphQL\n- Docker and containerization\n- AWS or cloud platform experience\n- Testing frameworks (Jest, Mocha, etc.)\n\nResponsibilities:\n- Design and implement full stack features from database to UI\n- Build scalable RESTful APIs and microservices\n- Create responsive frontend interfaces\n- Write automated tests and participate in code reviews\n- Deploy and monitor applications in production\n\nQualifications:\n- 3+ years of professional software development\n- Strong computer science fundamentals\n- Excellent problem-solving skills\n- Team player with good communication\n\nLocation: San Francisco, CA (Hybrid)\nSalary: $120K - $160K",
+      "resumeContent": "Jordan Martinez\nFull Stack Software Engineer\njordan.m@email.com | San Francisco, CA | Authorized to work in US\nLinkedIn: linkedin.com/in/jordanmartinez | GitHub: github.com/jmartinez\n\nSUMMARY\nVersatile Full Stack Engineer with 4 years of experience building web applications from concept to deployment. Proficient in JavaScript ecosystem (Node.js, React, TypeScript) with strong foundation in databases, APIs, and cloud infrastructure. Passionate about clean code, testing, and user-centric design.\n\nTECHNICAL SKILLS\nLanguages: JavaScript, TypeScript, Python, SQL\nBackend: Node.js, Express.js, Nest.js, RESTful APIs, GraphQL\nFrontend: React, Redux, Next.js, HTML5, CSS3, Tailwind CSS\nDatabases: PostgreSQL, MongoDB, Redis, MySQL\nDevOps & Cloud: Docker, AWS (EC2, S3, Lambda), Git, GitHub Actions, CI/CD\nTesting: Jest, Mocha, Chai, React Testing Library, Supertest\nPractices: Agile/Scrum, TDD, Code Review, Microservices Architecture\n\nWORK EXPERIENCE\n\nFull Stack Engineer | CollabTools Inc. | San Francisco, CA | 2022 - Present\n- Built full stack features for real-time collaboration platform (150K+ users)\n- Developed Node.js/Express.js microservices with PostgreSQL and Redis\n- Created React frontend with TypeScript, Redux Toolkit, and Tailwind CSS\n- Designed and implemented GraphQL API replacing legacy REST endpoints, reducing data over-fetching by 70%\n- Containerized applications with Docker and deployed to AWS ECS\n- Implemented WebSocket connections for real-time messaging features\n- Wrote comprehensive test suites with Jest and Supertest (85% backend coverage, 90% frontend coverage)\n- Participated in agile sprints with daily standups, sprint planning, and retrospectives\n- Technologies: Node.js, React, TypeScript, PostgreSQL, MongoDB, GraphQL, Docker, AWS\n\nSoftware Engineer | TechVenture Labs | Oakland, CA | 2020 - 2022\n- Developed full stack web applications for various client projects\n- Built RESTful APIs using Node.js and Express.js with MongoDB\n- Created responsive frontend interfaces with React and CSS3\n- Integrated third-party services and payment gateways (Stripe, PayPal)\n- Deployed applications to AWS using EC2 and RDS\n- Collaborated with designers and product managers in agile environment\n- Technologies: Node.js, Express, React, MongoDB, MySQL, AWS, Git\n\nJunior Developer | WebDev Studio | San Jose, CA | 2020 - 2020\n- Contributed to full stack projects using MERN stack (MongoDB, Express, React, Node.js)\n- Fixed bugs and implemented small features across frontend and backend\n- Learned best practices for testing, code review, and version control\n- Technologies: JavaScript, React, Node.js, MongoDB\n\nEDUCATION\nBachelor of Science in Computer Science\nUniversity of California, Berkeley | 2016 - 2020\nRelevant Coursework: Data Structures, Algorithms, Database Systems, Web Development\n\nPROJECTS\n- TaskFlow App: Full stack task management app with real-time updates (MERN stack, Socket.io, JWT auth)\n- Open Source Contributor: Contributed to Node.js and React ecosystem projects\n- Personal Blog: Built with Next.js, hosted on Vercel with Postgres database",
+      "groundTruth": {
+        "shouldMatch": true,
+        "reasoning": "Excellent full stack match with 4 years experience, strong Node.js/React/TypeScript skills, experience with both SQL and NoSQL databases, Docker, AWS, and GraphQL",
+        "expectedStrengths": [
+          "Perfect full stack experience with Node.js backend and React frontend",
+          "Strong technical skills coverage including PostgreSQL, MongoDB, GraphQL, Docker, AWS",
+          "Comprehensive testing experience with high coverage standards"
+        ],
+        "expectedConcerns": [],
+        "expectedGateResults": {
+          "skillsGate": "pass",
+          "experienceGate": "pass",
+          "locationGate": "pass",
+          "educationGate": "pass"
+        },
+        "testFocus": "Tests recognition of well-rounded full stack skills across frontend, backend, databases, and cloud"
+      }
+    },
+    {
+      "id": "test-004",
+      "category": "excellent",
+      "name": "Senior DevOps Engineer with Strong Kubernetes Experience",
+      "expectedScore": { "min": 86, "max": 93 },
+      "expectedConfidence": "high",
+      "jobDescription": "Senior DevOps Engineer - Kubernetes & AWS\n\nWe need an experienced DevOps engineer to lead our infrastructure modernization and manage our Kubernetes-based platform.\n\nRequired Skills:\n- 5+ years of DevOps/Infrastructure experience\n- Expert Kubernetes administration and troubleshooting\n- AWS cloud services (EKS, EC2, S3, RDS, VPC, IAM)\n- Infrastructure as Code (Terraform or CloudFormation)\n- CI/CD pipeline design and implementation\n- Docker containerization\n- Linux system administration\n- Scripting (Python, Bash, or similar)\n\nPreferred Skills:\n- Helm charts and Kubernetes operators\n- Monitoring and observability (Prometheus, Grafana, ELK)\n- Service mesh (Istio, Linkerd)\n- GitOps practices (ArgoCD, Flux)\n- Security and compliance in cloud environments\n\nResponsibilities:\n- Manage and optimize Kubernetes clusters in production\n- Design and maintain CI/CD pipelines for microservices\n- Implement infrastructure as code using Terraform\n- Monitor system health and troubleshoot production issues\n- Improve deployment automation and reliability\n- Ensure security best practices and compliance\n- Mentor junior DevOps engineers\n\nQualifications:\n- 5+ years in DevOps, SRE, or Infrastructure Engineering\n- Strong understanding of cloud architecture and best practices\n- Experience with production Kubernetes clusters at scale\n- Bachelor's degree in Computer Science or equivalent experience\n\nLocation: Remote (US)\nSalary: $140K - $180K",
+      "resumeContent": "Marcus Thompson\nSenior DevOps Engineer\nmarcus.thompson@email.com | Austin, TX | (555) 987-6543\nLinkedIn: linkedin.com/in/marcusthompson\n\nPROFESSIONAL SUMMARY\nSenior DevOps Engineer with 7+ years of experience building and managing cloud infrastructure at scale. Deep expertise in Kubernetes, AWS, and infrastructure automation. Track record of improving deployment velocity, system reliability, and operational efficiency.\n\nCORE COMPETENCIES\nContainer Orchestration: Kubernetes, EKS, Docker, Helm, Kustomize\nCloud Platforms: AWS (EKS, EC2, S3, RDS, Lambda, VPC, IAM, CloudWatch), GCP (GKE)\nInfrastructure as Code: Terraform, CloudFormation, Ansible\nCI/CD: Jenkins, GitHub Actions, GitLab CI, ArgoCD, Flux\nMonitoring & Logging: Prometheus, Grafana, ELK Stack, CloudWatch, Datadog\nScripting & Programming: Python, Bash, Go, YAML\nSecurity: AWS IAM, Security Groups, Secrets Management (Vault, AWS Secrets Manager)\nOperating Systems: Linux (Ubuntu, Amazon Linux, CentOS), MacOS\n\nPROFESSIONAL EXPERIENCE\n\nSenior DevOps Engineer | CloudScale Technologies | Austin, TX | 2020 - Present\n- Lead DevOps engineer managing Kubernetes infrastructure serving 5M+ daily active users\n- Architected and deployed multi-region AWS EKS clusters with 200+ nodes across 15 microservices\n- Implemented GitOps workflow using ArgoCD for automated deployments, reducing deployment time from 2 hours to 10 minutes\n- Created comprehensive Terraform modules for AWS infrastructure, achieving 100% infrastructure-as-code coverage\n- Built CI/CD pipelines with GitHub Actions automating build, test, and deploy for 50+ repositories\n- Developed custom Helm charts and Kubernetes operators for application deployment\n- Implemented cluster autoscaling (HPA and Cluster Autoscaler) reducing infrastructure costs by 35%\n- Established monitoring stack with Prometheus and Grafana, creating 40+ dashboards and alerting rules\n- Configured ELK Stack for centralized logging across all services\n- Implemented security best practices: Pod Security Policies, Network Policies, RBAC, and AWS IAM roles for service accounts\n- Mentored team of 3 junior DevOps engineers on Kubernetes and AWS best practices\n- Technologies: Kubernetes, AWS EKS, Terraform, ArgoCD, Helm, Prometheus, Grafana, Python, Bash\n\nDevOps Engineer | TechCorp Solutions | San Francisco, CA | 2018 - 2020\n- Managed AWS infrastructure for SaaS application (EC2, RDS, S3, CloudFront)\n- Migrated monolithic application to containerized microservices on Kubernetes\n- Built Docker images and Kubernetes manifests for 12 microservices\n- Created Jenkins pipelines for automated testing and deployment\n- Automated infrastructure provisioning using Terraform and CloudFormation\n- Implemented monitoring with CloudWatch and Datadog\n- On-call rotation for production support and incident response\n- Technologies: Kubernetes, Docker, AWS, Jenkins, Terraform, Python, MySQL\n\nSystems Administrator | DataCenter Inc. | Dallas, TX | 2017 - 2018\n- Managed Linux servers and network infrastructure\n- Automated system administration tasks using Bash and Python scripts\n- Deployed applications to AWS EC2 instances\n- Configured monitoring and alerting for servers and applications\n- Technologies: Linux, AWS EC2, Python, Bash, Nagios\n\nEDUCATION\nBachelor of Science in Computer Engineering\nUniversity of Texas at Austin | 2013 - 2017\n\nCERTIFICATIONS\n- Certified Kubernetes Administrator (CKA) - 2021\n- AWS Certified Solutions Architect - Professional - 2022\n- AWS Certified DevOps Engineer - Professional - 2020\n- HashiCorp Certified: Terraform Associate - 2021",
+      "groundTruth": {
+        "shouldMatch": true,
+        "reasoning": "Exceptional match with 7 years experience, expert Kubernetes/EKS skills, strong AWS and Terraform expertise, comprehensive monitoring/GitOps experience, and relevant certifications",
+        "expectedStrengths": [
+          "Exceeds experience requirements (7 years vs 5 required)",
+          "Expert Kubernetes and AWS EKS administration at scale",
+          "Strong infrastructure as code with Terraform and comprehensive DevOps tooling"
+        ],
+        "expectedConcerns": [],
+        "expectedGateResults": {
+          "skillsGate": "pass",
+          "experienceGate": "pass",
+          "locationGate": "pass",
+          "educationGate": "pass"
+        },
+        "testFocus": "Validates excellent match for specialized DevOps role with all core and preferred skills"
+      }
+    },
+    {
+      "id": "test-005",
+      "category": "excellent",
+      "name": "Mobile Engineer iOS/Swift Strong Match",
+      "expectedScore": { "min": 85, "max": 91 },
+      "expectedConfidence": "high",
+      "jobDescription": "Senior iOS Engineer - Swift & SwiftUI\n\nJoin our mobile team to build cutting-edge iOS applications for millions of users worldwide.\n\nRequired Skills:\n- 4+ years of iOS development experience\n- Expert Swift programming\n- SwiftUI and UIKit frameworks\n- RESTful API integration and networking\n- Core Data or Realm for local storage\n- Git version control\n- App Store submission and release management\n\nPreferred Skills:\n- Combine framework for reactive programming\n- MVVM or Clean Architecture patterns\n- Unit testing with XCTest\n- CI/CD for iOS (Fastlane, GitHub Actions)\n- Performance optimization and profiling\n- Push notifications (APNs)\n\nResponsibilities:\n- Develop and maintain iOS applications\n- Implement new features with SwiftUI and UIKit\n- Integrate backend APIs and handle data persistence\n- Write clean, testable code following best practices\n- Optimize app performance and memory usage\n- Collaborate with designers, product managers, and backend engineers\n- Participate in code reviews and technical discussions\n\nQualifications:\n- 4+ years of professional iOS development\n- Published apps on the App Store\n- Bachelor's degree in Computer Science or related field\n- Strong problem-solving and communication skills\n\nLocation: Los Angeles, CA or Remote\nWork Authorization: Required",
+      "resumeContent": "Emily Park\niOS Engineer\nemily.park@email.com | Los Angeles, CA | US Citizen\nPortfolio: emilypark.dev | App Store: apps.apple.com/developer/emilypark\n\nPROFESSIONAL SUMMARY\niOS Engineer with 5 years of experience building native iOS applications for consumer and enterprise markets. Expert in Swift, SwiftUI, and modern iOS development practices. Passionate about creating intuitive user experiences with clean, maintainable code.\n\nTECHNICAL SKILLS\nLanguages: Swift, Objective-C (legacy code), SQL\nFrameworks: SwiftUI, UIKit, Combine, Core Data, URLSession, MapKit, CoreLocation\nArchitecture: MVVM, Clean Architecture, Coordinator Pattern\nTesting: XCTest, XCUITest, Quick/Nimble\nTools: Xcode, Git, Fastlane, CocoaPods, Swift Package Manager\nCI/CD: GitHub Actions, Bitrise, TestFlight\nAPIs & Networking: RESTful APIs, JSON parsing, Alamofire, URLSession\nOther: Push Notifications (APNs), Analytics (Firebase, Mixpanel), Crash Reporting (Crashlytics)\n\nPROFESSIONAL EXPERIENCE\n\nSenior iOS Engineer | HealthTech Mobile | Los Angeles, CA | 2021 - Present\n- Lead iOS engineer for health and fitness app with 2M+ downloads and 4.7 App Store rating\n- Rebuilt major features using SwiftUI and Combine, modernizing 60% of the codebase\n- Architected app using MVVM pattern with clean separation of concerns\n- Integrated RESTful APIs for user authentication, data sync, and real-time health tracking\n- Implemented Core Data for offline data persistence and sync conflict resolution\n- Optimized app performance: reduced launch time by 40% and memory usage by 25%\n- Set up CI/CD pipeline with GitHub Actions and Fastlane for automated testing and TestFlight distribution\n- Wrote comprehensive unit tests with XCTest achieving 75% code coverage\n- Implemented push notifications using APNs for reminders and health alerts\n- Collaborated with backend team to design efficient API contracts\n- Mentored 2 junior iOS developers on Swift best practices and iOS architecture\n- Technologies: Swift, SwiftUI, Combine, Core Data, MVVM, XCTest, Fastlane\n\niOS Developer | SocialMedia Co. | San Diego, CA | 2019 - 2021\n- Developed features for social networking iOS app (500K+ users)\n- Built UI components using UIKit and later SwiftUI\n- Integrated REST APIs for posts, comments, messaging, and media uploads\n- Implemented image caching and lazy loading for smooth scrolling performance\n- Used Realm database for local data storage and offline support\n- Participated in code reviews and agile sprint planning\n- Technologies: Swift, UIKit, SwiftUI, Realm, URLSession, Git\n\nJunior iOS Developer | AppStudio Inc. | San Diego, CA | 2019 - 2019\n- Contributed to client iOS projects across various industries\n- Developed UI screens using UIKit and Storyboards\n- Integrated third-party SDKs and APIs\n- Fixed bugs and improved app stability\n- Technologies: Swift, UIKit, CocoaPods, Git\n\nEDUCATION\nBachelor of Science in Computer Science\nUniversity of California, San Diego | 2015 - 2019\nRelevant Coursework: Mobile Development, Software Engineering, Data Structures\n\nPUBLISHED APPS\n- HealthTracker Pro: #1 Health & Fitness app (2M+ downloads, 4.7 rating)\n- TaskMaster: Personal productivity app (50K downloads, 4.5 rating)\n- Open source contributions to popular Swift libraries\n\nCERTIFICATIONS\n- iOS App Development with Swift - Apple (2020)",
+      "groundTruth": {
+        "shouldMatch": true,
+        "reasoning": "Strong iOS match with 5 years experience, expert Swift/SwiftUI/Combine skills, proven App Store success, MVVM architecture, testing, and CI/CD experience",
+        "expectedStrengths": [
+          "Exceeds experience requirements (5 years vs 4 required)",
+          "Excellent iOS skills with Swift, SwiftUI, UIKit, Combine, and Core Data",
+          "Strong architectural knowledge with MVVM and proven App Store success"
+        ],
+        "expectedConcerns": [],
+        "expectedGateResults": {
+          "skillsGate": "pass",
+          "experienceGate": "pass",
+          "locationGate": "pass",
+          "educationGate": "pass"
+        },
+        "testFocus": "Tests mobile/iOS specialization matching with domain-specific skills"
+      }
+    },
+    {
+      "id": "test-006",
+      "category": "good",
+      "name": "Good Backend Match with Minor Experience Gap",
+      "expectedScore": { "min": 72, "max": 82 },
+      "expectedConfidence": "medium",
+      "jobDescription": "Backend Engineer - Java/Spring Boot\n\nWe're looking for a backend engineer to work on our enterprise software platform.\n\nRequired Skills:\n- 5+ years of backend development experience\n- Strong Java programming skills\n- Spring Boot and Spring Framework\n- RESTful API design and development\n- SQL databases (PostgreSQL, MySQL, or Oracle)\n- Microservices architecture\n- Git version control\n\nPreferred Skills:\n- Kafka or RabbitMQ message queues\n- Redis caching\n- Docker and Kubernetes\n- CI/CD pipelines\n- OAuth 2.0 and security best practices\n\nResponsibilities:\n- Develop backend services using Java and Spring Boot\n- Design and implement RESTful APIs\n- Optimize database queries and performance\n- Write unit and integration tests\n- Collaborate with frontend and DevOps teams\n- Participate in architecture discussions\n\nQualifications:\n- Bachelor's degree in Computer Science\n- 5+ years of professional Java development\n- Strong understanding of OOP and design patterns\n- Experience with agile methodologies\n\nLocation: Chicago, IL (Hybrid)\nWork Authorization: Required",
+      "resumeContent": "David Kumar\nSoftware Engineer\ndavid.kumar@email.com | Chicago, IL | (555) 234-5678\n\nSUMMARY\nBackend Software Engineer with 4 years of experience developing Java applications and microservices. Proficient in Spring Boot, REST APIs, and SQL databases. Strong foundation in object-oriented design and agile development practices.\n\nTECHNICAL SKILLS\nLanguages: Java, Python, SQL, JavaScript\nFrameworks: Spring Boot, Spring MVC, Spring Data JPA, Hibernate\nDatabases: PostgreSQL, MySQL, H2\nTools & Technologies: Maven, Gradle, Git, IntelliJ IDEA, Postman\nAPIs: RESTful APIs, JSON, XML\nTesting: JUnit, Mockito, Spring Test\nOther: Microservices, Docker, OAuth 2.0, Agile/Scrum\n\nPROFESSIONAL EXPERIENCE\n\nSoftware Engineer | Enterprise Solutions Inc. | Chicago, IL | 2021 - Present\n- Develop backend microservices using Java and Spring Boot for enterprise CRM platform\n- Design and implement RESTful APIs consumed by web and mobile applications\n- Work with PostgreSQL databases, writing complex SQL queries and optimizing performance\n- Implement OAuth 2.0 authentication and JWT token-based authorization\n- Write unit tests using JUnit and Mockito with 70% code coverage\n- Containerize applications using Docker for local development\n- Collaborate with frontend team on API contracts and integration\n- Participate in agile sprints with daily standups and sprint retrospectives\n- Technologies: Java 11, Spring Boot, PostgreSQL, Docker, Git, OAuth 2.0\n\nJunior Software Engineer | TechCorp | Evanston, IL | 2020 - 2021\n- Developed web applications using Java, Spring MVC, and MySQL\n- Built REST APIs for internal tools and customer-facing features\n- Implemented CRUD operations with Spring Data JPA and Hibernate\n- Fixed bugs and added enhancements to existing codebase\n- Learned microservices architecture and best practices\n- Technologies: Java 8, Spring Framework, MySQL, Git\n\nSoftware Development Intern | StartupLabs | Chicago, IL | 2019 - 2020\n- Contributed to backend services using Java and Spring Boot\n- Wrote SQL queries and database migrations\n- Participated in code reviews and learned software development lifecycle\n- Technologies: Java, Spring Boot, PostgreSQL\n\nEDUCATION\nBachelor of Science in Computer Science\nUniversity of Illinois at Chicago | 2016 - 2020\nGPA: 3.5/4.0\n\nCERTIFICATIONS\n- Oracle Certified Associate, Java SE 8 Programmer (2021)",
+      "groundTruth": {
+        "shouldMatch": true,
+        "reasoning": "Good match overall but 1 year short on experience (4 vs 5 required). Strong Java/Spring Boot skills, PostgreSQL experience, OAuth 2.0, Docker knowledge. Missing some preferred skills like Kafka, Redis, Kubernetes.",
+        "expectedStrengths": [
+          "Strong Java and Spring Boot technical skills",
+          "Good PostgreSQL database experience and RESTful API development",
+          "Solid microservices understanding with Docker containerization"
+        ],
+        "expectedConcerns": [
+          "Experience below requirement: 1 year less than 5 years required",
+          "Missing key technical skills: Kafka, Redis, Kubernetes"
+        ],
+        "expectedGateResults": {
+          "skillsGate": "pass",
+          "experienceGate": "pass",
+          "locationGate": "pass",
+          "educationGate": "pass"
+        },
+        "testFocus": "Tests good match with minor experience gap that's within acceptable range (1 year < 5 year max gap)"
+      }
+    },
+    {
+      "id": "test-007",
+      "category": "good",
+      "name": "Good Frontend Match Missing Some Preferred Skills",
+      "expectedScore": { "min": 70, "max": 79 },
+      "expectedConfidence": "medium",
+      "jobDescription": "Frontend Developer - Vue.js\n\nWe need a frontend developer to join our product team building modern web applications.\n\nRequired Skills:\n- 3+ years of frontend development experience\n- Strong Vue.js 3 with Composition API\n- JavaScript/TypeScript proficiency\n- HTML5, CSS3, responsive design\n- RESTful API integration\n- Git version control\n\nPreferred Skills:\n- Pinia or Vuex state management\n- Vite build tool\n- Tailwind CSS or similar utility frameworks\n- Jest or Vitest testing\n- Accessibility (WCAG) knowledge\n- Webpack configuration\n\nResponsibilities:\n- Build Vue.js components and features\n- Implement responsive designs\n- Integrate with backend APIs\n- Write tests and documentation\n- Code reviews and collaboration\n\nQualifications:\n- 3+ years of professional frontend development\n- Portfolio of Vue.js projects\n- Bachelor's degree or equivalent experience\n\nLocation: Remote (US)",
+      "resumeContent": "Lisa Wang\nFrontend Developer\nlisa.wang@email.com | Portland, OR | Authorized US worker\nGitHub: github.com/lisawang\n\nPROFESSIONAL SUMMARY\nFrontend Developer with 3.5 years of experience building web applications with modern JavaScript frameworks. Specialized in Vue.js development with strong skills in responsive design and API integration.\n\nTECHNICAL SKILLS\nCore: JavaScript, HTML5, CSS3, Vue.js 3, TypeScript\nState Management: Vuex, Pinia\nStyling: CSS3, SASS, Bootstrap, responsive design\nBuild Tools: Vite, npm, yarn\nAPIs: RESTful APIs, Axios, Fetch API\nVersion Control: Git, GitHub\nOther: Agile/Scrum, Figma, VS Code\n\nWORK EXPERIENCE\n\nFrontend Developer | WebApps Inc. | Portland, OR | 2021 - Present (3 years)\n- Develop customer-facing web applications using Vue.js 3 and Composition API\n- Build reusable Vue components following best practices and style guide\n- Implement responsive designs supporting desktop, tablet, and mobile devices\n- Integrate RESTful APIs using Axios for data fetching and state management with Pinia\n- Migrate legacy Vue 2 codebase to Vue 3 with Composition API\n- Use Vite as build tool for fast development and optimized production builds\n- Collaborate with UX designers to implement Figma designs\n- Participate in code reviews and agile sprint ceremonies\n- Technologies: Vue.js 3, TypeScript, Pinia, Vite, CSS3, RESTful APIs\n\nJunior Frontend Developer | Digital Agency | Seattle, WA | 2020 - 2021 (1 year)\n- Built marketing websites and landing pages using Vue.js and vanilla JavaScript\n- Created responsive layouts with HTML5 and CSS3\n- Integrated third-party APIs and services\n- Fixed bugs and improved website performance\n- Technologies: Vue.js 2, JavaScript, HTML5, CSS3, Bootstrap\n\nFrontend Intern | TechStartup | Seattle, WA | 2020 (6 months)\n- Assisted with frontend development using Vue.js\n- Implemented UI components from mockups\n- Learned Git workflow and agile practices\n- Technologies: Vue.js, JavaScript, CSS\n\nEDUCATION\nBachelor of Arts in Web Design and Development\nPortland State University | 2016 - 2020\n\nPROJECTS\n- E-commerce Store: Built with Vue.js 3, Pinia, and Stripe integration\n- Task Management App: Vue 3 SPA with RESTful API integration",
+      "groundTruth": {
+        "shouldMatch": true,
+        "reasoning": "Good match with 3.5 years experience meeting the 3+ requirement, strong Vue.js 3 and Composition API skills, Pinia and Vite experience. However, missing testing (Jest/Vitest), Tailwind CSS, and accessibility knowledge. Also lacks TypeScript depth and no mention of unit testing.",
+        "expectedStrengths": [
+          "Good Vue.js 3 and Composition API experience",
+          "Solid JavaScript and responsive design skills",
+          "Experience with Pinia state management and Vite build tool"
+        ],
+        "expectedConcerns": [
+          "Missing key technical skills: Jest/Vitest testing, Tailwind CSS, accessibility knowledge",
+          "No testing experience mentioned in work history"
+        ],
+        "expectedGateResults": {
+          "skillsGate": "pass",
+          "experienceGate": "pass",
+          "locationGate": "pass",
+          "educationGate": "pass"
+        },
+        "testFocus": "Tests good match where core skills are met but several preferred skills are missing"
+      }
+    },
+    {
+      "id": "test-008",
+      "category": "good",
+      "name": "Good Match with Different But Related Technology Stack",
+      "expectedScore": { "min": 68, "max": 78 },
+      "expectedConfidence": "medium",
+      "jobDescription": "Backend Engineer - Python/FastAPI\n\nWe're building high-performance APIs and need a backend engineer with Python expertise.\n\nRequired Skills:\n- 3+ years of backend development experience\n- Strong Python programming\n- FastAPI or similar async frameworks\n- RESTful API design\n- PostgreSQL or other SQL databases\n- Docker containerization\n- Git version control\n\nPreferred Skills:\n- AsyncIO and asynchronous programming\n- Pydantic models and data validation\n- SQLAlchemy ORM\n- Redis caching\n- AWS deployment\n- Testing with pytest\n\nResponsibilities:\n- Build high-performance REST APIs with FastAPI\n- Design database schemas and optimize queries\n- Implement authentication and authorization\n- Write tests and documentation\n- Deploy services to cloud infrastructure\n\nQualifications:\n- 3+ years of backend development\n- Experience with async Python frameworks\n- CS degree or equivalent experience\n\nLocation: Remote",
+      "resumeContent": "Rachel Green\nBackend Software Engineer\nrachel.green@email.com | Denver, CO\n\nSUMMARY\nBackend Software Engineer with 4 years of Python development experience. Strong background in Django and Flask frameworks with recent exposure to FastAPI. Proficient in API development, databases, and containerization.\n\nSKILLS\nLanguages: Python, SQL, JavaScript\nFrameworks: Django, Django REST Framework, Flask, FastAPI (6 months)\nDatabases: PostgreSQL, MySQL, SQLite\nORM: Django ORM, SQLAlchemy\nTools: Docker, Git, pytest, Postman\nCloud: AWS (EC2, S3, RDS)\nOther: RESTful APIs, Celery, Redis, Nginx\n\nEXPERIENCE\n\nBackend Engineer | SaaS Platform Co. | Denver, CO | 2021 - Present\n- Develop backend services using Django and Django REST Framework\n- Recently started transitioning services to FastAPI for performance improvements\n- Design PostgreSQL database schemas and write optimized SQL queries\n- Implement RESTful APIs for web and mobile clients\n- Use Docker for containerization and local development\n- Implement Celery for background task processing with Redis broker\n- Write unit tests using pytest and Django test framework\n- Deploy applications to AWS EC2 with RDS databases\n- Technologies: Python, Django, FastAPI, PostgreSQL, Docker, AWS, Redis\n\nSoftware Engineer | WebDev Solutions | Boulder, CO | 2020 - 2021\n- Built web applications using Flask and PostgreSQL\n- Created REST APIs and integrated third-party services\n- Implemented user authentication with JWT tokens\n- Wrote database migrations and SQL queries\n- Technologies: Python, Flask, PostgreSQL, SQLAlchemy, Git\n\nJunior Developer | TechCo | Denver, CO | 2020\n- Contributed to Python projects using Django\n- Fixed bugs and implemented small features\n- Learned backend development best practices\n- Technologies: Python, Django, MySQL\n\nEDUCATION\nBachelor of Science in Software Engineering\nColorado State University | 2016 - 2020",
+      "groundTruth": {
+        "shouldMatch": true,
+        "reasoning": "Good match with 4 years Python experience and strong Django/Flask background. Has 6 months FastAPI experience (recent transition) and knows Docker, PostgreSQL, pytest, Redis, AWS. The async framework experience is limited but has transferable skills from Django. Core skills are strong even though FastAPI experience is newer.",
+        "expectedStrengths": [
+          "Strong Python backend experience (4 years)",
+          "Good PostgreSQL database and Docker containerization skills",
+          "Recent FastAPI experience with strong foundation in Django/Flask"
+        ],
+        "expectedConcerns": [
+          "Limited FastAPI experience (6 months), primarily Django background",
+          "Moderate semantic alignment - Django vs FastAPI framework difference"
+        ],
+        "expectedGateResults": {
+          "skillsGate": "pass",
+          "experienceGate": "pass",
+          "locationGate": "pass",
+          "educationGate": "pass"
+        },
+        "testFocus": "Tests matching when candidate has related/transferable skills but not exact framework match"
+      }
+    },
+    {
+      "id": "test-009",
+      "category": "good",
+      "name": "Good Full Stack Match with Slightly Different Frontend Stack",
+      "expectedScore": { "min": 71, "max": 80 },
+      "expectedConfidence": "medium",
+      "jobDescription": "Full Stack Developer - Ruby on Rails & React\n\nWe need a full stack developer for our Rails application with modern React frontend.\n\nRequired Skills:\n- 3+ years of full stack development\n- Ruby on Rails framework\n- React.js frontend development\n- PostgreSQL database\n- RESTful API design\n- Git and GitHub\n\nPreferred Skills:\n- Hotwire/Turbo for Rails\n- TypeScript\n- Tailwind CSS\n- RSpec testing\n- Heroku or AWS deployment\n- Redis and Sidekiq\n\nResponsibilities:\n- Develop features across Rails backend and React frontend\n- Build and maintain RESTful APIs\n- Write database migrations and queries\n- Implement responsive UI components\n- Write tests and documentation\n\nQualifications:\n- 3+ years of web development\n- Experience with Rails and modern JavaScript\n- CS degree or bootcamp graduate\n\nLocation: Boston, MA or Remote",
+      "resumeContent": "Chris Anderson\nFull Stack Developer\nchris.anderson@email.com | Boston, MA | US Citizen\n\nSUMMARY\nFull Stack Developer with 3 years of experience building web applications. Strong Ruby on Rails backend skills with frontend expertise in Vue.js and growing React experience.\n\nTECHNICAL SKILLS\nBackend: Ruby, Ruby on Rails, Sinatra, RESTful APIs\nFrontend: Vue.js (primary), React (learning), JavaScript, HTML5, CSS3\nDatabases: PostgreSQL, MySQL, Redis\nTools: Git, GitHub, Heroku, VS Code\nTesting: RSpec, Minitest, Jest\nOther: Sidekiq, ActionCable, Webpack, npm\n\nEXPERIENCE\n\nFull Stack Developer | WebApps Corp | Boston, MA | 2022 - Present\n- Develop full stack features for Rails monolith application\n- Build backend services with Ruby on Rails and PostgreSQL\n- Create frontend interfaces using Vue.js (primary) and starting to use React\n- Design RESTful APIs for internal and external consumption\n- Implement background jobs with Sidekiq and Redis\n- Write RSpec tests for models, controllers, and services\n- Deploy applications to Heroku with CI/CD pipeline\n- Technologies: Ruby on Rails, Vue.js, PostgreSQL, Sidekiq, Heroku\n\nWeb Developer | Digital Studio | Cambridge, MA | 2021 - 2022\n- Built client websites using Rails and Vue.js\n- Developed RESTful APIs and integrated third-party services\n- Created responsive designs with HTML5, CSS3, and Bootstrap\n- Wrote database migrations and ActiveRecord queries\n- Technologies: Ruby on Rails, Vue.js, PostgreSQL, Git\n\nJunior Developer (Bootcamp Project) | 2021\n- Built full stack web application using Rails and JavaScript\n- Learned MVC architecture, database design, and deployment\n- Technologies: Ruby on Rails, JavaScript, PostgreSQL\n\nEDUCATION\nWeb Development Bootcamp\nGeneral Assembly, Boston | 2021\n\nBachelor of Arts in Economics\nBoston University | 2015 - 2019",
+      "groundTruth": {
+        "shouldMatch": true,
+        "reasoning": "Good match with 3 years experience, strong Rails/PostgreSQL/RSpec skills, and Sidekiq/Redis/Heroku experience. Primary frontend is Vue.js rather than React, which is a notable gap but has JavaScript fundamentals. Bootcamp background meets 'bootcamp graduate' qualification.",
+        "expectedStrengths": [
+          "Strong Ruby on Rails and PostgreSQL backend experience",
+          "Good technical skills with Sidekiq, Redis, RSpec, and Heroku deployment",
+          "Solid RESTful API development experience"
+        ],
+        "expectedConcerns": [
+          "Limited React experience - primarily Vue.js developer",
+          "Missing key technical skills: TypeScript, Tailwind CSS, Hotwire/Turbo"
+        ],
+        "expectedGateResults": {
+          "skillsGate": "pass",
+          "experienceGate": "pass",
+          "locationGate": "pass",
+          "educationGate": "pass"
+        },
+        "testFocus": "Tests matching when backend is strong but frontend framework differs (Vue vs React)"
+      }
+    },
+    {
+      "id": "test-010",
+      "category": "good",
+      "name": "Good DevOps Match with Learning Curve Needed",
+      "expectedScore": { "min": 70, "max": 78 },
+      "expectedConfidence": "medium",
+      "jobDescription": "DevOps Engineer - AWS & Terraform\n\nWe need a DevOps engineer to manage our cloud infrastructure and CI/CD systems.\n\nRequired Skills:\n- 3+ years of DevOps or SRE experience\n- AWS cloud services (EC2, S3, RDS, VPC)\n- Terraform infrastructure as code\n- Docker containerization\n- CI/CD pipeline management\n- Linux administration\n- Scripting (Python or Bash)\n\nPreferred Skills:\n- Kubernetes basics\n- Jenkins or GitHub Actions\n- Monitoring tools (CloudWatch, Datadog)\n- Ansible configuration management\n- Security best practices\n\nResponsibilities:\n- Manage AWS infrastructure with Terraform\n- Build and maintain CI/CD pipelines\n- Monitor system health and respond to incidents\n- Automate deployment processes\n- Implement security and compliance measures\n\nQualifications:\n- 3+ years in DevOps, Infrastructure, or SRE\n- AWS certification preferred\n- Bachelor's degree or equivalent experience\n\nLocation: Remote (US)",
+      "resumeContent": "Tom Rivera\nDevOps Engineer\ntom.rivera@email.com | Phoenix, AZ\n\nSUMMARY\nDevOps Engineer with 3 years of experience managing cloud infrastructure and deployment automation. Solid AWS and Docker skills with growing Terraform expertise.\n\nTECHNICAL SKILLS\nCloud: AWS (EC2, S3, RDS, Lambda, IAM), Azure (basics)\nInfrastructure: Terraform (1 year), CloudFormation, Ansible\nContainers: Docker, Docker Compose, ECS\nCI/CD: Jenkins, GitLab CI, GitHub Actions (learning)\nScripting: Bash, Python\nMonitoring: CloudWatch, ELK Stack, Nagios\nOperating Systems: Linux (Ubuntu, Amazon Linux), macOS\nOther: Git, Nginx, MySQL, PostgreSQL\n\nEXPERIENCE\n\nDevOps Engineer | TechSolutions Inc. | Phoenix, AZ | 2022 - Present\n- Manage AWS infrastructure for web applications (EC2, RDS, S3, VPC)\n- Started implementing infrastructure as code with Terraform (1 year experience)\n- Previously used CloudFormation, now transitioning to Terraform\n- Build and maintain Jenkins CI/CD pipelines for automated testing and deployment\n- Containerize applications using Docker and deploy to AWS ECS\n- Monitor system health with CloudWatch and ELK Stack\n- Automate tasks with Bash and Python scripts\n- Respond to production incidents and troubleshoot issues\n- Technologies: AWS, Terraform, Docker, Jenkins, Python, Bash\n\nSystems Engineer | DataCenter Corp | Tempe, AZ | 2021 - 2022\n- Managed Linux servers and application deployments\n- Deployed applications to AWS EC2 instances\n- Created automation scripts with Bash and Python\n- Configured monitoring and alerting with Nagios\n- Assisted with Docker containerization projects\n- Technologies: AWS, Linux, Docker, Python, Bash\n\nIT Support Specialist | Tech Services | Phoenix, AZ | 2020 - 2021\n- Provided technical support and system administration\n- Managed Linux and Windows servers\n- Learned AWS basics and cloud concepts\n- Technologies: Linux, Windows Server, AWS basics\n\nEDUCATION\nBachelor of Science in Information Technology\nArizona State University | 2016 - 2020\n\nCERTIFICATIONS\n- AWS Certified Solutions Architect - Associate (2022)",
+      "groundTruth": {
+        "shouldMatch": true,
+        "reasoning": "Good match with 3 years DevOps experience, solid AWS and Docker skills, AWS certification, and Jenkins CI/CD. Terraform experience is only 1 year (transitioning from CloudFormation), missing Kubernetes, and limited GitHub Actions experience. Strong fundamentals but needs to grow Terraform and K8s skills.",
+        "expectedStrengths": [
+          "Good AWS cloud experience with relevant certification",
+          "Solid Docker containerization and Jenkins CI/CD pipeline skills",
+          "Strong Linux administration and scripting with Python and Bash"
+        ],
+        "expectedConcerns": [
+          "Limited Terraform experience (1 year), transitioning from CloudFormation",
+          "Missing key technical skills: Kubernetes, GitHub Actions, Datadog"
+        ],
+        "expectedGateResults": {
+          "skillsGate": "pass",
+          "experienceGate": "pass",
+          "locationGate": "pass",
+          "educationGate": "pass"
+        },
+        "testFocus": "Tests good match where experience meets minimum and core skills present but some key skills are developing"
+      }
+    },
+    {
+      "id": "test-011",
+      "category": "fair",
+      "name": "Fair Match with Significant Skills Gaps",
+      "expectedScore": { "min": 52, "max": 65 },
+      "expectedConfidence": "medium",
+      "jobDescription": "Senior Full Stack Engineer - Node.js & Angular\n\nWe're building enterprise web applications and need a senior full stack engineer.\n\nRequired Skills:\n- 5+ years of full stack development\n- Strong Node.js and Express.js\n- Angular framework (Angular 12+)\n- TypeScript proficiency\n- PostgreSQL or MySQL databases\n- Microservices architecture\n- Git version control\n\nPreferred Skills:\n- RxJS reactive programming\n- NgRx state management\n- NestJS backend framework\n- GraphQL\n- Docker and Kubernetes\n- AWS or Azure cloud\n\nResponsibilities:\n- Build enterprise web applications\n- Develop Node.js backend services\n- Create Angular frontend applications\n- Design and implement APIs\n- Mentor junior developers\n\nQualifications:\n- 5+ years of professional development\n- Bachelor's degree in Computer Science\n- Experience with enterprise applications\n\nLocation: New York, NY (Hybrid)\nWork Authorization: Required",
+      "resumeContent": "Mike Johnson\nFull Stack Developer\nmike.johnson@email.com | Brooklyn, NY | Authorized US worker\n\nSUMMARY\nFull Stack Developer with 3 years of experience building web applications. Background in React and Node.js with some exposure to Angular.\n\nTECHNICAL SKILLS\nFrontend: React, JavaScript, HTML5, CSS3, Angular (6 months)\nBackend: Node.js, Express.js, RESTful APIs\nDatabases: MongoDB, MySQL, PostgreSQL (basic)\nTools: Git, VS Code, npm, Postman\nOther: Docker (basic), Agile\n\nEXPERIENCE\n\nFull Stack Developer | WebTech Inc. | New York, NY | 2022 - Present\n- Develop web applications using React frontend and Node.js backend\n- Started learning Angular for new project (6 months ago)\n- Build RESTful APIs with Express.js\n- Work with MongoDB and some MySQL databases\n- Use Docker for local development\n- Technologies: React, Node.js, Angular (learning), MongoDB, MySQL\n\nWeb Developer | Digital Agency | New York, NY | 2021 - 2022\n- Built websites using React and Node.js\n- Created REST APIs and integrated third-party services\n- Worked with MySQL databases\n- Technologies: React, Node.js, MySQL, Git\n\nJunior Developer | StartupXYZ | Queens, NY | 2021\n- Contributed to web development projects\n- Learned React and Node.js fundamentals\n- Technologies: React, Node.js, JavaScript\n\nEDUCATION\nAssociate Degree in Web Development\nCommunity College of New York | 2019 - 2021",
+      "groundTruth": {
+        "shouldMatch": false,
+        "reasoning": "Fair match with notable gaps: only 3 years experience vs 5+ required (2 year gap), limited Angular experience (6 months, primarily React developer), no TypeScript mentioned, no microservices architecture, basic PostgreSQL only, Associate degree vs Bachelor's requirement. Has Node/Express which helps but significant gaps overall.",
+        "expectedStrengths": [
+          "Good Node.js and Express.js backend experience",
+          "Basic PostgreSQL and MySQL database knowledge"
+        ],
+        "expectedConcerns": [
+          "Experience below requirement: 2 years less than 5 years required",
+          "Missing key technical skills: TypeScript, RxJS, NgRx, NestJS, GraphQL, Kubernetes",
+          "Limited Angular experience (6 months), primarily React background",
+          "Education requirement not met: Associate degree vs Bachelor's required"
+        ],
+        "expectedGateResults": {
+          "skillsGate": "pass",
+          "experienceGate": "pass",
+          "locationGate": "pass",
+          "educationGate": "fail"
+        },
+        "testFocus": "Tests fair match with multiple gaps: experience, education, and framework mismatch"
+      }
+    },
+    {
+      "id": "test-012",
+      "category": "fair",
+      "name": "Fair Match - Career Changer with Bootcamp Background",
+      "expectedScore": { "min": 50, "max": 63 },
+      "expectedConfidence": "low",
+      "jobDescription": "Backend Software Engineer - Python/Django\n\nWe're looking for a backend engineer to work on our Django-based platform.\n\nRequired Skills:\n- 3+ years of professional software development\n- Strong Python and Django framework\n- PostgreSQL database experience\n- RESTful API development\n- Git version control\n- Unit testing (pytest, unittest)\n\nPreferred Skills:\n- Django REST Framework\n- Celery task queues\n- Redis caching\n- AWS deployment\n- Docker containerization\n\nResponsibilities:\n- Develop Django backend services\n- Design database schemas and APIs\n- Write tests and documentation\n- Optimize performance\n- Code reviews\n\nQualifications:\n- 3+ years of backend development\n- CS degree or equivalent experience\n- Strong problem-solving skills\n\nLocation: Remote (US)",
+      "resumeContent": "Jessica Martinez\nSoftware Developer\njessica.martinez@email.com | Austin, TX\n\nSUMMARY\nCareer-changer with 1.5 years of professional software development experience following intensive coding bootcamp. Passionate about Python and backend development with growing Django expertise.\n\nTECHNICAL SKILLS\nLanguages: Python, JavaScript, SQL\nFrameworks: Django, Flask, Django REST Framework\nDatabases: PostgreSQL, SQLite\nTools: Git, VS Code, Postman, Heroku\nOther: RESTful APIs, HTML/CSS, Agile\n\nEXPERIENCE\n\nSoftware Developer | TechStartup Co. | Austin, TX | 2023 - Present (1.5 years)\n- Develop features for Django web application\n- Build REST APIs using Django REST Framework\n- Work with PostgreSQL database and write SQL queries\n- Implement user authentication and authorization\n- Write unit tests using Django test framework\n- Deploy applications to Heroku\n- Technologies: Python, Django, PostgreSQL, Git\n\nBootcamp Teaching Assistant | Code Academy | Remote | 2022 - 2023 (part-time)\n- Assisted students learning Python, Django, and web development\n- Helped debug code and explain programming concepts\n- Graded assignments and provided feedback\n- Technologies: Python, Django, Flask\n\nPREVIOUS CAREER (Non-Technical)\nMarketing Manager | Various Companies | 2015 - 2022\n- 7 years in marketing and project management\n- Transitioned to software development in 2022\n\nEDUCATION\nFull Stack Web Development Bootcamp\nCoding Dojo, Austin | 2022 (6 months intensive)\n\nBachelor of Arts in Marketing\nUniversity of Texas at Austin | 2011 - 2015",
+      "groundTruth": {
+        "shouldMatch": false,
+        "reasoning": "Fair match with significant experience gap: only 1.5 years software development vs 3+ required (1.5 year gap). Has Django, PostgreSQL, Django REST Framework which are core skills. Missing Celery, Redis, Docker, AWS. Bootcamp background rather than CS degree. Strong transferable skills from previous career but limited technical depth.",
+        "expectedStrengths": [
+          "Good Django and Django REST Framework technical skills",
+          "Solid PostgreSQL database and RESTful API development experience"
+        ],
+        "expectedConcerns": [
+          "Experience below requirement: 1.5 years less than 3 years required",
+          "Missing key technical skills: Celery, Redis, Docker, AWS",
+          "Limited testing experience - basic Django tests only, no pytest",
+          "Bootcamp background rather than CS degree"
+        ],
+        "expectedGateResults": {
+          "skillsGate": "borderline",
+          "experienceGate": "pass",
+          "locationGate": "pass",
+          "educationGate": "pass"
+        },
+        "testFocus": "Tests career changer scenario with bootcamp background and less experience than required"
+      }
+    },
+    {
+      "id": "test-013",
+      "category": "fair",
+      "name": "Fair Match - Junior Developer for Mid-Level Role",
+      "expectedScore": { "min": 54, "max": 66 },
+      "expectedConfidence": "medium",
+      "jobDescription": "Mid-Level Frontend Engineer - React\n\nWe need a mid-level frontend engineer for our growing product team.\n\nRequired Skills:\n- 3-5 years of frontend development\n- Expert React.js skills\n- TypeScript proficiency\n- State management (Redux, Zustand, or similar)\n- RESTful API integration\n- Responsive design and CSS\n- Git version control\n\nPreferred Skills:\n- Next.js framework\n- Testing (Jest, React Testing Library)\n- CSS-in-JS or Tailwind\n- GraphQL\n- Performance optimization\n- Mentoring junior developers\n\nResponsibilities:\n- Build complex React applications\n- Lead frontend features end-to-end\n- Mentor junior team members\n- Participate in architecture decisions\n- Code reviews and best practices\n\nQualifications:\n- 3-5 years of professional frontend development\n- Portfolio of production React apps\n- Bachelor's degree or equivalent\n\nLocation: Seattle, WA or Remote\nSalary: $100K - $130K",
+      "resumeContent": "Amanda Lee\nFrontend Developer\namanda.lee@email.com | Seattle, WA | US Citizen\n\nSUMMARY\nFrontend Developer with 2 years of professional React experience. Strong JavaScript fundamentals with growing expertise in modern React patterns and TypeScript.\n\nTECHNICAL SKILLS\nCore: JavaScript, React, HTML5, CSS3, TypeScript (learning)\nLibraries: React Hooks, React Router, Axios\nStyling: CSS3, SASS, Bootstrap, Material-UI\nTools: Git, npm, VS Code, Chrome DevTools\nOther: RESTful APIs, Responsive Design, Agile\n\nEXPERIENCE\n\nFrontend Developer | WebApps Inc. | Seattle, WA | 2023 - Present (1.5 years)\n- Develop React applications for internal business tools\n- Build UI components using React Hooks and functional components\n- Integrate RESTful APIs for data fetching and display\n- Create responsive designs supporting desktop and mobile\n- Started learning TypeScript for new projects\n- Use Git for version control and collaboration\n- Technologies: React, JavaScript, CSS3, RESTful APIs, Git\n\nJunior Frontend Developer | Digital Studio | Bellevue, WA | 2022 - 2023 (1 year)\n- Built landing pages and marketing websites\n- Created React components from design mockups\n- Implemented form validation and user interactions\n- Learned React best practices and modern JavaScript\n- Technologies: React, JavaScript, HTML5, CSS3, Bootstrap\n\nWeb Development Intern | TechCorp | Seattle, WA | 2022 (6 months)\n- Assisted with frontend development tasks\n- Fixed bugs in existing React codebase\n- Learned Git workflow and agile practices\n- Technologies: React, JavaScript, CSS\n\nEDUCATION\nBachelor of Science in Information Systems\nUniversity of Washington | 2018 - 2022\n\nPROJECTS\n- Recipe App: React SPA with recipe API integration\n- Portfolio Website: Built with React and CSS3",
+      "groundTruth": {
+        "shouldMatch": false,
+        "reasoning": "Fair match as junior developer applying for mid-level role. Only 2 years experience vs 3-5 required (1 year gap). Has React fundamentals but missing TypeScript proficiency (just learning), no state management (Redux/Zustand), no Next.js, no testing experience, no mentoring experience. Good potential but not ready for mid-level responsibilities.",
+        "expectedStrengths": [
+          "Solid React fundamentals with hooks and functional components",
+          "Good responsive design and RESTful API integration skills"
+        ],
+        "expectedConcerns": [
+          "Experience below requirement: 1 year less than 3 years minimum",
+          "Missing key technical skills: TypeScript proficiency, Redux/state management, Next.js, Jest/testing",
+          "No mentoring experience for mid-level expectation",
+          "Limited depth - primarily worked on internal tools and landing pages"
+        ],
+        "expectedGateResults": {
+          "skillsGate": "borderline",
+          "experienceGate": "pass",
+          "locationGate": "pass",
+          "educationGate": "pass"
+        },
+        "testFocus": "Tests junior developer applying for mid-level role with experience and skills gap"
+      }
+    },
+    {
+      "id": "test-014",
+      "category": "fair",
+      "name": "Fair Match - Domain Mismatch (Backend to Full Stack)",
+      "expectedScore": { "min": 55, "max": 68 },
+      "expectedConfidence": "medium",
+      "jobDescription": "Full Stack Engineer - MERN Stack\n\nWe need a full stack engineer to build modern web applications using the MERN stack.\n\nRequired Skills:\n- 3+ years of full stack development\n- MongoDB database\n- Express.js and Node.js backend\n- React.js frontend\n- JavaScript/TypeScript\n- RESTful APIs\n- Git version control\n\nPreferred Skills:\n- Next.js\n- Redux or Context API\n- Material-UI or Ant Design\n- AWS or cloud deployment\n- Docker\n- Jest testing\n\nResponsibilities:\n- Build full stack MERN applications\n- Develop both frontend and backend features\n- Design MongoDB schemas and APIs\n- Create responsive user interfaces\n- Write tests and documentation\n\nQualifications:\n- 3+ years of MERN stack or similar full stack experience\n- Portfolio of full stack projects\n- CS degree or equivalent\n\nLocation: Remote",
+      "resumeContent": "Kevin Patel\nBackend Software Engineer\nkevin.patel@email.com | Chicago, IL | Authorized to work in US\n\nSUMMARY\nBackend Software Engineer with 4 years of experience building server-side applications and APIs. Strong Node.js and Express expertise with MongoDB databases. Limited frontend experience.\n\nTECHNICAL SKILLS\nBackend: Node.js, Express.js, RESTful APIs, Microservices\nDatabases: MongoDB, PostgreSQL, Redis\nLanguages: JavaScript, TypeScript, Python\nTools: Git, Docker, Postman, MongoDB Compass\nCloud: AWS (EC2, S3, Lambda)\nTesting: Jest, Mocha, Supertest\nFrontend: HTML, CSS, jQuery (basic React knowledge)\n\nEXPERIENCE\n\nBackend Engineer | APITech Inc. | Chicago, IL | 2021 - Present\n- Develop backend microservices using Node.js and Express.js\n- Design MongoDB database schemas and aggregation pipelines\n- Build RESTful APIs consumed by mobile and web applications\n- Implement JWT authentication and role-based authorization\n- Write comprehensive tests using Jest and Supertest\n- Deploy services to AWS Lambda and EC2\n- Use Docker for containerization and local development\n- Technologies: Node.js, Express, MongoDB, TypeScript, Docker, AWS\n\nSoftware Engineer | BackendSolutions Co. | Evanston, IL | 2020 - 2021\n- Built backend services with Node.js and PostgreSQL\n- Created REST APIs and integrated third-party services\n- Worked with Redis for caching and session management\n- Technologies: Node.js, Express, PostgreSQL, Redis, Git\n\nJunior Developer | WebServices Inc. | Chicago, IL | 2020\n- Contributed to Node.js backend projects\n- Wrote API endpoints and database queries\n- Learned backend development best practices\n- Technologies: Node.js, MongoDB, Express\n\nEDUCATION\nBachelor of Science in Computer Science\nUniversity of Illinois at Chicago | 2016 - 2020\n\nPROJECTS\n- Built a REST API for e-commerce platform (Node.js, MongoDB)\n- Completed online React course (basic knowledge, no production experience)",
+      "groundTruth": {
+        "shouldMatch": false,
+        "reasoning": "Fair match with strong backend (Node/Express/MongoDB) but weak frontend. Has 4 years experience but it's backend-focused, not full stack. Only basic React knowledge from online course, no production React experience, no state management, no modern frontend UI libraries. Domain mismatch: backend specialist applying for full stack role.",
+        "expectedStrengths": [
+          "Excellent Node.js, Express.js, and MongoDB backend skills",
+          "Strong RESTful API development and microservices experience",
+          "Good testing culture with Jest and Supertest"
+        ],
+        "expectedConcerns": [
+          "Limited domain expertise match - backend specialist vs full stack requirement",
+          "Missing key technical skills: Production React experience, Redux/Context API, Material-UI",
+          "No frontend portfolio or production experience building UIs",
+          "Basic React knowledge only from online courses"
+        ],
+        "expectedGateResults": {
+          "skillsGate": "borderline",
+          "experienceGate": "pass",
+          "locationGate": "pass",
+          "educationGate": "pass"
+        },
+        "testFocus": "Tests domain mismatch where candidate is strong in half the stack but weak in the other half"
+      }
+    },
+    {
+      "id": "test-015",
+      "category": "fair",
+      "name": "Fair Match - Acceptable Skills But Experience Just Below Threshold",
+      "expectedScore": { "min": 58, "max": 69 },
+      "expectedConfidence": "medium",
+      "jobDescription": "Senior Data Engineer - Python & Spark\n\nWe're building data pipelines and need a senior data engineer.\n\nRequired Skills:\n- 5+ years of data engineering experience\n- Strong Python programming\n- Apache Spark (PySpark)\n- SQL and data warehousing\n- ETL pipeline development\n- AWS (S3, Redshift, EMR, Glue)\n- Git version control\n\nPreferred Skills:\n- Airflow or similar orchestration\n- Kafka or streaming platforms\n- Snowflake or BigQuery\n- dbt for data transformation\n- Data modeling and schema design\n\nResponsibilities:\n- Build scalable data pipelines with Spark\n- Design ETL workflows and data transformations\n- Optimize query performance\n- Implement data quality checks\n- Mentor junior data engineers\n\nQualifications:\n- 5+ years in data engineering or related field\n- Experience with big data technologies\n- CS or related degree\n\nLocation: San Francisco, CA\nSalary: $150K - $190K",
+      "resumeContent": "Nina Gupta\nData Engineer\nnina.gupta@email.com | San Francisco, CA | Work authorized\n\nSUMMARY\nData Engineer with 4 years of experience building ETL pipelines and data infrastructure. Proficient in Python, Spark, SQL, and AWS data services.\n\nTECHNICAL SKILLS\nLanguages: Python, SQL, Scala (basic)\nBig Data: Apache Spark, PySpark, Hadoop (basic)\nDatabases: PostgreSQL, MySQL, Amazon Redshift\nCloud & Tools: AWS (S3, Redshift, EMR, Glue), Airflow, Git\nData Tools: Pandas, NumPy, Jupyter, dbt\nOther: ETL, Data Modeling, Data Quality, Agile\n\nEXPERIENCE\n\nData Engineer | DataCorp Inc. | San Francisco, CA | 2021 - Present (3 years)\n- Build ETL pipelines using Python and PySpark on AWS EMR\n- Process large datasets (100GB+ daily) with Spark for analytics warehouse\n- Design data models and schemas for Amazon Redshift data warehouse\n- Develop data transformations using dbt for business intelligence\n- Orchestrate workflows with Apache Airflow (50+ DAGs)\n- Implement data quality checks and monitoring\n- Optimize Spark jobs reducing processing time by 40%\n- Technologies: Python, PySpark, AWS (S3, Redshift, EMR, Glue), Airflow, dbt\n\nJunior Data Engineer | Analytics Solutions | Palo Alto, CA | 2020 - 2021 (1.5 years)\n- Developed ETL scripts using Python and SQL\n- Created data pipelines for MySQL and PostgreSQL databases\n- Wrote SQL queries for data extraction and reporting\n- Learned Spark fundamentals and AWS services\n- Technologies: Python, SQL, PostgreSQL, AWS S3, Pandas\n\nData Analyst Intern | TechStartup | San Jose, CA | 2020 (6 months)\n- Analyzed data using Python, Pandas, and SQL\n- Created dashboards and reports for stakeholders\n- Learned data engineering concepts\n- Technologies: Python, SQL, Pandas, Jupyter\n\nEDUCATION\nMaster of Science in Data Science\nStanford University | 2018 - 2020\n\nBachelor of Science in Computer Science\nUC Berkeley | 2014 - 2018",
+      "groundTruth": {
+        "shouldMatch": true,
+        "reasoning": "Fair to good match with 4 years experience vs 5+ required (1 year gap). Strong technical skills in Python, PySpark, AWS (S3/Redshift/EMR/Glue), Airflow, and dbt. Has all core skills but lacks seniority for mentoring. Master's degree adds credibility. Close to threshold.",
+        "expectedStrengths": [
+          "Strong Python and PySpark technical skills with big data processing",
+          "Excellent AWS data services experience (S3, Redshift, EMR, Glue)",
+          "Good ETL pipeline and Airflow orchestration expertise with dbt"
+        ],
+        "expectedConcerns": [
+          "Experience below requirement: 1 year less than 5 years required",
+          "Missing key technical skills: Kafka/streaming platforms, Snowflake/BigQuery",
+          "Limited mentoring experience for senior-level expectations"
+        ],
+        "expectedGateResults": {
+          "skillsGate": "pass",
+          "experienceGate": "pass",
+          "locationGate": "pass",
+          "educationGate": "pass"
+        },
+        "testFocus": "Tests borderline case where skills are strong but experience is just below threshold"
+      }
+    },
+    {
+      "id": "test-016",
+      "category": "poor",
+      "name": "Poor Match - Significant Experience and Skills Gap",
+      "expectedScore": { "min": 28, "max": 42 },
+      "expectedConfidence": "medium",
+      "jobDescription": "Senior Software Engineer - Distributed Systems\n\nWe're building high-scale distributed systems and need an experienced senior engineer.\n\nRequired Skills:\n- 7+ years of software engineering experience\n- Expert knowledge of distributed systems\n- Strong programming in Go or Rust\n- Microservices architecture\n- Kubernetes and container orchestration\n- Message queues (Kafka, RabbitMQ)\n- PostgreSQL or distributed databases\n- System design and architecture\n\nPreferred Skills:\n- gRPC and Protocol Buffers\n- Service mesh (Istio, Linkerd)\n- Distributed tracing (Jaeger, Zipkin)\n- High availability and fault tolerance\n- Performance optimization at scale\n\nResponsibilities:\n- Design and implement distributed systems\n- Lead architecture decisions\n- Optimize system performance and reliability\n- Mentor team members\n- On-call production support\n\nQualifications:\n- 7+ years of professional software engineering\n- Experience with systems at significant scale\n- CS degree from top university\n- Strong system design skills\n\nLocation: San Francisco, CA (On-site)\nSalary: $180K - $250K",
+      "resumeContent": "Brian Smith\nJunior Software Developer\nbrian.smith@email.com | Oakland, CA | US Citizen\n\nSUMMARY\nJunior Software Developer with 1 year of professional experience. Learning backend development with Python and JavaScript. Interested in distributed systems.\n\nSKILLS\nLanguages: Python, JavaScript, Java (basic)\nFrameworks: Flask, Express.js\nDatabases: MySQL, SQLite\nTools: Git, VS Code, Docker (basic)\nOther: REST APIs, HTML/CSS, Agile\n\nEXPERIENCE\n\nJunior Software Developer | WebDev Inc. | Oakland, CA | 2023 - Present (1 year)\n- Develop web applications using Python Flask and JavaScript\n- Build simple REST APIs for CRUD operations\n- Work with MySQL database\n- Learn Docker basics for local development\n- Fix bugs in existing codebase\n- Technologies: Python, Flask, JavaScript, MySQL, Git\n\nSoftware Engineering Intern | TechStartup | San Francisco, CA | 2023 (6 months)\n- Assisted with web development projects\n- Wrote simple API endpoints\n- Learned Git and agile practices\n- Technologies: Python, JavaScript\n\nEDUCATION\nBachelor of Science in Computer Science\nSan Francisco State University | 2019 - 2023\nGPA: 3.2\n\nPROJECTS\n- Built a todo app with Python Flask\n- Completed online course on microservices (theoretical knowledge only)",
+      "groundTruth": {
+        "shouldMatch": false,
+        "reasoning": "Poor match with massive experience gap (1 year vs 7+ required = 6 year gap). Junior developer applying for senior role. No Go/Rust (uses Python/JavaScript), no Kubernetes, no Kafka, no distributed systems experience, no microservices production experience, no system design experience. Only theoretical knowledge from courses. Severe mismatch on all dimensions.",
+        "expectedStrengths": [
+          "Basic programming fundamentals with Python and JavaScript"
+        ],
+        "expectedConcerns": [
+          "Experience gap: 6 years short of 7+ year requirement",
+          "Critical skills gap: only 14% of required skills covered (MySQL vs PostgreSQL, basic Docker vs Kubernetes)",
+          "Missing key technical skills: Go/Rust, Kubernetes, Kafka, microservices architecture, distributed systems",
+          "No system design or architecture experience",
+          "Junior level applying for senior position - significant level gap",
+          "No production distributed systems experience"
+        ],
+        "expectedGateResults": {
+          "skillsGate": "fail",
+          "experienceGate": "fail",
+          "locationGate": "pass",
+          "educationGate": "pass"
+        },
+        "testFocus": "Tests detection of poor match with major experience gap and skills mismatch"
+      }
+    },
+    {
+      "id": "test-017",
+      "category": "poor",
+      "name": "Poor Match - Wrong Domain Entirely",
+      "expectedScore": { "min": 22, "max": 38 },
+      "expectedConfidence": "low",
+      "jobDescription": "Machine Learning Engineer - Computer Vision\n\nWe're building computer vision models for autonomous vehicles.\n\nRequired Skills:\n- 4+ years of ML/AI experience\n- Deep learning frameworks (TensorFlow, PyTorch)\n- Computer vision and image processing\n- CNN, R-CNN, YOLO architectures\n- Python and NumPy/Pandas\n- Model training and optimization\n- GPU computing and CUDA\n\nPreferred Skills:\n- Object detection and segmentation\n- OpenCV\n- Model deployment (TensorFlow Serving, ONNX)\n- MLOps practices\n- Research paper implementation\n\nResponsibilities:\n- Develop computer vision models\n- Train deep learning models on large datasets\n- Optimize model performance and accuracy\n- Deploy models to production\n- Research state-of-the-art techniques\n\nQualifications:\n- 4+ years in ML/Computer Vision\n- MS or PhD in CS, AI, or related field\n- Publications or research experience preferred\n\nLocation: Boston, MA\nSalary: $160K - $220K",
+      "resumeContent": "Jennifer Taylor\nFrontend Web Developer\njennifer.taylor@email.com | Providence, RI\n\nSUMMARY\nFrontend Web Developer with 5 years of experience building responsive websites and user interfaces. Specialized in HTML, CSS, JavaScript, and React.\n\nSKILLS\nFrontend: HTML5, CSS3, JavaScript, React, jQuery\nStyling: CSS3, SASS, Bootstrap, Tailwind CSS\nTools: Git, npm, Webpack, Figma, VS Code\nOther: Responsive Design, Accessibility, RESTful APIs\n\nEXPERIENCE\n\nFrontend Developer | WebAgency Inc. | Providence, RI | 2019 - Present (5 years)\n- Build responsive websites using HTML, CSS, and JavaScript\n- Develop React applications for client projects\n- Implement designs from Figma mockups\n- Ensure cross-browser compatibility\n- Optimize website performance\n- Technologies: React, HTML5, CSS3, JavaScript, Tailwind CSS\n\nWeb Designer | DesignStudio | Boston, MA | 2017 - 2019\n- Created website layouts and user interfaces\n- Coded designs using HTML and CSS\n- Technologies: HTML, CSS, JavaScript, Photoshop\n\nEDUCATION\nBachelor of Fine Arts in Graphic Design\nRhode Island School of Design | 2013 - 2017\n\nNOTE: Interested in learning about AI and machine learning. Completed one online Python course.",
+      "groundTruth": {
+        "shouldMatch": false,
+        "reasoning": "Very poor match - completely wrong domain. Frontend web developer applying for ML/Computer Vision role. No ML experience, no Python production experience (only one course), no TensorFlow/PyTorch, no computer vision knowledge, no deep learning, BFA in Graphic Design vs MS/PhD requirement. Zero relevant technical skills overlap.",
+        "expectedStrengths": [],
+        "expectedConcerns": [
+          "Critical skills gap: 0% of required ML/CV skills present",
+          "Limited domain expertise match - frontend web development vs machine learning/computer vision",
+          "Missing key technical skills: TensorFlow, PyTorch, computer vision, deep learning, CNN/YOLO, GPU/CUDA",
+          "Education requirement not met: BFA in Graphic Design vs MS/PhD in CS/AI required",
+          "No Python production experience - only completed one online course",
+          "Zero machine learning or AI experience"
+        ],
+        "expectedGateResults": {
+          "skillsGate": "fail",
+          "experienceGate": "fail",
+          "locationGate": "pass",
+          "educationGate": "fail"
+        },
+        "testFocus": "Tests detection of complete domain mismatch (frontend web vs ML/CV)"
+      }
+    },
+    {
+      "id": "test-018",
+      "category": "poor",
+      "name": "Poor Match - Outdated Skills and Long Experience Gap",
+      "expectedScore": { "min": 25, "max": 40 },
+      "expectedConfidence": "low",
+      "jobDescription": "Full Stack Engineer - Modern JavaScript Stack\n\nWe need a full stack engineer for our modern web platform.\n\nRequired Skills:\n- 3+ years of modern full stack development\n- React.js or Vue.js frontend\n- Node.js and Express.js backend\n- MongoDB or PostgreSQL\n- RESTful APIs\n- Modern JavaScript (ES6+)\n- Git and GitHub\n\nPreferred Skills:\n- TypeScript\n- GraphQL\n- Docker\n- AWS or cloud platforms\n- CI/CD pipelines\n- Agile development\n\nResponsibilities:\n- Build modern web applications\n- Develop frontend and backend features\n- Implement responsive designs\n- Write clean, maintainable code\n- Collaborate in agile team\n\nQualifications:\n- 3+ years of modern web development\n- Portfolio of contemporary web apps\n- CS degree or bootcamp\n\nLocation: Remote\nWork Authorization: Required",
+      "resumeContent": "Robert Williams\nWeb Developer\nrobert.williams@email.com | Cleveland, OH | US Citizen\n\nSUMMARY\nWeb Developer with experience in PHP and jQuery. Previously worked in web development from 2008-2015, returned to tech after career break.\n\nSKILLS\nLanguages: PHP, HTML, CSS, JavaScript (jQuery), SQL\nBackend: PHP, MySQL, Apache\nFrontend: jQuery, HTML4, CSS2, Bootstrap 3\nCMS: WordPress, Drupal\nTools: FileZilla, PHPMyAdmin, SVN\n\nEXPERIENCE\n\nFreelance Web Developer | Self-Employed | Cleveland, OH | 2023 - Present (1 year)\n- Build websites for small businesses using WordPress\n- Customize WordPress themes with PHP and jQuery\n- Set up hosting and databases\n- Technologies: WordPress, PHP, jQuery, MySQL\n\nCareer Break | 2015 - 2023 (8 years)\n- Took time off from tech industry\n- Worked in non-technical roles\n\nWeb Developer | WebServices Co. | Cleveland, OH | 2012 - 2015\n- Developed websites using PHP and MySQL\n- Created forms and database-driven pages\n- Used jQuery for interactive elements\n- Technologies: PHP, MySQL, jQuery, HTML, CSS\n\nJunior Web Developer | ITSolutions | Akron, OH | 2008 - 2012\n- Built websites with PHP and MySQL\n- Maintained legacy applications\n- Technologies: PHP, MySQL, JavaScript\n\nEDUCATION\nBachelor of Science in Information Technology\nKent State University | 2004 - 2008\n\nNOTE: Recently completed online tutorial on React basics (no production experience)",
+      "groundTruth": {
+        "shouldMatch": false,
+        "reasoning": "Poor match with outdated technology stack. 8-year career gap (2015-2023) in tech. Skills are PHP/jQuery from 2008-2015 era, not modern JavaScript stack. No React/Vue production experience (only tutorial), no Node.js, no modern ES6+, no MongoDB/PostgreSQL in modern context, no Git/GitHub (uses SVN). Massive technology gap and outdated practices.",
+        "expectedStrengths": [
+          "Basic web development fundamentals and database concepts"
+        ],
+        "expectedConcerns": [
+          "Critical skills gap: outdated technology stack (PHP/jQuery vs React/Node.js)",
+          "Missing key technical skills: React/Vue production experience, Node.js, Express.js, MongoDB/PostgreSQL, modern JavaScript ES6+, Git",
+          "8-year career gap in technology (2015-2023) - skills likely outdated",
+          "No modern web development experience - last relevant work was 2015",
+          "Using legacy tools (SVN vs Git, jQuery vs React)",
+          "Only tutorial-level React knowledge, no production experience"
+        ],
+        "expectedGateResults": {
+          "skillsGate": "fail",
+          "experienceGate": "pass",
+          "locationGate": "pass",
+          "educationGate": "pass"
+        },
+        "testFocus": "Tests detection of outdated skills and technology stack mismatch with career gap"
+      }
+    },
+    {
+      "id": "test-019",
+      "category": "poor",
+      "name": "Poor Match - Work Authorization Issue",
+      "expectedScore": { "min": 20, "max": 35 },
+      "expectedConfidence": "medium",
+      "jobDescription": "Senior Cloud Architect - AWS\n\nWe need a senior cloud architect to lead our cloud infrastructure strategy.\n\nRequired Skills:\n- 8+ years of cloud infrastructure experience\n- AWS Solutions Architect Professional certification\n- Expert AWS services knowledge (100+ services)\n- Multi-region architecture design\n- Infrastructure as Code (Terraform, CloudFormation)\n- Security and compliance (SOC2, HIPAA)\n- Cost optimization strategies\n- Team leadership and mentoring\n\nPreferred Skills:\n- Multi-cloud (Azure, GCP)\n- Serverless architectures\n- Well-Architected Framework expertise\n- Migration strategies\n- Disaster recovery planning\n\nResponsibilities:\n- Design enterprise cloud architectures\n- Lead cloud migration projects\n- Establish best practices and governance\n- Mentor engineering teams\n- Stakeholder presentations\n\nQualifications:\n- 8+ years in cloud architecture\n- AWS certifications (Solutions Architect Professional required)\n- Master's degree preferred\n- US Citizen or Green Card holder REQUIRED for government contracts\n\nLocation: Washington, DC (On-site required for classified work)\nSalary: $180K - $240K\nSecurity Clearance: Required",
+      "resumeContent": "Raj Sharma\nCloud Solutions Architect\nraj.sharma@email.com | Arlington, VA | H1-B Visa\n\nSUMMARY\nCloud Solutions Architect with 6 years of AWS experience. Strong infrastructure design and migration expertise. AWS certified with experience in multi-account organizations.\n\nTECHNICAL SKILLS\nCloud: AWS (EC2, S3, RDS, Lambda, VPC, IAM, EKS, ECS, CloudFormation)\nIaC: Terraform, CloudFormation, AWS CDK\nContainers: Docker, Kubernetes, EKS\nSecurity: AWS IAM, Security Groups, GuardDuty, CloudTrail\nMonitoring: CloudWatch, Prometheus, Grafana\nScripting: Python, Bash, PowerShell\nOther: CI/CD, DevOps, Agile, ITIL\n\nEXPERIENCE\n\nCloud Solutions Architect | TechConsulting Inc. | Arlington, VA | 2021 - Present\n- Design AWS cloud architectures for enterprise clients\n- Lead cloud migration projects from on-prem to AWS\n- Implement multi-account AWS Organizations with Landing Zone\n- Develop Terraform modules for infrastructure automation\n- Establish security best practices and compliance frameworks\n- Conduct Well-Architected reviews and optimize costs (reduced spending by 30%)\n- Mentor team of 4 cloud engineers\n- Technologies: AWS, Terraform, Python, Kubernetes\n\nCloud Engineer | CloudSolutions Co. | McLean, VA | 2019 - 2021\n- Deployed applications to AWS using IaC (Terraform, CloudFormation)\n- Managed multi-region AWS infrastructure\n- Implemented security controls and compliance requirements\n- Technologies: AWS, Terraform, Docker, Python\n\nSystems Engineer | ITServices Inc. | India | 2017 - 2019\n- Managed on-premise infrastructure and Linux servers\n- Started working with AWS cloud services\n- Technologies: Linux, AWS basics, Python\n\nEDUCATION\nBachelor of Technology in Computer Science\nIndian Institute of Technology | 2013 - 2017\n\nCERTIFICATIONS\n- AWS Certified Solutions Architect - Associate (2020)\n- AWS Certified DevOps Engineer - Professional (2022)\n- Terraform Associate (2021)\n\nIMMIGRATION STATUS: H1-B Visa (not eligible for government contracts requiring citizenship/clearance)\nWilling to relocate or work remotely for non-classified projects.",
+      "groundTruth": {
+        "shouldMatch": false,
+        "reasoning": "Poor match primarily due to work authorization failure - H1-B visa not eligible for required security clearance and citizenship requirement. Also has experience gap (6 years vs 8+ required), missing AWS Solutions Architect Professional certification (only has Associate), and only Bachelor's vs preferred Master's. Technical skills are strong but hard requirements block candidacy.",
+        "expectedStrengths": [
+          "Strong AWS cloud architecture experience with cost optimization",
+          "Good infrastructure as code skills with Terraform and CloudFormation",
+          "Solid team leadership and mentoring experience"
+        ],
+        "expectedConcerns": [
+          "Work authorization requirement not met - H1-B visa not eligible for security clearance",
+          "Experience below requirement: 2 years less than 8 years required",
+          "Missing key technical skills: AWS Solutions Architect Professional certification (has Associate only)",
+          "Education requirement not met: Bachelor's vs Master's preferred",
+          "Cannot work on government/classified projects requiring citizenship"
+        ],
+        "expectedGateResults": {
+          "skillsGate": "pass",
+          "experienceGate": "pass",
+          "locationGate": "fail",
+          "educationGate": "pass"
+        },
+        "testFocus": "Tests work authorization gate failure despite otherwise decent technical qualifications"
+      }
+    },
+    {
+      "id": "test-020",
+      "category": "poor",
+      "name": "Poor Match - Severe Skills Gap Despite Right Domain",
+      "expectedScore": { "min": 32, "max": 45 },
+      "expectedConfidence": "medium",
+      "jobDescription": "Staff Software Engineer - Platform Engineering\n\nWe're looking for a staff engineer to build our internal developer platform.\n\nRequired Skills:\n- 10+ years of software engineering experience\n- Expert programming in multiple languages (Go, Python, Java)\n- Kubernetes platform engineering\n- Service mesh and API gateways\n- Infrastructure as Code at scale\n- Observability and monitoring systems\n- High-scale distributed systems\n- Technical leadership and architecture\n\nPreferred Skills:\n- Backstage or internal developer platforms\n- GitOps and platform automation\n- Multi-cluster Kubernetes\n- Policy as code (OPA)\n- Platform security\n- Developer experience optimization\n\nResponsibilities:\n- Design and build internal developer platform\n- Lead technical architecture decisions\n- Mentor senior engineers\n- Establish platform standards\n- Drive adoption across engineering org\n- On-call escalation and incident response\n\nQualifications:\n- 10+ years of professional software engineering\n- Track record of platform/infrastructure leadership\n- Master's or PhD in CS\n- Experience at scale (thousands of engineers)\n\nLocation: San Francisco, CA (Hybrid)\nSalary: $220K - $320K",
+      "resumeContent": "Carlos Rodriguez\nSoftware Engineer\ncarlos.rodriguez@email.com | San Jose, CA | Authorized US worker\n\nSUMMARY\nSoftware Engineer with 4 years of backend development experience. Working knowledge of Python and some DevOps tools. Interested in platform engineering.\n\nTECHNICAL SKILLS\nLanguages: Python, JavaScript, SQL\nFrameworks: Django, Flask, FastAPI\nDatabases: PostgreSQL, MySQL, Redis\nDevOps: Docker, basic Kubernetes, Git, Jenkins\nCloud: AWS (EC2, S3, RDS)\nOther: REST APIs, Linux, Agile\n\nEXPERIENCE\n\nSoftware Engineer | SaaS Company | San Jose, CA | 2021 - Present (3 years)\n- Develop backend services using Python and Django\n- Build REST APIs for web applications\n- Deploy applications using Docker containers\n- Basic Kubernetes usage for staging environments\n- Write unit tests and participate in code reviews\n- Technologies: Python, Django, PostgreSQL, Docker, basic K8s\n\nJunior Developer | WebTech Inc. | Sunnyvale, CA | 2020 - 2021 (1 year)\n- Built web applications with Python Flask\n- Worked with PostgreSQL databases\n- Learned Docker and CI/CD basics\n- Technologies: Python, Flask, PostgreSQL, Git\n\nEDUCATION\nBachelor of Science in Computer Science\nSan Jose State University | 2016 - 2020\n\nNOTE: Taken online courses in Kubernetes and platform engineering (no production experience with platforms)",
+      "groundTruth": {
+        "shouldMatch": false,
+        "reasoning": "Poor match with massive gaps. Only 4 years experience vs 10+ required (6 year gap), junior/mid-level applying for staff role. Basic Kubernetes knowledge only (no platform engineering), knows only Python (not Go/Java), no service mesh, no infrastructure at scale, no technical leadership, Bachelor's vs Master's/PhD requirement. Severe experience and seniority mismatch.",
+        "expectedStrengths": [
+          "Basic Python and Django backend development skills",
+          "Some Docker containerization knowledge"
+        ],
+        "expectedConcerns": [
+          "Experience gap: 6 years short of 10+ year requirement",
+          "Critical skills gap: only 25% of required skills (basic K8s, Python only)",
+          "Missing key technical skills: Go/Java languages, Kubernetes platform engineering, service mesh, GitOps, multi-cluster, OPA",
+          "Significant level gap: mid-level engineer vs staff engineer requirement",
+          "No technical leadership, architecture, or mentoring experience",
+          "Education requirement not met: Bachelor's vs Master's/PhD required",
+          "No experience building platforms or working at scale"
+        ],
+        "expectedGateResults": {
+          "skillsGate": "fail",
+          "experienceGate": "fail",
+          "locationGate": "pass",
+          "educationGate": "fail"
+        },
+        "testFocus": "Tests detection of severe seniority and skills gap (mid-level vs staff-level requirements)"
+      }
+    }
+  ]
+}

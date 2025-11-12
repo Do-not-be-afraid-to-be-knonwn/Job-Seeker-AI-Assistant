@@ -5,25 +5,25 @@ import { Client } from "langsmith";
 import { evaluate } from "langsmith/evaluation";
 import { StringEvaluator } from "langsmith/evaluation";
 import rows from "./smoke.json";
-import { makeExtractYearsChain } from "../../src/chains/extractYearsFewShot.chain";
-import { makeExtractSkillsChain } from "../../src/chains/extractSkills.chain";
-import { makeSmartExtractLevelChain } from "../../src/chains/smartExtractLevel.chain";
-import { makeExtractDomainChain } from "../../src/chains/extractDomain.chain";
+import { YearsExtractionChain } from "../../src/chains/YearsExtractionChain";
+import { SkillsExtractionChain } from "../../src/chains/SkillsExtractionChain";
+import { LevelExtractionChain } from "../../src/chains/LevelExtractionChain";
+import { DomainExtractionChain } from "../../src/chains/DomainExtractionChain";
 
 async function target(inputs: { text: string }) {
-  const yearsChain = await makeExtractYearsChain();
-  const levelChain = await makeSmartExtractLevelChain();
-  const domainChain = await makeExtractDomainChain();
-  const skillsChain = await makeExtractSkillsChain();
+  const yearsChain = new YearsExtractionChain();
+  const levelChain = new LevelExtractionChain();
+  const domainChain = new DomainExtractionChain();
+  const skillsChain = new SkillsExtractionChain();
 
-  const years = await yearsChain(inputs);
-  const level = await levelChain.call(inputs);
-  const domain = await domainChain(inputs);
-  const skills = await skillsChain(inputs);
+  const years = await yearsChain.run(inputs);
+  const level = await levelChain.run(inputs);
+  const domain = await domainChain.run(inputs);
+  const skills = await skillsChain.run(inputs);
 
   return {
-    ...years,
-    level: level.result.text.level,
+    ...years.result,
+    level: level.result.level,
     domains: domain.result.domains,
     skills: skills.result.skills,
   };

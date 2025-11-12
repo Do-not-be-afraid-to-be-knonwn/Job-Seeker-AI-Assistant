@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540">
+  <defs>
+    <style>
+      .background { fill: #f5f7fb; }
+      .node { fill: #ffffff; stroke: #1f3c88; stroke-width: 2; rx: 16; }
+      .feature { fill: #eef3ff; stroke: #1f3c88; stroke-width: 1.8; rx: 14; }
+      .module { fill: #ffffff; stroke: #0b7285; stroke-width: 2.6; rx: 18; }
+      .annotation { fill: #fff6e6; stroke: #c06c84; stroke-width: 1.8; rx: 16; }
+      text { font-family: "Segoe UI", "Arial", sans-serif; fill: #102a43; font-size: 16px; letter-spacing: 0.2px; }
+      .title { font-size: 30px; font-weight: 600; letter-spacing: 0.6px; }
+      .subtitle { font-size: 18px; fill: #627d98; }
+      .small { font-size: 14px; fill: #486581; }
+      .arrow { stroke: #1f3c88; stroke-width: 2.4; fill: none; }
+      .arrow-dashed { stroke: #c06c84; stroke-width: 2.2; fill: none; stroke-dasharray: 10 7; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1f3c88"/>
+    </marker>
+    <marker id="arrow-feedback" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#c06c84"/>
+    </marker>
+  </defs>
+
+  <rect class="background" x="0" y="0" width="960" height="540" rx="24"/>
+
+  <text class="title" x="480" y="70" text-anchor="middle">Matching System Overview</text>
+  <text class="subtitle" x="480" y="100" text-anchor="middle">How resumes and job descriptions flow through enrichment and scoring</text>
+
+  <!-- Input entities -->
+  <rect class="node" x="60" y="130" width="200" height="70"/>
+  <text x="160" y="165" text-anchor="middle">Candidate Resumes</text>
+  <text class="small" x="160" y="185" text-anchor="middle">Raw profiles &amp; uploads</text>
+
+  <rect class="node" x="60" y="250" width="200" height="70"/>
+  <text x="160" y="285" text-anchor="middle">Job Descriptions</text>
+  <text class="small" x="160" y="305" text-anchor="middle">Employer requirements</text>
+
+  <!-- Feature extraction core -->
+  <rect class="module" x="300" y="150" width="220" height="120"/>
+  <text x="410" y="195" text-anchor="middle">Feature Extraction</text>
+  <text class="small" x="410" y="217" text-anchor="middle">Normalization, deduping, LLM parsing</text>
+  <text class="small" x="410" y="239" text-anchor="middle">Produces structured candidate &amp; job signals</text>
+
+  <!-- Derived features -->
+  <rect class="feature" x="560" y="90" width="180" height="70"/>
+  <text x="650" y="125" text-anchor="middle">Skills Embeddings</text>
+  <text class="small" x="650" y="145" text-anchor="middle">Vectorized vs taxonomy</text>
+
+  <rect class="feature" x="560" y="190" width="180" height="70"/>
+  <text x="650" y="225" text-anchor="middle">Experience Timeline</text>
+  <text class="small" x="650" y="245" text-anchor="middle">Tenure &amp; recency signals</text>
+
+  <rect class="feature" x="560" y="290" width="180" height="70"/>
+  <text x="650" y="325" text-anchor="middle">Domain Fit</text>
+  <text class="small" x="650" y="345" text-anchor="middle">Industry &amp; seniority cues</text>
+
+  <!-- Matching engine -->
+  <rect class="module" x="780" y="190" width="180" height="100"/>
+  <text x="870" y="225" text-anchor="middle">Matching Engine</text>
+  <text class="small" x="870" y="247" text-anchor="middle">Weighted scoring and reranking</text>
+
+  <rect class="node" x="780" y="330" width="180" height="70"/>
+  <text x="870" y="365" text-anchor="middle">Ranked Recommendations</text>
+  <text class="small" x="870" y="385" text-anchor="middle">Top matches surfaced</text>
+
+  <!-- Feedback loop -->
+  <rect class="annotation" x="300" y="320" width="220" height="80"/>
+  <text x="410" y="355" text-anchor="middle">Human Feedback &amp; Metrics</text>
+  <text class="small" x="410" y="375" text-anchor="middle">Recruiter actions and success signals</text>
+
+  <!-- Arrows -->
+  <path class="arrow" marker-end="url(#arrow)" d="M260 165 C 290 165 290 205 300 210"/>
+  <path class="arrow" marker-end="url(#arrow)" d="M260 285 C 290 285 290 235 300 230"/>
+
+  <path class="arrow" marker-end="url(#arrow)" d="M520 210 C 535 210 535 125 560 125"/>
+  <path class="arrow" marker-end="url(#arrow)" d="M520 210 L 560 225"/>
+  <path class="arrow" marker-end="url(#arrow)" d="M520 210 C 535 210 535 325 560 325"/>
+
+  <path class="arrow" marker-end="url(#arrow)" d="M740 125 C 760 125 760 215 780 230"/>
+  <path class="arrow" marker-end="url(#arrow)" d="M740 225 C 760 225 760 235 780 235"/>
+  <path class="arrow" marker-end="url(#arrow)" d="M740 325 C 760 325 760 255 780 250"/>
+
+  <path class="arrow" marker-end="url(#arrow)" d="M870 290 L 870 330"/>
+
+  <path class="arrow-dashed" marker-end="url(#arrow-feedback)" d="M300 360 C 260 360 260 260 300 250"/>
+  <path class="arrow-dashed" marker-end="url(#arrow-feedback)" d="M520 360 C 620 360 700 280 780 270"/>
+
+  <!-- Legend -->
+  <rect class="feature" x="60" y="380" width="200" height="90" rx="16"/>
+  <text x="160" y="410" text-anchor="middle">Pipeline Highlights</text>
+  <text class="small" x="160" y="432" text-anchor="middle">Inputs -> Feature extraction -> Matching -> Feedback</text>
+  <text class="small" x="160" y="452" text-anchor="middle">Supports continuous improvement and monitoring</text>
+</svg>
