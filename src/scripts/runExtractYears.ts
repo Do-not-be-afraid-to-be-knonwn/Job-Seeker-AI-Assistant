@@ -1,12 +1,12 @@
-import { makeExtractYearsChain } from "../chains/extractYearsFewShot.chain";
+import { YearsExtractionChain } from "../chains/YearsExtractionChain";
 
 export async function runExtractYearsChain() {
-  const chain = await makeExtractYearsChain();
+  const chain = new YearsExtractionChain();
 
   const jobText =
     "Looking for a UX Designer with at least 4 years in product design.";
-  const result = await chain({ text: jobText });
-  const { requestYears } = result;
+  const result = await chain.run({ text: jobText });
+  const { requestYears } = result.result;
   console.log({ requestYears });
 }
 

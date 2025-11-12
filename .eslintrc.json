@@ -1,0 +1,84 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
+  "plugins": ["@typescript-eslint"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "rules": {
+    // Enforce consistent naming conventions
+    "@typescript-eslint/naming-convention": [
+      "warn",
+      {
+        "selector": "class",
+        "format": ["PascalCase"],
+        "suffix": ["Chain", "Service", "Engine", "Controller", "Error"]
+      },
+      {
+        "selector": "interface",
+        "format": ["PascalCase"]
+      },
+      {
+        "selector": "typeAlias",
+        "format": ["PascalCase"]
+      }
+    ],
+
+    // Enforce explicit return types for better type safety
+    "@typescript-eslint/explicit-function-return-type": [
+      "warn",
+      {
+        "allowExpressions": true,
+        "allowTypedFunctionExpressions": true
+      }
+    ],
+
+    // Discourage 'any' usage
+    "@typescript-eslint/no-explicit-any": "warn",
+
+    // Require proper error handling
+    "@typescript-eslint/no-throw-literal": "error",
+    "no-throw-literal": "error",
+
+    // Prevent accidental use of deprecated patterns
+    "no-restricted-syntax": [
+      "error",
+      {
+        "selector": "CallExpression[callee.property.name='call'][callee.object.name=/.*Chain$/]",
+        "message": "Use .run() method instead of .call() for chain invocation"
+      }
+    ],
+
+    // Enforce consistent code style
+    "@typescript-eslint/consistent-type-imports": "warn",
+    "@typescript-eslint/consistent-type-definitions": ["warn", "interface"],
+
+    // Prevent common mistakes
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_"
+      }
+    ],
+    "@typescript-eslint/no-floating-promises": "error",
+    "@typescript-eslint/await-thenable": "error",
+
+    // Allow console logs (for now - will be replaced with logger)
+    "no-console": "off"
+  },
+  "ignorePatterns": [
+    "node_modules/",
+    "dist/",
+    "*.js",
+    "jest.config.js",
+    "ecosystem.config.cjs"
+  ]
+}
