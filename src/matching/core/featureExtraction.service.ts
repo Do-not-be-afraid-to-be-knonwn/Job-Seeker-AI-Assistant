@@ -1,7 +1,7 @@
-import { makeExtractSkillsChain } from '../../chains/extractSkills.chain';
-import { makeExtractDomainChain } from '../../chains/extractDomain.chain';
-import { makeExtractYearsChain } from '../../chains/extractYearsFewShot.chain';
-import { makeSmartExtractLevelChain } from '../../chains/smartExtractLevel.chain';
+import { SkillsExtractionChain } from '../../chains/SkillsExtractionChain';
+import { DomainExtractionChain } from '../../chains/DomainExtractionChain';
+import { YearsExtractionChain } from '../../chains/YearsExtractionChain';
+import { LevelExtractionChain } from '../../chains/LevelExtractionChain';
 import { JobSections, ResumeSections, TextPreprocessingUtils } from './textPreprocessing.utils';
 import { Skills } from '../../schemas/skills.schema';
 import { Domain } from '../../schemas/domain.schema';
@@ -92,33 +92,24 @@ export interface FeatureMatchAnalysis {
  * Extracts and analyzes features from job descriptions and resumes
  */
 export class FeatureExtractionService {
-  private skillsChain: any = null;
-  private domainChain: any = null;
-  private yearsChain: any = null;
-  private levelChain: any = null;
+  private skillsChain: SkillsExtractionChain;
+  private domainChain: DomainExtractionChain;
+  private yearsChain: YearsExtractionChain;
+  private levelChain: LevelExtractionChain;
 
-  /**
-   * Initialize extraction chains (lazy loading)
-   */
-  private async initializeChains(): Promise<void> {
-    if (!this.skillsChain) {
-      console.log('Initializing feature extraction chains...');
-      [this.skillsChain, this.domainChain, this.yearsChain, this.levelChain] = await Promise.all([
-        makeExtractSkillsChain(),
-        makeExtractDomainChain(),
-        makeExtractYearsChain(),
-        makeSmartExtractLevelChain()
-      ]);
-      console.log('Feature extraction chains initialized');
-    }
+  constructor() {
+    console.log('Initializing feature extraction chains...');
+    this.skillsChain = new SkillsExtractionChain();
+    this.domainChain = new DomainExtractionChain();
+    this.yearsChain = new YearsExtractionChain();
+    this.levelChain = new LevelExtractionChain();
+    console.log('Feature extraction chains initialized');
   }
 
   /**
    * Extract structured features from job description
    */
   async extractJobFeatures(jobSections: JobSections): Promise<ExtractedJobFeatures> {
-    await this.initializeChains();
-
     // Use requirements section primarily, fallback to full text
     const primaryText = jobSections.requirements || jobSections.rawText;
     const qualificationsText = jobSections.qualifications || jobSections.rawText;
@@ -126,16 +117,16 @@ export class FeatureExtractionService {
     try {
       // Extract features in parallel
       const [skillsResult, domainResult, yearsResult, levelResult] = await Promise.allSettled([
-        this.skillsChain({ text: primaryText }),
-        this.domainChain({ text: primaryText }),
-        this.yearsChain({ text: primaryText }),
-        this.levelChain.call({ text: primaryText }) // Different call pattern for level chain
+        this.skillsChain.run({ text: primaryText }),
+        this.domainChain.run({ text: primaryText }),
+        this.yearsChain.run({ text: primaryText }),
+        this.levelChain.run({ text: primaryText })
       ]);
 
       // Process skills with requirements/preferred separation
-      // Skills chain wraps result in {result: {...}}, similar to years/level chains
+      // New chains return ChainOutput<T> with { result, metadata }
       const extractedSkills = skillsResult.status === 'fulfilled' ?
-        (skillsResult.value?.result ?? skillsResult.value) : { skills: [] };
+        skillsResult.value.result : { skills: ['None'] as [string, ...string[]] };
       const skills = this.processJobSkills(
         extractedSkills,
         jobSections
@@ -146,16 +137,16 @@ export class FeatureExtractionService {
       const workAuthRequired = TextPreprocessingUtils.checkWorkAuthorization(primaryText);
       const location = this.extractLocation(jobSections.rawText);
 
-      // Years chain wraps result in {result: {...}}
+      // New chains return ChainOutput<T> with { result, metadata }
       const extractedYears = yearsResult.status === 'fulfilled' ?
-        (yearsResult.value?.result?.requestYears ?? yearsResult.value?.requestYears) : undefined;
-      // Level chain wraps result in {result: {...}}
+        yearsResult.value.result.requestYears : undefined;
+      // Level chain returns ChainOutput<LevelOutput> where LevelOutput is { text: Level }
       const extractedLevel = levelResult.status === 'fulfilled' ?
-        (levelResult.value?.result?.level ?? levelResult.value?.level) : undefined;
+        levelResult.value.result.text.level : undefined;
 
       return {
         skills,
-        domains: domainResult.status === 'fulfilled' ? (domainResult.value?.domains || []) : [],
+        domains: domainResult.status === 'fulfilled' ? (domainResult.value.result?.domains || []) : [],
         yearsRequired: (extractedYears === 0 || extractedYears === undefined || extractedYears === null) ? null : extractedYears,
         levelRequired: (extractedLevel === undefined || extractedLevel === null) ? null : extractedLevel,
         education,
@@ -163,9 +154,9 @@ export class FeatureExtractionService {
         location,
         rawFeatures: {
           skills: extractedSkills,
-          domain: domainResult.status === 'fulfilled' ? domainResult.value : { domains: [] },
-          years: yearsResult.status === 'fulfilled' ? yearsResult.value : { requestYears: 0 },
-          level: levelResult.status === 'fulfilled' ? levelResult.value : { level: 'Unknown' }
+          domain: domainResult.status === 'fulfilled' ? domainResult.value.result : { domains: [] },
+          years: yearsResult.status === 'fulfilled' ? yearsResult.value.result : { requestYears: 0 },
+          level: levelResult.status === 'fulfilled' ? levelResult.value.result.text : { level: null }
         }
       };
 
@@ -179,18 +170,16 @@ export class FeatureExtractionService {
    * Extract structured features from resume
    */
   async extractResumeFeatures(resumeSections: ResumeSections): Promise<ExtractedResumeFeatures> {
-    await this.initializeChains();
-
-    // Use experience section primarily, fallback to full text  
+    // Use experience section primarily, fallback to full text
     const primaryText = resumeSections.experience || resumeSections.rawText;
 
     try {
       // Extract features in parallel
       const [skillsResult, domainResult, yearsResult, levelResult] = await Promise.allSettled([
-        this.skillsChain({ text: primaryText }),
-        this.domainChain({ text: primaryText }),
-        this.yearsChain({ text: primaryText }),
-        this.levelChain.call({ text: primaryText })
+        this.skillsChain.run({ text: primaryText }),
+        this.domainChain.run({ text: primaryText }),
+        this.yearsChain.run({ text: primaryText }),
+        this.levelChain.run({ text: primaryText })
       ]);
 
       // Extract additional metadata
@@ -198,19 +187,19 @@ export class FeatureExtractionService {
       const workAuthStatus = TextPreprocessingUtils.checkWorkAuthorization(resumeSections.rawText);
       const location = this.extractLocation(resumeSections.rawText);
 
-      // Skills chain wraps result in {result: {...}}, similar to years/level chains
+      // New chains return ChainOutput<T> with { result, metadata }
       const extractedResumeSkills = skillsResult.status === 'fulfilled' ?
-        (skillsResult.value?.result ?? skillsResult.value) : { skills: [] };
-      // Years chain wraps result in {result: {...}}
+        skillsResult.value.result : { skills: ['None'] as [string, ...string[]] };
+      // New chains return ChainOutput<T> with { result, metadata }
       const extractedYears = yearsResult.status === 'fulfilled' ?
-        (yearsResult.value?.result?.requestYears ?? yearsResult.value?.requestYears) : undefined;
-      // Level chain wraps result in {result: {...}}
+        yearsResult.value.result.requestYears : undefined;
+      // Level chain returns ChainOutput<LevelOutput> where LevelOutput is { text: Level }
       const extractedLevel = levelResult.status === 'fulfilled' ?
-        (levelResult.value?.result?.level ?? levelResult.value?.level) : undefined;
+        levelResult.value.result.text.level : undefined;
 
       return {
         skills: extractedResumeSkills.skills || [],
-        domains: domainResult.status === 'fulfilled' ? (domainResult.value?.domains || []) : [],
+        domains: domainResult.status === 'fulfilled' ? (domainResult.value.result?.domains || []) : [],
         yearsOfExperience: (extractedYears === 0 || extractedYears === undefined || extractedYears === null) ? null : extractedYears,
         currentLevel: (extractedLevel === undefined || extractedLevel === null) ? null : extractedLevel,
         education,
@@ -218,9 +207,9 @@ export class FeatureExtractionService {
         location,
         rawFeatures: {
           skills: extractedResumeSkills,
-          domain: domainResult.status === 'fulfilled' ? domainResult.value : { domains: [] },
-          years: yearsResult.status === 'fulfilled' ? yearsResult.value : { requestYears: 0 },
-          level: levelResult.status === 'fulfilled' ? levelResult.value : { level: 'Unknown' }
+          domain: domainResult.status === 'fulfilled' ? domainResult.value.result : { domains: [] },
+          years: yearsResult.status === 'fulfilled' ? yearsResult.value.result : { requestYears: 0 },
+          level: levelResult.status === 'fulfilled' ? levelResult.value.result.text : { level: null }
         }
       };
 

@@ -52,6 +52,7 @@
 
    - **Problem**: All sessions lost on server restart
    - **Solution**: Use Redis or database-backed sessions
+
 2. **Ephemeral RSA Keys** (`src/auth/googleAuth.ts:23-28`)
 
    ```typescript
@@ -62,14 +63,17 @@
 
    - **Problem**: Keys regenerated on restart → all JWTs invalidated
    - **Solution**: Persistent key storage or use external JWT service
+
 3. **No Rate Limiting**
 
    - **Problem**: Vulnerable to brute force attacks
    - **Solution**: Implement `express-rate-limit`
+
 4. **No Token Refresh Mechanism**
 
    - **Problem**: Short-lived tokens with no automatic refresh
    - **Solution**: Implement refresh token rotation
+
 5. **Hardcoded Client ID** (`src/auth/googleAuth.ts:75-76`)
 
    - **Problem**: Client ID should be in environment variable
@@ -145,10 +149,12 @@ Vector Database (Semantic Search)
 
    - **Problem**: Clients must check each field individually
    - **Solution**: Use consistent `{ success: boolean, data?, error? }` pattern
+
 2. **No Error Boundaries**
 
    - **Problem**: Unhandled exceptions crash entire server
    - **Solution**: Global error handler middleware
+
 3. **No Graceful Degradation**
 
    - **Problem**: LLM API failure = complete failure
@@ -183,6 +189,7 @@ interface ApiResponse<T> {
    - Transformer model runs on main thread
    - Blocks event loop during calculation
    - **Solution**: Worker threads or separate service
+
 2. **Sequential Batch Processing** (`src/matching/core/jobResumeMatching.chain.ts`)
 
    ```typescript
@@ -190,10 +197,12 @@ interface ApiResponse<T> {
    ```
 
    - **Solution**: Dynamic batch sizing based on load
+
 3. **In-Memory Caching**
 
    - Doesn't scale across instances
    - **Solution**: Redis for distributed caching
+
 4. **No Load Balancing**
 
    - Single server handles all traffic
@@ -216,9 +225,10 @@ Phase 5 (Micro):   Microservices             → 100k+ req/min
 1. **Mixed Chain Invocation** (`server.ts:76-77`)
 
    ```typescript
-   skillsResult = await skillsChain({ text: inputText });     // Direct call
+   skillsResult = await skillsChain({ text: inputText }); // Direct call
    levelResult = await levelChain.call({ text: inputText }); // .call() method
    ```
+
 2. **Mixed Return Types**
 
    ```typescript
@@ -226,6 +236,7 @@ Phase 5 (Micro):   Microservices             → 100k+ req/min
    // Others return direct results
    // Inconsistent error handling
    ```
+
 3. **Class vs Functional Mix**
 
    - Some services use classes (`FeatureExtractionService`)
@@ -354,22 +365,22 @@ console.log(`Attempt ${attempt}/3 with main chain...`);
 
 ```typescript
 // Use Winston or Pino
-import { createLogger, format, transports } from 'winston';
+import { createLogger, format, transports } from "winston";
 
 const logger = createLogger({
-  level: process.env.LOG_LEVEL || 'info',
+  level: process.env.LOG_LEVEL || "info",
   format: format.combine(
     format.timestamp(),
     format.errors({ stack: true }),
     format.json()
   ),
   transports: [
-    new transports.File({ filename: 'error.log', level: 'error' }),
-    new transports.File({ filename: 'combined.log' }),
+    new transports.File({ filename: "error.log", level: "error" }),
+    new transports.File({ filename: "combined.log" }),
     new transports.Console({
-      format: format.simple()
-    })
-  ]
+      format: format.simple(),
+    }),
+  ],
 });
 ```
 
@@ -425,57 +436,65 @@ CMD ["node", "dist/server.js"]
    // Current: /extract-all
    // Should be: /api/v1/extract-all
    ```
+
 2. **Request Validation Middleware**
 
    ```typescript
-   import { celebrate, Joi } from 'celebrate';
+   import { celebrate, Joi } from "celebrate";
 
-   app.post('/api/v1/match-resume',
+   app.post(
+     "/api/v1/match-resume",
      celebrate({
        body: Joi.object({
          jobDescription: Joi.string().required().min(50),
          resumeContent: Joi.string().required().min(100),
-         options: Joi.object().optional()
-       })
+         options: Joi.object().optional(),
+       }),
      }),
      requireAuth,
      matchResumeHandler
    );
    ```
+
 3. **Response Compression**
 
    ```typescript
-   import compression from 'compression';
+   import compression from "compression";
    app.use(compression());
    ```
+
 4. **Rate Limiting**
 
    ```typescript
-   import rateLimit from 'express-rate-limit';
+   import rateLimit from "express-rate-limit";
 
    const limiter = rateLimit({
      windowMs: 15 * 60 * 1000, // 15 minutes
-     max: 100 // limit each IP to 100 requests per windowMs
+     max: 100, // limit each IP to 100 requests per windowMs
    });
 
-   app.use('/api/', limiter);
+   app.use("/api/", limiter);
    ```
+
 5. **API Documentation**
 
    - No Swagger/OpenAPI spec
    - Manual API.md only
    - **Solution**: Generate from code with `swagger-jsdoc`
+
 6. **CORS Configuration**
 
    ```typescript
    // Current: app.use(cors()); // Allows all origins
 
    // Should be:
-   app.use(cors({
-     origin: process.env.CORS_ORIGIN?.split(',') || 'http://localhost:3000',
-     credentials: true,
-     optionsSuccessStatus: 200
-   }));
+   app.use(
+     cors({
+       origin: process.env.CORS_ORIGIN?.split(",") || "http://localhost:3000",
+       credentials: true,
+       optionsSuccessStatus: 200,
+     })
+   );
    ```
 
 ### 3. User-Facing Features
@@ -504,18 +523,21 @@ CMD ["node", "dist/server.js"]
    - Deduplication logic
    - Update frequency management
    - **Tech Stack**: Puppeteer, Playwright, Apify
+
 2. **Resume Parser**
 
    - PDF extraction (`pdf-parse`)
    - DOCX parsing (`mammoth`)
    - Structured data extraction
    - Format validation
+
 3. **Data Quality**
 
    - Validation pipeline
    - Anomaly detection
    - Data cleansing
    - Duplicate detection
+
 4. **ETL Processes**
 
    - Data transformation pipelines
@@ -536,9 +558,9 @@ CMD ["node", "dist/server.js"]
 
 ```typescript
 // src/services/resumeParser.service.ts
-import pdf from 'pdf-parse';
-import mammoth from 'mammoth';
-import { preprocessResume } from '../matching/core/textPreprocessing.utils';
+import pdf from "pdf-parse";
+import mammoth from "mammoth";
+import { preprocessResume } from "../matching/core/textPreprocessing.utils";
 
 export class ResumeParserService {
   async parsePDF(buffer: Buffer): Promise<string> {
@@ -554,12 +576,15 @@ export class ResumeParserService {
   async parseAndExtract(buffer: Buffer, mimeType: string) {
     let text: string;
 
-    if (mimeType === 'application/pdf') {
+    if (mimeType === "application/pdf") {
       text = await this.parsePDF(buffer);
-    } else if (mimeType === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document') {
+    } else if (
+      mimeType ===
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    ) {
       text = await this.parseDOCX(buffer);
     } else {
-      throw new Error('Unsupported file format');
+      throw new Error("Unsupported file format");
     }
 
     // Process and extract features
@@ -574,9 +599,10 @@ export class ResumeParserService {
 **API Endpoint**:
 
 ```typescript
-app.post('/api/v1/resume/upload',
+app.post(
+  "/api/v1/resume/upload",
   requireAuth,
-  upload.single('resume'), // multer middleware
+  upload.single("resume"), // multer middleware
   async (req, res) => {
     const parser = new ResumeParserService();
     const result = await parser.parseAndExtract(
@@ -590,7 +616,7 @@ app.post('/api/v1/resume/upload',
       fileName: req.file.originalname,
       content: result.text,
       features: result.features,
-      sections: result.sections
+      sections: result.sections,
     });
 
     res.json({ success: true, data: result });
@@ -743,10 +769,10 @@ model Application {
 
 ```typescript
 // src/services/jobScraper.service.ts
-import puppeteer from 'puppeteer';
+import puppeteer from "puppeteer";
 
 interface ScraperConfig {
-  source: 'linkedin' | 'indeed' | 'glassdoor';
+  source: "linkedin" | "indeed" | "glassdoor";
   searchQuery: string;
   location: string;
   maxPages: number;
@@ -758,7 +784,7 @@ export class JobScraperService {
   async initialize() {
     this.browser = await puppeteer.launch({
       headless: true,
-      args: ['--no-sandbox']
+      args: ["--no-sandbox"],
     });
   }
 
@@ -766,16 +792,18 @@ export class JobScraperService {
     const page = await this.browser.newPage();
 
     // Navigate to LinkedIn jobs
-    await page.goto(`https://www.linkedin.com/jobs/search/?keywords=${config.searchQuery}&location=${config.location}`);
+    await page.goto(
+      `https://www.linkedin.com/jobs/search/?keywords=${config.searchQuery}&location=${config.location}`
+    );
 
     // Extract job listings
     const jobs = await page.evaluate(() => {
-      const listings = document.querySelectorAll('.job-card');
-      return Array.from(listings).map(card => ({
-        title: card.querySelector('.job-title')?.textContent,
-        company: card.querySelector('.company-name')?.textContent,
-        location: card.querySelector('.location')?.textContent,
-        url: card.querySelector('a')?.href
+      const listings = document.querySelectorAll(".job-card");
+      return Array.from(listings).map((card) => ({
+        title: card.querySelector(".job-title")?.textContent,
+        company: card.querySelector(".company-name")?.textContent,
+        location: card.querySelector(".location")?.textContent,
+        url: card.querySelector("a")?.href,
       }));
     });
 
@@ -783,7 +811,10 @@ export class JobScraperService {
     const detailedJobs = [];
     for (const job of jobs) {
       await page.goto(job.url);
-      const description = await page.$eval('.job-description', el => el.textContent);
+      const description = await page.$eval(
+        ".job-description",
+        (el) => el.textContent
+      );
       detailedJobs.push({ ...job, description });
     }
 
@@ -814,14 +845,24 @@ export class JobScraperService {
 
 ```typescript
 // src/cron/jobScrapingCron.ts
-import cron from 'node-cron';
+import cron from "node-cron";
 
 // Run every day at 2 AM
-cron.schedule('0 2 * * *', async () => {
+cron.schedule("0 2 * * *", async () => {
   const scraper = new JobScraperService();
   const jobs = await scraper.scrapeAll([
-    { source: 'linkedin', searchQuery: 'software engineer', location: 'Remote', maxPages: 5 },
-    { source: 'indeed', searchQuery: 'data scientist', location: 'San Francisco', maxPages: 5 }
+    {
+      source: "linkedin",
+      searchQuery: "software engineer",
+      location: "Remote",
+      maxPages: 5,
+    },
+    {
+      source: "indeed",
+      searchQuery: "data scientist",
+      location: "San Francisco",
+      maxPages: 5,
+    },
   ]);
 
   // Save to database
@@ -829,7 +870,7 @@ cron.schedule('0 2 * * *', async () => {
     await db.jobs.upsert({
       where: { externalId: job.url },
       create: job,
-      update: job
+      update: job,
     });
   }
 });
@@ -875,7 +916,9 @@ export function MatchCard({ match }: { match: Match }) {
         <h4 className="font-semibold">Strengths</h4>
         <ul className="list-disc list-inside">
           {match.explanation.strengths.map((s, i) => (
-            <li key={i} className="text-sm">{s}</li>
+            <li key={i} className="text-sm">
+              {s}
+            </li>
           ))}
         </ul>
       </div>
@@ -884,7 +927,9 @@ export function MatchCard({ match }: { match: Match }) {
         <h4 className="font-semibold text-orange-600">Concerns</h4>
         <ul className="list-disc list-inside">
           {match.explanation.concerns.map((c, i) => (
-            <li key={i} className="text-sm">{c}</li>
+            <li key={i} className="text-sm">
+              {c}
+            </li>
           ))}
         </ul>
       </div>
@@ -908,7 +953,7 @@ export function MatchCard({ match }: { match: Match }) {
 
 ```typescript
 // src/services/emailNotification.service.ts
-import sgMail from '@sendgrid/mail';
+import sgMail from "@sendgrid/mail";
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
@@ -916,7 +961,7 @@ export class EmailNotificationService {
   async sendMatchAlert(user: User, match: Match) {
     const msg = {
       to: user.email,
-      from: 'noreply@jobseekerai.com',
+      from: "noreply@jobseekerai.com",
       subject: `New Match: ${match.job.title} at ${match.job.company} (${match.score}% match)`,
       html: `
         <h2>New Job Match Found!</h2>
@@ -928,7 +973,7 @@ export class EmailNotificationService {
 
           <h4>Why it's a good match:</h4>
           <ul>
-            ${match.explanation.strengths.map(s => `<li>${s}</li>`).join('')}
+            ${match.explanation.strengths.map((s) => `<li>${s}</li>`).join("")}
           </ul>
 
           <a href="https://jobseekerai.com/matches/${match.id}"
@@ -936,7 +981,7 @@ export class EmailNotificationService {
             View Full Match Details
           </a>
         </div>
-      `
+      `,
     };
 
     await sgMail.send(msg);
@@ -976,8 +1021,8 @@ interface SalaryMatch {
 ```typescript
 interface LocationMatch {
   score: number;
-  preference: 'remote' | 'hybrid' | 'onsite';
-  jobRequirement: 'remote' | 'hybrid' | 'onsite';
+  preference: "remote" | "hybrid" | "onsite";
+  jobRequirement: "remote" | "hybrid" | "onsite";
   commuteDIstance?: number; // miles
   willingnessToRelocate: boolean;
 }
@@ -1364,41 +1409,43 @@ echo ".env" >> .gitignore
 
 ```typescript
 // Implement Redis session storage
-import Redis from 'ioredis';
-import session from 'express-session';
-import RedisStore from 'connect-redis';
+import Redis from "ioredis";
+import session from "express-session";
+import RedisStore from "connect-redis";
 
 const redis = new Redis(process.env.REDIS_URL);
 const redisStore = new RedisStore({ client: redis });
 
-app.use(session({
-  store: redisStore,
-  secret: process.env.SESSION_SECRET,
-  resave: false,
-  saveUninitialized: false,
-  cookie: {
-    secure: process.env.NODE_ENV === 'production',
-    httpOnly: true,
-    maxAge: 1000 * 60 * 60 * 24 * 7 // 7 days
-  }
-}));
+app.use(
+  session({
+    store: redisStore,
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      secure: process.env.NODE_ENV === "production",
+      httpOnly: true,
+      maxAge: 1000 * 60 * 60 * 24 * 7, // 7 days
+    },
+  })
+);
 ```
 
 **Day 5: Rate Limiting & Basic Security**
 
 ```typescript
-import helmet from 'helmet';
-import rateLimit from 'express-rate-limit';
+import helmet from "helmet";
+import rateLimit from "express-rate-limit";
 
 app.use(helmet());
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 100,
-  message: 'Too many requests from this IP'
+  message: "Too many requests from this IP",
 });
 
-app.use('/api/', limiter);
+app.use("/api/", limiter);
 ```
 
 ### Week 2: Testing & Quality
@@ -1408,22 +1455,22 @@ app.use('/api/', limiter);
 ```typescript
 // jest.config.js improvements
 module.exports = {
-  preset: 'ts-jest',
-  testEnvironment: 'node',
-  coverageDirectory: 'coverage',
+  preset: "ts-jest",
+  testEnvironment: "node",
+  coverageDirectory: "coverage",
   collectCoverageFrom: [
-    'src/**/*.ts',
-    '!src/**/*.test.ts',
-    '!src/**/*.spec.ts'
+    "src/**/*.ts",
+    "!src/**/*.test.ts",
+    "!src/**/*.spec.ts",
   ],
   coverageThreshold: {
     global: {
       branches: 70,
       functions: 70,
       lines: 70,
-      statements: 70
-    }
-  }
+      statements: 70,
+    },
+  },
 };
 ```
 
@@ -1431,29 +1478,29 @@ module.exports = {
 
 ```typescript
 // Example: src/matching/core/hybridScoring.engine.test.ts
-describe('HybridScoringEngine', () => {
+describe("HybridScoringEngine", () => {
   let engine: HybridScoringEngine;
 
   beforeEach(() => {
     engine = new HybridScoringEngine();
   });
 
-  describe('calculateScore', () => {
-    it('should calculate correct weighted score', () => {
+  describe("calculateScore", () => {
+    it("should calculate correct weighted score", () => {
       const input = {
         semanticScore: 0.8,
         skillsCoverage: 0.7,
-        experienceScore: 1.0
+        experienceScore: 1.0,
       };
 
       const result = engine.calculateScore(input);
       expect(result.finalScore).toBeCloseTo(77.5);
     });
 
-    it('should apply hard gates correctly', () => {
+    it("should apply hard gates correctly", () => {
       const input = {
         skillsCoverage: 0.2, // Below 30% threshold
-        semanticScore: 0.9
+        semanticScore: 0.9,
       };
 
       const result = engine.calculateScore(input);
@@ -1487,8 +1534,8 @@ npx prisma generate
 
 ```typescript
 // src/auth/registration.service.ts
-import bcrypt from 'bcrypt';
-import { PrismaClient } from '@prisma/client';
+import bcrypt from "bcrypt";
+import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
@@ -1496,11 +1543,11 @@ export class RegistrationService {
   async register(email: string, password: string, name: string) {
     // Check if user exists
     const existing = await prisma.user.findUnique({
-      where: { email }
+      where: { email },
     });
 
     if (existing) {
-      throw new Error('User already exists');
+      throw new Error("User already exists");
     }
 
     // Hash password
@@ -1511,8 +1558,8 @@ export class RegistrationService {
       data: {
         email,
         passwordHash,
-        name
-      }
+        name,
+      },
     });
 
     return user;
@@ -1520,17 +1567,17 @@ export class RegistrationService {
 
   async login(email: string, password: string) {
     const user = await prisma.user.findUnique({
-      where: { email }
+      where: { email },
     });
 
     if (!user || !user.passwordHash) {
-      throw new Error('Invalid credentials');
+      throw new Error("Invalid credentials");
     }
 
     const valid = await bcrypt.compare(password, user.passwordHash);
 
     if (!valid) {
-      throw new Error('Invalid credentials');
+      throw new Error("Invalid credentials");
     }
 
     return user;
@@ -1584,7 +1631,7 @@ CMD ["node", "dist/server.js"]
 
 ```yaml
 # docker-compose.yml
-version: '3.8'
+version: "3.8"
 
 services:
   app:
@@ -1682,8 +1729,8 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
-          cache: 'npm'
+          node-version: "18"
+          cache: "npm"
 
       - name: Install dependencies
         run: npm ci
@@ -1761,7 +1808,7 @@ jobs:
 
 ```yaml
 # docker-compose.monitoring.yml
-version: '3.8'
+version: "3.8"
 
 services:
   prometheus:
@@ -1772,8 +1819,8 @@ services:
     ports:
       - "9090:9090"
     command:
-      - '--config.file=/etc/prometheus/prometheus.yml'
-      - '--storage.tsdb.path=/prometheus'
+      - "--config.file=/etc/prometheus/prometheus.yml"
+      - "--storage.tsdb.path=/prometheus"
 
   grafana:
     image: grafana/grafana:latest
@@ -1799,17 +1846,17 @@ volumes:
 
 ```typescript
 // Add Prometheus metrics to Express app
-import promClient from 'prom-client';
+import promClient from "prom-client";
 
 const register = new promClient.Registry();
 
 promClient.collectDefaultMetrics({ register });
 
 const httpRequestDuration = new promClient.Histogram({
-  name: 'http_request_duration_seconds',
-  help: 'Duration of HTTP requests in seconds',
-  labelNames: ['method', 'route', 'status_code'],
-  buckets: [0.1, 0.5, 1, 2, 5, 10]
+  name: "http_request_duration_seconds",
+  help: "Duration of HTTP requests in seconds",
+  labelNames: ["method", "route", "status_code"],
+  buckets: [0.1, 0.5, 1, 2, 5, 10],
 });
 
 register.registerMetric(httpRequestDuration);
@@ -1818,10 +1865,14 @@ register.registerMetric(httpRequestDuration);
 app.use((req, res, next) => {
   const start = Date.now();
 
-  res.on('finish', () => {
+  res.on("finish", () => {
     const duration = (Date.now() - start) / 1000;
     httpRequestDuration
-      .labels(req.method, req.route?.path || req.path, res.statusCode.toString())
+      .labels(
+        req.method,
+        req.route?.path || req.path,
+        res.statusCode.toString()
+      )
       .observe(duration);
   });
 
@@ -1829,8 +1880,8 @@ app.use((req, res, next) => {
 });
 
 // Metrics endpoint
-app.get('/metrics', async (req, res) => {
-  res.set('Content-Type', register.contentType);
+app.get("/metrics", async (req, res) => {
+  res.set("Content-Type", register.contentType);
   res.end(await register.metrics());
 });
 ```
