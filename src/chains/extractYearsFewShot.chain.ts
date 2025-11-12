@@ -1,11 +1,14 @@
-import { makeExtractYearsFewShotPrompt } from "../prompts/extractYearsFewShot";
-import { makeChain } from "../llm/clients";
-import { YearsSchema } from "../schemas/years.schema";
+import { YearsExtractionChain } from './YearsExtractionChain';
 
+/**
+ * @deprecated Use YearsExtractionChain directly
+ * Backward compatibility adapter for old code
+ */
 export async function makeExtractYearsChain() {
-  // 1) build your few-shot prompt
-  const prompt = await makeExtractYearsFewShotPrompt();
+  const chainInstance = new YearsExtractionChain();
 
-  // 2) wire up the chain with monitoring
-  return makeChain(prompt as any, YearsSchema, "extractYears");
+  return async (input: { text: string }, testExpected?: any) => {
+    const result = await chainInstance.run(input, testExpected);
+    return result;
+  };
 }

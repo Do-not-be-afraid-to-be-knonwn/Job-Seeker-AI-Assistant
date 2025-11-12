@@ -1,11 +1,14 @@
-import { makeExtractDomainPrompt } from "../prompts/extractDomainPrompt";
-import { makeChain } from "../llm/clients";
-import { DomainSchema } from "../schemas/domain.schema";
+import { DomainExtractionChain } from './DomainExtractionChain';
 
+/**
+ * @deprecated Use DomainExtractionChain directly
+ * Backward compatibility adapter for old code
+ */
 export async function makeExtractDomainChain() {
-  // 1) build your prompt
-  const prompt = await makeExtractDomainPrompt();
+  const chainInstance = new DomainExtractionChain();
 
-  // 2) wire up the chain with monitoring
-  return makeChain(prompt as any, DomainSchema, "extractDomain");
+  return async (input: { text: string }, testExpected?: any) => {
+    const result = await chainInstance.run(input, testExpected);
+    return result;
+  };
 }
