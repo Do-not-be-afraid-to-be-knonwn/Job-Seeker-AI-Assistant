@@ -1,3 +1,5 @@
+I want you to scan the entire project and help me identify any issues. What valuable features should be added? Does the architecture need to be changed? What is still missing to reach a product-level quality?
+
 Key Issues
 
 verifyJwt only base64‑decodes the token and checks aud/exp; the RSA key generated in Google auth is never used, so any client can mint a fake { aud: "extension" } token and gain full API access (src/middleware/auth.ts (lines 10-69)).

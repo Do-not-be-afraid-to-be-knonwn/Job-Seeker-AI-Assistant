@@ -22,8 +22,8 @@ async function target(inputs: { text: string }) {
   const skills = await skillsChain.run(inputs);
 
   return {
-    ...years.result,
-    level: level.result.level,
+    ...years.result,  // This now includes {minYears, maxYears}
+    level: level.result.text.level,  // Fixed: nested structure
     domains: domain.result.domains,
     skills: skills.result.skills,
   };
@@ -42,7 +42,8 @@ async function runSmokeTest() {
   const examples = rows.map((r: any) => ({
     inputs: { text: r.job_description },
     outputs: {
-      requestYears: r.years_required,
+      minYears: r.years_required,  // Updated to new schema
+      maxYears: r.years_required,  // For single value, min = max
       level: r.title_level,
       domain: r.job_domain,
       skills: r.technologies_required || [],
@@ -58,10 +59,11 @@ async function runSmokeTest() {
   // Create evaluators for exact-match fields
   const yearsEvaluator = new StringEvaluator({
     inputKey: "text",
-    predictionKey: "requestYears",
+    predictionKey: "minYears",
     gradingFunction: async (params: any) => {
+      // Check if minYears matches the expected value
       const isCorrect =
-        params.prediction.requestYears === params.reference.years;
+        params.prediction.minYears === params.reference.minYears;
       return {
         score: isCorrect ? 1 : 0,
         reasoning: isCorrect ? "Exact match" : "Mismatch",

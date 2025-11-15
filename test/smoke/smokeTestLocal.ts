@@ -47,8 +47,10 @@ async function runLocalSmokeTest() {
       const yearsResponse = await yearsChain.run(inputText, row.years_required);
       const yearsValidation = yearsResponse?.validation;
       if (yearsValidation?.match) correctYears++;
+      // Handle new {minYears, maxYears} structure
+      const actualYears = yearsValidation?.actual?.minYears ?? yearsValidation?.actual;
       console.log(
-        `Years: ${yearsValidation?.actual} (expected: ${
+        `Years: ${actualYears} (expected: ${
           yearsValidation?.expected
         }) ${yearsValidation?.match ? "✅" : "❌"}`
       );
@@ -67,8 +69,12 @@ async function runLocalSmokeTest() {
       const domainResponse = await domainChain.run(inputText, row.job_domain);
       const domainValidation = domainResponse?.validation;
       if (domainValidation?.match) correctDomain++;
+      // Handle domains array structure
+      const actualDomains = Array.isArray(domainValidation?.actual?.domains)
+        ? domainValidation.actual.domains
+        : (Array.isArray(domainValidation?.actual) ? domainValidation.actual : [domainValidation?.actual]);
       console.log(
-        `Domains: [${domainValidation?.actual.join(", ")}] (expected: ${
+        `Domains: [${actualDomains.join(", ")}] (expected: ${
           domainValidation?.expected
         }) ${domainValidation?.match ? "✅" : "❌"}`
       );
@@ -78,10 +84,15 @@ async function runLocalSmokeTest() {
       const skillsResponse = await skillsChain.run(inputText, expectedSkills);
       const skillsValidation = skillsResponse?.validation;
       if (skillsValidation?.match) correctSkills++;
+      // Handle skills array structure
+      const actualSkills = Array.isArray(skillsValidation?.actual?.skills)
+        ? skillsValidation.actual.skills
+        : (Array.isArray(skillsValidation?.actual) ? skillsValidation.actual : []);
+      const expectedSkillsList = Array.isArray(skillsValidation?.expected) ? skillsValidation.expected : [];
       console.log(
-        `Skills: [${skillsValidation?.actual.join(
+        `Skills: [${actualSkills.join(
           ", "
-        )}] (expected: [${skillsValidation?.expected.join(", ")}]) ${
+        )}] (expected: [${expectedSkillsList.join(", ")}]) ${
           skillsValidation?.match ? "✅" : "❌"
         }`
       );

@@ -138,8 +138,9 @@ export class FeatureExtractionService {
       const location = this.extractLocation(jobSections.rawText);
 
       // New chains return ChainOutput<T> with { result, metadata }
+      // Use minYears as the primary requirement
       const extractedYears = yearsResult.status === 'fulfilled' ?
-        yearsResult.value.result.requestYears : undefined;
+        yearsResult.value.result.minYears : undefined;
       // Level chain returns ChainOutput<LevelOutput> where LevelOutput is { text: Level }
       const extractedLevel = levelResult.status === 'fulfilled' ?
         levelResult.value.result.text.level : undefined;
@@ -155,7 +156,7 @@ export class FeatureExtractionService {
         rawFeatures: {
           skills: extractedSkills,
           domain: domainResult.status === 'fulfilled' ? domainResult.value.result : { domains: [] },
-          years: yearsResult.status === 'fulfilled' ? yearsResult.value.result : { requestYears: 0 },
+          years: yearsResult.status === 'fulfilled' ? yearsResult.value.result : { minYears: null, maxYears: null },
           level: levelResult.status === 'fulfilled' ? levelResult.value.result.text : { level: null }
         }
       };
@@ -191,8 +192,9 @@ export class FeatureExtractionService {
       const extractedResumeSkills = skillsResult.status === 'fulfilled' ?
         skillsResult.value.result : { skills: ['None'] as [string, ...string[]] };
       // New chains return ChainOutput<T> with { result, metadata }
+      // Use minYears as the primary requirement
       const extractedYears = yearsResult.status === 'fulfilled' ?
-        yearsResult.value.result.requestYears : undefined;
+        yearsResult.value.result.minYears : undefined;
       // Level chain returns ChainOutput<LevelOutput> where LevelOutput is { text: Level }
       const extractedLevel = levelResult.status === 'fulfilled' ?
         levelResult.value.result.text.level : undefined;
@@ -208,7 +210,7 @@ export class FeatureExtractionService {
         rawFeatures: {
           skills: extractedResumeSkills,
           domain: domainResult.status === 'fulfilled' ? domainResult.value.result : { domains: [] },
-          years: yearsResult.status === 'fulfilled' ? yearsResult.value.result : { requestYears: 0 },
+          years: yearsResult.status === 'fulfilled' ? yearsResult.value.result : { minYears: null, maxYears: null },
           level: levelResult.status === 'fulfilled' ? levelResult.value.result.text : { level: null }
         }
       };
@@ -662,7 +664,7 @@ export class FeatureExtractionService {
       rawFeatures: {
         skills: { skills: ['None'] },
         domain: { domains: ['General'] },
-        years: { requestYears: null },
+        years: { minYears: null, maxYears: null },
         level: { level: null }
       }
     };
@@ -680,7 +682,7 @@ export class FeatureExtractionService {
       rawFeatures: {
         skills: { skills: ['None'] },
         domain: { domains: ['General'] },
-        years: { requestYears: null },
+        years: { minYears: null, maxYears: null },
         level: { level: null }
       }
     };

@@ -6,8 +6,9 @@
   "type": "commonjs",
   "scripts": {
     "test": "jest",
-    "start": "ts-node src/scripts/runExtractSkills.ts",
+    "start": "ts-node server.ts",
     "dev": "ts-node --watch src/scripts/runExtractSkills.ts",
+    "dev:years": "ts-node src/scripts/runExtractYears.ts",
     "smoke": "ts-node test/smoke/smokeTest.ts",
     "smoke:local": "ts-node test/smoke/smokeTestLocal.ts",
     "export-metrics": "ts-node src/scripts/exportMetrics.ts",

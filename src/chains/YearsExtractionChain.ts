@@ -6,16 +6,19 @@ import { GeminiPrimaryClient, GeminiFallbackClient } from '../llm/clients';
 /**
  * Years of Experience Extraction Chain
  *
- * Extracts required years of experience from job postings.
- * Returns null if no specific years are mentioned or if it's entry-level.
+ * Extracts required years of experience range from job postings.
+ * Returns minYears and maxYears. For single requirements (e.g., "5+ years"),
+ * both values are the same. For ranges (e.g., "3-5 years"), they differ.
+ * Returns null if no specific years are mentioned.
  *
  * Uses few-shot learning for better accuracy.
  *
  * @example
  * ```typescript
  * const chain = new YearsExtractionChain();
- * const result = await chain.run({ text: "5+ years of experience..." });
- * console.log(result.result.requestYears); // 5
+ * const result = await chain.run({ text: "3-5 years of experience..." });
+ * console.log(result.result.minYears); // 3
+ * console.log(result.result.maxYears); // 5
  * ```
  */
 export class YearsExtractionChain extends AbstractChain<ChainInput, Years> {

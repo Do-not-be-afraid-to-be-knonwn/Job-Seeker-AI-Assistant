@@ -70,7 +70,7 @@ export class JobResumeMatchingChain {
           rawFeatures: {
             skills: { skills: resumeFeatures.skills.length > 0 ? resumeFeatures.skills : ['None'] as any },
             domain: { domains: resumeFeatures.domains.length > 0 ? resumeFeatures.domains : ['General'] as any },
-            years: { requestYears: resumeFeatures.yearsOfExperience ?? null } as any,
+            years: { minYears: resumeFeatures.yearsOfExperience ?? null, maxYears: resumeFeatures.yearsOfExperience ?? null } as any,
             level: { level: resumeFeatures.currentLevel ?? null } as any
           }
         } as any;
