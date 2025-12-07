@@ -1,0 +1,3040 @@
+
+> job-seeker-ai-assistant@0.0.1 test
+> jest
+
+ts-jest[ts-jest-transformer] (WARN) Define `ts-jest` config under `globals` is deprecated. Please do
+transform: {
+    <transform_regex>: ['ts-jest', { /* ts-jest config goes here in Jest */ }],
+},
+See more at https://kulshekhar.github.io/ts-jest/docs/getting-started/presets#advanced
+ts-jest[ts-jest-transformer] (WARN) Define `ts-jest` config under `globals` is deprecated. Please do
+transform: {
+    <transform_regex>: ['ts-jest', { /* ts-jest config goes here in Jest */ }],
+},
+See more at https://kulshekhar.github.io/ts-jest/docs/getting-started/presets#advanced
+ts-jest[ts-jest-transformer] (WARN) Define `ts-jest` config under `globals` is deprecated. Please do
+transform: {
+    <transform_regex>: ['ts-jest', { /* ts-jest config goes here in Jest */ }],
+},
+See more at https://kulshekhar.github.io/ts-jest/docs/getting-started/presets#advanced
+ts-jest[ts-jest-transformer] (WARN) Define `ts-jest` config under `globals` is deprecated. Please do
+transform: {
+    <transform_regex>: ['ts-jest', { /* ts-jest config goes here in Jest */ }],
+},
+See more at https://kulshekhar.github.io/ts-jest/docs/getting-started/presets#advanced
+ts-jest[ts-jest-transformer] (WARN) Define `ts-jest` config under `globals` is deprecated. Please do
+transform: {
+    <transform_regex>: ['ts-jest', { /* ts-jest config goes here in Jest */ }],
+},
+See more at https://kulshekhar.github.io/ts-jest/docs/getting-started/presets#advanced
+ts-jest[ts-jest-transformer] (WARN) Define `ts-jest` config under `globals` is deprecated. Please do
+transform: {
+    <transform_regex>: ['ts-jest', { /* ts-jest config goes here in Jest */ }],
+},
+See more at https://kulshekhar.github.io/ts-jest/docs/getting-started/presets#advanced
+ts-jest[ts-jest-transformer] (WARN) Define `ts-jest` config under `globals` is deprecated. Please do
+transform: {
+    <transform_regex>: ['ts-jest', { /* ts-jest config goes here in Jest */ }],
+},
+See more at https://kulshekhar.github.io/ts-jest/docs/getting-started/presets#advanced
+ts-jest[ts-jest-transformer] (WARN) Define `ts-jest` config under `globals` is deprecated. Please do
+transform: {
+    <transform_regex>: ['ts-jest', { /* ts-jest config goes here in Jest */ }],
+},
+See more at https://kulshekhar.github.io/ts-jest/docs/getting-started/presets#advanced
+ts-jest[ts-jest-transformer] (WARN) Define `ts-jest` config under `globals` is deprecated. Please do
+transform: {
+    <transform_regex>: ['ts-jest', { /* ts-jest config goes here in Jest */ }],
+},
+See more at https://kulshekhar.github.io/ts-jest/docs/getting-started/presets#advanced
+ts-jest[ts-jest-transformer] (WARN) Define `ts-jest` config under `globals` is deprecated. Please do
+transform: {
+    <transform_regex>: ['ts-jest', { /* ts-jest config goes here in Jest */ }],
+},
+See more at https://kulshekhar.github.io/ts-jest/docs/getting-started/presets#advanced
+PASS test/backgroundQueue.test.js
+  ● Console
+
+    console.log
+      Background script loaded!
+
+      at src/chrome-extension-template/background.js:1:9
+
+    console.log
+      Message received: { type: 'USER_FEEDBACK', payload: { id: 1 } }
+
+      at src/chrome-extension-template/background.js:423:11
+
+    console.log
+      Message received: { type: 'USER_FEEDBACK', payload: { id: 2 } }
+
+      at src/chrome-extension-template/background.js:423:11
+
+PASS test/background.test.js
+  ● Console
+
+    console.log
+      Background script loaded!
+
+      at Object.<anonymous> (src/chrome-extension-template/background.js:1:111)
+
+    console.log
+      makeAuthenticatedRequest: Starting authenticated request to: http://localhost:3000/feedback
+
+      at makeAuthenticatedRequest (src/chrome-extension-template/background.js:225:11)
+
+    console.log
+      loadAuth: Loading auth tokens...
+
+      at loadAuth (src/chrome-extension-template/background.js:181:13)
+
+    console.error
+      loadAuth: Error loading auth tokens: TypeError: cb is not a function
+          at Object.get (F:\Github\Job-Seeker-AI-Assistant\test\background.test.js:55:9)
+          at loadAuth (F:\Github\Job-Seeker-AI-Assistant\src\chrome-extension-template\background.js:182:47)
+          at makeAuthenticatedRequest (F:\Github\Job-Seeker-AI-Assistant\src\chrome-extension-template\background.js:227:22)
+          at processQueue (F:\Github\Job-Seeker-AI-Assistant\src\chrome-extension-template\background.js:79:30)
+          at processTicksAndRejections (node:internal/process/task_queues:105:5)
+          at Object.<anonymous> (F:\Github\Job-Seeker-AI-Assistant\test\background.test.js:107:5)
+
+    [0m [90m 198 |[39m     [36mreturn[39m tokens[33m;[39m
+     [90m 199 |[39m   } [36mcatch[39m (error) {
+    [31m[1m>[22m[39m[90m 200 |[39m     console[33m.[39merror([32m'loadAuth: Error loading auth tokens:'[39m[33m,[39m error)[33m;[39m
+     [90m     |[39m             [31m[1m^[22m[39m
+     [90m 201 |[39m     [36mreturn[39m [36mnull[39m[33m;[39m
+     [90m 202 |[39m   }
+     [90m 203 |[39m }[0m
+
+      at loadAuth (src/chrome-extension-template/background.js:200:13)
+      at makeAuthenticatedRequest (src/chrome-extension-template/background.js:227:22)
+      at processQueue (src/chrome-extension-template/background.js:79:30)
+      at Object.<anonymous> (test/background.test.js:107:5)
+
+    console.log
+      makeAuthenticatedRequest: Initial token load result: { hasTokens: false, hasJwt: false, jwtLength: undefined }
+
+      at makeAuthenticatedRequest (src/chrome-extension-template/background.js:228:11)
+
+    console.error
+      makeAuthenticatedRequest: No valid tokens found
+
+    [0m [90m 233 |[39m   
+     [90m 234 |[39m   [36mif[39m ([33m![39mtokens [33m||[39m [33m![39mtokens[33m.[39mjwt) {
+    [31m[1m>[22m[39m[90m 235 |[39m     console[33m.[39merror([32m'makeAuthenticatedRequest: No valid tokens found'[39m)[33m;[39m
+     [90m     |[39m             [31m[1m^[22m[39m
+     [90m 236 |[39m     [36mthrow[39m [36mnew[39m [33mError[39m([32m'Authentication required. Please sign in first.'[39m)[33m;[39m
+     [90m 237 |[39m   }
+     [90m 238 |[39m[0m
+
+      at makeAuthenticatedRequest (src/chrome-extension-template/background.js:235:13)
+      at processQueue (src/chrome-extension-template/background.js:79:24)
+      at Object.<anonymous> (test/background.test.js:107:5)
+
+    console.log
+      makeAuthenticatedRequest: Starting authenticated request to: http://localhost:3000/feedback
+
+      at makeAuthenticatedRequest (src/chrome-extension-template/background.js:225:11)
+
+    console.log
+      loadAuth: Loading auth tokens...
+
+      at loadAuth (src/chrome-extension-template/background.js:181:13)
+
+    console.error
+      loadAuth: Error loading auth tokens: TypeError: cb is not a function
+          at Object.get (F:\Github\Job-Seeker-AI-Assistant\test\background.test.js:55:9)
+          at loadAuth (F:\Github\Job-Seeker-AI-Assistant\src\chrome-extension-template\background.js:182:47)
+          at makeAuthenticatedRequest (F:\Github\Job-Seeker-AI-Assistant\src\chrome-extension-template\background.js:227:22)
+          at processQueue (F:\Github\Job-Seeker-AI-Assistant\src\chrome-extension-template\background.js:79:30)
+          at processTicksAndRejections (node:internal/process/task_queues:105:5)
+          at Object.<anonymous> (F:\Github\Job-Seeker-AI-Assistant\test\background.test.js:122:7)
+
+    [0m [90m 198 |[39m     [36mreturn[39m tokens[33m;[39m
+     [90m 199 |[39m   } [36mcatch[39m (error) {
+    [31m[1m>[22m[39m[90m 200 |[39m     console[33m.[39merror([32m'loadAuth: Error loading auth tokens:'[39m[33m,[39m error)[33m;[39m
+     [90m     |[39m             [31m[1m^[22m[39m
+     [90m 201 |[39m     [36mreturn[39m [36mnull[39m[33m;[39m
+     [90m 202 |[39m   }
+     [90m 203 |[39m }[0m
+
+      at loadAuth (src/chrome-extension-template/background.js:200:13)
+      at makeAuthenticatedRequest (src/chrome-extension-template/background.js:227:22)
+      at processQueue (src/chrome-extension-template/background.js:79:30)
+      at Object.<anonymous> (test/background.test.js:122:7)
+
+    console.log
+      makeAuthenticatedRequest: Initial token load result: { hasTokens: false, hasJwt: false, jwtLength: undefined }
+
+      at makeAuthenticatedRequest (src/chrome-extension-template/background.js:228:11)
+
+    console.error
+      makeAuthenticatedRequest: No valid tokens found
+
+    [0m [90m 233 |[39m   
+     [90m 234 |[39m   [36mif[39m ([33m![39mtokens [33m||[39m [33m![39mtokens[33m.[39mjwt) {
+    [31m[1m>[22m[39m[90m 235 |[39m     console[33m.[39merror([32m'makeAuthenticatedRequest: No valid tokens found'[39m)[33m;[39m
+     [90m     |[39m             [31m[1m^[22m[39m
+     [90m 236 |[39m     [36mthrow[39m [36mnew[39m [33mError[39m([32m'Authentication required. Please sign in first.'[39m)[33m;[39m
+     [90m 237 |[39m   }
+     [90m 238 |[39m[0m
+
+      at makeAuthenticatedRequest (src/chrome-extension-template/background.js:235:13)
+      at processQueue (src/chrome-extension-template/background.js:79:24)
+      at Object.<anonymous> (test/background.test.js:122:7)
+
+    console.log
+      makeAuthenticatedRequest: Starting authenticated request to: http://localhost:3000/feedback
+
+      at makeAuthenticatedRequest (src/chrome-extension-template/background.js:225:11)
+
+    console.log
+      loadAuth: Loading auth tokens...
+
+      at loadAuth (src/chrome-extension-template/background.js:181:13)
+
+    console.error
+      loadAuth: Error loading auth tokens: TypeError: cb is not a function
+          at Object.get (F:\Github\Job-Seeker-AI-Assistant\test\background.test.js:55:9)
+          at loadAuth (F:\Github\Job-Seeker-AI-Assistant\src\chrome-extension-template\background.js:182:47)
+          at makeAuthenticatedRequest (F:\Github\Job-Seeker-AI-Assistant\src\chrome-extension-template\background.js:227:22)
+          at processQueue (F:\Github\Job-Seeker-AI-Assistant\src\chrome-extension-template\background.js:79:30)
+          at processTicksAndRejections (node:internal/process/task_queues:105:5)
+          at Object.<anonymous> (F:\Github\Job-Seeker-AI-Assistant\test\background.test.js:122:7)
+
+    [0m [90m 198 |[39m     [36mreturn[39m tokens[33m;[39m
+     [90m 199 |[39m   } [36mcatch[39m (error) {
+    [31m[1m>[22m[39m[90m 200 |[39m     console[33m.[39merror([32m'loadAuth: Error loading auth tokens:'[39m[33m,[39m error)[33m;[39m
+     [90m     |[39m             [31m[1m^[22m[39m
+     [90m 201 |[39m     [36mreturn[39m [36mnull[39m[33m;[39m
+     [90m 202 |[39m   }
+     [90m 203 |[39m }[0m
+
+      at loadAuth (src/chrome-extension-template/background.js:200:13)
+      at makeAuthenticatedRequest (src/chrome-extension-template/background.js:227:22)
+      at processQueue (src/chrome-extension-template/background.js:79:30)
+      at Object.<anonymous> (test/background.test.js:122:7)
+
+    console.log
+      makeAuthenticatedRequest: Initial token load result: { hasTokens: false, hasJwt: false, jwtLength: undefined }
+
+      at makeAuthenticatedRequest (src/chrome-extension-template/background.js:228:11)
+
+    console.error
+      makeAuthenticatedRequest: No valid tokens found
+
+    [0m [90m 233 |[39m   
+     [90m 234 |[39m   [36mif[39m ([33m![39mtokens [33m||[39m [33m![39mtokens[33m.[39mjwt) {
+    [31m[1m>[22m[39m[90m 235 |[39m     console[33m.[39merror([32m'makeAuthenticatedRequest: No valid tokens found'[39m)[33m;[39m
+     [90m     |[39m             [31m[1m^[22m[39m
+     [90m 236 |[39m     [36mthrow[39m [36mnew[39m [33mError[39m([32m'Authentication required. Please sign in first.'[39m)[33m;[39m
+     [90m 237 |[39m   }
+     [90m 238 |[39m[0m
+
+      at makeAuthenticatedRequest (src/chrome-extension-template/background.js:235:13)
+      at processQueue (src/chrome-extension-template/background.js:79:24)
+      at Object.<anonymous> (test/background.test.js:122:7)
+
+    console.log
+      makeAuthenticatedRequest: Starting authenticated request to: http://localhost:3000/feedback
+
+      at makeAuthenticatedRequest (src/chrome-extension-template/background.js:225:11)
+
+    console.log
+      loadAuth: Loading auth tokens...
+
+      at loadAuth (src/chrome-extension-template/background.js:181:13)
+
+    console.error
+      loadAuth: Error loading auth tokens: TypeError: cb is not a function
+          at Object.get (F:\Github\Job-Seeker-AI-Assistant\test\background.test.js:55:9)
+          at loadAuth (F:\Github\Job-Seeker-AI-Assistant\src\chrome-extension-template\background.js:182:47)
+          at makeAuthenticatedRequest (F:\Github\Job-Seeker-AI-Assistant\src\chrome-extension-template\background.js:227:22)
+          at processQueue (F:\Github\Job-Seeker-AI-Assistant\src\chrome-extension-template\background.js:79:30)
+          at processTicksAndRejections (node:internal/process/task_queues:105:5)
+          at Object.<anonymous> (F:\Github\Job-Seeker-AI-Assistant\test\background.test.js:122:7)
+
+    [0m [90m 198 |[39m     [36mreturn[39m tokens[33m;[39m
+     [90m 199 |[39m   } [36mcatch[39m (error) {
+    [31m[1m>[22m[39m[90m 200 |[39m     console[33m.[39merror([32m'loadAuth: Error loading auth tokens:'[39m[33m,[39m error)[33m;[39m
+     [90m     |[39m             [31m[1m^[22m[39m
+     [90m 201 |[39m     [36mreturn[39m [36mnull[39m[33m;[39m
+     [90m 202 |[39m   }
+     [90m 203 |[39m }[0m
+
+      at loadAuth (src/chrome-extension-template/background.js:200:13)
+      at makeAuthenticatedRequest (src/chrome-extension-template/background.js:227:22)
+      at processQueue (src/chrome-extension-template/background.js:79:30)
+      at Object.<anonymous> (test/background.test.js:122:7)
+
+    console.log
+      makeAuthenticatedRequest: Initial token load result: { hasTokens: false, hasJwt: false, jwtLength: undefined }
+
+      at makeAuthenticatedRequest (src/chrome-extension-template/background.js:228:11)
+
+    console.error
+      makeAuthenticatedRequest: No valid tokens found
+
+    [0m [90m 233 |[39m   
+     [90m 234 |[39m   [36mif[39m ([33m![39mtokens [33m||[39m [33m![39mtokens[33m.[39mjwt) {
+    [31m[1m>[22m[39m[90m 235 |[39m     console[33m.[39merror([32m'makeAuthenticatedRequest: No valid tokens found'[39m)[33m;[39m
+     [90m     |[39m             [31m[1m^[22m[39m
+     [90m 236 |[39m     [36mthrow[39m [36mnew[39m [33mError[39m([32m'Authentication required. Please sign in first.'[39m)[33m;[39m
+     [90m 237 |[39m   }
+     [90m 238 |[39m[0m
+
+      at makeAuthenticatedRequest (src/chrome-extension-template/background.js:235:13)
+      at processQueue (src/chrome-extension-template/background.js:79:24)
+      at Object.<anonymous> (test/background.test.js:122:7)
+
+    console.log
+      makeAuthenticatedRequest: Starting authenticated request to: http://localhost:3000/feedback
+
+      at makeAuthenticatedRequest (src/chrome-extension-template/background.js:225:11)
+
+    console.log
+      loadAuth: Loading auth tokens...
+
+      at loadAuth (src/chrome-extension-template/background.js:181:13)
+
+    console.error
+      loadAuth: Error loading auth tokens: TypeError: cb is not a function
+          at Object.get (F:\Github\Job-Seeker-AI-Assistant\test\background.test.js:55:9)
+          at loadAuth (F:\Github\Job-Seeker-AI-Assistant\src\chrome-extension-template\background.js:182:47)
+          at makeAuthenticatedRequest (F:\Github\Job-Seeker-AI-Assistant\src\chrome-extension-template\background.js:227:22)
+          at processQueue (F:\Github\Job-Seeker-AI-Assistant\src\chrome-extension-template\background.js:79:30)
+          at processTicksAndRejections (node:internal/process/task_queues:105:5)
+          at Object.<anonymous> (F:\Github\Job-Seeker-AI-Assistant\test\background.test.js:122:7)
+
+    [0m [90m 198 |[39m     [36mreturn[39m tokens[33m;[39m
+     [90m 199 |[39m   } [36mcatch[39m (error) {
+    [31m[1m>[22m[39m[90m 200 |[39m     console[33m.[39merror([32m'loadAuth: Error loading auth tokens:'[39m[33m,[39m error)[33m;[39m
+     [90m     |[39m             [31m[1m^[22m[39m
+     [90m 201 |[39m     [36mreturn[39m [36mnull[39m[33m;[39m
+     [90m 202 |[39m   }
+     [90m 203 |[39m }[0m
+
+      at loadAuth (src/chrome-extension-template/background.js:200:13)
+      at makeAuthenticatedRequest (src/chrome-extension-template/background.js:227:22)
+      at processQueue (src/chrome-extension-template/background.js:79:30)
+      at Object.<anonymous> (test/background.test.js:122:7)
+
+    console.log
+      makeAuthenticatedRequest: Initial token load result: { hasTokens: false, hasJwt: false, jwtLength: undefined }
+
+      at makeAuthenticatedRequest (src/chrome-extension-template/background.js:228:11)
+
+    console.error
+      makeAuthenticatedRequest: No valid tokens found
+
+    [0m [90m 233 |[39m   
+     [90m 234 |[39m   [36mif[39m ([33m![39mtokens [33m||[39m [33m![39mtokens[33m.[39mjwt) {
+    [31m[1m>[22m[39m[90m 235 |[39m     console[33m.[39merror([32m'makeAuthenticatedRequest: No valid tokens found'[39m)[33m;[39m
+     [90m     |[39m             [31m[1m^[22m[39m
+     [90m 236 |[39m     [36mthrow[39m [36mnew[39m [33mError[39m([32m'Authentication required. Please sign in first.'[39m)[33m;[39m
+     [90m 237 |[39m   }
+     [90m 238 |[39m[0m
+
+      at makeAuthenticatedRequest (src/chrome-extension-template/background.js:235:13)
+      at processQueue (src/chrome-extension-template/background.js:79:24)
+      at Object.<anonymous> (test/background.test.js:122:7)
+
+    console.log
+      makeAuthenticatedRequest: Starting authenticated request to: http://localhost:3000/feedback
+
+      at makeAuthenticatedRequest (src/chrome-extension-template/background.js:225:11)
+
+    console.log
+      loadAuth: Loading auth tokens...
+
+      at loadAuth (src/chrome-extension-template/background.js:181:13)
+
+    console.error
+      loadAuth: Error loading auth tokens: TypeError: cb is not a function
+          at Object.get (F:\Github\Job-Seeker-AI-Assistant\test\background.test.js:55:9)
+          at loadAuth (F:\Github\Job-Seeker-AI-Assistant\src\chrome-extension-template\background.js:182:47)
+          at makeAuthenticatedRequest (F:\Github\Job-Seeker-AI-Assistant\src\chrome-extension-template\background.js:227:22)
+          at processQueue (F:\Github\Job-Seeker-AI-Assistant\src\chrome-extension-template\background.js:79:30)
+          at processTicksAndRejections (node:internal/process/task_queues:105:5)
+          at Object.<anonymous> (F:\Github\Job-Seeker-AI-Assistant\test\background.test.js:122:7)
+
+    [0m [90m 198 |[39m     [36mreturn[39m tokens[33m;[39m
+     [90m 199 |[39m   } [36mcatch[39m (error) {
+    [31m[1m>[22m[39m[90m 200 |[39m     console[33m.[39merror([32m'loadAuth: Error loading auth tokens:'[39m[33m,[39m error)[33m;[39m
+     [90m     |[39m             [31m[1m^[22m[39m
+     [90m 201 |[39m     [36mreturn[39m [36mnull[39m[33m;[39m
+     [90m 202 |[39m   }
+     [90m 203 |[39m }[0m
+
+      at loadAuth (src/chrome-extension-template/background.js:200:13)
+      at makeAuthenticatedRequest (src/chrome-extension-template/background.js:227:22)
+      at processQueue (src/chrome-extension-template/background.js:79:30)
+      at Object.<anonymous> (test/background.test.js:122:7)
+
+    console.log
+      makeAuthenticatedRequest: Initial token load result: { hasTokens: false, hasJwt: false, jwtLength: undefined }
+
+      at makeAuthenticatedRequest (src/chrome-extension-template/background.js:228:11)
+
+    console.error
+      makeAuthenticatedRequest: No valid tokens found
+
+    [0m [90m 233 |[39m   
+     [90m 234 |[39m   [36mif[39m ([33m![39mtokens [33m||[39m [33m![39mtokens[33m.[39mjwt) {
+    [31m[1m>[22m[39m[90m 235 |[39m     console[33m.[39merror([32m'makeAuthenticatedRequest: No valid tokens found'[39m)[33m;[39m
+     [90m     |[39m             [31m[1m^[22m[39m
+     [90m 236 |[39m     [36mthrow[39m [36mnew[39m [33mError[39m([32m'Authentication required. Please sign in first.'[39m)[33m;[39m
+     [90m 237 |[39m   }
+     [90m 238 |[39m[0m
+
+      at makeAuthenticatedRequest (src/chrome-extension-template/background.js:235:13)
+      at processQueue (src/chrome-extension-template/background.js:79:24)
+      at Object.<anonymous> (test/background.test.js:122:7)
+
+    console.log
+      makeAuthenticatedRequest: Starting authenticated request to: http://localhost:3000/feedback
+
+      at makeAuthenticatedRequest (src/chrome-extension-template/background.js:225:11)
+
+    console.log
+      loadAuth: Loading auth tokens...
+
+      at loadAuth (src/chrome-extension-template/background.js:181:13)
+
+    console.error
+      loadAuth: Error loading auth tokens: TypeError: cb is not a function
+          at Object.get (F:\Github\Job-Seeker-AI-Assistant\test\background.test.js:55:9)
+          at loadAuth (F:\Github\Job-Seeker-AI-Assistant\src\chrome-extension-template\background.js:182:47)
+          at makeAuthenticatedRequest (F:\Github\Job-Seeker-AI-Assistant\src\chrome-extension-template\background.js:227:22)
+          at processQueue (F:\Github\Job-Seeker-AI-Assistant\src\chrome-extension-template\background.js:79:30)
+          at processTicksAndRejections (node:internal/process/task_queues:105:5)
+          at Object.<anonymous> (F:\Github\Job-Seeker-AI-Assistant\test\background.test.js:122:7)
+
+    [0m [90m 198 |[39m     [36mreturn[39m tokens[33m;[39m
+     [90m 199 |[39m   } [36mcatch[39m (error) {
+    [31m[1m>[22m[39m[90m 200 |[39m     console[33m.[39merror([32m'loadAuth: Error loading auth tokens:'[39m[33m,[39m error)[33m;[39m
+     [90m     |[39m             [31m[1m^[22m[39m
+     [90m 201 |[39m     [36mreturn[39m [36mnull[39m[33m;[39m
+     [90m 202 |[39m   }
+     [90m 203 |[39m }[0m
+
+      at loadAuth (src/chrome-extension-template/background.js:200:13)
+      at makeAuthenticatedRequest (src/chrome-extension-template/background.js:227:22)
+      at processQueue (src/chrome-extension-template/background.js:79:30)
+      at Object.<anonymous> (test/background.test.js:122:7)
+
+    console.log
+      makeAuthenticatedRequest: Initial token load result: { hasTokens: false, hasJwt: false, jwtLength: undefined }
+
+      at makeAuthenticatedRequest (src/chrome-extension-template/background.js:228:11)
+
+    console.error
+      makeAuthenticatedRequest: No valid tokens found
+
+    [0m [90m 233 |[39m   
+     [90m 234 |[39m   [36mif[39m ([33m![39mtokens [33m||[39m [33m![39mtokens[33m.[39mjwt) {
+    [31m[1m>[22m[39m[90m 235 |[39m     console[33m.[39merror([32m'makeAuthenticatedRequest: No valid tokens found'[39m)[33m;[39m
+     [90m     |[39m             [31m[1m^[22m[39m
+     [90m 236 |[39m     [36mthrow[39m [36mnew[39m [33mError[39m([32m'Authentication required. Please sign in first.'[39m)[33m;[39m
+     [90m 237 |[39m   }
+     [90m 238 |[39m[0m
+
+      at makeAuthenticatedRequest (src/chrome-extension-template/background.js:235:13)
+      at processQueue (src/chrome-extension-template/background.js:79:24)
+      at Object.<anonymous> (test/background.test.js:122:7)
+
+    console.log
+      makeAuthenticatedRequest: Starting authenticated request to: http://localhost:3000/feedback
+
+      at makeAuthenticatedRequest (src/chrome-extension-template/background.js:225:11)
+
+    console.log
+      loadAuth: Loading auth tokens...
+
+      at loadAuth (src/chrome-extension-template/background.js:181:13)
+
+    console.error
+      loadAuth: Error loading auth tokens: TypeError: cb is not a function
+          at Object.get (F:\Github\Job-Seeker-AI-Assistant\test\background.test.js:55:9)
+          at loadAuth (F:\Github\Job-Seeker-AI-Assistant\src\chrome-extension-template\background.js:182:47)
+          at makeAuthenticatedRequest (F:\Github\Job-Seeker-AI-Assistant\src\chrome-extension-template\background.js:227:22)
+          at processQueue (F:\Github\Job-Seeker-AI-Assistant\src\chrome-extension-template\background.js:79:30)
+          at processTicksAndRejections (node:internal/process/task_queues:105:5)
+          at Object.<anonymous> (F:\Github\Job-Seeker-AI-Assistant\test\background.test.js:122:7)
+
+    [0m [90m 198 |[39m     [36mreturn[39m tokens[33m;[39m
+     [90m 199 |[39m   } [36mcatch[39m (error) {
+    [31m[1m>[22m[39m[90m 200 |[39m     console[33m.[39merror([32m'loadAuth: Error loading auth tokens:'[39m[33m,[39m error)[33m;[39m
+     [90m     |[39m             [31m[1m^[22m[39m
+     [90m 201 |[39m     [36mreturn[39m [36mnull[39m[33m;[39m
+     [90m 202 |[39m   }
+     [90m 203 |[39m }[0m
+
+      at loadAuth (src/chrome-extension-template/background.js:200:13)
+      at makeAuthenticatedRequest (src/chrome-extension-template/background.js:227:22)
+      at processQueue (src/chrome-extension-template/background.js:79:30)
+      at Object.<anonymous> (test/background.test.js:122:7)
+
+    console.log
+      makeAuthenticatedRequest: Initial token load result: { hasTokens: false, hasJwt: false, jwtLength: undefined }
+
+      at makeAuthenticatedRequest (src/chrome-extension-template/background.js:228:11)
+
+    console.error
+      makeAuthenticatedRequest: No valid tokens found
+
+    [0m [90m 233 |[39m   
+     [90m 234 |[39m   [36mif[39m ([33m![39mtokens [33m||[39m [33m![39mtokens[33m.[39mjwt) {
+    [31m[1m>[22m[39m[90m 235 |[39m     console[33m.[39merror([32m'makeAuthenticatedRequest: No valid tokens found'[39m)[33m;[39m
+     [90m     |[39m             [31m[1m^[22m[39m
+     [90m 236 |[39m     [36mthrow[39m [36mnew[39m [33mError[39m([32m'Authentication required. Please sign in first.'[39m)[33m;[39m
+     [90m 237 |[39m   }
+     [90m 238 |[39m[0m
+
+      at makeAuthenticatedRequest (src/chrome-extension-template/background.js:235:13)
+      at processQueue (src/chrome-extension-template/background.js:79:24)
+      at Object.<anonymous> (test/background.test.js:122:7)
+
+    console.log
+      makeAuthenticatedRequest: Starting authenticated request to: http://localhost:3000/feedback
+
+      at makeAuthenticatedRequest (src/chrome-extension-template/background.js:225:11)
+
+    console.log
+      loadAuth: Loading auth tokens...
+
+      at loadAuth (src/chrome-extension-template/background.js:181:13)
+
+    console.error
+      loadAuth: Error loading auth tokens: TypeError: cb is not a function
+          at Object.get (F:\Github\Job-Seeker-AI-Assistant\test\background.test.js:55:9)
+          at loadAuth (F:\Github\Job-Seeker-AI-Assistant\src\chrome-extension-template\background.js:182:47)
+          at makeAuthenticatedRequest (F:\Github\Job-Seeker-AI-Assistant\src\chrome-extension-template\background.js:227:22)
+          at processQueue (F:\Github\Job-Seeker-AI-Assistant\src\chrome-extension-template\background.js:79:30)
+          at processTicksAndRejections (node:internal/process/task_queues:105:5)
+          at Object.<anonymous> (F:\Github\Job-Seeker-AI-Assistant\test\background.test.js:122:7)
+
+    [0m [90m 198 |[39m     [36mreturn[39m tokens[33m;[39m
+     [90m 199 |[39m   } [36mcatch[39m (error) {
+    [31m[1m>[22m[39m[90m 200 |[39m     console[33m.[39merror([32m'loadAuth: Error loading auth tokens:'[39m[33m,[39m error)[33m;[39m
+     [90m     |[39m             [31m[1m^[22m[39m
+     [90m 201 |[39m     [36mreturn[39m [36mnull[39m[33m;[39m
+     [90m 202 |[39m   }
+     [90m 203 |[39m }[0m
+
+      at loadAuth (src/chrome-extension-template/background.js:200:13)
+      at makeAuthenticatedRequest (src/chrome-extension-template/background.js:227:22)
+      at processQueue (src/chrome-extension-template/background.js:79:30)
+      at Object.<anonymous> (test/background.test.js:122:7)
+
+    console.log
+      makeAuthenticatedRequest: Initial token load result: { hasTokens: false, hasJwt: false, jwtLength: undefined }
+
+      at makeAuthenticatedRequest (src/chrome-extension-template/background.js:228:11)
+
+    console.error
+      makeAuthenticatedRequest: No valid tokens found
+
+    [0m [90m 233 |[39m   
+     [90m 234 |[39m   [36mif[39m ([33m![39mtokens [33m||[39m [33m![39mtokens[33m.[39mjwt) {
+    [31m[1m>[22m[39m[90m 235 |[39m     console[33m.[39merror([32m'makeAuthenticatedRequest: No valid tokens found'[39m)[33m;[39m
+     [90m     |[39m             [31m[1m^[22m[39m
+     [90m 236 |[39m     [36mthrow[39m [36mnew[39m [33mError[39m([32m'Authentication required. Please sign in first.'[39m)[33m;[39m
+     [90m 237 |[39m   }
+     [90m 238 |[39m[0m
+
+      at makeAuthenticatedRequest (src/chrome-extension-template/background.js:235:13)
+      at processQueue (src/chrome-extension-template/background.js:79:24)
+      at Object.<anonymous> (test/background.test.js:122:7)
+
+PASS test/matchingChain.test.ts (5.058 s)
+  ● Console
+
+    console.log
+      Preprocessing job description...
+
+      at JobResumeMatchingChain.analyzeMatch (src/matching/core/jobResumeMatching.chain.ts:52:15)
+
+    console.log
+      Preprocessing and extracting resume features...
+
+      at JobResumeMatchingChain.analyzeMatch (src/matching/core/jobResumeMatching.chain.ts:98:17)
+
+    console.log
+      Extracting job features and calculating semantic similarity...
+
+      at JobResumeMatchingChain.analyzeMatch (src/matching/core/jobResumeMatching.chain.ts:106:15)
+
+    console.log
+      Analyzing feature matches...
+
+      at JobResumeMatchingChain.analyzeMatch (src/matching/core/jobResumeMatching.chain.ts:113:15)
+
+    console.log
+      Calculating hybrid score...
+
+      at JobResumeMatchingChain.analyzeMatch (src/matching/core/jobResumeMatching.chain.ts:134:15)
+
+    console.log
+      Generating explanation...
+
+      at JobResumeMatchingChain.analyzeMatch (src/matching/core/jobResumeMatching.chain.ts:145:17)
+
+    console.log
+      Job-resume matching completed in 20ms with score: 88 (resume: extracted)
+
+      at JobResumeMatchingChain.analyzeMatch (src/matching/core/jobResumeMatching.chain.ts:211:15)
+
+    console.log
+      Preprocessing job description...
+
+      at JobResumeMatchingChain.analyzeMatch (src/matching/core/jobResumeMatching.chain.ts:52:15)
+
+    console.log
+      Preprocessing and extracting resume features...
+
+      at JobResumeMatchingChain.analyzeMatch (src/matching/core/jobResumeMatching.chain.ts:98:17)
+
+    console.log
+      Extracting job features and calculating semantic similarity...
+
+      at JobResumeMatchingChain.analyzeMatch (src/matching/core/jobResumeMatching.chain.ts:106:15)
+
+    console.log
+      Analyzing feature matches...
+
+      at JobResumeMatchingChain.analyzeMatch (src/matching/core/jobResumeMatching.chain.ts:113:15)
+
+    console.log
+      Calculating hybrid score...
+
+      at JobResumeMatchingChain.analyzeMatch (src/matching/core/jobResumeMatching.chain.ts:134:15)
+
+    console.log
+      Job-resume matching completed in 2ms with score: 88 (resume: extracted)
+
+      at JobResumeMatchingChain.analyzeMatch (src/matching/core/jobResumeMatching.chain.ts:211:15)
+
+    console.log
+      Preprocessing job description...
+
+      at JobResumeMatchingChain.analyzeMatch (src/matching/core/jobResumeMatching.chain.ts:52:15)
+
+    console.log
+      Preprocessing and extracting resume features...
+
+      at JobResumeMatchingChain.analyzeMatch (src/matching/core/jobResumeMatching.chain.ts:98:17)
+
+    console.log
+      Extracting job features and calculating semantic similarity...
+
+      at JobResumeMatchingChain.analyzeMatch (src/matching/core/jobResumeMatching.chain.ts:106:15)
+
+    console.error
+      Job-resume matching failed: Error: Validation failed during extraction
+          at Object.<anonymous> (F:\Github\Job-Seeker-AI-Assistant\test\matchingChain.test.ts:376:7)
+          at Promise.then.completed (F:\Github\Job-Seeker-AI-Assistant\node_modules\jest-circus\build\utils.js:298:28)
+          at new Promise (<anonymous>)
+          at callAsyncCircusFn (F:\Github\Job-Seeker-AI-Assistant\node_modules\jest-circus\build\utils.js:231:10)
+          at _callCircusTest (F:\Github\Job-Seeker-AI-Assistant\node_modules\jest-circus\build\run.js:316:40)
+          at processTicksAndRejections (node:internal/process/task_queues:105:5)
+          at _runTest (F:\Github\Job-Seeker-AI-Assistant\node_modules\jest-circus\build\run.js:252:3)
+          at _runTestsForDescribeBlock (F:\Github\Job-Seeker-AI-Assistant\node_modules\jest-circus\build\run.js:126:9)
+          at _runTestsForDescribeBlock (F:\Github\Job-Seeker-AI-Assistant\node_modules\jest-circus\build\run.js:121:9)
+          at run (F:\Github\Job-Seeker-AI-Assistant\node_modules\jest-circus\build\run.js:71:3)
+          at runAndTransformResultsToJestFormat (F:\Github\Job-Seeker-AI-Assistant\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:122:21)
+          at jestAdapter (F:\Github\Job-Seeker-AI-Assistant\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+          at runTestInternal (f:\Github\Job-Seeker-AI-Assistant\node_modules\jest-runner\build\runTest.js:367:16)
+          at runTest (f:\Github\Job-Seeker-AI-Assistant\node_modules\jest-runner\build\runTest.js:444:34)
+          at Object.worker (f:\Github\Job-Seeker-AI-Assistant\node_modules\jest-runner\build\testWorker.js:106:12)
+
+    [0m [90m 219 |[39m       [36mthis[39m[33m.[39mmonitor[33m.[39mendCall(chainName[33m,[39m [36mnull[39m[33m,[39m error [36mas[39m [33mError[39m)[33m;[39m
+     [90m 220 |[39m
+    [31m[1m>[22m[39m[90m 221 |[39m       console[33m.[39merror([32m"Job-resume matching failed:"[39m[33m,[39m error)[33m;[39m
+     [90m     |[39m               [31m[1m^[22m[39m
+     [90m 222 |[39m
+     [90m 223 |[39m       [90m// Return structured error response[39m
+     [90m 224 |[39m       [36mconst[39m errorResponse[33m:[39m [33mJobResumeMatchingError[39m [33m=[39m {[0m
+
+      at JobResumeMatchingChain.analyzeMatch (src/matching/core/jobResumeMatching.chain.ts:221:15)
+      at Object.<anonymous> (test/matchingChain.test.ts:380:20)
+
+    console.log
+      Starting batch analysis of 2 job-resume pairs...
+
+      at JobResumeMatchingChain.analyzeBatchMatches (src/matching/core/jobResumeMatching.chain.ts:251:13)
+
+    console.log
+      Processing batch 1/1...
+
+      at JobResumeMatchingChain.analyzeBatchMatches (src/matching/core/jobResumeMatching.chain.ts:257:15)
+
+    console.log
+      Batch analysis completed. 2 results processed.
+
+      at JobResumeMatchingChain.analyzeBatchMatches (src/matching/core/jobResumeMatching.chain.ts:286:13)
+
+PASS src/chrome-extension-template/contentScript.test.js
+  ● Console
+
+    console.log
+      Content script loaded
+
+      at Object.<anonymous> (src/chrome-extension-template/contentScript.js:1:111)
+
+    console.log
+      Checking authentication status...
+
+      at checkAuthenticationStatus (src/chrome-extension-template/contentScript.js:377:11)
+
+    console.log
+      Login button clicked
+
+      at HTMLButtonElement.<anonymous> (src/chrome-extension-template/contentScript.js:275:13)
+
+    console.log
+      Checking authentication status...
+
+      at checkAuthenticationStatus (src/chrome-extension-template/contentScript.js:377:11)
+
+    console.log
+      Logout button clicked
+
+      at HTMLButtonElement.<anonymous> (src/chrome-extension-template/contentScript.js:291:13)
+
+PASS test/matchingEndpoints.test.ts (6.574 s)
+  ● Console
+
+    console.log
+      Using redirect URI: http://localhost:3000/callback
+
+      at src/auth/googleAuth.ts:63:11
+
+    console.log
+      Exchange endpoint called with: { hasCode: true, hasState: true, hasRedirectUri: true }
+
+      at src/auth/googleAuth.ts:88:11
+
+    console.log
+      Environment check: {
+        hasClientId: true,
+        hasClientSecret: true,
+        clientIdLength: 72,
+        redirectUri: 'https://pbmopafplhcjjnomddgoodceibjbgbpj.chromiumapp.org/'
+      }
+
+      at src/auth/googleAuth.ts:93:11
+
+    console.log
+      Making token exchange request to Google...
+
+      at src/auth/googleAuth.ts:120:11
+
+    console.log
+      Google token response: {
+        ok: true,
+        status: undefined,
+        hasAccessToken: true,
+        hasRefreshToken: true,
+        hasIdToken: true,
+        error: undefined,
+        errorDescription: undefined
+      }
+
+      at src/auth/googleAuth.ts:128:11
+
+    console.log
+      Sending response to client: { hasJwt: true, hasRefreshToken: true, jwtLength: 614 }
+
+      at src/auth/googleAuth.ts:152:11
+
+    console.error
+      Job-resume matching error: Error: analysis failure
+          at Object.<anonymous> (F:\Github\Job-Seeker-AI-Assistant\test\matchingEndpoints.test.ts:252:46)
+          at Promise.then.completed (F:\Github\Job-Seeker-AI-Assistant\node_modules\jest-circus\build\utils.js:298:28)
+          at new Promise (<anonymous>)
+          at callAsyncCircusFn (F:\Github\Job-Seeker-AI-Assistant\node_modules\jest-circus\build\utils.js:231:10)
+          at _callCircusTest (F:\Github\Job-Seeker-AI-Assistant\node_modules\jest-circus\build\run.js:316:40)
+          at processTicksAndRejections (node:internal/process/task_queues:105:5)
+          at _runTest (F:\Github\Job-Seeker-AI-Assistant\node_modules\jest-circus\build\run.js:252:3)
+          at _runTestsForDescribeBlock (F:\Github\Job-Seeker-AI-Assistant\node_modules\jest-circus\build\run.js:126:9)
+          at _runTestsForDescribeBlock (F:\Github\Job-Seeker-AI-Assistant\node_modules\jest-circus\build\run.js:121:9)
+          at _runTestsForDescribeBlock (F:\Github\Job-Seeker-AI-Assistant\node_modules\jest-circus\build\run.js:121:9)
+          at run (F:\Github\Job-Seeker-AI-Assistant\node_modules\jest-circus\build\run.js:71:3)
+          at runAndTransformResultsToJestFormat (F:\Github\Job-Seeker-AI-Assistant\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:122:21)
+          at jestAdapter (F:\Github\Job-Seeker-AI-Assistant\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+          at runTestInternal (f:\Github\Job-Seeker-AI-Assistant\node_modules\jest-runner\build\runTest.js:367:16)
+          at runTest (f:\Github\Job-Seeker-AI-Assistant\node_modules\jest-runner\build\runTest.js:444:34)
+          at Object.worker (f:\Github\Job-Seeker-AI-Assistant\node_modules\jest-runner\build\testWorker.js:106:12)
+
+    [0m [90m 153 |[39m
+     [90m 154 |[39m   } [36mcatch[39m (error) {
+    [31m[1m>[22m[39m[90m 155 |[39m     console[33m.[39merror([32m"Job-resume matching error:"[39m[33m,[39m error)[33m;[39m
+     [90m     |[39m             [31m[1m^[22m[39m
+     [90m 156 |[39m     res[33m.[39mstatus([35m500[39m)[33m.[39mjson({
+     [90m 157 |[39m       success[33m:[39m [36mfalse[39m[33m,[39m
+     [90m 158 |[39m       error[33m:[39m error [36minstanceof[39m [33mError[39m [33m?[39m error[33m.[39mmessage [33m:[39m [33mString[39m(error)[0m
+
+      at server.ts:155:13
+
+    console.error
+      Batch job-resume matching error: Error: batch failure
+          at Object.<anonymous> (F:\Github\Job-Seeker-AI-Assistant\test\matchingEndpoints.test.ts:331:53)
+          at Promise.then.completed (F:\Github\Job-Seeker-AI-Assistant\node_modules\jest-circus\build\utils.js:298:28)
+          at new Promise (<anonymous>)
+          at callAsyncCircusFn (F:\Github\Job-Seeker-AI-Assistant\node_modules\jest-circus\build\utils.js:231:10)
+          at _callCircusTest (F:\Github\Job-Seeker-AI-Assistant\node_modules\jest-circus\build\run.js:316:40)
+          at processTicksAndRejections (node:internal/process/task_queues:105:5)
+          at _runTest (F:\Github\Job-Seeker-AI-Assistant\node_modules\jest-circus\build\run.js:252:3)
+          at _runTestsForDescribeBlock (F:\Github\Job-Seeker-AI-Assistant\node_modules\jest-circus\build\run.js:126:9)
+          at _runTestsForDescribeBlock (F:\Github\Job-Seeker-AI-Assistant\node_modules\jest-circus\build\run.js:121:9)
+          at _runTestsForDescribeBlock (F:\Github\Job-Seeker-AI-Assistant\node_modules\jest-circus\build\run.js:121:9)
+          at run (F:\Github\Job-Seeker-AI-Assistant\node_modules\jest-circus\build\run.js:71:3)
+          at runAndTransformResultsToJestFormat (F:\Github\Job-Seeker-AI-Assistant\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:122:21)
+          at jestAdapter (F:\Github\Job-Seeker-AI-Assistant\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+          at runTestInternal (f:\Github\Job-Seeker-AI-Assistant\node_modules\jest-runner\build\runTest.js:367:16)
+          at runTest (f:\Github\Job-Seeker-AI-Assistant\node_modules\jest-runner\build\runTest.js:444:34)
+          at Object.worker (f:\Github\Job-Seeker-AI-Assistant\node_modules\jest-runner\build\testWorker.js:106:12)
+
+    [0m [90m 192 |[39m
+     [90m 193 |[39m   } [36mcatch[39m (error) {
+    [31m[1m>[22m[39m[90m 194 |[39m     console[33m.[39merror([32m"Batch job-resume matching error:"[39m[33m,[39m error)[33m;[39m
+     [90m     |[39m             [31m[1m^[22m[39m
+     [90m 195 |[39m     res[33m.[39mstatus([35m500[39m)[33m.[39mjson({
+     [90m 196 |[39m       success[33m:[39m [36mfalse[39m[33m,[39m
+     [90m 197 |[39m       error[33m:[39m error [36minstanceof[39m [33mError[39m [33m?[39m error[33m.[39mmessage [33m:[39m [33mString[39m(error)[0m
+
+      at server.ts:194:13
+
+    console.error
+      Quick matching error: Error: quick failure
+          at Object.<anonymous> (F:\Github\Job-Seeker-AI-Assistant\test\matchingEndpoints.test.ts:384:48)
+          at Promise.then.completed (F:\Github\Job-Seeker-AI-Assistant\node_modules\jest-circus\build\utils.js:298:28)
+          at new Promise (<anonymous>)
+          at callAsyncCircusFn (F:\Github\Job-Seeker-AI-Assistant\node_modules\jest-circus\build\utils.js:231:10)
+          at _callCircusTest (F:\Github\Job-Seeker-AI-Assistant\node_modules\jest-circus\build\run.js:316:40)
+          at processTicksAndRejections (node:internal/process/task_queues:105:5)
+          at _runTest (F:\Github\Job-Seeker-AI-Assistant\node_modules\jest-circus\build\run.js:252:3)
+          at _runTestsForDescribeBlock (F:\Github\Job-Seeker-AI-Assistant\node_modules\jest-circus\build\run.js:126:9)
+          at _runTestsForDescribeBlock (F:\Github\Job-Seeker-AI-Assistant\node_modules\jest-circus\build\run.js:121:9)
+          at _runTestsForDescribeBlock (F:\Github\Job-Seeker-AI-Assistant\node_modules\jest-circus\build\run.js:121:9)
+          at run (F:\Github\Job-Seeker-AI-Assistant\node_modules\jest-circus\build\run.js:71:3)
+          at runAndTransformResultsToJestFormat (F:\Github\Job-Seeker-AI-Assistant\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:122:21)
+          at jestAdapter (F:\Github\Job-Seeker-AI-Assistant\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+          at runTestInternal (f:\Github\Job-Seeker-AI-Assistant\node_modules\jest-runner\build\runTest.js:367:16)
+          at runTest (f:\Github\Job-Seeker-AI-Assistant\node_modules\jest-runner\build\runTest.js:444:34)
+          at Object.worker (f:\Github\Job-Seeker-AI-Assistant\node_modules\jest-runner\build\testWorker.js:106:12)
+
+    [0m [90m 220 |[39m
+     [90m 221 |[39m   } [36mcatch[39m (error) {
+    [31m[1m>[22m[39m[90m 222 |[39m     console[33m.[39merror([32m"Quick matching error:"[39m[33m,[39m error)[33m;[39m
+     [90m     |[39m             [31m[1m^[22m[39m
+     [90m 223 |[39m     res[33m.[39mstatus([35m500[39m)[33m.[39mjson({
+     [90m 224 |[39m       success[33m:[39m [36mfalse[39m[33m,[39m
+     [90m 225 |[39m       error[33m:[39m error [36minstanceof[39m [33mError[39m [33m?[39m error[33m.[39mmessage [33m:[39m [33mString[39m(error)[0m
+
+      at server.ts:222:13
+
+PASS test/feedback.test.ts (7.998 s)
+PASS test/auth.test.ts (8.007 s)
+  ● Console
+
+    console.log
+      Using redirect URI: http://localhost:3000/callback
+
+      at src/auth/googleAuth.ts:63:11
+
+    console.log
+      Using redirect URI: https://pbmopafplhcjjnomddgoodceibjbgbpj.chromiumapp.org/
+
+      at src/auth/googleAuth.ts:63:11
+
+    console.log
+      Using redirect URI: https://custom.example.com/callback
+
+      at src/auth/googleAuth.ts:63:11
+
+    console.log
+      Exchange endpoint called with: { hasCode: true, hasState: true, hasRedirectUri: true }
+
+      at src/auth/googleAuth.ts:88:11
+
+    console.log
+      Environment check: {
+        hasClientId: true,
+        hasClientSecret: true,
+        clientIdLength: 72,
+        redirectUri: 'https://pbmopafplhcjjnomddgoodceibjbgbpj.chromiumapp.org/'
+      }
+
+      at src/auth/googleAuth.ts:93:11
+
+    console.error
+      Invalid state - no code verifier found for state: invalid_state
+
+    [0m [90m 102 |[39m   pkceStore[33m.[39m[36mdelete[39m(state)[33m;[39m
+     [90m 103 |[39m   [36mif[39m ([33m![39mcodeVerifier) {
+    [31m[1m>[22m[39m[90m 104 |[39m     console[33m.[39merror([32m'Invalid state - no code verifier found for state:'[39m[33m,[39m state)[33m;[39m
+     [90m     |[39m             [31m[1m^[22m[39m
+     [90m 105 |[39m     [36mreturn[39m res[33m.[39mstatus([35m400[39m)[33m.[39mjson({ error[33m:[39m [32m"invalid_state"[39m })[33m;[39m
+     [90m 106 |[39m   }
+     [90m 107 |[39m[0m
+
+      at src/auth/googleAuth.ts:104:13
+      at Layer.handleRequest (node_modules/router/lib/layer.js:152:17)
+      at next (node_modules/router/lib/route.js:157:13)
+      at Route.dispatch (node_modules/router/lib/route.js:117:3)
+      at handle (node_modules/router/index.js:435:11)
+      at Layer.handleRequest (node_modules/router/lib/layer.js:152:17)
+      at node_modules/router/index.js:295:15
+      at processParams (node_modules/router/index.js:582:12)
+      at next (node_modules/router/index.js:291:5)
+      at Function.handle (node_modules/router/index.js:186:3)
+      at router (node_modules/router/index.js:60:12)
+      at Layer.handleRequest (node_modules/router/lib/layer.js:152:17)
+      at trimPrefix (node_modules/router/index.js:342:13)
+      at node_modules/router/index.js:297:9
+      at processParams (node_modules/router/index.js:582:12)
+      at next (node_modules/router/index.js:291:5)
+      at textParser (node_modules/body-parser/lib/types/text.js:45:7)
+      at Layer.handleRequest (node_modules/router/lib/layer.js:152:17)
+      at trimPrefix (node_modules/router/index.js:342:13)
+      at node_modules/router/index.js:297:9
+      at processParams (node_modules/router/index.js:582:12)
+      at next (node_modules/router/index.js:291:5)
+      at node_modules/body-parser/lib/read.js:132:5
+      at invokeCallback (node_modules/raw-body/index.js:238:16)
+      at done (node_modules/raw-body/index.js:227:7)
+      at IncomingMessage.onEnd (node_modules/raw-body/index.js:287:7)
+
+    console.log
+      Exchange endpoint called with: { hasCode: false, hasState: false, hasRedirectUri: false }
+
+      at src/auth/googleAuth.ts:88:11
+
+    console.log
+      Environment check: {
+        hasClientId: true,
+        hasClientSecret: true,
+        clientIdLength: 72,
+        redirectUri: 'https://pbmopafplhcjjnomddgoodceibjbgbpj.chromiumapp.org/'
+      }
+
+      at src/auth/googleAuth.ts:93:11
+
+    console.error
+      Invalid state - no code verifier found for state: undefined
+
+    [0m [90m 102 |[39m   pkceStore[33m.[39m[36mdelete[39m(state)[33m;[39m
+     [90m 103 |[39m   [36mif[39m ([33m![39mcodeVerifier) {
+    [31m[1m>[22m[39m[90m 104 |[39m     console[33m.[39merror([32m'Invalid state - no code verifier found for state:'[39m[33m,[39m state)[33m;[39m
+     [90m     |[39m             [31m[1m^[22m[39m
+     [90m 105 |[39m     [36mreturn[39m res[33m.[39mstatus([35m400[39m)[33m.[39mjson({ error[33m:[39m [32m"invalid_state"[39m })[33m;[39m
+     [90m 106 |[39m   }
+     [90m 107 |[39m[0m
+
+      at src/auth/googleAuth.ts:104:13
+      at Layer.handleRequest (node_modules/router/lib/layer.js:152:17)
+      at next (node_modules/router/lib/route.js:157:13)
+      at Route.dispatch (node_modules/router/lib/route.js:117:3)
+      at handle (node_modules/router/index.js:435:11)
+      at Layer.handleRequest (node_modules/router/lib/layer.js:152:17)
+      at node_modules/router/index.js:295:15
+      at processParams (node_modules/router/index.js:582:12)
+      at next (node_modules/router/index.js:291:5)
+      at Function.handle (node_modules/router/index.js:186:3)
+      at router (node_modules/router/index.js:60:12)
+      at Layer.handleRequest (node_modules/router/lib/layer.js:152:17)
+      at trimPrefix (node_modules/router/index.js:342:13)
+      at node_modules/router/index.js:297:9
+      at processParams (node_modules/router/index.js:582:12)
+      at next (node_modules/router/index.js:291:5)
+      at textParser (node_modules/body-parser/lib/types/text.js:45:7)
+      at Layer.handleRequest (node_modules/router/lib/layer.js:152:17)
+      at trimPrefix (node_modules/router/index.js:342:13)
+      at node_modules/router/index.js:297:9
+      at processParams (node_modules/router/index.js:582:12)
+      at next (node_modules/router/index.js:291:5)
+      at node_modules/body-parser/lib/read.js:132:5
+      at invokeCallback (node_modules/raw-body/index.js:238:16)
+      at done (node_modules/raw-body/index.js:227:7)
+      at IncomingMessage.onEnd (node_modules/raw-body/index.js:287:7)
+
+    console.log
+      Using redirect URI: http://localhost:3000/callback
+
+      at src/auth/googleAuth.ts:63:11
+
+    console.log
+      Using redirect URI: http://localhost:3000/callback
+
+      at src/auth/googleAuth.ts:63:11
+
+    console.log
+      Using redirect URI: http://localhost:3000/callback
+
+      at src/auth/googleAuth.ts:63:11
+
+    console.log
+      Using redirect URI: http://localhost:3000/callback
+
+      at src/auth/googleAuth.ts:63:11
+
+    console.log
+      Using redirect URI: http://localhost:3000/callback
+
+      at src/auth/googleAuth.ts:63:11
+
+    console.log
+      Using redirect URI: http://localhost:3000/callback
+
+      at src/auth/googleAuth.ts:63:11
+
+    console.log
+      Exchange endpoint called with: { hasCode: true, hasState: true, hasRedirectUri: false }
+
+      at src/auth/googleAuth.ts:88:11
+
+    console.log
+      Environment check: {
+        hasClientId: true,
+        hasClientSecret: true,
+        clientIdLength: 72,
+        redirectUri: 'https://pbmopafplhcjjnomddgoodceibjbgbpj.chromiumapp.org/'
+      }
+
+      at src/auth/googleAuth.ts:93:11
+
+    console.error
+      Invalid state - no code verifier found for state: definitely_invalid_state
+
+    [0m [90m 102 |[39m   pkceStore[33m.[39m[36mdelete[39m(state)[33m;[39m
+     [90m 103 |[39m   [36mif[39m ([33m![39mcodeVerifier) {
+    [31m[1m>[22m[39m[90m 104 |[39m     console[33m.[39merror([32m'Invalid state - no code verifier found for state:'[39m[33m,[39m state)[33m;[39m
+     [90m     |[39m             [31m[1m^[22m[39m
+     [90m 105 |[39m     [36mreturn[39m res[33m.[39mstatus([35m400[39m)[33m.[39mjson({ error[33m:[39m [32m"invalid_state"[39m })[33m;[39m
+     [90m 106 |[39m   }
+     [90m 107 |[39m[0m
+
+      at src/auth/googleAuth.ts:104:13
+      at Layer.handleRequest (node_modules/router/lib/layer.js:152:17)
+      at next (node_modules/router/lib/route.js:157:13)
+      at Route.dispatch (node_modules/router/lib/route.js:117:3)
+      at handle (node_modules/router/index.js:435:11)
+      at Layer.handleRequest (node_modules/router/lib/layer.js:152:17)
+      at node_modules/router/index.js:295:15
+      at processParams (node_modules/router/index.js:582:12)
+      at next (node_modules/router/index.js:291:5)
+      at Function.handle (node_modules/router/index.js:186:3)
+      at router (node_modules/router/index.js:60:12)
+      at Layer.handleRequest (node_modules/router/lib/layer.js:152:17)
+      at trimPrefix (node_modules/router/index.js:342:13)
+      at node_modules/router/index.js:297:9
+      at processParams (node_modules/router/index.js:582:12)
+      at next (node_modules/router/index.js:291:5)
+      at textParser (node_modules/body-parser/lib/types/text.js:45:7)
+      at Layer.handleRequest (node_modules/router/lib/layer.js:152:17)
+      at trimPrefix (node_modules/router/index.js:342:13)
+      at node_modules/router/index.js:297:9
+      at processParams (node_modules/router/index.js:582:12)
+      at next (node_modules/router/index.js:291:5)
+      at node_modules/body-parser/lib/read.js:132:5
+      at invokeCallback (node_modules/raw-body/index.js:238:16)
+      at done (node_modules/raw-body/index.js:227:7)
+      at IncomingMessage.onEnd (node_modules/raw-body/index.js:287:7)
+
+PASS test/authFlow.test.ts (8.061 s)
+  ● Console
+
+    console.log
+      Using redirect URI: http://localhost:3000/callback
+
+      at src/auth/googleAuth.ts:63:11
+
+    console.log
+      Exchange endpoint called with: { hasCode: true, hasState: true, hasRedirectUri: true }
+
+      at src/auth/googleAuth.ts:88:11
+
+    console.log
+      Environment check: {
+        hasClientId: true,
+        hasClientSecret: true,
+        clientIdLength: 72,
+        redirectUri: 'https://pbmopafplhcjjnomddgoodceibjbgbpj.chromiumapp.org/'
+      }
+
+      at src/auth/googleAuth.ts:93:11
+
+    console.log
+      Making token exchange request to Google...
+
+      at src/auth/googleAuth.ts:120:11
+
+    console.log
+      Google token response: {
+        ok: true,
+        status: undefined,
+        hasAccessToken: true,
+        hasRefreshToken: true,
+        hasIdToken: true,
+        error: undefined,
+        errorDescription: undefined
+      }
+
+      at src/auth/googleAuth.ts:128:11
+
+    console.log
+      Sending response to client: { hasJwt: true, hasRefreshToken: true, jwtLength: 615 }
+
+      at src/auth/googleAuth.ts:152:11
+
+    console.log
+      Using redirect URI: http://localhost:3000/callback
+
+      at src/auth/googleAuth.ts:63:11
+
+    console.log
+      Exchange endpoint called with: { hasCode: true, hasState: true, hasRedirectUri: true }
+
+      at src/auth/googleAuth.ts:88:11
+
+    console.log
+      Environment check: {
+        hasClientId: true,
+        hasClientSecret: true,
+        clientIdLength: 72,
+        redirectUri: 'https://pbmopafplhcjjnomddgoodceibjbgbpj.chromiumapp.org/'
+      }
+
+      at src/auth/googleAuth.ts:93:11
+
+    console.log
+      Making token exchange request to Google...
+
+      at src/auth/googleAuth.ts:120:11
+
+    console.log
+      Google token response: {
+        ok: false,
+        status: undefined,
+        hasAccessToken: false,
+        hasRefreshToken: false,
+        hasIdToken: false,
+        error: 'invalid_grant',
+        errorDescription: undefined
+      }
+
+      at src/auth/googleAuth.ts:128:11
+
+    console.error
+      Google token exchange failed: { error: 'invalid_grant' }
+
+    [0m [90m 137 |[39m   
+     [90m 138 |[39m   [36mif[39m ([33m![39mtokenRes[33m.[39mok) {
+    [31m[1m>[22m[39m[90m 139 |[39m     console[33m.[39merror([32m'Google token exchange failed:'[39m[33m,[39m tokens)[33m;[39m
+     [90m     |[39m             [31m[1m^[22m[39m
+     [90m 140 |[39m     [36mreturn[39m res[33m.[39mstatus([35m400[39m)[33m.[39mjson(tokens)[33m;[39m
+     [90m 141 |[39m   }
+     [90m 142 |[39m[0m
+
+      at src/auth/googleAuth.ts:139:13
+
+    console.log
+      Using redirect URI: http://localhost:3000/callback
+
+      at src/auth/googleAuth.ts:63:11
+
+    console.log
+      Exchange endpoint called with: { hasCode: true, hasState: true, hasRedirectUri: true }
+
+      at src/auth/googleAuth.ts:88:11
+
+    console.log
+      Environment check: {
+        hasClientId: true,
+        hasClientSecret: true,
+        clientIdLength: 72,
+        redirectUri: 'https://pbmopafplhcjjnomddgoodceibjbgbpj.chromiumapp.org/'
+      }
+
+      at src/auth/googleAuth.ts:93:11
+
+    console.log
+      Making token exchange request to Google...
+
+      at src/auth/googleAuth.ts:120:11
+
+    console.log
+      Google token response: {
+        ok: true,
+        status: undefined,
+        hasAccessToken: true,
+        hasRefreshToken: true,
+        hasIdToken: true,
+        error: undefined,
+        errorDescription: undefined
+      }
+
+      at src/auth/googleAuth.ts:128:11
+
+    console.log
+      Sending response to client: { hasJwt: true, hasRefreshToken: true, jwtLength: 615 }
+
+      at src/auth/googleAuth.ts:152:11
+
+    console.log
+      Using redirect URI: http://localhost:3000/callback
+
+      at src/auth/googleAuth.ts:63:11
+
+    console.log
+      Exchange endpoint called with: { hasCode: true, hasState: true, hasRedirectUri: true }
+
+      at src/auth/googleAuth.ts:88:11
+
+    console.log
+      Environment check: {
+        hasClientId: true,
+        hasClientSecret: true,
+        clientIdLength: 72,
+        redirectUri: 'https://pbmopafplhcjjnomddgoodceibjbgbpj.chromiumapp.org/'
+      }
+
+      at src/auth/googleAuth.ts:93:11
+
+    console.log
+      Making token exchange request to Google...
+
+      at src/auth/googleAuth.ts:120:11
+
+    console.log
+      Google token response: {
+        ok: true,
+        status: undefined,
+        hasAccessToken: true,
+        hasRefreshToken: true,
+        hasIdToken: true,
+        error: undefined,
+        errorDescription: undefined
+      }
+
+      at src/auth/googleAuth.ts:128:11
+
+    console.log
+      Sending response to client: { hasJwt: true, hasRefreshToken: true, jwtLength: 611 }
+
+      at src/auth/googleAuth.ts:152:11
+
+    console.log
+      Using redirect URI: http://localhost:3000/callback
+
+      at src/auth/googleAuth.ts:63:11
+
+    console.log
+      Exchange endpoint called with: { hasCode: true, hasState: true, hasRedirectUri: true }
+
+      at src/auth/googleAuth.ts:88:11
+
+    console.log
+      Environment check: {
+        hasClientId: true,
+        hasClientSecret: true,
+        clientIdLength: 72,
+        redirectUri: 'https://pbmopafplhcjjnomddgoodceibjbgbpj.chromiumapp.org/'
+      }
+
+      at src/auth/googleAuth.ts:93:11
+
+    console.log
+      Making token exchange request to Google...
+
+      at src/auth/googleAuth.ts:120:11
+
+    console.log
+      Google token response: {
+        ok: true,
+        status: undefined,
+        hasAccessToken: true,
+        hasRefreshToken: true,
+        hasIdToken: true,
+        error: undefined,
+        errorDescription: undefined
+      }
+
+      at src/auth/googleAuth.ts:128:11
+
+    console.log
+      Sending response to client: { hasJwt: true, hasRefreshToken: true, jwtLength: 611 }
+
+      at src/auth/googleAuth.ts:152:11
+
+    console.log
+      Using redirect URI: http://localhost:3000/callback
+
+      at src/auth/googleAuth.ts:63:11
+
+    console.log
+      Exchange endpoint called with: { hasCode: true, hasState: true, hasRedirectUri: true }
+
+      at src/auth/googleAuth.ts:88:11
+
+    console.log
+      Environment check: {
+        hasClientId: true,
+        hasClientSecret: true,
+        clientIdLength: 72,
+        redirectUri: 'https://pbmopafplhcjjnomddgoodceibjbgbpj.chromiumapp.org/'
+      }
+
+      at src/auth/googleAuth.ts:93:11
+
+    console.log
+      Making token exchange request to Google...
+
+      at src/auth/googleAuth.ts:120:11
+
+    console.log
+      Google token response: {
+        ok: true,
+        status: undefined,
+        hasAccessToken: true,
+        hasRefreshToken: true,
+        hasIdToken: true,
+        error: undefined,
+        errorDescription: undefined
+      }
+
+      at src/auth/googleAuth.ts:128:11
+
+    console.log
+      Sending response to client: { hasJwt: true, hasRefreshToken: true, jwtLength: 611 }
+
+      at src/auth/googleAuth.ts:152:11
+
+    console.log
+      Using redirect URI: http://localhost:3000/callback
+
+      at src/auth/googleAuth.ts:63:11
+
+    console.log
+      Using redirect URI: http://localhost:3000/callback
+
+      at src/auth/googleAuth.ts:63:11
+
+    console.log
+      Using redirect URI: http://localhost:3000/callback
+
+      at src/auth/googleAuth.ts:63:11
+
+    console.log
+      Using redirect URI: http://localhost:3000/callback
+
+      at src/auth/googleAuth.ts:63:11
+
+    console.log
+      Using redirect URI: http://localhost:3000/callback
+
+      at src/auth/googleAuth.ts:63:11
+
+    console.log
+      Using redirect URI: http://localhost:3000/callback
+
+      at src/auth/googleAuth.ts:63:11
+
+    console.log
+      Exchange endpoint called with: { hasCode: true, hasState: true, hasRedirectUri: true }
+
+      at src/auth/googleAuth.ts:88:11
+
+    console.log
+      Environment check: {
+        hasClientId: true,
+        hasClientSecret: true,
+        clientIdLength: 72,
+        redirectUri: 'https://pbmopafplhcjjnomddgoodceibjbgbpj.chromiumapp.org/'
+      }
+
+      at src/auth/googleAuth.ts:93:11
+
+    console.log
+      Making token exchange request to Google...
+
+      at src/auth/googleAuth.ts:120:11
+
+    console.log
+      Google token response: {
+        ok: true,
+        status: undefined,
+        hasAccessToken: true,
+        hasRefreshToken: true,
+        hasIdToken: true,
+        error: undefined,
+        errorDescription: undefined
+      }
+
+      at src/auth/googleAuth.ts:128:11
+
+    console.log
+      Sending response to client: { hasJwt: true, hasRefreshToken: true, jwtLength: 620 }
+
+      at src/auth/googleAuth.ts:152:11
+
+    console.log
+      Using redirect URI: http://localhost:3000/callback
+
+      at src/auth/googleAuth.ts:63:11
+
+    console.log
+      Exchange endpoint called with: { hasCode: true, hasState: true, hasRedirectUri: true }
+
+      at src/auth/googleAuth.ts:88:11
+
+    console.log
+      Environment check: {
+        hasClientId: true,
+        hasClientSecret: true,
+        clientIdLength: 72,
+        redirectUri: 'https://pbmopafplhcjjnomddgoodceibjbgbpj.chromiumapp.org/'
+      }
+
+      at src/auth/googleAuth.ts:93:11
+
+    console.log
+      Making token exchange request to Google...
+
+      at src/auth/googleAuth.ts:120:11
+
+    console.log
+      Google token response: {
+        ok: true,
+        status: undefined,
+        hasAccessToken: true,
+        hasRefreshToken: true,
+        hasIdToken: true,
+        error: undefined,
+        errorDescription: undefined
+      }
+
+      at src/auth/googleAuth.ts:128:11
+
+    console.log
+      Sending response to client: { hasJwt: true, hasRefreshToken: true, jwtLength: 611 }
+
+      at src/auth/googleAuth.ts:152:11
+
+    console.log
+      Using redirect URI: http://localhost:3000/callback
+
+      at src/auth/googleAuth.ts:63:11
+
+    console.log
+      Exchange endpoint called with: { hasCode: true, hasState: true, hasRedirectUri: true }
+
+      at src/auth/googleAuth.ts:88:11
+
+    console.log
+      Environment check: {
+        hasClientId: true,
+        hasClientSecret: true,
+        clientIdLength: 72,
+        redirectUri: 'https://pbmopafplhcjjnomddgoodceibjbgbpj.chromiumapp.org/'
+      }
+
+      at src/auth/googleAuth.ts:93:11
+
+    console.log
+      Making token exchange request to Google...
+
+      at src/auth/googleAuth.ts:120:11
+
+    console.log
+      Google token response: {
+        ok: true,
+        status: undefined,
+        hasAccessToken: true,
+        hasRefreshToken: true,
+        hasIdToken: true,
+        error: undefined,
+        errorDescription: undefined
+      }
+
+      at src/auth/googleAuth.ts:128:11
+
+    console.log
+      Using redirect URI: http://localhost:3000/callback
+
+      at src/auth/googleAuth.ts:63:11
+
+    console.log
+      Exchange endpoint called with: { hasCode: true, hasState: true, hasRedirectUri: true }
+
+      at src/auth/googleAuth.ts:88:11
+
+    console.log
+      Environment check: {
+        hasClientId: true,
+        hasClientSecret: true,
+        clientIdLength: 72,
+        redirectUri: 'https://pbmopafplhcjjnomddgoodceibjbgbpj.chromiumapp.org/'
+      }
+
+      at src/auth/googleAuth.ts:93:11
+
+    console.log
+      Making token exchange request to Google...
+
+      at src/auth/googleAuth.ts:120:11
+
+    console.log
+      Google token response: {
+        ok: true,
+        status: undefined,
+        hasAccessToken: true,
+        hasRefreshToken: true,
+        hasIdToken: false,
+        error: undefined,
+        errorDescription: undefined
+      }
+
+      at src/auth/googleAuth.ts:128:11
+
+    console.log
+      Sending response to client: { hasJwt: true, hasRefreshToken: true, jwtLength: 590 }
+
+      at src/auth/googleAuth.ts:152:11
+
+    console.log
+      Using redirect URI: http://localhost:3000/callback
+
+      at src/auth/googleAuth.ts:63:11
+
+    console.log
+      Exchange endpoint called with: { hasCode: true, hasState: true, hasRedirectUri: true }
+
+      at src/auth/googleAuth.ts:88:11
+
+    console.log
+      Environment check: {
+        hasClientId: true,
+        hasClientSecret: true,
+        clientIdLength: 72,
+        redirectUri: 'https://pbmopafplhcjjnomddgoodceibjbgbpj.chromiumapp.org/'
+      }
+
+      at src/auth/googleAuth.ts:93:11
+
+    console.log
+      Making token exchange request to Google...
+
+      at src/auth/googleAuth.ts:120:11
+
+    console.log
+      Google token response: {
+        ok: true,
+        status: undefined,
+        hasAccessToken: true,
+        hasRefreshToken: true,
+        hasIdToken: true,
+        error: undefined,
+        errorDescription: undefined
+      }
+
+      at src/auth/googleAuth.ts:128:11
+
+    console.log
+      Sending response to client: { hasJwt: true, hasRefreshToken: true, jwtLength: 611 }
+
+      at src/auth/googleAuth.ts:152:11
+
+    console.log
+      Using redirect URI: http://localhost:3000/callback
+
+      at src/auth/googleAuth.ts:63:11
+
+    console.log
+      Exchange endpoint called with: { hasCode: true, hasState: true, hasRedirectUri: true }
+
+      at src/auth/googleAuth.ts:88:11
+
+    console.log
+      Environment check: {
+        hasClientId: true,
+        hasClientSecret: true,
+        clientIdLength: 72,
+        redirectUri: 'https://pbmopafplhcjjnomddgoodceibjbgbpj.chromiumapp.org/'
+      }
+
+      at src/auth/googleAuth.ts:93:11
+
+    console.log
+      Making token exchange request to Google...
+
+      at src/auth/googleAuth.ts:120:11
+
+    console.log
+      Google token response: {
+        ok: true,
+        status: undefined,
+        hasAccessToken: true,
+        hasRefreshToken: true,
+        hasIdToken: true,
+        error: undefined,
+        errorDescription: undefined
+      }
+
+      at src/auth/googleAuth.ts:128:11
+
+    console.log
+      Sending response to client: { hasJwt: true, hasRefreshToken: true, jwtLength: 611 }
+
+      at src/auth/googleAuth.ts:152:11
+
+    console.log
+      Using redirect URI: http://localhost:3000/callback
+
+      at src/auth/googleAuth.ts:63:11
+
+    console.log
+      Exchange endpoint called with: { hasCode: true, hasState: true, hasRedirectUri: true }
+
+      at src/auth/googleAuth.ts:88:11
+
+    console.log
+      Environment check: {
+        hasClientId: true,
+        hasClientSecret: true,
+        clientIdLength: 72,
+        redirectUri: 'https://pbmopafplhcjjnomddgoodceibjbgbpj.chromiumapp.org/'
+      }
+
+      at src/auth/googleAuth.ts:93:11
+
+    console.log
+      Making token exchange request to Google...
+
+      at src/auth/googleAuth.ts:120:11
+
+    console.log
+      Google token response: {
+        ok: true,
+        status: undefined,
+        hasAccessToken: true,
+        hasRefreshToken: true,
+        hasIdToken: true,
+        error: undefined,
+        errorDescription: undefined
+      }
+
+      at src/auth/googleAuth.ts:128:11
+
+    console.log
+      Sending response to client: { hasJwt: true, hasRefreshToken: true, jwtLength: 611 }
+
+      at src/auth/googleAuth.ts:152:11
+
+PASS test/e2e.feedback.test.js (8.817 s)
+  ● Console
+
+    console.log
+      Background script loaded!
+
+      at Object.<anonymous> (src/chrome-extension-template/background.js:1:111)
+
+    console.log
+      makeAuthenticatedRequest: Starting authenticated request to: http://localhost:3000/feedback
+
+      at makeAuthenticatedRequest (src/chrome-extension-template/background.js:225:11)
+
+    console.log
+      loadAuth: Loading auth tokens...
+
+      at loadAuth (src/chrome-extension-template/background.js:181:13)
+
+    console.error
+      loadAuth: Error loading auth tokens: TypeError: cb is not a function
+          at Object.get (F:\Github\Job-Seeker-AI-Assistant\test\e2e.feedback.test.js:13:9)
+          at loadAuth (F:\Github\Job-Seeker-AI-Assistant\src\chrome-extension-template\background.js:182:47)
+          at makeAuthenticatedRequest (F:\Github\Job-Seeker-AI-Assistant\src\chrome-extension-template\background.js:227:22)
+          at processQueue (F:\Github\Job-Seeker-AI-Assistant\src\chrome-extension-template\background.js:79:30)
+          at processTicksAndRejections (node:internal/process/task_queues:105:5)
+          at Object.<anonymous> (F:\Github\Job-Seeker-AI-Assistant\test\e2e.feedback.test.js:89:5)
+
+    [0m [90m 198 |[39m     [36mreturn[39m tokens[33m;[39m
+     [90m 199 |[39m   } [36mcatch[39m (error) {
+    [31m[1m>[22m[39m[90m 200 |[39m     console[33m.[39merror([32m'loadAuth: Error loading auth tokens:'[39m[33m,[39m error)[33m;[39m
+     [90m     |[39m             [31m[1m^[22m[39m
+     [90m 201 |[39m     [36mreturn[39m [36mnull[39m[33m;[39m
+     [90m 202 |[39m   }
+     [90m 203 |[39m }[0m
+
+      at loadAuth (src/chrome-extension-template/background.js:200:13)
+      at makeAuthenticatedRequest (src/chrome-extension-template/background.js:227:22)
+      at processQueue (src/chrome-extension-template/background.js:79:30)
+      at Object.<anonymous> (test/e2e.feedback.test.js:89:5)
+
+    console.log
+      makeAuthenticatedRequest: Initial token load result: { hasTokens: false, hasJwt: false, jwtLength: undefined }
+
+      at makeAuthenticatedRequest (src/chrome-extension-template/background.js:228:11)
+
+    console.error
+      makeAuthenticatedRequest: No valid tokens found
+
+    [0m [90m 233 |[39m   
+     [90m 234 |[39m   [36mif[39m ([33m![39mtokens [33m||[39m [33m![39mtokens[33m.[39mjwt) {
+    [31m[1m>[22m[39m[90m 235 |[39m     console[33m.[39merror([32m'makeAuthenticatedRequest: No valid tokens found'[39m)[33m;[39m
+     [90m     |[39m             [31m[1m^[22m[39m
+     [90m 236 |[39m     [36mthrow[39m [36mnew[39m [33mError[39m([32m'Authentication required. Please sign in first.'[39m)[33m;[39m
+     [90m 237 |[39m   }
+     [90m 238 |[39m[0m
+
+      at makeAuthenticatedRequest (src/chrome-extension-template/background.js:235:13)
+      at processQueue (src/chrome-extension-template/background.js:79:24)
+      at Object.<anonymous> (test/e2e.feedback.test.js:89:5)
+
+PASS test/protectedEndpoints.test.ts (22.101 s)
+  ● Console
+
+    console.log
+      Using redirect URI: http://localhost:3000/callback
+
+      at src/auth/googleAuth.ts:63:11
+
+    console.log
+      Exchange endpoint called with: { hasCode: true, hasState: true, hasRedirectUri: true }
+
+      at src/auth/googleAuth.ts:88:11
+
+    console.log
+      Environment check: {
+        hasClientId: true,
+        hasClientSecret: true,
+        clientIdLength: 72,
+        redirectUri: 'https://pbmopafplhcjjnomddgoodceibjbgbpj.chromiumapp.org/'
+      }
+
+      at src/auth/googleAuth.ts:93:11
+
+    console.log
+      Making token exchange request to Google...
+
+      at src/auth/googleAuth.ts:120:11
+
+    console.log
+      Google token response: {
+        ok: true,
+        status: undefined,
+        hasAccessToken: true,
+        hasRefreshToken: true,
+        hasIdToken: true,
+        error: undefined,
+        errorDescription: undefined
+      }
+
+      at src/auth/googleAuth.ts:128:11
+
+    console.log
+      Sending response to client: { hasJwt: true, hasRefreshToken: true, jwtLength: 615 }
+
+      at src/auth/googleAuth.ts:152:11
+
+    console.log
+      About to call extractSkills chain...
+
+      at src/llm/clients.ts:199:13
+
+    console.log
+      Attempt 1/3 with extractSkills main chain...
+
+      at src/llm/clients.ts:204:17
+
+    console.log
+      Gemini API raw output: ```json
+      {
+        "skills": [
+          "React"
+        ]
+      }
+      ```
+
+      at RunnableLambda.func (src/llm/clients.ts:90:15)
+
+    console.log
+      extractSkills chain succeeded on attempt 1: { skills: [ 'React' ] }
+
+      at src/llm/clients.ts:208:17
+
+    console.log
+      DEBUG endCall isFromTest: false testMatch: undefined
+
+      at ChainPerformanceMonitor.endCall (src/monitor/ChainPerformanceMonitor.ts:78:13)
+
+    console.log
+      📊 extractSkills: 641ms, 13 input tokens, 5 output tokens
+
+      at ChainPerformanceMonitor.endCall (src/monitor/ChainPerformanceMonitor.ts:111:13)
+
+    console.log
+      About to call extractDomain chain...
+
+      at src/llm/clients.ts:199:13
+
+    console.log
+      Attempt 1/3 with extractDomain main chain...
+
+      at src/llm/clients.ts:204:17
+
+    console.log
+      Gemini API raw output: ```json
+      {"domains":["Frontend"]}
+      ```
+
+      at RunnableLambda.func (src/llm/clients.ts:90:15)
+
+    console.log
+      extractDomain chain succeeded on attempt 1: { domains: [ 'Frontend' ] }
+
+      at src/llm/clients.ts:208:17
+
+    console.log
+      DEBUG endCall isFromTest: false testMatch: undefined
+
+      at ChainPerformanceMonitor.endCall (src/monitor/ChainPerformanceMonitor.ts:78:13)
+
+    console.log
+      📊 extractDomain: 418ms, 13 input tokens, 6 output tokens
+
+      at ChainPerformanceMonitor.endCall (src/monitor/ChainPerformanceMonitor.ts:111:13)
+
+    console.log
+      About to call extractYears chain...
+
+      at src/llm/clients.ts:199:13
+
+    console.log
+      Attempt 1/3 with extractYears main chain...
+
+      at src/llm/clients.ts:204:17
+
+    console.log
+      Gemini API raw output: ```json
+      {"requestYears":3}
+      ```
+
+      at RunnableLambda.func (src/llm/clients.ts:90:15)
+
+    console.log
+      extractYears chain succeeded on attempt 1: { requestYears: 3 }
+
+      at src/llm/clients.ts:208:17
+
+    console.log
+      DEBUG endCall isFromTest: false testMatch: undefined
+
+      at ChainPerformanceMonitor.endCall (src/monitor/ChainPerformanceMonitor.ts:78:13)
+
+    console.log
+      📊 extractYears: 388ms, 13 input tokens, 5 output tokens
+
+      at ChainPerformanceMonitor.endCall (src/monitor/ChainPerformanceMonitor.ts:111:13)
+
+    console.log
+      About to call chain...
+
+      at src/llm/clients.ts:143:15
+
+    console.log
+      Attempt 1/3 with main chain...
+
+      at src/llm/clients.ts:148:19
+
+    console.log
+      Gemini API raw output: ```json
+      {"level": "Mid"}
+      ```
+
+      at RunnableLambda.func (src/llm/clients.ts:90:15)
+
+    console.log
+      Chain succeeded on attempt 1: { level: 'Mid' }
+
+      at src/llm/clients.ts:150:19
+
+    console.log
+      DEBUG endCall isFromTest: false testMatch: undefined
+
+      at ChainPerformanceMonitor.endCall (src/monitor/ChainPerformanceMonitor.ts:78:13)
+
+    console.log
+      📊 extractLevel: 528ms, 13 input tokens, 6 output tokens
+
+      at ChainPerformanceMonitor.endCall (src/monitor/ChainPerformanceMonitor.ts:111:13)
+
+    console.log
+      Skills result: { result: { skills: [ 'React' ] } }
+
+      at server.ts:86:11
+
+    console.log
+      Domain result: { result: { domains: [ 'Frontend' ] } }
+
+      at server.ts:87:11
+
+    console.log
+      Years result: { result: { requestYears: 3 } }
+
+      at server.ts:88:11
+
+    console.log
+      Level result: { result: { text: { level: 'Mid' } } }
+
+      at server.ts:89:11
+
+    console.log
+      About to call extractSkills chain...
+
+      at src/llm/clients.ts:199:13
+
+    console.log
+      Attempt 1/3 with extractSkills main chain...
+
+      at src/llm/clients.ts:204:17
+
+    console.log
+      Gemini API raw output: ```json
+      {
+        "skills": [
+          "Python",
+          "Django",
+          "RESTful APIs",
+          "SQL",
+          "PostgreSQL",
+          "AWS",
+          "Docker",
+          "Git",
+          "Linux"
+        ]
+      }
+      ```
+
+      at RunnableLambda.func (src/llm/clients.ts:90:15)
+
+    console.log
+      extractSkills chain succeeded on attempt 1: {
+        skills: [
+          'Python',
+          'Django',
+          'RESTful APIs',
+          'SQL',
+          'PostgreSQL',
+          'AWS',
+          'Docker',
+          'Git',
+          'Linux'
+        ]
+      }
+
+      at src/llm/clients.ts:208:17
+
+    console.log
+      DEBUG endCall isFromTest: false testMatch: undefined
+
+      at ChainPerformanceMonitor.endCall (src/monitor/ChainPerformanceMonitor.ts:78:13)
+
+    console.log
+      📊 extractSkills: 607ms, 7 input tokens, 24 output tokens
+
+      at ChainPerformanceMonitor.endCall (src/monitor/ChainPerformanceMonitor.ts:111:13)
+
+    console.log
+      About to call extractDomain chain...
+
+      at src/llm/clients.ts:199:13
+
+    console.log
+      Attempt 1/3 with extractDomain main chain...
+
+      at src/llm/clients.ts:204:17
+
+    console.log
+      Gemini API raw output: ```json
+      {"domains":["Backend"]}
+      ```
+
+      at RunnableLambda.func (src/llm/clients.ts:90:15)
+
+    console.log
+      extractDomain chain succeeded on attempt 1: { domains: [ 'Backend' ] }
+
+      at src/llm/clients.ts:208:17
+
+    console.log
+      DEBUG endCall isFromTest: false testMatch: undefined
+
+      at ChainPerformanceMonitor.endCall (src/monitor/ChainPerformanceMonitor.ts:78:13)
+
+    console.log
+      📊 extractDomain: 537ms, 7 input tokens, 6 output tokens
+
+      at ChainPerformanceMonitor.endCall (src/monitor/ChainPerformanceMonitor.ts:111:13)
+
+    console.log
+      About to call extractYears chain...
+
+      at src/llm/clients.ts:199:13
+
+    console.log
+      Attempt 1/3 with extractYears main chain...
+
+      at src/llm/clients.ts:204:17
+
+    console.log
+      Gemini API raw output: {"requestYears":0}
+
+      at RunnableLambda.func (src/llm/clients.ts:90:15)
+
+    console.log
+      extractYears chain succeeded on attempt 1: { requestYears: 0 }
+
+      at src/llm/clients.ts:208:17
+
+    console.log
+      DEBUG endCall isFromTest: false testMatch: undefined
+
+      at ChainPerformanceMonitor.endCall (src/monitor/ChainPerformanceMonitor.ts:78:13)
+
+    console.log
+      📊 extractYears: 499ms, 7 input tokens, 5 output tokens
+
+      at ChainPerformanceMonitor.endCall (src/monitor/ChainPerformanceMonitor.ts:111:13)
+
+    console.log
+      About to call chain...
+
+      at src/llm/clients.ts:143:15
+
+    console.log
+      Attempt 1/3 with main chain...
+
+      at src/llm/clients.ts:148:19
+
+    console.log
+      Gemini API raw output: ```json
+      {"level": "Mid"}
+      ```
+
+      at RunnableLambda.func (src/llm/clients.ts:90:15)
+
+    console.log
+      Chain succeeded on attempt 1: { level: 'Mid' }
+
+      at src/llm/clients.ts:150:19
+
+    console.log
+      DEBUG endCall isFromTest: false testMatch: undefined
+
+      at ChainPerformanceMonitor.endCall (src/monitor/ChainPerformanceMonitor.ts:78:13)
+
+    console.log
+      📊 extractLevel: 458ms, 7 input tokens, 6 output tokens
+
+      at ChainPerformanceMonitor.endCall (src/monitor/ChainPerformanceMonitor.ts:111:13)
+
+    console.log
+      Skills result: {
+        result: {
+          skills: [
+            'Python',
+            'Django',
+            'RESTful APIs',
+            'SQL',
+            'PostgreSQL',
+            'AWS',
+            'Docker',
+            'Git',
+            'Linux'
+          ]
+        }
+      }
+
+      at server.ts:86:11
+
+    console.log
+      Domain result: { result: { domains: [ 'Backend' ] } }
+
+      at server.ts:87:11
+
+    console.log
+      Years result: { result: { requestYears: 0 } }
+
+      at server.ts:88:11
+
+    console.log
+      Level result: { result: { text: { level: 'Mid' } } }
+
+      at server.ts:89:11
+
+    console.log
+      About to call extractSkills chain...
+
+      at src/llm/clients.ts:199:13
+
+    console.log
+      Attempt 1/3 with extractSkills main chain...
+
+      at src/llm/clients.ts:204:17
+
+    console.log
+      Gemini API raw output: ```json
+      {
+        "skills": [
+          "Python",
+          "Java",
+          "JavaScript",
+          "React",
+          "Node.js",
+          "AWS",
+          "Docker",
+          "Kubernetes",
+          "Git",
+          "PostgreSQL",
+          "MongoDB",
+          "Redis",
+          "TensorFlow"
+        ]
+      }
+      ```
+
+      at RunnableLambda.func (src/llm/clients.ts:90:15)
+
+    console.log
+      extractSkills chain succeeded on attempt 1: {
+        skills: [
+          'Python',     'Java',
+          'JavaScript', 'React',
+          'Node.js',    'AWS',
+          'Docker',     'Kubernetes',
+          'Git',        'PostgreSQL',
+          'MongoDB',    'Redis',
+          'TensorFlow'
+        ]
+      }
+
+      at src/llm/clients.ts:208:17
+
+    console.log
+      DEBUG endCall isFromTest: false testMatch: undefined
+
+      at ChainPerformanceMonitor.endCall (src/monitor/ChainPerformanceMonitor.ts:78:13)
+
+    console.log
+      📊 extractSkills: 685ms, 253 input tokens, 35 output tokens
+
+      at ChainPerformanceMonitor.endCall (src/monitor/ChainPerformanceMonitor.ts:111:13)
+
+    console.log
+      About to call extractDomain chain...
+
+      at src/llm/clients.ts:199:13
+
+    console.log
+      Attempt 1/3 with extractDomain main chain...
+
+      at src/llm/clients.ts:204:17
+
+    console.log
+      Gemini API raw output: {"domains":["General"]}
+
+      at RunnableLambda.func (src/llm/clients.ts:90:15)
+
+    console.log
+      extractDomain chain succeeded on attempt 1: { domains: [ 'General' ] }
+
+      at src/llm/clients.ts:208:17
+
+    console.log
+      DEBUG endCall isFromTest: false testMatch: undefined
+
+      at ChainPerformanceMonitor.endCall (src/monitor/ChainPerformanceMonitor.ts:78:13)
+
+    console.log
+      📊 extractDomain: 858ms, 253 input tokens, 6 output tokens
+
+      at ChainPerformanceMonitor.endCall (src/monitor/ChainPerformanceMonitor.ts:111:13)
+
+    console.log
+      About to call extractYears chain...
+
+      at src/llm/clients.ts:199:13
+
+    console.log
+      Attempt 1/3 with extractYears main chain...
+
+      at src/llm/clients.ts:204:17
+
+    console.log
+      Gemini API raw output: ```json
+      {"requestYears":0}
+      ```
+
+      at RunnableLambda.func (src/llm/clients.ts:90:15)
+
+    console.log
+      extractYears chain succeeded on attempt 1: { requestYears: 0 }
+
+      at src/llm/clients.ts:208:17
+
+    console.log
+      DEBUG endCall isFromTest: false testMatch: undefined
+
+      at ChainPerformanceMonitor.endCall (src/monitor/ChainPerformanceMonitor.ts:78:13)
+
+    console.log
+      📊 extractYears: 468ms, 253 input tokens, 5 output tokens
+
+      at ChainPerformanceMonitor.endCall (src/monitor/ChainPerformanceMonitor.ts:111:13)
+
+    console.log
+      About to call chain...
+
+      at src/llm/clients.ts:143:15
+
+    console.log
+      Attempt 1/3 with main chain...
+
+      at src/llm/clients.ts:148:19
+
+    console.log
+      Gemini API raw output: ```json
+      {"level": null}
+      ```
+
+      at RunnableLambda.func (src/llm/clients.ts:90:15)
+
+    console.log
+      Chain succeeded on attempt 1: { level: null }
+
+      at src/llm/clients.ts:150:19
+
+    console.log
+      About to call chain...
+
+      at src/llm/clients.ts:143:15
+
+    console.log
+      Attempt 1/3 with main chain...
+
+      at src/llm/clients.ts:148:19
+
+    console.log
+      Gemini API raw output: ```json
+      {"level": null}
+      ```
+
+      at RunnableLambda.func (src/llm/clients.ts:90:15)
+
+    console.log
+      Chain succeeded on attempt 1: { level: null }
+
+      at src/llm/clients.ts:150:19
+
+    console.log
+      DEBUG endCall isFromTest: false testMatch: undefined
+
+      at ChainPerformanceMonitor.endCall (src/monitor/ChainPerformanceMonitor.ts:78:13)
+
+    console.log
+      📊 extractLevel: 1011ms, 253 input tokens, 6 output tokens
+
+      at ChainPerformanceMonitor.endCall (src/monitor/ChainPerformanceMonitor.ts:111:13)
+
+    console.log
+      Skills result: {
+        result: {
+          skills: [
+            'Python',     'Java',
+            'JavaScript', 'React',
+            'Node.js',    'AWS',
+            'Docker',     'Kubernetes',
+            'Git',        'PostgreSQL',
+            'MongoDB',    'Redis',
+            'TensorFlow'
+          ]
+        }
+      }
+
+      at server.ts:86:11
+
+    console.log
+      Domain result: { result: { domains: [ 'General' ] } }
+
+      at server.ts:87:11
+
+    console.log
+      Years result: { result: { requestYears: 0 } }
+
+      at server.ts:88:11
+
+    console.log
+      Level result: { result: { text: { level: null } } }
+
+      at server.ts:89:11
+
+    console.error
+      Feedback error: SyntaxError: Unexpected token 'i', "invalid json string" is not valid JSON
+          at JSON.parse (<anonymous>)
+          at F:\Github\Job-Seeker-AI-Assistant\server.ts:111:54
+          at Layer.handleRequest (F:\Github\Job-Seeker-AI-Assistant\node_modules\router\lib\layer.js:152:17)
+          at next (F:\Github\Job-Seeker-AI-Assistant\node_modules\router\lib\route.js:157:13)
+          at requireAuth (F:\Github\Job-Seeker-AI-Assistant\src\middleware\auth.ts:72:5)
+          at Layer.handleRequest (F:\Github\Job-Seeker-AI-Assistant\node_modules\router\lib\layer.js:152:17)
+          at next (F:\Github\Job-Seeker-AI-Assistant\node_modules\router\lib\route.js:157:13)
+          at Route.dispatch (F:\Github\Job-Seeker-AI-Assistant\node_modules\router\lib\route.js:117:3)
+          at handle (F:\Github\Job-Seeker-AI-Assistant\node_modules\router\index.js:435:11)
+          at Layer.handleRequest (F:\Github\Job-Seeker-AI-Assistant\node_modules\router\lib\layer.js:152:17)
+          at F:\Github\Job-Seeker-AI-Assistant\node_modules\router\index.js:295:15
+          at processParams (F:\Github\Job-Seeker-AI-Assistant\node_modules\router\index.js:582:12)
+          at next (F:\Github\Job-Seeker-AI-Assistant\node_modules\router\index.js:291:5)
+          at F:\Github\Job-Seeker-AI-Assistant\node_modules\body-parser\lib\read.js:132:5
+          at AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+          at invokeCallback (F:\Github\Job-Seeker-AI-Assistant\node_modules\raw-body\index.js:238:16)
+          at done (F:\Github\Job-Seeker-AI-Assistant\node_modules\raw-body\index.js:227:7)
+          at IncomingMessage.onEnd (F:\Github\Job-Seeker-AI-Assistant\node_modules\raw-body\index.js:287:7)
+          at IncomingMessage.emit (node:events:518:28)
+          at endReadableNT (node:internal/streams/readable:1698:12)
+          at processTicksAndRejections (node:internal/process/task_queues:90:21)
+
+    [0m [90m 118 |[39m     res[33m.[39mjson({ success[33m:[39m [36mtrue[39m })[33m;[39m
+     [90m 119 |[39m   } [36mcatch[39m (error) {
+    [31m[1m>[22m[39m[90m 120 |[39m     console[33m.[39merror([32m"Feedback error:"[39m[33m,[39m error)[33m;[39m
+     [90m     |[39m             [31m[1m^[22m[39m
+     [90m 121 |[39m     res[33m.[39mstatus([35m500[39m)[33m.[39mjson({ success[33m:[39m [36mfalse[39m[33m,[39m error[33m:[39m (error [36mas[39m any)[33m?[39m[33m.[39mmessage })[33m;[39m
+     [90m 122 |[39m   }
+     [90m 123 |[39m })[33m;[39m[0m
+
+      at server.ts:120:13
+      at Layer.handleRequest (node_modules/router/lib/layer.js:152:17)
+      at next (node_modules/router/lib/route.js:157:13)
+      at requireAuth (src/middleware/auth.ts:72:5)
+      at Layer.handleRequest (node_modules/router/lib/layer.js:152:17)
+      at next (node_modules/router/lib/route.js:157:13)
+      at Route.dispatch (node_modules/router/lib/route.js:117:3)
+      at handle (node_modules/router/index.js:435:11)
+      at Layer.handleRequest (node_modules/router/lib/layer.js:152:17)
+      at node_modules/router/index.js:295:15
+      at processParams (node_modules/router/index.js:582:12)
+      at next (node_modules/router/index.js:291:5)
+      at node_modules/body-parser/lib/read.js:132:5
+      at invokeCallback (node_modules/raw-body/index.js:238:16)
+      at done (node_modules/raw-body/index.js:227:7)
+      at IncomingMessage.onEnd (node_modules/raw-body/index.js:287:7)
+
+    console.log
+      About to call extractSkills chain...
+
+      at src/llm/clients.ts:199:13
+
+    console.log
+      Attempt 1/3 with extractSkills main chain...
+
+      at src/llm/clients.ts:204:17
+
+    console.log
+      About to call extractSkills chain...
+
+      at src/llm/clients.ts:199:13
+
+    console.log
+      Attempt 1/3 with extractSkills main chain...
+
+      at src/llm/clients.ts:204:17
+
+    console.log
+      About to call extractSkills chain...
+
+      at src/llm/clients.ts:199:13
+
+    console.log
+      Attempt 1/3 with extractSkills main chain...
+
+      at src/llm/clients.ts:204:17
+
+    console.log
+      Gemini API raw output: ```json
+      {"skills": ["Python"]}
+      ```
+
+      at RunnableLambda.func (src/llm/clients.ts:90:15)
+
+    console.log
+      extractSkills chain succeeded on attempt 1: { skills: [ 'Python' ] }
+
+      at src/llm/clients.ts:208:17
+
+    console.log
+      DEBUG endCall isFromTest: false testMatch: undefined
+
+      at ChainPerformanceMonitor.endCall (src/monitor/ChainPerformanceMonitor.ts:78:13)
+
+    console.log
+      📊 extractSkills: 369ms, 7 input tokens, 6 output tokens
+
+      at ChainPerformanceMonitor.endCall (src/monitor/ChainPerformanceMonitor.ts:111:13)
+
+    console.log
+      About to call extractDomain chain...
+
+      at src/llm/clients.ts:199:13
+
+    console.log
+      Attempt 1/3 with extractDomain main chain...
+
+      at src/llm/clients.ts:204:17
+
+    console.log
+      Gemini API raw output: ```json
+      {"skills": ["Python"]}
+      ```
+
+      at RunnableLambda.func (src/llm/clients.ts:90:15)
+
+    console.log
+      extractSkills chain succeeded on attempt 1: { skills: [ 'Python' ] }
+
+      at src/llm/clients.ts:208:17
+
+    console.log
+      About to call extractDomain chain...
+
+      at src/llm/clients.ts:199:13
+
+    console.log
+      Attempt 1/3 with extractDomain main chain...
+
+      at src/llm/clients.ts:204:17
+
+    console.log
+      Gemini API raw output: ```json
+      {
+        "skills": [
+          "Python"
+        ]
+      }
+      ```
+
+      at RunnableLambda.func (src/llm/clients.ts:90:15)
+
+    console.log
+      extractSkills chain succeeded on attempt 1: { skills: [ 'Python' ] }
+
+      at src/llm/clients.ts:208:17
+
+    console.log
+      About to call extractDomain chain...
+
+      at src/llm/clients.ts:199:13
+
+    console.log
+      Attempt 1/3 with extractDomain main chain...
+
+      at src/llm/clients.ts:204:17
+
+    console.log
+      Gemini API raw output: ```json
+      {"domains":["Software Engineering"]}
+      ```
+
+      at RunnableLambda.func (src/llm/clients.ts:90:15)
+
+    console.log
+      extractDomain chain succeeded on attempt 1: { domains: [ 'Software Engineering' ] }
+
+      at src/llm/clients.ts:208:17
+
+    console.log
+      DEBUG endCall isFromTest: false testMatch: undefined
+
+      at ChainPerformanceMonitor.endCall (src/monitor/ChainPerformanceMonitor.ts:78:13)
+
+    console.log
+      📊 extractDomain: 102ms, 7 input tokens, 9 output tokens
+
+      at ChainPerformanceMonitor.endCall (src/monitor/ChainPerformanceMonitor.ts:111:13)
+
+    console.log
+      About to call extractYears chain...
+
+      at src/llm/clients.ts:199:13
+
+    console.log
+      Attempt 1/3 with extractYears main chain...
+
+      at src/llm/clients.ts:204:17
+
+    console.log
+      Gemini API raw output: {"domains":["Software Engineering"]}
+
+      at RunnableLambda.func (src/llm/clients.ts:90:15)
+
+    console.log
+      extractDomain chain succeeded on attempt 1: { domains: [ 'Software Engineering' ] }
+
+      at src/llm/clients.ts:208:17
+
+    console.log
+      About to call extractYears chain...
+
+      at src/llm/clients.ts:199:13
+
+    console.log
+      Attempt 1/3 with extractYears main chain...
+
+      at src/llm/clients.ts:204:17
+
+    console.log
+      Gemini API raw output: {"requestYears":0}
+
+      at RunnableLambda.func (src/llm/clients.ts:90:15)
+
+    console.log
+      extractYears chain succeeded on attempt 1: { requestYears: 0 }
+
+      at src/llm/clients.ts:208:17
+
+    console.log
+      DEBUG endCall isFromTest: false testMatch: undefined
+
+      at ChainPerformanceMonitor.endCall (src/monitor/ChainPerformanceMonitor.ts:78:13)
+
+    console.log
+      📊 extractYears: 230ms, 7 input tokens, 5 output tokens
+
+      at ChainPerformanceMonitor.endCall (src/monitor/ChainPerformanceMonitor.ts:111:13)
+
+    console.log
+      About to call chain...
+
+      at src/llm/clients.ts:143:15
+
+    console.log
+      Attempt 1/3 with main chain...
+
+      at src/llm/clients.ts:148:19
+
+    console.log
+      Gemini API raw output: ```json
+      {"domains":["Software Engineering"]}
+      ```
+
+      at RunnableLambda.func (src/llm/clients.ts:90:15)
+
+    console.log
+      extractDomain chain succeeded on attempt 1: { domains: [ 'Software Engineering' ] }
+
+      at src/llm/clients.ts:208:17
+
+    console.log
+      About to call extractYears chain...
+
+      at src/llm/clients.ts:199:13
+
+    console.log
+      Attempt 1/3 with extractYears main chain...
+
+      at src/llm/clients.ts:204:17
+
+    console.log
+      Gemini API raw output: {"requestYears":0}
+
+      at RunnableLambda.func (src/llm/clients.ts:90:15)
+
+    console.log
+      extractYears chain succeeded on attempt 1: { requestYears: 0 }
+
+      at src/llm/clients.ts:208:17
+
+    console.log
+      DEBUG endCall isFromTest: false testMatch: undefined
+
+      at ChainPerformanceMonitor.endCall (src/monitor/ChainPerformanceMonitor.ts:78:13)
+
+    console.log
+      📊 extractYears: 66ms, 7 input tokens, 5 output tokens
+
+      at ChainPerformanceMonitor.endCall (src/monitor/ChainPerformanceMonitor.ts:111:13)
+
+    console.log
+      About to call chain...
+
+      at src/llm/clients.ts:143:15
+
+    console.log
+      Attempt 1/3 with main chain...
+
+      at src/llm/clients.ts:148:19
+
+    console.log
+      Gemini API raw output: ```json
+      {"level": "Entry"}
+      ```
+
+      at RunnableLambda.func (src/llm/clients.ts:90:15)
+
+    console.log
+      Chain succeeded on attempt 1: { level: 'Entry' }
+
+      at src/llm/clients.ts:150:19
+
+    console.log
+      DEBUG endCall isFromTest: false testMatch: undefined
+
+      at ChainPerformanceMonitor.endCall (src/monitor/ChainPerformanceMonitor.ts:78:13)
+
+    console.log
+      📊 extractLevel: 215ms, 7 input tokens, 7 output tokens
+
+      at ChainPerformanceMonitor.endCall (src/monitor/ChainPerformanceMonitor.ts:111:13)
+
+    console.log
+      Skills result: { result: { skills: [ 'Python' ] } }
+
+      at server.ts:86:11
+
+    console.log
+      Domain result: { result: { domains: [ 'Software Engineering' ] } }
+
+      at server.ts:87:11
+
+    console.log
+      Years result: { result: { requestYears: 0 } }
+
+      at server.ts:88:11
+
+    console.log
+      Level result: { result: { text: { level: 'Entry' } } }
+
+      at server.ts:89:11
+
+    console.log
+      Gemini API raw output: {"requestYears":0}
+
+      at RunnableLambda.func (src/llm/clients.ts:90:15)
+
+    console.log
+      extractYears chain succeeded on attempt 1: { requestYears: 0 }
+
+      at src/llm/clients.ts:208:17
+
+    console.log
+      About to call chain...
+
+      at src/llm/clients.ts:143:15
+
+    console.log
+      Attempt 1/3 with main chain...
+
+      at src/llm/clients.ts:148:19
+
+    console.log
+      Gemini API raw output: ```json
+      {"level": "Entry"}
+      ```
+
+      at RunnableLambda.func (src/llm/clients.ts:90:15)
+
+    console.log
+      Chain succeeded on attempt 1: { level: 'Entry' }
+
+      at src/llm/clients.ts:150:19
+
+    console.log
+      DEBUG endCall isFromTest: false testMatch: undefined
+
+      at ChainPerformanceMonitor.endCall (src/monitor/ChainPerformanceMonitor.ts:78:13)
+
+    console.log
+      📊 extractLevel: 147ms, 7 input tokens, 7 output tokens
+
+      at ChainPerformanceMonitor.endCall (src/monitor/ChainPerformanceMonitor.ts:111:13)
+
+    console.log
+      Skills result: { result: { skills: [ 'Python' ] } }
+
+      at server.ts:86:11
+
+    console.log
+      Domain result: { result: { domains: [ 'Software Engineering' ] } }
+
+      at server.ts:87:11
+
+    console.log
+      Years result: { result: { requestYears: 0 } }
+
+      at server.ts:88:11
+
+    console.log
+      Level result: { result: { text: { level: 'Entry' } } }
+
+      at server.ts:89:11
+
+    console.log
+      Gemini API raw output: ```json
+      {"level": "Entry"}
+      ```
+
+      at RunnableLambda.func (src/llm/clients.ts:90:15)
+
+    console.log
+      Chain succeeded on attempt 1: { level: 'Entry' }
+
+      at src/llm/clients.ts:150:19
+
+    console.log
+      Skills result: { result: { skills: [ 'Python' ] } }
+
+      at server.ts:86:11
+
+    console.log
+      Domain result: { result: { domains: [ 'Software Engineering' ] } }
+
+      at server.ts:87:11
+
+    console.log
+      Years result: { result: { requestYears: 0 } }
+
+      at server.ts:88:11
+
+    console.log
+      Level result: { result: { text: { level: 'Entry' } } }
+
+      at server.ts:89:11
+
+    console.log
+      About to call extractSkills chain...
+
+      at src/llm/clients.ts:199:13
+
+    console.log
+      Attempt 1/3 with extractSkills main chain...
+
+      at src/llm/clients.ts:204:17
+
+    console.log
+      Gemini API raw output: ```json
+      {
+        "skills": [
+          "Java"
+        ]
+      }
+      ```
+
+      at RunnableLambda.func (src/llm/clients.ts:90:15)
+
+    console.log
+      extractSkills chain succeeded on attempt 1: { skills: [ 'Java' ] }
+
+      at src/llm/clients.ts:208:17
+
+    console.log
+      DEBUG endCall isFromTest: false testMatch: undefined
+
+      at ChainPerformanceMonitor.endCall (src/monitor/ChainPerformanceMonitor.ts:78:13)
+
+    console.log
+      📊 extractSkills: 447ms, 7 input tokens, 5 output tokens
+
+      at ChainPerformanceMonitor.endCall (src/monitor/ChainPerformanceMonitor.ts:111:13)
+
+    console.log
+      About to call extractDomain chain...
+
+      at src/llm/clients.ts:199:13
+
+    console.log
+      Attempt 1/3 with extractDomain main chain...
+
+      at src/llm/clients.ts:204:17
+
+    console.log
+      Gemini API raw output: ```json
+      {"domains":["Backend"]}
+      ```
+
+      at RunnableLambda.func (src/llm/clients.ts:90:15)
+
+    console.log
+      extractDomain chain succeeded on attempt 1: { domains: [ 'Backend' ] }
+
+      at src/llm/clients.ts:208:17
+
+    console.log
+      DEBUG endCall isFromTest: false testMatch: undefined
+
+      at ChainPerformanceMonitor.endCall (src/monitor/ChainPerformanceMonitor.ts:78:13)
+
+    console.log
+      📊 extractDomain: 583ms, 7 input tokens, 6 output tokens
+
+      at ChainPerformanceMonitor.endCall (src/monitor/ChainPerformanceMonitor.ts:111:13)
+
+    console.log
+      About to call extractYears chain...
+
+      at src/llm/clients.ts:199:13
+
+    console.log
+      Attempt 1/3 with extractYears main chain...
+
+      at src/llm/clients.ts:204:17
+
+    console.log
+      Gemini API raw output: {"requestYears":0}
+
+      at RunnableLambda.func (src/llm/clients.ts:90:15)
+
+    console.log
+      extractYears chain succeeded on attempt 1: { requestYears: 0 }
+
+      at src/llm/clients.ts:208:17
+
+    console.log
+      DEBUG endCall isFromTest: false testMatch: undefined
+
+      at ChainPerformanceMonitor.endCall (src/monitor/ChainPerformanceMonitor.ts:78:13)
+
+    console.log
+      📊 extractYears: 399ms, 7 input tokens, 5 output tokens
+
+      at ChainPerformanceMonitor.endCall (src/monitor/ChainPerformanceMonitor.ts:111:13)
+
+    console.log
+      About to call chain...
+
+      at src/llm/clients.ts:143:15
+
+    console.log
+      Attempt 1/3 with main chain...
+
+      at src/llm/clients.ts:148:19
+
+    console.log
+      Gemini API raw output: ```json
+      {"level": "Mid"}
+      ```
+
+      at RunnableLambda.func (src/llm/clients.ts:90:15)
+
+    console.log
+      Chain succeeded on attempt 1: { level: 'Mid' }
+
+      at src/llm/clients.ts:150:19
+
+    console.log
+      DEBUG endCall isFromTest: false testMatch: undefined
+
+      at ChainPerformanceMonitor.endCall (src/monitor/ChainPerformanceMonitor.ts:78:13)
+
+    console.log
+      📊 extractLevel: 446ms, 7 input tokens, 6 output tokens
+
+      at ChainPerformanceMonitor.endCall (src/monitor/ChainPerformanceMonitor.ts:111:13)
+
+    console.log
+      Skills result: { result: { skills: [ 'Java' ] } }
+
+      at server.ts:86:11
+
+    console.log
+      Domain result: { result: { domains: [ 'Backend' ] } }
+
+      at server.ts:87:11
+
+    console.log
+      Years result: { result: { requestYears: 0 } }
+
+      at server.ts:88:11
+
+    console.log
+      Level result: { result: { text: { level: 'Mid' } } }
+
+      at server.ts:89:11
+
+    console.log
+      About to call extractSkills chain...
+
+      at src/llm/clients.ts:199:13
+
+    console.log
+      Attempt 1/3 with extractSkills main chain...
+
+      at src/llm/clients.ts:204:17
+
+    console.log
+      Gemini API raw output: ```json
+      {"skills": ["Python", "CI/CD", "Docker", "Kubernetes", "AWS", "Terraform", "Ansible", "Git", "Jenkins", "monitoring tools"]}
+      ```
+
+      at RunnableLambda.func (src/llm/clients.ts:90:15)
+
+    console.log
+      extractSkills chain succeeded on attempt 1: {
+        skills: [
+          'Python',
+          'CI/CD',
+          'Docker',
+          'Kubernetes',
+          'AWS',
+          'Terraform',
+          'Ansible',
+          'Git',
+          'Jenkins',
+          'monitoring tools'
+        ]
+      }
+
+      at src/llm/clients.ts:208:17
+
+    console.log
+      DEBUG endCall isFromTest: false testMatch: undefined
+
+      at ChainPerformanceMonitor.endCall (src/monitor/ChainPerformanceMonitor.ts:78:13)
+
+    console.log
+      📊 extractSkills: 606ms, 7 input tokens, 29 output tokens
+
+      at ChainPerformanceMonitor.endCall (src/monitor/ChainPerformanceMonitor.ts:111:13)
+
+    console.log
+      About to call extractDomain chain...
+
+      at src/llm/clients.ts:199:13
+
+    console.log
+      Attempt 1/3 with extractDomain main chain...
+
+      at src/llm/clients.ts:204:17
+
+    console.log
+      Gemini API raw output: {"domains":["DevOps"]}
+
+      at RunnableLambda.func (src/llm/clients.ts:90:15)
+
+    console.log
+      extractDomain chain succeeded on attempt 1: { domains: [ 'DevOps' ] }
+
+      at src/llm/clients.ts:208:17
+
+    console.log
+      DEBUG endCall isFromTest: false testMatch: undefined
+
+      at ChainPerformanceMonitor.endCall (src/monitor/ChainPerformanceMonitor.ts:78:13)
+
+    console.log
+      📊 extractDomain: 526ms, 7 input tokens, 6 output tokens
+
+      at ChainPerformanceMonitor.endCall (src/monitor/ChainPerformanceMonitor.ts:111:13)
+
+    console.log
+      About to call extractYears chain...
+
+      at src/llm/clients.ts:199:13
+
+    console.log
+      Attempt 1/3 with extractYears main chain...
+
+      at src/llm/clients.ts:204:17
+
+    console.log
+      Gemini API raw output: {"requestYears":0}
+
+      at RunnableLambda.func (src/llm/clients.ts:90:15)
+
+    console.log
+      extractYears chain succeeded on attempt 1: { requestYears: 0 }
+
+      at src/llm/clients.ts:208:17
+
+    console.log
+      DEBUG endCall isFromTest: false testMatch: undefined
+
+      at ChainPerformanceMonitor.endCall (src/monitor/ChainPerformanceMonitor.ts:78:13)
+
+    console.log
+      📊 extractYears: 1090ms, 7 input tokens, 5 output tokens
+
+      at ChainPerformanceMonitor.endCall (src/monitor/ChainPerformanceMonitor.ts:111:13)
+
+    console.log
+      About to call chain...
+
+      at src/llm/clients.ts:143:15
+
+    console.log
+      Attempt 1/3 with main chain...
+
+      at src/llm/clients.ts:148:19
+
+    console.log
+      Gemini API raw output: ```json
+      {"level": "Mid"}
+      ```
+
+      at RunnableLambda.func (src/llm/clients.ts:90:15)
+
+    console.log
+      Chain succeeded on attempt 1: { level: 'Mid' }
+
+      at src/llm/clients.ts:150:19
+
+    console.log
+      DEBUG endCall isFromTest: false testMatch: undefined
+
+      at ChainPerformanceMonitor.endCall (src/monitor/ChainPerformanceMonitor.ts:78:13)
+
+    console.log
+      📊 extractLevel: 369ms, 7 input tokens, 6 output tokens
+
+      at ChainPerformanceMonitor.endCall (src/monitor/ChainPerformanceMonitor.ts:111:13)
+
+    console.log
+      Skills result: {
+        result: {
+          skills: [
+            'Python',
+            'CI/CD',
+            'Docker',
+            'Kubernetes',
+            'AWS',
+            'Terraform',
+            'Ansible',
+            'Git',
+            'Jenkins',
+            'monitoring tools'
+          ]
+        }
+      }
+
+      at server.ts:86:11
+
+    console.log
+      Domain result: { result: { domains: [ 'DevOps' ] } }
+
+      at server.ts:87:11
+
+    console.log
+      Years result: { result: { requestYears: 0 } }
+
+      at server.ts:88:11
+
+    console.log
+      Level result: { result: { text: { level: 'Mid' } } }
+
+      at server.ts:89:11
+
+A worker process has failed to exit gracefully and has been force exited. This is likely caused by tests leaking due to improper teardown. Try running with --detectOpenHandles to find leaks. Active timers can also cause this, ensure that .unref() was called on them.
+
+Test Suites: 10 passed, 10 total
+Tests:       84 passed, 84 total
+Snapshots:   0 total
+Time:        23.33 s
+Ran all test suites.

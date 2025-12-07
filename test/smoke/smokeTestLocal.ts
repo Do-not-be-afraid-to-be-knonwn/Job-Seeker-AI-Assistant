@@ -2,16 +2,16 @@ import { config } from "dotenv";
 config(); // Load environment variables from .env file
 
 import rows from "./smoke.json";
-import { makeExtractYearsChain } from "../../src/chains/extractYearsFewShot.chain";
-import { makeExtractSkillsChain } from "../../src/chains/extractSkills.chain";
-import { makeSmartExtractLevelChain } from "../../src/chains/smartExtractLevel.chain";
-import { makeExtractDomainChain } from "../../src/chains/extractDomain.chain";
+import { YearsExtractionChain } from "../../src/chains/YearsExtractionChain";
+import { SkillsExtractionChain } from "../../src/chains/SkillsExtractionChain";
+import { LevelExtractionChain } from "../../src/chains/LevelExtractionChain";
+import { DomainExtractionChain } from "../../src/chains/DomainExtractionChain";
 
 async function target(inputs: { text: string }) {
-  const yearsChain = await makeExtractYearsChain();
-  const levelChain = await makeSmartExtractLevelChain();
-  const domainChain = await makeExtractDomainChain();
-  const skillsChain = await makeExtractSkillsChain();
+  const yearsChain = new YearsExtractionChain();
+  const levelChain = new LevelExtractionChain();
+  const domainChain = new DomainExtractionChain();
+  const skillsChain = new SkillsExtractionChain();
 
   return {
     yearsChain,
@@ -44,17 +44,19 @@ async function runLocalSmokeTest() {
       const inputText = { text: row.job_description };
 
       // Years
-      const yearsResponse = await yearsChain(inputText, row.years_required);
+      const yearsResponse = await yearsChain.run(inputText, row.years_required);
       const yearsValidation = yearsResponse?.validation;
       if (yearsValidation?.match) correctYears++;
+      // Handle new {minYears, maxYears} structure
+      const actualYears = yearsValidation?.actual?.minYears ?? yearsValidation?.actual;
       console.log(
-        `Years: ${yearsValidation?.actual} (expected: ${
+        `Years: ${actualYears} (expected: ${
           yearsValidation?.expected
         }) ${yearsValidation?.match ? "✅" : "❌"}`
       );
 
       // Level
-      const levelResponse = await levelChain.call(inputText, row.title_level);
+      const levelResponse = await levelChain.run(inputText, row.title_level);
       const levelValidation = levelResponse?.validation;
       if (levelValidation?.match) correctLevel++;
       console.log(
@@ -64,24 +66,33 @@ async function runLocalSmokeTest() {
       );
 
       // Domain
-      const domainResponse = await domainChain(inputText, row.job_domain);
+      const domainResponse = await domainChain.run(inputText, row.job_domain);
       const domainValidation = domainResponse?.validation;
       if (domainValidation?.match) correctDomain++;
+      // Handle domains array structure
+      const actualDomains = Array.isArray(domainValidation?.actual?.domains)
+        ? domainValidation.actual.domains
+        : (Array.isArray(domainValidation?.actual) ? domainValidation.actual : [domainValidation?.actual]);
       console.log(
-        `Domains: [${domainValidation?.actual.join(", ")}] (expected: ${
+        `Domains: [${actualDomains.join(", ")}] (expected: ${
           domainValidation?.expected
         }) ${domainValidation?.match ? "✅" : "❌"}`
       );
 
       // Skills
       const expectedSkills = row.technologies_required || [];
-      const skillsResponse = await skillsChain(inputText, expectedSkills);
+      const skillsResponse = await skillsChain.run(inputText, expectedSkills);
       const skillsValidation = skillsResponse?.validation;
       if (skillsValidation?.match) correctSkills++;
+      // Handle skills array structure
+      const actualSkills = Array.isArray(skillsValidation?.actual?.skills)
+        ? skillsValidation.actual.skills
+        : (Array.isArray(skillsValidation?.actual) ? skillsValidation.actual : []);
+      const expectedSkillsList = Array.isArray(skillsValidation?.expected) ? skillsValidation.expected : [];
       console.log(
-        `Skills: [${skillsValidation?.actual.join(
+        `Skills: [${actualSkills.join(
           ", "
-        )}] (expected: [${skillsValidation?.expected.join(", ")}]) ${
+        )}] (expected: [${expectedSkillsList.join(", ")}]) ${
           skillsValidation?.match ? "✅" : "❌"
         }`
       );

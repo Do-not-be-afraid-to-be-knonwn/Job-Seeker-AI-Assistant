@@ -1,0 +1,1422 @@
+[
+  {
+    "id": "case-01",
+    "label": "Senior Platform Engineer - Strong Match",
+    "job": {
+      "title": "Senior Platform Engineer (Cloud Platform)",
+      "company": "PulseScale Analytics",
+      "description": "PulseScale Analytics is scaling our cloud platform that powers multi-tenant analytics workloads. You will own core Node.js services, TypeScript codebases, AWS infrastructure, and Kubernetes-based deployment pipelines.\n\nResponsibilities:\n- Lead design and delivery of microservices that ingest and process event streams.\n- Partner with SRE to harden observability, alerting, and chaos engineering playbooks.\n- Mentor mid-level engineers and shape coding standards.\n\nRequired Experience:\n- 7+ years building TypeScript or Node.js services in production.\n- Expert with AWS (Lambda, ECS or EKS, API Gateway) and Terraform infrastructure as code.\n- Proficiency with Kubernetes, container networking, and service meshes.\n- Comfortable with CI/CD (GitHub Actions, Argo) and automated testing.\n- Bachelor's degree in Computer Science or equivalent.\n- Must be authorized to work in the United States.\n\nNice To Have:\n- Exposure to event-driven architectures (Kafka) and OpenTelemetry.\n- Experience supporting hybrid Austin teams two days on-site."
+    },
+    "resume": {
+      "candidate": "Maya Chen",
+      "background": "Principal platform engineer focused on scalable backend systems and DevOps automation.",
+      "content": "Summary: Principal engineer with 8 years delivering Node.js and TypeScript services for analytics platforms. Deep experience with AWS EKS, Lambda, Terraform, and GitHub Actions.\n\nExperience:\n- Platform Lead, InsightOps (2020-2024): Scaled ingestion platform on AWS, owning Node.js microservices, Terraform modules, and Kubernetes upgrades. Led observability initiative introducing OpenTelemetry and Grafana dashboards.\n- Senior Software Engineer, DataSprout (2016-2020): Delivered multi-tenant APIs with TypeScript, introduced automated integration tests, mentored 4 engineers.\n\nSkills: TypeScript, Node.js, AWS (EKS, Lambda, Step Functions), Terraform, Kubernetes, Docker, GitHub Actions, Kafka, OpenTelemetry, Python.\n\nEducation: B.S. Computer Science, University of Texas at Austin (2015).\n\nWork Authorization: U.S. citizen based in Austin with hybrid experience."
+    },
+    "expectedOutcome": {
+      "matchQuality": "strong",
+      "expectedScoreRange": { "min": 82, "max": 94 },
+      "expectedResult": {
+        "finalScore": 88,
+        "confidence": "high",
+        "skillsMatch": {
+          "coverage": 0.88,
+          "matchedSkills": ["TypeScript", "Node.js", "AWS", "Terraform", "Kubernetes", "CI/CD"],
+          "missingRequired": [],
+          "missingPreferred": [],
+          "additionalSkills": ["OpenTelemetry", "Kafka"],
+          "overlapScore": 0.78
+        },
+        "experienceMatch": {
+          "score": 0.92,
+          "requiredYears": 7,
+          "candidateYears": 8,
+          "yearsGap": 0,
+          "gapSeverity": "none"
+        },
+        "domainMatch": {
+          "score": 0.86,
+          "matchedDomains": ["Cloud Infrastructure", "Platform Engineering"],
+          "jobDomains": ["Cloud Infrastructure", "Platform Engineering"],
+          "candidateDomains": ["Analytics Platforms", "Cloud Infrastructure", "SRE Enablement"]
+        },
+        "levelMatch": {
+          "score": 0.95,
+          "requiredLevel": "Senior",
+          "candidateLevel": "Principal",
+          "levelGap": 0,
+          "isPromotable": false
+        },
+        "educationMatch": {
+          "score": 1.0,
+          "required": "Bachelor's degree in Computer Science",
+          "candidate": "B.S. Computer Science",
+          "meetsRequirement": true
+        },
+        "locationMatch": {
+          "score": 1.0,
+          "workAuthRequired": true,
+          "candidateStatus": true,
+          "meetsRequirement": true
+        }
+      },
+      "validationCriteria": {
+        "minScore": 80,
+        "maxScore": 95,
+        "shouldPassGates": true,
+        "expectedSkillsFound": ["TypeScript", "Node.js", "AWS", "Terraform", "Kubernetes"],
+        "expectedMissingSkills": [],
+        "expectedExplanationKeywords": ["microservices", "AWS", "Terraform", "observability"]
+      },
+      "notes": "Candidate exceeds core stack requirements; expect explanation to highlight cloud infrastructure leadership."
+    }
+  },
+  {
+    "id": "case-02",
+    "label": "Senior Backend API Engineer - GraphQL Gap",
+    "job": {
+      "title": "Senior Backend API Engineer",
+      "company": "RiverPay Commerce",
+      "description": "RiverPay Commerce is expanding our payouts platform and needs a senior backend API engineer to evolve our customer-facing GraphQL gateway.\n\nResponsibilities:\n- Design and evolve GraphQL schemas that serve partner APIs and internal UIs.\n- Implement TypeScript/Node.js services that integrate with AWS Lambda, DynamoDB, and PostgreSQL.\n- Champion API observability, caching, and performance budgets for high-traffic commerce workloads.\n- Collaborate with product squads to iterate quickly while maintaining PCI secure practices.\n\nRequired Experience:\n- 6+ years shipping production APIs in Node.js or TypeScript.\n- Demonstrated experience building GraphQL schemas and resolvers in production.\n- Expertise with AWS (Lambda, API Gateway, DynamoDB) and SQL data modeling.\n- Strong understanding of caching layers, feature flags, and CI/CD automation.\n- Bachelor's degree in Computer Science or related field.\n- Authorized to work in the United States.\n\nNice To Have:\n- Experience with event-driven architectures (Kafka, Kinesis).\n- Prior work in payments or commerce platforms."
+    },
+    "resume": {
+      "candidate": "Diego Alvarez",
+      "background": "Backend tech lead working on checkout services and developer productivity.",
+      "content": "Summary: Backend tech lead with 7 years delivering TypeScript and Node.js services for high-volume commerce checkouts. Deep in REST APIs, AWS Lambda, DynamoDB, PostgreSQL, and Redis.\n\nExperience:\n- Lead Engineer, CartWave (2021-2024): Led modernization of checkout APIs, implemented feature-flagged rollouts and observability. Partnered with front-end to consume GraphQL gateway but primarily maintained REST services.\n- Senior Software Engineer, BlueCart (2017-2021): Built Node.js microservices on AWS using API Gateway, Lambda, and PostgreSQL. Mentored 3 engineers, introduced automated integration testing.\n\nSkills: TypeScript, Node.js, AWS (Lambda, DynamoDB, SNS/SQS), PostgreSQL, Redis, Kafka, Serverless Framework, CI/CD.\n\nEducation: B.S. Software Engineering, University of Florida (2016).\n\nWork Authorization: U.S. permanent resident open to remote U.S. roles."
+    },
+    "expectedOutcome": {
+      "matchQuality": "good-with-gaps",
+      "expectedScoreRange": { "min": 68, "max": 82 },
+      "expectedResult": {
+        "finalScore": 74,
+        "confidence": "medium",
+        "skillsMatch": {
+          "coverage": 0.72,
+          "matchedSkills": ["Node.js", "TypeScript", "AWS", "PostgreSQL", "CI/CD"],
+          "missingRequired": ["GraphQL"],
+          "missingPreferred": ["Event-driven architecture"],
+          "additionalSkills": ["Redis", "Kafka"],
+          "overlapScore": 0.58
+        },
+        "experienceMatch": {
+          "score": 0.88,
+          "requiredYears": 6,
+          "candidateYears": 7,
+          "yearsGap": 0,
+          "gapSeverity": "none"
+        },
+        "domainMatch": {
+          "score": 0.78,
+          "matchedDomains": ["Commerce Platforms"],
+          "jobDomains": ["Payments APIs", "Commerce Platforms"],
+          "candidateDomains": ["Commerce Platforms", "Checkout Systems"]
+        },
+        "levelMatch": {
+          "score": 0.9,
+          "requiredLevel": "Senior",
+          "candidateLevel": "Lead",
+          "levelGap": 0,
+          "isPromotable": false
+        },
+        "educationMatch": {
+          "score": 1.0,
+          "required": "Bachelor's degree in Computer Science",
+          "candidate": "B.S. Software Engineering",
+          "meetsRequirement": true
+        },
+        "locationMatch": {
+          "score": 1.0,
+          "workAuthRequired": true,
+          "candidateStatus": true,
+          "meetsRequirement": true
+        }
+      },
+      "validationCriteria": {
+        "minScore": 65,
+        "maxScore": 82,
+        "shouldPassGates": true,
+        "expectedSkillsFound": ["Node.js", "TypeScript", "AWS", "PostgreSQL"],
+        "expectedMissingSkills": ["GraphQL"],
+        "expectedExplanationKeywords": ["GraphQL gap", "commerce APIs", "caching strategy"]
+      },
+      "notes": "Expect explanation to praise API depth while flagging missing hands-on GraphQL ownership."
+    }
+  },
+  {
+    "id": "case-03",
+    "label": "Staff Fintech Backend Engineer - Domain Mismatch",
+    "job": {
+      "title": "Staff Backend Engineer - Treasury Systems",
+      "company": "SecureLedger",
+      "description": "SecureLedger is hiring a staff backend engineer to lead our treasury reconciliation services and event-driven financial ledger.\n\nResponsibilities:\n- Architect Scala and Java services that power multi-entity treasury settlement.\n- Design event-sourced workflows leveraging Kafka, Debezium, and PostgreSQL.\n- Embed with compliance to ensure PCI and SOX controls are automated.\n- Mentor backend teams and introduce reliability guardrails for funds movement.\n\nRequired Experience:\n- 9+ years building backend services with Scala or JVM languages.\n- Deep expertise in Kafka, event sourcing, and stream processing.\n- Experience with financial controls, PCI compliance, and SOC 2 audits.\n- Comfort with infrastructure-as-code and production on-call rotations.\n- Bachelor's degree in Computer Science or similar.\n- U.S. work authorization.\n\nNice To Have:\n- Experience integrating with core banking or payment processors.\n- Background in domain-driven design and CQRS patterns."
+    },
+    "resume": {
+      "candidate": "Priya Desai",
+      "background": "Senior engineer focused on customer-facing web platforms and developer experience.",
+      "content": "Summary: Senior software engineer with 7 years crafting customer-facing web experiences. Focused on React, Node.js, and GraphQL APIs.\n\nExperience:\n- Senior Engineer, GlowRetail (2020-2024): Led front-end modernization using React and GraphQL; owned Node.js BFF services and launched design system.\n- Software Engineer, AdNova (2016-2020): Built TypeScript microservices for ad targeting, introduced feature flag platform, collaborated with product managers.\n\nSkills: TypeScript, Node.js, React, GraphQL, REST APIs, AWS, Redis, Docker, Jenkins.\n\nEducation: B.S. Information Systems, Georgia Tech (2015).\n\nDomain Experience: E-commerce personalization, marketing technology.\n\nWork Authorization: U.S. citizen based in Atlanta."
+    },
+    "expectedOutcome": {
+      "matchQuality": "weak",
+      "expectedScoreRange": { "min": 50, "max": 60 },
+      "expectedResult": {
+        "finalScore": 55,
+        "confidence": "medium",
+        "skillsMatch": {
+          "coverage": 0.45,
+          "matchedSkills": ["Node.js", "TypeScript", "Docker"],
+          "missingRequired": ["Scala", "Kafka", "Event sourcing", "PCI compliance"],
+          "missingPreferred": ["Domain-driven design"],
+          "additionalSkills": ["React", "GraphQL"],
+          "overlapScore": 0.32
+        },
+        "experienceMatch": {
+          "score": 0.55,
+          "requiredYears": 9,
+          "candidateYears": 7,
+          "yearsGap": 2,
+          "gapSeverity": "moderate"
+        },
+        "domainMatch": {
+          "score": 0.4,
+          "matchedDomains": [],
+          "jobDomains": ["Fintech", "Treasury Systems"],
+          "candidateDomains": ["E-commerce", "Marketing Technology"]
+        },
+        "levelMatch": {
+          "score": 0.6,
+          "requiredLevel": "Staff",
+          "candidateLevel": "Senior",
+          "levelGap": 1,
+          "isPromotable": true
+        },
+        "educationMatch": {
+          "score": 1.0,
+          "required": "Bachelor's degree in Computer Science",
+          "candidate": "B.S. Information Systems",
+          "meetsRequirement": true
+        },
+        "locationMatch": {
+          "score": 1.0,
+          "workAuthRequired": true,
+          "candidateStatus": true,
+          "meetsRequirement": true
+        }
+      },
+      "validationCriteria": {
+        "minScore": 48,
+        "maxScore": 62,
+        "shouldPassGates": true,
+        "expectedSkillsFound": ["Node.js", "TypeScript"],
+        "expectedMissingSkills": ["Scala", "Kafka", "PCI compliance"],
+        "expectedExplanationKeywords": ["event-driven", "treasury", "compliance risk"]
+      },
+      "notes": "System should surface lack of Scala/Kafka depth and absence of regulated industry experience."
+    }
+  },
+  {
+    "id": "case-04",
+    "label": "Machine Learning Platform Engineer - Solid Match",
+    "job": {
+      "title": "Senior Machine Learning Platform Engineer",
+      "company": "VisionForge Labs",
+      "description": "VisionForge Labs needs a senior machine learning platform engineer to scale our experimentation and model deployment stack.\n\nResponsibilities:\n- Build and maintain Kubeflow and Argo workflows that power continuous training.\n- Extend ML metadata tracking with MLflow and feature store integrations.\n- Collaborate with data science to productionize models across GPU-enabled clusters.\n- Harden observability, security, and cost controls across ML infrastructure.\n\nRequired Experience:\n- 5+ years working on ML infrastructure or data platforms using Python.\n- Hands-on expertise with Kubernetes, Kubeflow (or similar), and Airflow.\n- Experience with ML metadata stores, model registry, and CI/CD for ML systems.\n- Familiarity with data versioning, experiment tracking, and containerization.\n- Bachelor's degree in Computer Science or related field.\n- Must be eligible to work in the United States.\n\nNice To Have:\n- Knowledge of distributed training frameworks (Ray, Spark) and GPU scheduling.\n- Exposure to compliance requirements for regulated ML workloads."
+    },
+    "resume": {
+      "candidate": "Ethan Park",
+      "background": "Senior data engineer specializing in ML infrastructure and automation.",
+      "content": "Summary: Senior data engineer with 6 years building ML pipelines and feature stores supporting personalization models.\n\nExperience:\n- ML Platform Engineer, Insightly AI (2020-2024): Owned Kubeflow pipelines, MLflow tracking, and ML deployment on AWS EKS. Implemented Airflow orchestrations and automated model validation gates.\n- Data Engineer, StreamFoundry (2017-2020): Delivered Python data pipelines, built feature store integrations, and introduced containerized training workflows.\n\nSkills: Python, Kubernetes, Kubeflow, Airflow, MLflow, Docker, AWS, Terraform, Snowflake, Feature Store, GitLab CI.\n\nEducation: M.S. Computer Science, University of Washington (2017).\n\nWork Authorization: U.S. citizen working remotely from Seattle."
+    },
+    "expectedOutcome": {
+      "matchQuality": "strong",
+      "expectedScoreRange": { "min": 74, "max": 85 },
+      "expectedResult": {
+        "finalScore": 78,
+        "confidence": "high",
+        "skillsMatch": {
+          "coverage": 0.8,
+          "matchedSkills": ["Python", "Kubernetes", "Kubeflow", "Airflow", "MLflow"],
+          "missingRequired": [],
+          "missingPreferred": ["GPU scheduling"],
+          "additionalSkills": ["Snowflake", "Feature Store"],
+          "overlapScore": 0.66
+        },
+        "experienceMatch": {
+          "score": 0.85,
+          "requiredYears": 5,
+          "candidateYears": 6,
+          "yearsGap": 0,
+          "gapSeverity": "none"
+        },
+        "domainMatch": {
+          "score": 0.82,
+          "matchedDomains": ["ML Platform"],
+          "jobDomains": ["ML Platform", "Data Infrastructure"],
+          "candidateDomains": ["ML Platform", "Data Engineering"]
+        },
+        "levelMatch": {
+          "score": 0.88,
+          "requiredLevel": "Senior",
+          "candidateLevel": "Senior",
+          "levelGap": 0,
+          "isPromotable": false
+        },
+        "educationMatch": {
+          "score": 1.0,
+          "required": "Bachelor's degree in Computer Science",
+          "candidate": "M.S. Computer Science",
+          "meetsRequirement": true
+        },
+        "locationMatch": {
+          "score": 1.0,
+          "workAuthRequired": true,
+          "candidateStatus": true,
+          "meetsRequirement": true
+        }
+      },
+      "validationCriteria": {
+        "minScore": 72,
+        "maxScore": 85,
+        "shouldPassGates": true,
+        "expectedSkillsFound": ["Python", "Kubernetes", "Airflow"],
+        "expectedMissingSkills": ["GPU scheduling"],
+        "expectedExplanationKeywords": ["ML pipelines", "Kubeflow", "deployment automation"]
+      },
+      "notes": "Expect emphasis on pipeline automation strengths and mention limited GPU scheduling exposure."
+    }
+  },
+  {
+    "id": "case-05",
+    "label": "Site Reliability Engineer - Strong Alignment",
+    "job": {
+      "title": "Senior Site Reliability Engineer",
+      "company": "BrightWind Energy",
+      "description": "BrightWind Energy operates a distributed energy platform and is hiring a senior SRE to evolve our reliability toolkit.\n\nResponsibilities:\n- Build automation in Go or Python to manage multi-region Kubernetes clusters.\n- Own Terraform modules, secret management, and networking policies.\n- Design and tune observability stack using Prometheus, Grafana, and OpenTelemetry.\n- Lead incident response practices and partner with product teams on SLO design.\n\nRequired Experience:\n- 6+ years in production SRE or infrastructure engineering roles.\n- Strong coding ability in Go or Python.\n- Deep knowledge of Kubernetes internals, Terraform, and cloud networking.\n- Hands-on with observability tooling (Prometheus, Grafana, Alertmanager).\n- Comfortable with on-call rotations and blameless postmortems.\n- Bachelor's degree in Computer Science or related engineering discipline.\n\nNice To Have:\n- Experience with chaos engineering and service mesh technologies.\n- Background in energy or IoT platforms."
+    },
+    "resume": {
+      "candidate": "Carla Gomez",
+      "background": "Senior SRE focused on automation, observability, and resilience at scale.",
+      "content": "Summary: Senior site reliability engineer with 7 years experience automating infrastructure for SaaS and IoT companies. Strong in Go, Terraform, Kubernetes, and observability practices.\n\nExperience:\n- Lead SRE, GridSense (2020-2024): Automated Kubernetes upgrades, built Terraform platform modules, implemented service level objectives, and introduced chaos engineering game days.\n- SRE, CloudPulse (2016-2020): Owned Prometheus/Grafana stack, wrote Go operators, managed multi-region AWS networking.\n\nSkills: Go, Python, Kubernetes, Terraform, Prometheus, Grafana, OpenTelemetry, ArgoCD, Chaos Engineering, AWS, GCP.\n\nEducation: B.S. Computer Engineering, UCLA (2015).\n\nWork Authorization: U.S. citizen, open to hybrid San Francisco schedule."
+    },
+    "expectedOutcome": {
+      "matchQuality": "strong",
+      "expectedScoreRange": { "min": 80, "max": 90 },
+      "expectedResult": {
+        "finalScore": 85,
+        "confidence": "high",
+        "skillsMatch": {
+          "coverage": 0.83,
+          "matchedSkills": ["Go", "Python", "Kubernetes", "Terraform", "Prometheus", "Grafana"],
+          "missingRequired": [],
+          "missingPreferred": ["Service mesh"],
+          "additionalSkills": ["Chaos engineering", "OpenTelemetry"],
+          "overlapScore": 0.7
+        },
+        "experienceMatch": {
+          "score": 0.9,
+          "requiredYears": 6,
+          "candidateYears": 7,
+          "yearsGap": 0,
+          "gapSeverity": "none"
+        },
+        "domainMatch": {
+          "score": 0.88,
+          "matchedDomains": ["SRE", "Cloud Infrastructure"],
+          "jobDomains": ["SRE", "Energy Platforms"],
+          "candidateDomains": ["SaaS Platforms", "IoT Infrastructure"]
+        },
+        "levelMatch": {
+          "score": 0.92,
+          "requiredLevel": "Senior",
+          "candidateLevel": "Senior",
+          "levelGap": 0,
+          "isPromotable": false
+        },
+        "educationMatch": {
+          "score": 1.0,
+          "required": "Bachelor's degree in Computer Science",
+          "candidate": "B.S. Computer Engineering",
+          "meetsRequirement": true
+        },
+        "locationMatch": {
+          "score": 1.0,
+          "workAuthRequired": true,
+          "candidateStatus": true,
+          "meetsRequirement": true
+        }
+      },
+      "validationCriteria": {
+        "minScore": 80,
+        "maxScore": 90,
+        "shouldPassGates": true,
+        "expectedSkillsFound": ["Kubernetes", "Terraform", "Prometheus"],
+        "expectedMissingSkills": ["Service mesh"],
+        "expectedExplanationKeywords": ["observability", "chaos engineering", "SLOs"]
+      },
+      "notes": "Should flag excellent SRE alignment with minor note on mesh experience being nice-to-have."
+    }
+  },
+  {
+    "id": "case-06",
+    "label": "Senior iOS Engineer - Platform Mismatch",
+    "job": {
+      "title": "Senior iOS Engineer",
+      "company": "NovaRide Mobility",
+      "description": "NovaRide Mobility is building the next generation rider app and needs a senior iOS engineer to lead native development.\n\nResponsibilities:\n- Own Swift and SwiftUI codebases powering consumer and driver experiences.\n- Implement Combine-based data flows and modular architecture for offline support.\n- Optimize build pipelines, release automation, and App Store compliance.\n- Partner with product to ship features safely with experimentation and analytics instrumentation.\n\nRequired Experience:\n- 5+ years building native iOS apps in Swift.\n- Deep knowledge of SwiftUI, Combine, UIKit, and Apple Human Interface Guidelines.\n- Experience running TestFlight and App Store release pipelines with CI/CD.\n- Strong grasp of mobile performance profiling and accessibility.\n- Bachelor's degree in Computer Science or equivalent.\n- Authorized to work in the United States.\n\nNice To Have:\n- Experience with CoreLocation, MapKit, and Bluetooth integrations.\n- Familiarity with GraphQL or gRPC mobile clients."
+    },
+    "resume": {
+      "candidate": "Liam Patel",
+      "background": "Senior Android engineer focused on Kotlin and mobile CI/CD.",
+      "content": "Summary: Senior mobile engineer with 6 years leading Android app development. Expert in Kotlin, Jetpack Compose, and deployment automation.\n\nExperience:\n- Principal Android Engineer, SwiftLift (2021-2024): Led Kotlin migration, built Jetpack Compose UI system, managed Play Store rollout automation and feature flag pipeline.\n- Android Engineer, RideLoop (2016-2021): Delivered ride-sharing features, integrated maps, payments, and analytics instrumentation.\n\nSkills: Kotlin, Android, Jetpack Compose, CI/CD, Gradle, Firebase, GitHub Actions, REST APIs, GraphQL clients, Figma collaboration.\n\nEducation: B.S. Computer Science, University of Illinois (2016).\n\nWork Authorization: U.S. citizen living in Denver."
+    },
+    "expectedOutcome": {
+      "matchQuality": "poor",
+      "expectedScoreRange": { "min": 35, "max": 48 },
+      "expectedResult": {
+        "finalScore": 42,
+        "confidence": "low",
+        "skillsMatch": {
+          "coverage": 0.1,
+          "matchedSkills": ["CI/CD"],
+          "missingRequired": ["Swift", "SwiftUI", "Combine"],
+          "missingPreferred": ["CoreLocation"],
+          "additionalSkills": ["Kotlin", "Jetpack Compose"],
+          "overlapScore": 0.12
+        },
+        "experienceMatch": {
+          "score": 0.7,
+          "requiredYears": 5,
+          "candidateYears": 6,
+          "yearsGap": 0,
+          "gapSeverity": "none"
+        },
+        "domainMatch": {
+          "score": 0.35,
+          "matchedDomains": ["Mobile Apps"],
+          "jobDomains": ["iOS Mobile", "Consumer Apps"],
+          "candidateDomains": ["Android Mobile", "Consumer Apps"]
+        },
+        "levelMatch": {
+          "score": 0.8,
+          "requiredLevel": "Senior",
+          "candidateLevel": "Senior",
+          "levelGap": 0,
+          "isPromotable": false
+        },
+        "educationMatch": {
+          "score": 1.0,
+          "required": "Bachelor's degree in Computer Science",
+          "candidate": "B.S. Computer Science",
+          "meetsRequirement": true
+        },
+        "locationMatch": {
+          "score": 1.0,
+          "workAuthRequired": true,
+          "candidateStatus": true,
+          "meetsRequirement": true
+        }
+      },
+      "validationCriteria": {
+        "minScore": 35,
+        "maxScore": 50,
+        "shouldPassGates": false,
+        "expectedSkillsFound": ["CI/CD"],
+        "expectedMissingSkills": ["Swift", "SwiftUI", "Combine"],
+        "expectedExplanationKeywords": ["Swift requirement", "platform mismatch", "iOS stack"]
+      },
+      "notes": "System should clearly call out lack of Swift/SwiftUI experience and potential skills gate failure."
+    }
+  },
+  {
+    "id": "case-07",
+    "label": "Frontend Tech Lead - Excellent Alignment",
+    "job": {
+      "title": "Frontend Tech Lead (React/Next.js)",
+      "company": "Aurora Commerce",
+      "description": "Aurora Commerce is hiring a frontend tech lead to own our customer experience platform built on React and Next.js.\n\nResponsibilities:\n- Lead architecture for design system, server components, and performance budgets.\n- Mentor frontend guild, set coding standards, and partner with product design.\n- Implement TypeScript, GraphQL, and API integration patterns that support omnichannel experiences.\n- Drive experimentation, accessibility, and analytics instrumentation.\n\nRequired Experience:\n- 8+ years building modern web applications with React and TypeScript.\n- Production experience with Next.js, SSR, and edge rendering.\n- Strong GraphQL integration experience and understanding of API contracts.\n- Experience leading frontend teams and guiding design system evolution.\n- Bachelor's degree in Computer Science or similar discipline.\n- Eligible to work in the United States.\n\nNice To Have:\n- Knowledge of Web Vitals optimization, CDN tuning, and micro frontends.\n- Familiarity with A/B testing platforms."
+    },
+    "resume": {
+      "candidate": "Sandra Liu",
+      "background": "Frontend architect leading design system and performance initiatives.",
+      "content": "Summary: Frontend architect with 9 years building large scale React and Next.js applications. Drives performance, accessibility, and developer experience.\n\nExperience:\n- Principal Frontend Engineer, BloomCart (2020-2024): Led Next.js migration, built GraphQL client layer, created design system adopted by 6 teams, instituted performance budgets.\n- Senior Frontend Engineer, ShopVerse (2015-2020): Delivered React-based storefront, introduced Storybook, mentored junior engineers.\n\nSkills: React, Next.js, TypeScript, GraphQL, Apollo, Redux Toolkit, Tailwind, Webpack, Lighthouse, Storybook, Cypress.\n\nEducation: B.S. Computer Science, UC Berkeley (2014).\n\nWork Authorization: U.S. citizen in San Francisco."
+    },
+    "expectedOutcome": {
+      "matchQuality": "strong",
+      "expectedScoreRange": { "min": 82, "max": 94 },
+      "expectedResult": {
+        "finalScore": 87,
+        "confidence": "high",
+        "skillsMatch": {
+          "coverage": 0.9,
+          "matchedSkills": ["React", "Next.js", "TypeScript", "GraphQL", "Design systems"],
+          "missingRequired": [],
+          "missingPreferred": ["Micro frontends"],
+          "additionalSkills": ["Storybook", "Lighthouse"],
+          "overlapScore": 0.76
+        },
+        "experienceMatch": {
+          "score": 0.9,
+          "requiredYears": 8,
+          "candidateYears": 9,
+          "yearsGap": 0,
+          "gapSeverity": "none"
+        },
+        "domainMatch": {
+          "score": 0.88,
+          "matchedDomains": ["E-commerce Web"],
+          "jobDomains": ["E-commerce Web", "Frontend Platform"],
+          "candidateDomains": ["E-commerce Web", "Design Systems"]
+        },
+        "levelMatch": {
+          "score": 0.92,
+          "requiredLevel": "Lead",
+          "candidateLevel": "Principal",
+          "levelGap": 0,
+          "isPromotable": false
+        },
+        "educationMatch": {
+          "score": 1.0,
+          "required": "Bachelor's degree in Computer Science",
+          "candidate": "B.S. Computer Science",
+          "meetsRequirement": true
+        },
+        "locationMatch": {
+          "score": 1.0,
+          "workAuthRequired": true,
+          "candidateStatus": true,
+          "meetsRequirement": true
+        }
+      },
+      "validationCriteria": {
+        "minScore": 80,
+        "maxScore": 94,
+        "shouldPassGates": true,
+        "expectedSkillsFound": ["React", "Next.js", "GraphQL"],
+        "expectedMissingSkills": ["Micro frontends"],
+        "expectedExplanationKeywords": ["design system leadership", "performance budgets", "GraphQL integration"]
+      },
+      "notes": "Expect narrative focusing on Next.js leadership and design system ownership."
+    }
+  },
+  {
+    "id": "case-08",
+    "label": "Full Stack Growth Engineer - Experience Gap",
+    "job": {
+      "title": "Senior Full Stack Engineer, Growth Platform",
+      "company": "LaunchFlow",
+      "description": "LaunchFlow is growing our experimentation platform and needs a senior full stack engineer to ship fast with quality.\n\nResponsibilities:\n- Build Node.js and TypeScript services that power growth experiments and pricing experiences.\n- Own React and Next.js frontends, instrumentation, and A/B test frameworks.\n- Design scalable data models in PostgreSQL and integrate with Segment and Looker.\n- Partner with product to analyze experiment results and drive rapid iteration.\n\nRequired Experience:\n- 7+ years full stack development across Node.js, React, and SQL databases.\n- Strong understanding of experimentation platforms and growth metrics.\n- Experience deploying to AWS, managing infrastructure-as-code, and CI/CD automation.\n- Comfortable mentoring engineers and leading end-to-end project delivery.\n- Bachelor's degree in Computer Science or related field.\n- Authorization to work in the United States.\n\nNice To Have:\n- Exposure to experimentation platforms like Optimizely or LaunchDarkly.\n- Familiarity with data warehousing and analytics stacks."
+    },
+    "resume": {
+      "candidate": "Jordan Smith",
+      "background": "Full stack engineer passionate about growth and developer tooling.",
+      "content": "Summary: Full stack developer with 3 years experience building React and Node.js features for SaaS growth teams.\n\nExperience:\n- Software Engineer, MetricLabs (2021-2024): Built React dashboards, Node.js APIs, and PostgreSQL data models for product analytics. Implemented feature flagging with LaunchDarkly.\n- Junior Engineer, QuickTasks (2019-2021): Delivered Next.js landing pages, marketing experiments, and automation scripts.\n\nSkills: React, Next.js, Node.js, TypeScript, PostgreSQL, AWS (Lambda, Fargate), LaunchDarkly, Segment, GitHub Actions, Jest.\n\nEducation: B.S. Computer Science, University of Minnesota (2019).\n\nWork Authorization: U.S. citizen located in Minneapolis."
+    },
+    "expectedOutcome": {
+      "matchQuality": "moderate",
+      "expectedScoreRange": { "min": 54, "max": 64 },
+      "expectedResult": {
+        "finalScore": 58,
+        "confidence": "medium",
+        "skillsMatch": {
+          "coverage": 0.76,
+          "matchedSkills": ["React", "Next.js", "Node.js", "TypeScript", "PostgreSQL", "AWS"],
+          "missingRequired": ["Experimentation strategy"],
+          "missingPreferred": ["Analytics leadership"],
+          "additionalSkills": ["LaunchDarkly", "Segment"],
+          "overlapScore": 0.6
+        },
+        "experienceMatch": {
+          "score": 0.4,
+          "requiredYears": 7,
+          "candidateYears": 3,
+          "yearsGap": 4,
+          "gapSeverity": "major"
+        },
+        "domainMatch": {
+          "score": 0.7,
+          "matchedDomains": ["Growth Engineering"],
+          "jobDomains": ["Growth Engineering", "Full Stack"],
+          "candidateDomains": ["Growth Engineering", "Product Analytics"]
+        },
+        "levelMatch": {
+          "score": 0.55,
+          "requiredLevel": "Senior",
+          "candidateLevel": "Mid-level",
+          "levelGap": 1,
+          "isPromotable": true
+        },
+        "educationMatch": {
+          "score": 1.0,
+          "required": "Bachelor's degree in Computer Science",
+          "candidate": "B.S. Computer Science",
+          "meetsRequirement": true
+        },
+        "locationMatch": {
+          "score": 1.0,
+          "workAuthRequired": true,
+          "candidateStatus": true,
+          "meetsRequirement": true
+        }
+      },
+      "validationCriteria": {
+        "minScore": 54,
+        "maxScore": 64,
+        "shouldPassGates": true,
+        "expectedSkillsFound": ["React", "Node.js", "AWS", "PostgreSQL"],
+        "expectedMissingSkills": ["Experimentation strategy"],
+        "expectedExplanationKeywords": ["experience gap", "mentorship need", "growth experimentation"]
+      },
+      "notes": "Expect explanation to emphasize short tenure gap balanced by tooling familiarity."
+    }
+  },
+  {
+    "id": "case-09",
+    "label": "Application Security Engineer - Partial Match",
+    "job": {
+      "title": "Senior Application Security Engineer",
+      "company": "ShieldStack",
+      "description": "ShieldStack is expanding application security coverage and needs a senior engineer to embed security into our SDLC.\n\nResponsibilities:\n- Build security automation, static analysis pipelines, and secure coding guardrails.\n- Lead threat modeling sessions and security design reviews with feature teams.\n- Implement secure SDLC tooling, secret scanning, and dependency management.\n- Partner with compliance on SOC 2, GDPR, and PCI initiatives.\n\nRequired Experience:\n- 6+ years software development with at least 3 years focused on application security.\n- Expertise in static analysis tools (SonarQube, Semgrep) and secure code reviews.\n- Experience building threat models and remediating vulnerabilities at scale.\n- Knowledge of OAuth, JWT, and modern authentication patterns.\n- Bachelor's degree in Computer Science or related technical field.\n- Eligible to work in the United States.\n\nNice To Have:\n- Security certifications (OSCP, CISSP).\n- Experience with bug bounty triage or red team collaboration."
+    },
+    "resume": {
+      "candidate": "Marcus Nguyen",
+      "background": "Senior backend engineer with security champion responsibilities.",
+      "content": "Summary: Senior backend engineer with 7 years experience in Java and Node.js microservices. Acted as security champion, automating dependency scanning and secret management.\n\nExperience:\n- Senior Engineer, AuthScale (2019-2024): Built Java and Node.js services, introduced Semgrep scanning in CI, partnered with security team on threat modeling workshops.\n- Software Engineer, DataClimb (2016-2019): Delivered authentication APIs, maintained OAuth integration, participated in security incident response.\n\nSkills: Java, Node.js, TypeScript, OAuth, JWT, Semgrep, Snyk, Terraform, AWS, Docker, Postgres.\n\nEducation: B.S. Computer Science, University of Washington (2015).\n\nCertifications: None.\n\nWork Authorization: U.S. citizen in Seattle."
+    },
+    "expectedOutcome": {
+      "matchQuality": "moderate",
+      "expectedScoreRange": { "min": 58, "max": 68 },
+      "expectedResult": {
+        "finalScore": 62,
+        "confidence": "medium",
+        "skillsMatch": {
+          "coverage": 0.58,
+          "matchedSkills": ["Semgrep", "OAuth", "JWT", "Dependency scanning"],
+          "missingRequired": ["Threat modeling leadership", "Security certifications"],
+          "missingPreferred": ["Bug bounty triage"],
+          "additionalSkills": ["Java", "Node.js"],
+          "overlapScore": 0.45
+        },
+        "experienceMatch": {
+          "score": 0.75,
+          "requiredYears": 6,
+          "candidateYears": 7,
+          "yearsGap": 0,
+          "gapSeverity": "none"
+        },
+        "domainMatch": {
+          "score": 0.5,
+          "matchedDomains": ["Identity"],
+          "jobDomains": ["Application Security", "Compliance"],
+          "candidateDomains": ["Identity Platforms", "Backend Services"]
+        },
+        "levelMatch": {
+          "score": 0.7,
+          "requiredLevel": "Senior",
+          "candidateLevel": "Senior",
+          "levelGap": 0,
+          "isPromotable": false
+        },
+        "educationMatch": {
+          "score": 1.0,
+          "required": "Bachelor's degree in Computer Science",
+          "candidate": "B.S. Computer Science",
+          "meetsRequirement": true
+        },
+        "locationMatch": {
+          "score": 1.0,
+          "workAuthRequired": true,
+          "candidateStatus": true,
+          "meetsRequirement": true
+        }
+      },
+      "validationCriteria": {
+        "minScore": 58,
+        "maxScore": 68,
+        "shouldPassGates": true,
+        "expectedSkillsFound": ["Semgrep", "OAuth"],
+        "expectedMissingSkills": ["Threat modeling leadership", "Security certifications"],
+        "expectedExplanationKeywords": ["security champion", "threat modeling", "automation coverage"]
+      },
+      "notes": "Explanation should acknowledge security automation work but highlight limited dedicated AppSec tenure."
+    }
+  },
+  {
+    "id": "case-10",
+    "label": "Real-time Gaming Backend Engineer - Mixed Fit",
+    "job": {
+      "title": "Real-time Multiplayer Backend Engineer",
+      "company": "NimblePlay Studios",
+      "description": "NimblePlay Studios is developing a low-latency multiplayer platform and needs an engineer comfortable with C++ and networking.\n\nResponsibilities:\n- Build game server features in C++ and Unreal Engine with strict latency targets.\n- Implement UDP networking, matchmaking, and state replication systems.\n- Optimize memory usage and performance profiling for dedicated servers.\n- Collaborate with gameplay teams to integrate server features with gameplay logic.\n\nRequired Experience:\n- 5+ years building backend systems in C++ for games or real-time systems.\n- Expertise with Unreal Engine networking, replication, and cluster deployment.\n- Deep understanding of low-level networking (UDP, WebSockets) and debugging tools.\n- Experience operating live services and on-call rotations.\n- Bachelor's degree in Computer Science or related field.\n- Authorized to work in the United States.\n\nNice To Have:\n- Familiarity with matchmaking algorithms and ranking systems.\n- Experience with anti-cheat or telemetry pipelines."
+    },
+    "resume": {
+      "candidate": "Alex Morgan",
+      "background": "Senior engineer building multiplayer experiences in C# and cloud services.",
+      "content": "Summary: Backend engineer with 6 years shipping multiplayer features using C#, .NET, and Photon. Comfortable with real-time networking and game analytics.\n\nExperience:\n- Senior Engineer, FunForge (2020-2024): Built matchmaking services using Photon and AWS GameLift, implemented anti-cheat telemetry, optimized WebSocket performance.\n- Gameplay Engineer, PixelLeap (2016-2020): Delivered Unity multiplayer modes, wrote C++ prototypes for physics simulations, participated in on-call.\n\nSkills: C#, .NET, C++, Photon, AWS GameLift, WebSockets, Redis, Docker, Unity, GitLab CI.\n\nEducation: B.S. Computer Engineering, University of Michigan (2015).\n\nWork Authorization: U.S. citizen living in Chicago."
+    },
+    "expectedOutcome": {
+      "matchQuality": "moderate",
+      "expectedScoreRange": { "min": 52, "max": 62 },
+      "expectedResult": {
+        "finalScore": 55,
+        "confidence": "medium",
+        "skillsMatch": {
+          "coverage": 0.52,
+          "matchedSkills": ["C++", "Networking", "Live services"],
+          "missingRequired": ["Unreal Engine networking"],
+          "missingPreferred": ["UDP tuning tools"],
+          "additionalSkills": ["Photon", "AWS GameLift"],
+          "overlapScore": 0.44
+        },
+        "experienceMatch": {
+          "score": 0.78,
+          "requiredYears": 5,
+          "candidateYears": 6,
+          "yearsGap": 0,
+          "gapSeverity": "none"
+        },
+        "domainMatch": {
+          "score": 0.6,
+          "matchedDomains": ["Multiplayer Systems"],
+          "jobDomains": ["Multiplayer Systems", "Real-time Games"],
+          "candidateDomains": ["Multiplayer Systems", "Game Services"]
+        },
+        "levelMatch": {
+          "score": 0.75,
+          "requiredLevel": "Senior",
+          "candidateLevel": "Senior",
+          "levelGap": 0,
+          "isPromotable": false
+        },
+        "educationMatch": {
+          "score": 1.0,
+          "required": "Bachelor's degree in Computer Science",
+          "candidate": "B.S. Computer Engineering",
+          "meetsRequirement": true
+        },
+        "locationMatch": {
+          "score": 1.0,
+          "workAuthRequired": true,
+          "candidateStatus": true,
+          "meetsRequirement": true
+        }
+      },
+      "validationCriteria": {
+        "minScore": 52,
+        "maxScore": 62,
+        "shouldPassGates": true,
+        "expectedSkillsFound": ["C++", "Networking"],
+        "expectedMissingSkills": ["Unreal Engine networking"],
+        "expectedExplanationKeywords": ["low-latency", "Unreal gap", "real-time services"]
+      },
+      "notes": "Expect mention of transferable networking skills while noting lack of direct Unreal expertise."
+    }
+  },
+  {
+    "id": "case-11",
+    "label": "Principal Payments Platform Engineer - Strong Match",
+    "job": {
+      "title": "Principal Payments Platform Engineer",
+      "company": "LedgerLine",
+      "description": "LedgerLine operates a global payouts network and is hiring a principal engineer to lead our payments orchestration layer.\n\nResponsibilities:\n- Design Java and Spring Boot services for settlement, reconciliation, and ledger operations.\n- Implement event-driven workflows with Kafka and ensure PCI compliance automation.\n- Scale mission-critical systems with high availability and observability standards.\n- Mentor engineers, shape architecture vision, and collaborate with compliance and finance.\n\nRequired Experience:\n- 10+ years backend engineering with Java or JVM languages.\n- Deep experience with payments or fintech systems, PCI controls, and auditing.\n- Expertise in event-driven architectures, Kafka, and data consistency patterns.\n- Strong leadership track record guiding teams and codebases.\n- Bachelor's degree in Computer Science or equivalent.\n- Authorized to work in the United States.\n\nNice To Have:\n- Experience with multi-currency settlement and treasury operations.\n- Knowledge of Terraform and infrastructure automation."
+    },
+    "resume": {
+      "candidate": "Radhika Singh",
+      "background": "Principal engineer focused on global payments orchestration and risk controls.",
+      "content": "Summary: Principal backend engineer with 11 years building high-volume payments systems. Expert in Java, Spring Boot, Kafka, and PCI compliance automation.\n\nExperience:\n- Principal Engineer, PayRoute (2019-2024): Led settlement orchestration rewrite using Spring Boot and Kafka; automated PCI evidence collection and mentored 6 engineers.\n- Senior Engineer, TransferWave (2013-2019): Built ledger services, introduced event sourcing, worked closely with compliance on SOX controls.\n\nSkills: Java, Kotlin, Spring Boot, Kafka, Event Sourcing, PostgreSQL, Redis, Terraform, Kubernetes, Datadog, PCI and SOX compliance.\n\nEducation: B.S. Computer Science, Carnegie Mellon University (2012).\n\nWork Authorization: U.S. citizen."
+    },
+    "expectedOutcome": {
+      "matchQuality": "strong",
+      "expectedScoreRange": { "min": 80, "max": 90 },
+      "expectedResult": {
+        "finalScore": 84,
+        "confidence": "high",
+        "skillsMatch": {
+          "coverage": 0.82,
+          "matchedSkills": ["Java", "Spring Boot", "Kafka", "PCI compliance", "Event sourcing"],
+          "missingRequired": [],
+          "missingPreferred": ["Multi-currency settlement"],
+          "additionalSkills": ["Terraform", "Kubernetes"],
+          "overlapScore": 0.71
+        },
+        "experienceMatch": {
+          "score": 0.92,
+          "requiredYears": 10,
+          "candidateYears": 11,
+          "yearsGap": 0,
+          "gapSeverity": "none"
+        },
+        "domainMatch": {
+          "score": 0.9,
+          "matchedDomains": ["Payments", "Fintech"],
+          "jobDomains": ["Payments", "Fintech", "Treasury"],
+          "candidateDomains": ["Payments", "Risk Controls"]
+        },
+        "levelMatch": {
+          "score": 0.95,
+          "requiredLevel": "Principal",
+          "candidateLevel": "Principal",
+          "levelGap": 0,
+          "isPromotable": false
+        },
+        "educationMatch": {
+          "score": 1.0,
+          "required": "Bachelor's degree in Computer Science",
+          "candidate": "B.S. Computer Science",
+          "meetsRequirement": true
+        },
+        "locationMatch": {
+          "score": 1.0,
+          "workAuthRequired": true,
+          "candidateStatus": true,
+          "meetsRequirement": true
+        }
+      },
+      "validationCriteria": {
+        "minScore": 80,
+        "maxScore": 90,
+        "shouldPassGates": true,
+        "expectedSkillsFound": ["Java", "Spring Boot", "Kafka"],
+        "expectedMissingSkills": ["Multi-currency settlement"],
+        "expectedExplanationKeywords": ["payments orchestration", "PCI compliance", "event-driven"]
+      },
+      "notes": "Expect explanation to emphasize fintech leadership and mention currency expansion as growth area."
+    }
+  },
+  {
+    "id": "case-12",
+    "label": "Cloud Solutions Architect - Multi-cloud Gap",
+    "job": {
+      "title": "Principal Cloud Solutions Architect",
+      "company": "SkyNova Cloud",
+      "description": "SkyNova Cloud is hiring a cloud solutions architect to lead complex migrations across regulated enterprise clients.\n\nResponsibilities:\n- Design landing zones, network topology, and security guardrails across AWS, Azure, and GCP.\n- Build Terraform modules and automation for identity, logging, and cost governance.\n- Lead architecture workshops, create reference architectures, and support pre-sales engagements.\n- Coach delivery engineers and ensure compliance to architecture standards.\n\nRequired Experience:\n- 8+ years designing cloud solutions across at least two hyperscalers.\n- Deep expertise in AWS and Azure networking, IAM, security, and cost optimization.\n- Hands-on with Terraform, Kubernetes, and CI/CD automation.\n- Strong communication skills with customers and ability to document architectures clearly.\n- Bachelor's degree in Computer Science or similar.\n- Must be authorized to work in the United States.\n\nNice To Have:\n- Certifications across AWS, Azure, and GCP.\n- Experience in regulated industries (healthcare, financial services)."
+    },
+    "resume": {
+      "candidate": "Marcus Lee",
+      "background": "Senior cloud architect specializing in AWS automation and cost optimization.",
+      "content": "Summary: Senior cloud architect with 9 years designing AWS landing zones, security controls, and DevOps automation for enterprise SaaS companies.\n\nExperience:\n- Lead Cloud Architect, DataPulse (2020-2024): Designed AWS landing zones, multi-account guardrails, and Terraform modules. Delivered Well-Architected reviews and cost optimization strategies.\n- Cloud Engineer, BlueOrbit (2015-2020): Built Terraform-based infrastructure, Kubernetes clusters, and CI/CD pipelines. Led customer workshops focused on AWS migrations.\n\nSkills: AWS (Organizations, IAM, VPC, Lambda), Terraform, Kubernetes, AWS Control Tower, CloudFormation, Python, GitLab CI, Security Hub.\n\nExposure: Completed Azure Fundamentals certification and piloted a small Azure proof of concept.\n\nEducation: B.S. Information Technology, Purdue University (2014).\n\nWork Authorization: U.S. citizen traveling up to 30%."
+    },
+    "expectedOutcome": {
+      "matchQuality": "good-with-gaps",
+      "expectedScoreRange": { "min": 64, "max": 74 },
+      "expectedResult": {
+        "finalScore": 68,
+        "confidence": "medium",
+        "skillsMatch": {
+          "coverage": 0.68,
+          "matchedSkills": ["AWS", "Terraform", "Kubernetes", "Cost optimization"],
+          "missingRequired": ["Azure production experience", "GCP architecture"],
+          "missingPreferred": ["Regulated industry experience"],
+          "additionalSkills": ["CloudFormation", "Security Hub"],
+          "overlapScore": 0.52
+        },
+        "experienceMatch": {
+          "score": 0.85,
+          "requiredYears": 8,
+          "candidateYears": 9,
+          "yearsGap": 0,
+          "gapSeverity": "none"
+        },
+        "domainMatch": {
+          "score": 0.7,
+          "matchedDomains": ["Cloud Architecture"],
+          "jobDomains": ["Cloud Architecture", "Consulting"],
+          "candidateDomains": ["Cloud Architecture", "DevOps"]
+        },
+        "levelMatch": {
+          "score": 0.6,
+          "requiredLevel": "Principal",
+          "candidateLevel": "Senior",
+          "levelGap": 1,
+          "isPromotable": true
+        },
+        "educationMatch": {
+          "score": 1.0,
+          "required": "Bachelor's degree in Computer Science",
+          "candidate": "B.S. Information Technology",
+          "meetsRequirement": true
+        },
+        "locationMatch": {
+          "score": 1.0,
+          "workAuthRequired": true,
+          "candidateStatus": true,
+          "meetsRequirement": true
+        }
+      },
+      "validationCriteria": {
+        "minScore": 64,
+        "maxScore": 74,
+        "shouldPassGates": true,
+        "expectedSkillsFound": ["AWS", "Terraform", "Kubernetes"],
+        "expectedMissingSkills": ["Azure production experience", "GCP architecture"],
+        "expectedExplanationKeywords": ["multi-cloud gap", "Terraform automation", "enterprise migration"]
+      },
+      "notes": "Expect explanation praising AWS mastery while calling out lack of hands-on Azure/GCP delivery."
+    }
+  },
+  {
+    "id": "case-13",
+    "label": "Senior Data Platform Engineer - High Alignment",
+    "job": {
+      "title": "Senior Data Platform Engineer",
+      "company": "DataQuanta",
+      "description": "DataQuanta powers analytics for global retailers and needs a senior data platform engineer to mature our streaming and batch stack.\n\nResponsibilities:\n- Build Spark and Databricks pipelines for large-scale event ingestion and curation.\n- Develop Scala-based streaming jobs with Kafka and structured streaming.\n- Own Airflow orchestration, data quality frameworks, and CI/CD for data products.\n- Collaborate with data scientists on feature store and model deployment workflows.\n\nRequired Experience:\n- 6+ years working on data platforms using Scala or Python.\n- Expertise with Apache Spark, Databricks, and Airflow.\n- Experience with Kafka, Delta Lake, and data quality tooling.\n- Knowledge of cloud data infrastructure (AWS preferred) and infrastructure-as-code.\n- Bachelor's degree in Computer Science or similar discipline.\n- Authorized to work in the United States.\n\nNice To Have:\n- Experience with real-time analytics, Flink, or dbt.\n- Familiarity with data governance frameworks."
+    },
+    "resume": {
+      "candidate": "Helena Novak",
+      "background": "Senior data platform engineer focused on streaming analytics and governance.",
+      "content": "Summary: Data platform engineer with 7 years building Spark, Scala, and Airflow pipelines supporting personalization and supply chain analytics.\n\nExperience:\n- Senior Data Engineer, RetailPulse (2020-2024): Built Databricks pipelines, managed Kafka streaming jobs, implemented Delta Lake and great expectations data quality.\n- Data Engineer, InsightMart (2017-2020): Developed Scala Spark jobs, introduced Airflow orchestration, and migrated ETL to AWS EMR.\n\nSkills: Scala, Python, Apache Spark, Databricks, Airflow, Kafka, Delta Lake, AWS, Terraform, Great Expectations, dbt, GitHub Actions.\n\nEducation: B.S. Computer Science, University of Wisconsin (2016).\n\nWork Authorization: U.S. permanent resident."
+    },
+    "expectedOutcome": {
+      "matchQuality": "strong",
+      "expectedScoreRange": { "min": 80, "max": 90 },
+      "expectedResult": {
+        "finalScore": 86,
+        "confidence": "high",
+        "skillsMatch": {
+          "coverage": 0.85,
+          "matchedSkills": ["Scala", "Spark", "Databricks", "Airflow", "Kafka"],
+          "missingRequired": [],
+          "missingPreferred": ["Flink"],
+          "additionalSkills": ["Delta Lake", "Great Expectations"],
+          "overlapScore": 0.72
+        },
+        "experienceMatch": {
+          "score": 0.88,
+          "requiredYears": 6,
+          "candidateYears": 7,
+          "yearsGap": 0,
+          "gapSeverity": "none"
+        },
+        "domainMatch": {
+          "score": 0.88,
+          "matchedDomains": ["Data Platforms", "Streaming Analytics"],
+          "jobDomains": ["Data Platforms", "Retail Analytics"],
+          "candidateDomains": ["Data Platforms", "Retail Analytics"]
+        },
+        "levelMatch": {
+          "score": 0.9,
+          "requiredLevel": "Senior",
+          "candidateLevel": "Senior",
+          "levelGap": 0,
+          "isPromotable": false
+        },
+        "educationMatch": {
+          "score": 1.0,
+          "required": "Bachelor's degree in Computer Science",
+          "candidate": "B.S. Computer Science",
+          "meetsRequirement": true
+        },
+        "locationMatch": {
+          "score": 1.0,
+          "workAuthRequired": true,
+          "candidateStatus": true,
+          "meetsRequirement": true
+        }
+      },
+      "validationCriteria": {
+        "minScore": 80,
+        "maxScore": 90,
+        "shouldPassGates": true,
+        "expectedSkillsFound": ["Spark", "Scala", "Airflow", "Kafka"],
+        "expectedMissingSkills": ["Flink"],
+        "expectedExplanationKeywords": ["Databricks", "Delta Lake", "data quality"]
+      },
+      "notes": "Expect explanation to highlight streaming expertise and note Flink as optional growth area."
+    }
+  },
+  {
+    "id": "case-14",
+    "label": "Embedded Systems Engineer - Misaligned",
+    "job": {
+      "title": "Senior Embedded Systems Engineer",
+      "company": "VectorMotion Robotics",
+      "description": "VectorMotion Robotics builds autonomous mobility systems and needs an embedded engineer to own safety-critical firmware.\n\nResponsibilities:\n- Develop C and C++ firmware targeting ARM microcontrollers with RTOS.\n- Implement CAN bus communication, safety monitors, and diagnostic tooling.\n- Collaborate with hardware teams on board bring-up, testing, and compliance.\n- Maintain unit tests, hardware-in-loop simulation, and ISO 26262 documentation.\n\nRequired Experience:\n- 8+ years developing embedded software in C/C++ with real-time operating systems.\n- Expertise in CAN, SPI, I2C, and hardware debugging tools.\n- Experience with functional safety standards (ISO 26262) and root cause analysis.\n- Ability to use oscilloscopes, logic analyzers, and simulators.\n- Bachelor's degree in Electrical or Computer Engineering.\n- Must be authorized to work in the United States.\n\nNice To Have:\n- Experience with automotive autonomy or robotics platforms.\n- Knowledge of safety certification processes."
+    },
+    "resume": {
+      "candidate": "Eric Johnson",
+      "background": "Senior web engineer focused on SaaS platforms.",
+      "content": "Summary: Senior web engineer with 8 years building full-stack JavaScript applications for SaaS customers.\n\nExperience:\n- Staff Engineer, CollabSuite (2020-2024): Led Node.js and React architecture, implemented GraphQL APIs, optimized performance, mentored engineers.\n- Software Engineer, TaskFlow (2014-2020): Built microservices in Node.js, managed PostgreSQL databases, deployed on Kubernetes.\n\nSkills: JavaScript, TypeScript, Node.js, React, GraphQL, PostgreSQL, Kubernetes, AWS, Terraform, Jest, Cypress.\n\nEducation: B.S. Computer Science, University of Colorado (2013).\n\nWork Authorization: U.S. citizen."
+    },
+    "expectedOutcome": {
+      "matchQuality": "poor",
+      "expectedScoreRange": { "min": 25, "max": 38 },
+      "expectedResult": {
+        "finalScore": 32,
+        "confidence": "low",
+        "skillsMatch": {
+          "coverage": 0.08,
+          "matchedSkills": ["Unit testing"],
+          "missingRequired": ["C", "C++", "RTOS", "CAN bus"],
+          "missingPreferred": ["Functional safety"],
+          "additionalSkills": ["Node.js", "React"],
+          "overlapScore": 0.08
+        },
+        "experienceMatch": {
+          "score": 0.35,
+          "requiredYears": 8,
+          "candidateYears": 4,
+          "yearsGap": 4,
+          "gapSeverity": "major"
+        },
+        "domainMatch": {
+          "score": 0.2,
+          "matchedDomains": [],
+          "jobDomains": ["Embedded Systems", "Robotics"],
+          "candidateDomains": ["Web Applications", "SaaS"]
+        },
+        "levelMatch": {
+          "score": 0.4,
+          "requiredLevel": "Senior",
+          "candidateLevel": "Staff (Web)",
+          "levelGap": 2,
+          "isPromotable": false
+        },
+        "educationMatch": {
+          "score": 0.8,
+          "required": "Bachelor's degree in Electrical Engineering",
+          "candidate": "B.S. Computer Science",
+          "meetsRequirement": false
+        },
+        "locationMatch": {
+          "score": 1.0,
+          "workAuthRequired": true,
+          "candidateStatus": true,
+          "meetsRequirement": true
+        }
+      },
+      "validationCriteria": {
+        "minScore": 25,
+        "maxScore": 38,
+        "shouldPassGates": false,
+        "expectedSkillsFound": ["Unit testing"],
+        "expectedMissingSkills": ["C", "C++", "RTOS"],
+        "expectedExplanationKeywords": ["embedded gap", "hardware integration", "safety-critical"]
+      },
+      "notes": "System should mark hard mismatch due to lack of embedded experience and likely gate failure."
+    }
+  },
+  {
+    "id": "case-15",
+    "label": "Startup Full Stack Generalist - High Potential",
+    "job": {
+      "title": "Senior Full Stack Engineer",
+      "company": "BeamSpark",
+      "description": "BeamSpark is a venture-backed startup building a workflow automation platform and needs a senior full stack generalist who can ship across the stack.\n\nResponsibilities:\n- Build product features end-to-end in Python FastAPI services and Node.js GraphQL gateways.\n- Lead React and TypeScript UI development with rapid iteration and strong UX.\n- Design data models in PostgreSQL, integrate third-party APIs, and manage data migrations.\n- Establish CI/CD pipelines, infrastructure on AWS, and developer experience tooling.\n\nRequired Experience:\n- 6+ years building production full stack applications across front-end and back-end.\n- Proficiency in Python and Node.js services, React with TypeScript, and GraphQL APIs.\n- Experience deploying to AWS, managing Terraform infrastructure, and monitoring.\n- Comfort operating in fast-paced startup environments with minimal process.\n- Bachelor's degree in Computer Science or similar.\n- Authorized to work in the United States.\n\nNice To Have:\n- Experience working directly with customers or founding teams.\n- Knowledge of messaging systems (RabbitMQ, Kafka)."
+    },
+    "resume": {
+      "candidate": "Noor Ali",
+      "background": "Senior full stack engineer with startup experience and product instincts.",
+      "content": "Summary: Full stack engineer with 7 years shipping SaaS features across Python, Node.js, React, and GraphQL stacks. Comfortable owning product delivery end-to-end.\n\nExperience:\n- Senior Engineer, OrbitFlow (2020-2024): Built FastAPI services, Node.js GraphQL gateway, and React dashboards. Managed AWS infrastructure with Terraform, set up Datadog monitoring.\n- Software Engineer, LoopLaunch (2017-2020): Delivered customer onboarding flows, integrated third-party APIs, and implemented CI/CD pipelines with GitHub Actions.\n\nSkills: Python, FastAPI, Node.js, TypeScript, React, GraphQL, PostgreSQL, AWS, Terraform, Datadog, Redis, Kafka, GitHub Actions.\n\nEducation: B.S. Computer Science, University of Michigan (2016).\n\nWork Authorization: U.S. citizen open to remote work."
+    },
+    "expectedOutcome": {
+      "matchQuality": "strong",
+      "expectedScoreRange": { "min": 74, "max": 84 },
+      "expectedResult": {
+        "finalScore": 80,
+        "confidence": "high",
+        "skillsMatch": {
+          "coverage": 0.8,
+          "matchedSkills": ["Python", "Node.js", "React", "GraphQL", "AWS", "Terraform"],
+          "missingRequired": [],
+          "missingPreferred": ["Customer discovery leadership"],
+          "additionalSkills": ["Datadog", "Redis"],
+          "overlapScore": 0.66
+        },
+        "experienceMatch": {
+          "score": 0.85,
+          "requiredYears": 6,
+          "candidateYears": 7,
+          "yearsGap": 0,
+          "gapSeverity": "none"
+        },
+        "domainMatch": {
+          "score": 0.78,
+          "matchedDomains": ["Startups", "SaaS"],
+          "jobDomains": ["Startups", "Workflow Automation"],
+          "candidateDomains": ["Startups", "SaaS Platforms"]
+        },
+        "levelMatch": {
+          "score": 0.85,
+          "requiredLevel": "Senior",
+          "candidateLevel": "Senior",
+          "levelGap": 0,
+          "isPromotable": false
+        },
+        "educationMatch": {
+          "score": 1.0,
+          "required": "Bachelor's degree in Computer Science",
+          "candidate": "B.S. Computer Science",
+          "meetsRequirement": true
+        },
+        "locationMatch": {
+          "score": 1.0,
+          "workAuthRequired": true,
+          "candidateStatus": true,
+          "meetsRequirement": true
+        }
+      },
+      "validationCriteria": {
+        "minScore": 74,
+        "maxScore": 84,
+        "shouldPassGates": true,
+        "expectedSkillsFound": ["Python", "Node.js", "React", "GraphQL"],
+        "expectedMissingSkills": ["Customer discovery leadership"],
+        "expectedExplanationKeywords": ["end-to-end ownership", "startup environment", "AWS infrastructure"]
+      },
+      "notes": "Explanation should underline startup versatility and mention opportunity to grow customer-facing discovery."
+    }
+  },
+  {
+    "id": "case-16",
+    "label": "AI Research Engineer - Education Gap",
+    "job": {
+      "title": "AI Research Engineer",
+      "company": "NeuroSight Labs",
+      "description": "NeuroSight Labs develops perception systems for robotics and needs an AI research engineer blending research and production experience.\n\nResponsibilities:\n- Design novel models using PyTorch for perception and reinforcement learning.\n- Lead distributed training experiments on multi-GPU clusters, optimize performance.\n- Publish findings, collaborate with academic partners, and maintain research roadmap.\n- Translate research into production-ready APIs with rigorous evaluation.\n\nRequired Experience:\n- PhD in Computer Science, Machine Learning, or related field (or equivalent research contributions).\n- 5+ years research experience in deep learning, computer vision, or RL.\n- Expert in PyTorch, CUDA optimization, and distributed training libraries.\n- Track record of publications or patents and collaboration with scientists.\n- Comfortable working with Kubernetes, MLflow, and data pipelines.\n- U.S. work authorization.\n\nNice To Have:\n- Experience deploying models to edge hardware.\n- Participation in robotics competitions."
+    },
+    "resume": {
+      "candidate": "Kevin Brooks",
+      "background": "Applied ML engineer bridging research and production.",
+      "content": "Summary: Applied machine learning engineer with 6 years delivering computer vision models in production. Experienced with PyTorch, distributed training on Kubernetes, and MLOps automation.\n\nExperience:\n- Staff ML Engineer, VisionGrid (2020-2024): Built perception models for warehouse robotics, implemented PyTorch distributed training on Kubernetes, collaborated with research but no publications.\n- ML Engineer, SightAI (2017-2020): Delivered object detection models, managed MLflow experiment tracking, implemented CI/CD for ML services.\n\nSkills: PyTorch, TensorFlow, CUDA optimization, Kubernetes, MLflow, Airflow, Python, Data Versioning, Computer Vision.\n\nEducation: M.S. Electrical Engineering, Stanford University (2017).\n\nPublications: Industry blogs; no peer-reviewed papers.\n\nWork Authorization: U.S. citizen."
+    },
+    "expectedOutcome": {
+      "matchQuality": "moderate",
+      "expectedScoreRange": { "min": 58, "max": 68 },
+      "expectedResult": {
+        "finalScore": 62,
+        "confidence": "medium",
+        "skillsMatch": {
+          "coverage": 0.7,
+          "matchedSkills": ["PyTorch", "CUDA", "Kubernetes", "MLflow"],
+          "missingRequired": ["Peer-reviewed research", "PhD"],
+          "missingPreferred": ["Edge deployment"],
+          "additionalSkills": ["TensorFlow", "Computer Vision"],
+          "overlapScore": 0.55
+        },
+        "experienceMatch": {
+          "score": 0.78,
+          "requiredYears": 5,
+          "candidateYears": 6,
+          "yearsGap": 0,
+          "gapSeverity": "none"
+        },
+        "domainMatch": {
+          "score": 0.75,
+          "matchedDomains": ["Computer Vision", "Robotics"],
+          "jobDomains": ["Research", "Robotics"],
+          "candidateDomains": ["Computer Vision", "Robotics"]
+        },
+        "levelMatch": {
+          "score": 0.78,
+          "requiredLevel": "Staff Research",
+          "candidateLevel": "Staff Applied ML",
+          "levelGap": 1,
+          "isPromotable": true
+        },
+        "educationMatch": {
+          "score": 0.5,
+          "required": "PhD in Machine Learning",
+          "candidate": "M.S. Electrical Engineering",
+          "meetsRequirement": false
+        },
+        "locationMatch": {
+          "score": 1.0,
+          "workAuthRequired": true,
+          "candidateStatus": true,
+          "meetsRequirement": true
+        }
+      },
+      "validationCriteria": {
+        "minScore": 58,
+        "maxScore": 68,
+        "shouldPassGates": true,
+        "expectedSkillsFound": ["PyTorch", "CUDA", "Kubernetes"],
+        "expectedMissingSkills": ["PhD", "Peer-reviewed research"],
+        "expectedExplanationKeywords": ["research rigor", "distributed training", "academic collaboration"]
+      },
+      "notes": "System should acknowledge strong applied ML experience while calling out missing PhD/publication requirement."
+    }
+  },
+  {
+    "id": "case-17",
+    "label": "Observability Platform Engineer - Strong Alignment",
+    "job": {
+      "title": "Senior Observability Platform Engineer",
+      "company": "SignalSphere",
+      "description": "SignalSphere is building a unified observability platform for internal teams and seeks a senior engineer to own instrumentation and tooling.\n\nResponsibilities:\n- Build services in Go to collect, enrich, and route telemetry data at scale.\n- Operate Prometheus, Grafana, and Tempo/Jaeger clusters with automation.\n- Drive OpenTelemetry adoption across backend, mobile, and data teams.\n- Partner with SRE to define SLO templates, runbooks, and incident tooling.\n\nRequired Experience:\n- 6+ years in SRE, observability, or platform engineering roles.\n- Hands-on with Go, Prometheus, Grafana, and tracing systems.\n- Experience implementing OpenTelemetry SDKs and collectors.\n- Familiarity with Terraform, Kubernetes, and service meshes.\n- Bachelor's degree in Computer Science or related field.\n- Authorization to work in the United States.\n\nNice To Have:\n- Exposure to analytics pipelines (Kafka, ClickHouse).\n- Experience with feature flag driven rollout of instrumentation."
+    },
+    "resume": {
+      "candidate": "Janelle Ortiz",
+      "background": "Senior observability engineer scaling telemetry pipelines for SaaS platforms.",
+      "content": "Summary: Observability platform engineer with 8 years experience building logging, metrics, and tracing stacks. Strong in Go, Terraform, OpenTelemetry, and SRE practices.\n\nExperience:\n- Staff Observability Engineer, CloudTrace (2020-2024): Built Go services for telemetry ingestion, rolled out OpenTelemetry collectors, managed Prometheus and Tempo clusters, established SLO program.\n- SRE, AppStream (2016-2020): Managed Kubernetes monitoring, created Grafana dashboards, implemented alerting and incident automation.\n\nSkills: Go, Python, Prometheus, Grafana, Tempo, OpenTelemetry, Terraform, Kubernetes, Istio, Kafka, Honeycomb, PagerDuty.\n\nEducation: B.S. Computer Science, UC San Diego (2014).\n\nWork Authorization: U.S. citizen."
+    },
+    "expectedOutcome": {
+      "matchQuality": "strong",
+      "expectedScoreRange": { "min": 78, "max": 88 },
+      "expectedResult": {
+        "finalScore": 82,
+        "confidence": "high",
+        "skillsMatch": {
+          "coverage": 0.8,
+          "matchedSkills": ["Go", "Prometheus", "Grafana", "OpenTelemetry", "Terraform"],
+          "missingRequired": [],
+          "missingPreferred": ["Analytics pipelines"],
+          "additionalSkills": ["Istio", "Honeycomb"],
+          "overlapScore": 0.67
+        },
+        "experienceMatch": {
+          "score": 0.88,
+          "requiredYears": 6,
+          "candidateYears": 8,
+          "yearsGap": 0,
+          "gapSeverity": "none"
+        },
+        "domainMatch": {
+          "score": 0.84,
+          "matchedDomains": ["Observability", "SRE"],
+          "jobDomains": ["Observability", "Platform Engineering"],
+          "candidateDomains": ["Observability", "SRE"]
+        },
+        "levelMatch": {
+          "score": 0.88,
+          "requiredLevel": "Senior",
+          "candidateLevel": "Staff",
+          "levelGap": 0,
+          "isPromotable": false
+        },
+        "educationMatch": {
+          "score": 1.0,
+          "required": "Bachelor's degree in Computer Science",
+          "candidate": "B.S. Computer Science",
+          "meetsRequirement": true
+        },
+        "locationMatch": {
+          "score": 1.0,
+          "workAuthRequired": true,
+          "candidateStatus": true,
+          "meetsRequirement": true
+        }
+      },
+      "validationCriteria": {
+        "minScore": 78,
+        "maxScore": 88,
+        "shouldPassGates": true,
+        "expectedSkillsFound": ["Go", "Prometheus", "OpenTelemetry"],
+        "expectedMissingSkills": ["Analytics pipelines"],
+        "expectedExplanationKeywords": ["telemetry pipeline", "SLO program", "OpenTelemetry rollout"]
+      },
+      "notes": "Explanation should highlight observability leadership and note analytics pipeline exposure as growth area."
+    }
+  },
+  {
+    "id": "case-18",
+    "label": "E-commerce Frontend Engineer - High Alignment",
+    "job": {
+      "title": "Senior Frontend Engineer - E-commerce Experience",
+      "company": "ModaBeam",
+      "description": "ModaBeam is replatforming our flagship storefront and needs a senior frontend engineer to lead customer-facing experiences.\n\nResponsibilities:\n- Build React and Next.js features with TypeScript and incremental static regeneration.\n- Optimize Core Web Vitals, accessibility, and experimentation instrumentation.\n- Implement GraphQL integrations, edge caching strategies, and design system components.\n- Collaborate with product, UX, and data teams to iterate quickly on user journeys.\n\nRequired Experience:\n- 7+ years building production React and TypeScript applications.\n- Hands-on experience with Next.js, SSR, and image optimization.\n- Knowledge of GraphQL, Apollo, and performance profiling tools.\n- Experience running A/B tests and working with analytics platforms.\n- Bachelor's degree in Computer Science or related field.\n- Authorized to work in the United States.\n\nNice To Have:\n- Experience with headless commerce platforms (CommerceTools, Shopify Plus).\n- Familiarity with WebGL or 3D merchandising."
+    },
+    "resume": {
+      "candidate": "Oliver Grant",
+      "background": "Senior frontend engineer focused on high-performance retail experiences.",
+      "content": "Summary: Frontend engineer with 9 years delivering e-commerce experiences using React, Next.js, and GraphQL. Passionate about performance and experimentation.\n\nExperience:\n- Lead Frontend Engineer, TrendLuxe (2019-2024): Led Next.js storefront, improved Core Web Vitals by 35%, integrated Apollo GraphQL gateway, ran Optimizely experiments.\n- Frontend Engineer, StylePath (2015-2019): Built React SPA, introduced design tokens, created Lighthouse performance dashboards.\n\nSkills: React, Next.js, TypeScript, GraphQL, Apollo, Tailwind, Emotion, Lighthouse, Webpack, Optimizely, Segment, Vercel, Storybook.\n\nEducation: B.S. Computer Science, University of Arizona (2014).\n\nWork Authorization: U.S. citizen."
+    },
+    "expectedOutcome": {
+      "matchQuality": "strong",
+      "expectedScoreRange": { "min": 78, "max": 88 },
+      "expectedResult": {
+        "finalScore": 83,
+        "confidence": "high",
+        "skillsMatch": {
+          "coverage": 0.85,
+          "matchedSkills": ["React", "Next.js", "TypeScript", "GraphQL", "Performance optimization"],
+          "missingRequired": [],
+          "missingPreferred": ["Headless commerce platform"],
+          "additionalSkills": ["Optimizely", "Storybook"],
+          "overlapScore": 0.7
+        },
+        "experienceMatch": {
+          "score": 0.88,
+          "requiredYears": 7,
+          "candidateYears": 9,
+          "yearsGap": 0,
+          "gapSeverity": "none"
+        },
+        "domainMatch": {
+          "score": 0.82,
+          "matchedDomains": ["E-commerce Web"],
+          "jobDomains": ["E-commerce Web", "Performance"],
+          "candidateDomains": ["E-commerce Web", "Experimentation"]
+        },
+        "levelMatch": {
+          "score": 0.88,
+          "requiredLevel": "Senior",
+          "candidateLevel": "Lead",
+          "levelGap": 0,
+          "isPromotable": false
+        },
+        "educationMatch": {
+          "score": 1.0,
+          "required": "Bachelor's degree in Computer Science",
+          "candidate": "B.S. Computer Science",
+          "meetsRequirement": true
+        },
+        "locationMatch": {
+          "score": 1.0,
+          "workAuthRequired": true,
+          "candidateStatus": true,
+          "meetsRequirement": true
+        }
+      },
+      "validationCriteria": {
+        "minScore": 78,
+        "maxScore": 88,
+        "shouldPassGates": true,
+        "expectedSkillsFound": ["React", "Next.js", "GraphQL"],
+        "expectedMissingSkills": ["Headless commerce platform"],
+        "expectedExplanationKeywords": ["Core Web Vitals", "experimentation", "design system"]
+      },
+      "notes": "Expect explanation to point out strong performance focus and note optional headless commerce experience."
+    }
+  },
+  {
+    "id": "case-19",
+    "label": "Data Privacy Platform Engineer - Compliance Gap",
+    "job": {
+      "title": "Senior Backend Engineer - Data Privacy Platform",
+      "company": "GuardianLayer",
+      "description": "GuardianLayer builds a data privacy automation platform and needs a backend engineer to expand our compliance engine.\n\nResponsibilities:\n- Develop Go microservices handling data subject requests, policy enforcement, and audit logging.\n- Design PostgreSQL schemas and Kafka pipelines to capture compliance events.\n- Implement access controls, encryption workflows, and privacy automation playbooks.\n- Collaborate with security and legal teams to map regulatory requirements to code.\n\nRequired Experience:\n- 6+ years backend development with Go or similar languages.\n- Experience with Kafka, streaming systems, and distributed systems design.\n- Knowledge of privacy or security compliance frameworks (SOC 2, GDPR, CCPA).\n- Familiarity with infrastructure-as-code, Kubernetes, and observability tooling.\n- Bachelor's degree in Computer Science or related field.\n- Authorized to work in the United States.\n\nNice To Have:\n- Experience implementing consent management or privacy impact assessments.\n- Background in threat modeling or data classification."
+    },
+    "resume": {
+      "candidate": "Bea Rossi",
+      "background": "Senior backend engineer focused on platform services and reliability.",
+      "content": "Summary: Backend engineer with 7 years building Go microservices, event-driven systems, and developer tooling. Interested in privacy and security automation.\n\nExperience:\n- Senior Engineer, TrustForge (2020-2024): Built Go services with PostgreSQL and Kafka, led Kubernetes migrations, implemented RBAC and audit trails; engaged with compliance team but not owner.\n- Backend Engineer, BrightOps (2017-2020): Developed Go APIs for infrastructure automation, managed Terraform modules, introduced Prometheus monitoring.\n\nSkills: Go, PostgreSQL, Kafka, gRPC, Kubernetes, Terraform, Prometheus, OpenTelemetry, Redis, Python.\n\nCompliance Exposure: Supported SOC 2 audits and built access logging features but no direct GDPR ownership.\n\nEducation: B.S. Computer Science, Boston University (2015).\n\nWork Authorization: U.S. citizen."
+    },
+    "expectedOutcome": {
+      "matchQuality": "good-with-gaps",
+      "expectedScoreRange": { "min": 66, "max": 76 },
+      "expectedResult": {
+        "finalScore": 70,
+        "confidence": "medium",
+        "skillsMatch": {
+          "coverage": 0.74,
+          "matchedSkills": ["Go", "PostgreSQL", "Kafka", "Kubernetes"],
+          "missingRequired": ["Privacy compliance leadership"],
+          "missingPreferred": ["Consent management"],
+          "additionalSkills": ["Prometheus", "Terraform"],
+          "overlapScore": 0.58
+        },
+        "experienceMatch": {
+          "score": 0.82,
+          "requiredYears": 6,
+          "candidateYears": 7,
+          "yearsGap": 0,
+          "gapSeverity": "none"
+        },
+        "domainMatch": {
+          "score": 0.76,
+          "matchedDomains": ["Platform Services"],
+          "jobDomains": ["Privacy Automation", "Security"],
+          "candidateDomains": ["Platform Services", "Infrastructure Automation"]
+        },
+        "levelMatch": {
+          "score": 0.8,
+          "requiredLevel": "Senior",
+          "candidateLevel": "Senior",
+          "levelGap": 0,
+          "isPromotable": false
+        },
+        "educationMatch": {
+          "score": 1.0,
+          "required": "Bachelor's degree in Computer Science",
+          "candidate": "B.S. Computer Science",
+          "meetsRequirement": true
+        },
+        "locationMatch": {
+          "score": 1.0,
+          "workAuthRequired": true,
+          "candidateStatus": true,
+          "meetsRequirement": true
+        }
+      },
+      "validationCriteria": {
+        "minScore": 66,
+        "maxScore": 76,
+        "shouldPassGates": true,
+        "expectedSkillsFound": ["Go", "Kafka", "PostgreSQL"],
+        "expectedMissingSkills": ["Privacy compliance leadership", "Consent management"],
+        "expectedExplanationKeywords": ["compliance automation", "audit trails", "regulatory partnership"]
+      },
+      "notes": "Explanation should highlight strong Go platform skills and note limited direct ownership of privacy frameworks."
+    }
+  },
+  {
+    "id": "case-20",
+    "label": "Defense Platform Engineer - Work Authorization Blocker",
+    "job": {
+      "title": "Lead Full Stack Engineer - Defense Platform",
+      "company": "Aegis Systems",
+      "description": "Aegis Systems builds mission planning software for defense partners and seeks a lead full stack engineer with active clearance eligibility.\n\nResponsibilities:\n- Lead React and Node.js development of secure mission planning tools with GraphQL APIs.\n- Implement rigorous testing, secure coding practices, and audit logging.\n- Collaborate with product and defense stakeholders to deliver features on classified networks.\n- Mentor engineers, drive coding standards, and oversee deployment pipelines.\n\nRequired Experience:\n- 8+ years building full stack web applications (Node.js, React, GraphQL).\n- Experience with FedRAMP, DISA, or similar security compliance frameworks.\n- Background working on secure networks, role-based access control, and auditing.\n- Ability to obtain and maintain U.S. security clearance; U.S. citizenship required.\n- Bachelor's degree in Computer Science or related field.\n- Must be on-site in Arlington, VA three days per week.\n\nNice To Have:\n- Prior DoD or defense contractor experience.\n- Knowledge of TypeScript, Kubernetes, and secure DevOps pipelines."
+    },
+    "resume": {
+      "candidate": "Arjun Verma",
+      "background": "Lead full stack engineer building B2B SaaS platforms.",
+      "content": "Summary: Lead engineer with 9 years building React and Node.js products for enterprise customers. Experienced with GraphQL, TypeScript, and Kubernetes.\n\nExperience:\n- Lead Engineer, SecureBridge (2019-2024): Built GraphQL APIs, led React modernization, implemented SOC 2 compliant pipelines, but requires H1B sponsorship.\n- Senior Software Engineer, CloudServe (2015-2019): Delivered Node.js microservices, managed Kubernetes deployments, introduced role-based access controls.\n\nSkills: Node.js, TypeScript, React, GraphQL, PostgreSQL, Kubernetes, Docker, Terraform, Jest, Cypress, SOC 2 controls.\n\nEducation: M.S. Computer Science, University of Maryland (2014).\n\nWork Authorization: H1B visa holder; requires employer sponsorship. No security clearance."
+    },
+    "expectedOutcome": {
+      "matchQuality": "blocked",
+      "expectedScoreRange": { "min": 44, "max": 54 },
+      "expectedResult": {
+        "finalScore": 48,
+        "confidence": "low",
+        "skillsMatch": {
+          "coverage": 0.78,
+          "matchedSkills": ["Node.js", "React", "GraphQL", "TypeScript", "Kubernetes"],
+          "missingRequired": ["Security clearance eligibility"],
+          "missingPreferred": ["Defense compliance"],
+          "additionalSkills": ["Terraform", "SOC 2 controls"],
+          "overlapScore": 0.62
+        },
+        "experienceMatch": {
+          "score": 0.85,
+          "requiredYears": 8,
+          "candidateYears": 9,
+          "yearsGap": 0,
+          "gapSeverity": "none"
+        },
+        "domainMatch": {
+          "score": 0.7,
+          "matchedDomains": ["Secure SaaS"],
+          "jobDomains": ["Defense", "Secure Systems"],
+          "candidateDomains": ["Enterprise SaaS", "Security Compliance"]
+        },
+        "levelMatch": {
+          "score": 0.88,
+          "requiredLevel": "Lead",
+          "candidateLevel": "Lead",
+          "levelGap": 0,
+          "isPromotable": false
+        },
+        "educationMatch": {
+          "score": 1.0,
+          "required": "Bachelor's degree in Computer Science",
+          "candidate": "M.S. Computer Science",
+          "meetsRequirement": true
+        },
+        "locationMatch": {
+          "score": 0.1,
+          "workAuthRequired": true,
+          "candidateStatus": false,
+          "meetsRequirement": false
+        }
+      },
+      "validationCriteria": {
+        "minScore": 44,
+        "maxScore": 54,
+        "shouldPassGates": false,
+        "expectedSkillsFound": ["Node.js", "React", "GraphQL"],
+        "expectedMissingSkills": ["Security clearance eligibility"],
+        "expectedExplanationKeywords": ["work authorization", "clearance requirement", "on-site obligation"]
+      },
+      "notes": "System should flag work authorization and clearance blocker despite strong technical alignment."
+    }
+  }
+]

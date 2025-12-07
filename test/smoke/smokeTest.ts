@@ -5,25 +5,25 @@ import { Client } from "langsmith";
 import { evaluate } from "langsmith/evaluation";
 import { StringEvaluator } from "langsmith/evaluation";
 import rows from "./smoke.json";
-import { makeExtractYearsChain } from "../../src/chains/extractYearsFewShot.chain";
-import { makeExtractSkillsChain } from "../../src/chains/extractSkills.chain";
-import { makeSmartExtractLevelChain } from "../../src/chains/smartExtractLevel.chain";
-import { makeExtractDomainChain } from "../../src/chains/extractDomain.chain";
+import { YearsExtractionChain } from "../../src/chains/YearsExtractionChain";
+import { SkillsExtractionChain } from "../../src/chains/SkillsExtractionChain";
+import { LevelExtractionChain } from "../../src/chains/LevelExtractionChain";
+import { DomainExtractionChain } from "../../src/chains/DomainExtractionChain";
 
 async function target(inputs: { text: string }) {
-  const yearsChain = await makeExtractYearsChain();
-  const levelChain = await makeSmartExtractLevelChain();
-  const domainChain = await makeExtractDomainChain();
-  const skillsChain = await makeExtractSkillsChain();
+  const yearsChain = new YearsExtractionChain();
+  const levelChain = new LevelExtractionChain();
+  const domainChain = new DomainExtractionChain();
+  const skillsChain = new SkillsExtractionChain();
 
-  const years = await yearsChain(inputs);
-  const level = await levelChain.call(inputs);
-  const domain = await domainChain(inputs);
-  const skills = await skillsChain(inputs);
+  const years = await yearsChain.run(inputs);
+  const level = await levelChain.run(inputs);
+  const domain = await domainChain.run(inputs);
+  const skills = await skillsChain.run(inputs);
 
   return {
-    ...years,
-    level: level.result.text.level,
+    ...years.result,  // This now includes {minYears, maxYears}
+    level: level.result.text.level,  // Fixed: nested structure
     domains: domain.result.domains,
     skills: skills.result.skills,
   };
@@ -42,7 +42,8 @@ async function runSmokeTest() {
   const examples = rows.map((r: any) => ({
     inputs: { text: r.job_description },
     outputs: {
-      requestYears: r.years_required,
+      minYears: r.years_required,  // Updated to new schema
+      maxYears: r.years_required,  // For single value, min = max
       level: r.title_level,
       domain: r.job_domain,
       skills: r.technologies_required || [],
@@ -58,10 +59,11 @@ async function runSmokeTest() {
   // Create evaluators for exact-match fields
   const yearsEvaluator = new StringEvaluator({
     inputKey: "text",
-    predictionKey: "requestYears",
+    predictionKey: "minYears",
     gradingFunction: async (params: any) => {
+      // Check if minYears matches the expected value
       const isCorrect =
-        params.prediction.requestYears === params.reference.years;
+        params.prediction.minYears === params.reference.minYears;
       return {
         score: isCorrect ? 1 : 0,
         reasoning: isCorrect ? "Exact match" : "Mismatch",
