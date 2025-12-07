@@ -10,9 +10,9 @@ export async function runExtractDomainChain() {
 
   // Call the chain and parse the JSON output
   const result = await chain.run({ text: sampleDescription });
-  const { domain } = result.result;
+  const { domains } = result.result;  // Updated: use 'domains' array instead of 'domain'
 
-  console.log("Extracted domain:", domain);
+  console.log("Extracted domains:", domains);
 }
 
 runExtractDomainChain().catch(console.error);

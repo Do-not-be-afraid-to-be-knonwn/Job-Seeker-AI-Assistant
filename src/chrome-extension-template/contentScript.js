@@ -415,16 +415,49 @@ const updateSidebarContent = (
   }
   // Extract nested values
   const skills = data.skills?.result?.skills || [];
-  const domain = data.domains?.result?.domains || "Not detected";
-  const years = data.years?.result?.requestYears ?? "Not specified";
+  const domains = data.domain?.result?.domains || [];
+  const yearsData = data.years?.result;
+
+  // Support both old (requestYears) and new (minYears/maxYears) formats
+  let minYears = yearsData?.minYears;
+  let maxYears = yearsData?.maxYears;
+  const requestYears = yearsData?.requestYears;
+
+  // If old format is present and new format is missing, use old format
+  if ((minYears === null || minYears === undefined) && requestYears !== null && requestYears !== undefined) {
+    minYears = requestYears;
+    maxYears = requestYears;
+  }
+
   const level = data.level?.result?.text?.level || "Not specified";
+
+  // Debug logging for years data
+  console.log('Years data:', { yearsData, minYears, maxYears, requestYears, usingOldFormat: requestYears !== null && requestYears !== undefined });
+
+  // Format years display
+  let yearsDisplay = '<span style="color:#888">Not specified</span>';
+  if (minYears !== null && minYears !== undefined && !isNaN(minYears)) {
+    if (minYears === 0 && maxYears === 0) {
+      // Entry level with no experience required
+      yearsDisplay = `<span class="job-ai-pill">Entry Level (0 years)</span>`;
+    } else if (minYears === maxYears) {
+      // Single value like "5+ years"
+      yearsDisplay = `<span class="job-ai-pill">${minYears}+ years</span>`;
+    } else if (maxYears !== null && maxYears !== undefined && !isNaN(maxYears)) {
+      // Range like "3-5 years"
+      yearsDisplay = `<span class="job-ai-pill">${minYears}-${maxYears} years</span>`;
+    } else {
+      // Only minYears specified
+      yearsDisplay = `<span class="job-ai-pill">${minYears}+ years</span>`;
+    }
+  }
 
   content.innerHTML = `
     <div class="job-ai-card">
       <div class="job-ai-card-title"><span class="job-ai-card-icon">🗂️</span>Domain</div>
       <div>${
-        domain
-          ? `<span class="job-ai-pill">${domain}</span>`
+        domains.length > 0
+          ? domains.map(d => `<span class="job-ai-pill">${d}</span>`).join('')
           : '<span style="color:#888">Not detected</span>'
       }</div>
     </div>
@@ -438,11 +471,7 @@ const updateSidebarContent = (
     </div>
     <div class="job-ai-card">
       <div class="job-ai-card-title"><span class="job-ai-card-icon">⏰</span>Experience</div>
-      <div>${
-        years !== "Not specified"
-          ? `<span class="job-ai-pill">${years} years</span>`
-          : '<span style="color:#888">Not specified</span>'
-      }</div>
+      <div>${yearsDisplay}</div>
     </div>
     <div class="job-ai-card">
       <div class="job-ai-card-title"><span class="job-ai-card-icon">💼</span>Skills</div>
