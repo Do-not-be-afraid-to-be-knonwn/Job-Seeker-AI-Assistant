@@ -31,7 +31,10 @@
       "Bash(git checkout:*)",
       "Bash(npm run dev:location:*)",
       "Bash(npm run type-check:*)",
-      "Bash(npm run dev:years:*)"
+      "Bash(npm run dev:years:*)",
+      "Bash(chmod:*)",
+      "Bash(bash StartServer.command)",
+      "Bash(timeout 5 bash:*)"
     ],
     "deny": [],
     "ask": []

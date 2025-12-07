@@ -5,3 +5,6 @@ dist
 *.csv
 /.vscode
 *.jsonl
+
+# Team credentials (sensitive)
+setup/credentials.env
