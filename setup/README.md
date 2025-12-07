@@ -26,7 +26,25 @@ You can put it anywhere you like (Desktop, Documents, etc.).
 
 **Don't have the credentials file?** Ask your team lead for it.
 
-### Step 3: Start the Server
+### Step 3: Make the Launcher Executable (One-Time Setup)
+
+Before you can run the server, you need to give the launcher file permission to execute:
+
+1. Open **Terminal** (you can find it in Applications > Utilities, or search for it using Spotlight)
+2. Type this command and press Enter:
+   ```
+   cd ~/Desktop/Job-Seeker-AI-Assistant
+   ```
+   *(Change the path if you put the folder somewhere other than Desktop)*
+
+3. Then type this command and press Enter:
+   ```
+   chmod +x StartServer.command
+   ```
+
+4. Close Terminal - you're done! You only need to do this once.
+
+### Step 4: Start the Server
 
 1. Open the `Job-Seeker-AI-Assistant` folder
 2. Find the file called `StartServer.command`
@@ -44,7 +62,7 @@ The script will:
 
 **Leave the window open!** The server runs while that window is open.
 
-### Step 4: Install Chrome Extension
+### Step 5: Install Chrome Extension
 
 See the [Chrome Extension Installation Guide](CHROME_EXTENSION_GUIDE.md) for detailed instructions with screenshots.
 
