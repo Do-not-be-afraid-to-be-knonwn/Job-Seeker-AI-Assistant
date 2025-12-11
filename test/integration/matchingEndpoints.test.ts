@@ -20,14 +20,14 @@ const jobResumeMatchingChainMock = {
   getStats: (...args: AnyObject[]) => getStatsMock(...args)
 };
 
-jest.mock('../src/matching/core/jobResumeMatching.chain', () => ({
+jest.mock('../../src/matching/core/jobResumeMatching.chain', () => ({
   jobResumeMatchingChain: jobResumeMatchingChainMock,
   JobResumeMatchingChain: jest.fn(),
   makeJobResumeMatchingChain: jest.fn(),
   createJobResumeMatchingChain: jest.fn()
 }));
 
-const app = require('../server').default;
+const app = require('../../server').default;
 
 const encodeSegment = (input: AnyObject) =>
   Buffer.from(JSON.stringify(input)).toString('base64');

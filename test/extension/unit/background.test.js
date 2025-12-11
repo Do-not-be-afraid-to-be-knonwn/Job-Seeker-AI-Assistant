@@ -85,7 +85,7 @@ const {
   enqueueFeedback,
   processQueue,
   MAX_ATTEMPTS,
-} = require("../src/chrome-extension-template/background.js");
+} = require("../../../src/chrome-extension-template/background.js");
 
 describe("Background Script Tests", () => {
   beforeEach(() => {

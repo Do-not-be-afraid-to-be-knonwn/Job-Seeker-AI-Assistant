@@ -272,15 +272,17 @@ const createSidebar = () => {
   });
   const loginBtn = sidebar.querySelector(".job-ai-login");
   loginBtn.addEventListener("click", () => {
-    console.log('Login button clicked');
+    console.log("Login button clicked");
     chrome.runtime.sendMessage({ type: "AUTH_LOGIN" }, (response) => {
-      console.log('Login response:', response);
+      console.log("Login response:", response);
       if (response && response.success) {
-        showSuccessNotification("✅ Successfully signed in to Job AI Assistant!");
+        showSuccessNotification(
+          "✅ Successfully signed in to Job AI Assistant!"
+        );
         updateAuthStatus(true);
       } else {
         const errorMsg = response?.error || "Sign in failed. Please try again.";
-        console.error('Login failed:', errorMsg);
+        console.error("Login failed:", errorMsg);
         showSuccessNotification(`❌ ${errorMsg}`, false);
         updateAuthStatus(false);
       }
@@ -288,50 +290,52 @@ const createSidebar = () => {
   });
   const logoutBtn = sidebar.querySelector(".job-ai-logout");
   logoutBtn.addEventListener("click", () => {
-    console.log('Logout button clicked');
+    console.log("Logout button clicked");
     chrome.runtime.sendMessage({ type: "AUTH_LOGOUT" }, (response) => {
-      console.log('Logout response:', response);
+      console.log("Logout response:", response);
       if (response && response.success) {
         showSuccessNotification("👋 Successfully signed out!");
         updateAuthStatus(false);
       } else {
-        console.error('Logout failed:', response?.error);
+        console.error("Logout failed:", response?.error);
         // Even if logout "fails", we should probably still show as logged out
         updateAuthStatus(false);
       }
     });
   });
   document.body.appendChild(sidebar);
-  
+
   // Check authentication status on sidebar creation
   checkAuthenticationStatus(sidebar);
-  
+
   return sidebar;
 };
 
 // Function to show success notifications
 const showSuccessNotification = (message, isSuccess = true) => {
   // Remove any existing notifications
-  const existingNotification = document.querySelector('.job-ai-success-notification');
+  const existingNotification = document.querySelector(
+    ".job-ai-success-notification"
+  );
   if (existingNotification) {
     existingNotification.remove();
   }
 
-  const notification = document.createElement('div');
-  notification.className = 'job-ai-success-notification';
+  const notification = document.createElement("div");
+  notification.className = "job-ai-success-notification";
   notification.textContent = message;
-  
+
   // Change color for error messages
   if (!isSuccess) {
-    notification.style.background = '#ef4444';
-    notification.style.boxShadow = '0 4px 12px rgba(239, 68, 68, 0.3)';
+    notification.style.background = "#ef4444";
+    notification.style.boxShadow = "0 4px 12px rgba(239, 68, 68, 0.3)";
   }
-  
+
   document.body.appendChild(notification);
 
   // Auto-hide after 4 seconds
   setTimeout(() => {
-    notification.classList.add('hiding');
+    notification.classList.add("hiding");
     setTimeout(() => {
       if (notification.parentNode) {
         notification.remove();
@@ -342,50 +346,50 @@ const showSuccessNotification = (message, isSuccess = true) => {
 
 // Function to update authentication status display
 const updateAuthStatus = (isAuthenticated) => {
-  console.log('Updating auth status to:', isAuthenticated);
+  console.log("Updating auth status to:", isAuthenticated);
   currentAuthStatus = isAuthenticated; // Track current status
-  
-  const authStatus = document.getElementById('authStatus');
-  const loginBtn = document.querySelector('.job-ai-login');
-  const logoutBtn = document.querySelector('.job-ai-logout');
-  const indicator = authStatus?.querySelector('.job-ai-auth-indicator');
-  const statusText = authStatus?.querySelector('span');
+
+  const authStatus = document.getElementById("authStatus");
+  const loginBtn = document.querySelector(".job-ai-login");
+  const logoutBtn = document.querySelector(".job-ai-logout");
+  const indicator = authStatus?.querySelector(".job-ai-auth-indicator");
+  const statusText = authStatus?.querySelector("span");
 
   if (isAuthenticated) {
-    authStatus?.classList.remove('signed-out');
-    authStatus?.classList.add('signed-in');
-    indicator?.classList.remove('offline');
-    indicator?.classList.add('online');
-    if (statusText) statusText.textContent = 'Signed in';
-    
-    if (loginBtn) loginBtn.style.display = 'none';
-    if (logoutBtn) logoutBtn.style.display = 'block';
+    authStatus?.classList.remove("signed-out");
+    authStatus?.classList.add("signed-in");
+    indicator?.classList.remove("offline");
+    indicator?.classList.add("online");
+    if (statusText) statusText.textContent = "Signed in";
+
+    if (loginBtn) loginBtn.style.display = "none";
+    if (logoutBtn) logoutBtn.style.display = "block";
   } else {
-    authStatus?.classList.remove('signed-in');
-    authStatus?.classList.add('signed-out');
-    indicator?.classList.remove('online');
-    indicator?.classList.add('offline');
-    if (statusText) statusText.textContent = 'Not signed in';
-    
-    if (loginBtn) loginBtn.style.display = 'block';
-    if (logoutBtn) logoutBtn.style.display = 'none';
+    authStatus?.classList.remove("signed-in");
+    authStatus?.classList.add("signed-out");
+    indicator?.classList.remove("online");
+    indicator?.classList.add("offline");
+    if (statusText) statusText.textContent = "Not signed in";
+
+    if (loginBtn) loginBtn.style.display = "block";
+    if (logoutBtn) logoutBtn.style.display = "none";
   }
 };
 
 // Function to check current authentication status
 const checkAuthenticationStatus = (sidebar) => {
-  console.log('Checking authentication status...');
+  console.log("Checking authentication status...");
   chrome.runtime.sendMessage({ type: "CHECK_AUTH_STATUS" }, (response) => {
     if (chrome.runtime.lastError) {
-      console.error('Auth status check failed:', chrome.runtime.lastError);
+      console.error("Auth status check failed:", chrome.runtime.lastError);
       // Extension context might be invalid, assume not authenticated
       updateAuthStatus(false);
       return;
     }
-    
-    console.log('Auth status response:', response);
+
+    console.log("Auth status response:", response);
     const isAuthenticated = response && response.isAuthenticated;
-    console.log('Is authenticated:', isAuthenticated);
+    console.log("Is authenticated:", isAuthenticated);
     updateAuthStatus(isAuthenticated);
   });
 };
@@ -424,7 +428,11 @@ const updateSidebarContent = (
   const requestYears = yearsData?.requestYears;
 
   // If old format is present and new format is missing, use old format
-  if ((minYears === null || minYears === undefined) && requestYears !== null && requestYears !== undefined) {
+  if (
+    (minYears === null || minYears === undefined) &&
+    requestYears !== null &&
+    requestYears !== undefined
+  ) {
     minYears = requestYears;
     maxYears = requestYears;
   }
@@ -432,7 +440,13 @@ const updateSidebarContent = (
   const level = data.level?.result?.text?.level || "Not specified";
 
   // Debug logging for years data
-  console.log('Years data:', { yearsData, minYears, maxYears, requestYears, usingOldFormat: requestYears !== null && requestYears !== undefined });
+  console.log("Years data:", {
+    yearsData,
+    minYears,
+    maxYears,
+    requestYears,
+    usingOldFormat: requestYears !== null && requestYears !== undefined,
+  });
 
   // Format years display
   let yearsDisplay = '<span style="color:#888">Not specified</span>';
@@ -443,7 +457,11 @@ const updateSidebarContent = (
     } else if (minYears === maxYears) {
       // Single value like "5+ years"
       yearsDisplay = `<span class="job-ai-pill">${minYears}+ years</span>`;
-    } else if (maxYears !== null && maxYears !== undefined && !isNaN(maxYears)) {
+    } else if (
+      maxYears !== null &&
+      maxYears !== undefined &&
+      !isNaN(maxYears)
+    ) {
       // Range like "3-5 years"
       yearsDisplay = `<span class="job-ai-pill">${minYears}-${maxYears} years</span>`;
     } else {
@@ -457,7 +475,7 @@ const updateSidebarContent = (
       <div class="job-ai-card-title"><span class="job-ai-card-icon">🗂️</span>Domain</div>
       <div>${
         domains.length > 0
-          ? domains.map(d => `<span class="job-ai-pill">${d}</span>`).join('')
+          ? domains.map((d) => `<span class="job-ai-pill">${d}</span>`).join("")
           : '<span style="color:#888">Not detected</span>'
       }</div>
     </div>
@@ -549,89 +567,111 @@ const waitForJobPanel = () => {
 };
 
 // 监听左侧职位卡片的点击事件
-document.addEventListener("click", async (event) => {
-  const card = event.target.closest(".job_seen_beacon");
-  if (!card) return;
+// Use capture phase to intercept clicks before Indeed's handlers
+document.addEventListener(
+  "click",
+  async (event) => {
+    console.log("Click detected:1");
+    const card = event.target.closest(".job_seen_beacon");
+    if (!card) return;
+    console.log("Click detected:1");
+    // Log only when we detect a job card click
+    // 等待右侧面板加载完成
+    await waitForJobPanel();
+    console.log("Clicked on a job card");
 
-  // 等待右侧面板加载完成
-  await waitForJobPanel();
-  console.log("Clicked on a job card");
-
-  // 创建侧边栏（如果还没有创建）
-  if (!sidebar) {
-    createSidebarStyles();
-    sidebar = createSidebar();
-  } else {
-    // If sidebar already exists, restore the previous auth status
-    if (currentAuthStatus !== null) {
-      console.log('Restoring auth status:', currentAuthStatus);
-      updateAuthStatus(currentAuthStatus);
-    }
-  }
-
-  // 显示侧边栏并显示加载状态
-  sidebar.classList.add("open");
-  updateSidebarContent(sidebar, null);
-
-  // 从右侧面板抓取信息
-  const title =
-    document.querySelector('h2[data-testid="jobsearch-JobInfoHeader-title"]')
-      ?.innerText || "";
-
-  const container = document.querySelector("#jobDescriptionText");
-
-  // Select all <p> and <li> tags inside
-  const textElements = container?.querySelectorAll("p, li");
-
-  const description = Array.from(textElements)
-    .map((el) => el.innerText.trim())
-    .filter((text) => text.length > 0)
-    .join("\n");
-
-  const jobData = {
-    title,
-    description: "Description: " + description,
-  };
-  console.log(`Sending job data: ${jobData.title}`);
-  //console.log(`Sending job data: ${jobData.description}`);
-
-  // 发送消息并处理响应
-  try {
-    chrome.runtime.sendMessage(
-      { type: "INDEED_JOB_DETAIL", job: jobData },
-      (response) => {
-        if (chrome.runtime.lastError) {
-          console.error("Extension context invalidated:", chrome.runtime.lastError.message);
-          updateSidebarContent(sidebar, null, "Extension needs to be refreshed", jobData);
-          return;
-        }
-        
-        console.log("Received response:", response);
-        if (response && response.success) {
-          updateSidebarContent(sidebar, response.extraction, null, jobData);
-        } else {
-          let error = response?.error || "Failed to extract job information";
-          
-          // Add authentication prompt if auth is required
-          if (response?.requiresAuth) {
-            error += " Please use the Sign In button above.";
-            // Only update auth status if we don't already know the status
-            // This prevents overriding a known good status
-            if (currentAuthStatus !== false) {
-              console.log('Job extraction requires auth, updating status to false');
-              updateAuthStatus(false);
-            }
-          }
-          
-          updateSidebarContent(sidebar, null, error, jobData);
-        }
+    // 创建侧边栏（如果还没有创建）
+    if (!sidebar) {
+      createSidebarStyles();
+      sidebar = createSidebar();
+    } else {
+      // If sidebar already exists, restore the previous auth status
+      if (currentAuthStatus !== null) {
+        console.log("Restoring auth status:", currentAuthStatus);
+        updateAuthStatus(currentAuthStatus);
       }
-    );
-  } catch (error) {
-    console.error("Extension context invalidated:", error);
-    updateSidebarContent(sidebar, null, "Extension needs to be refreshed", jobData);
-  }
-});
+    }
+
+    // 显示侧边栏并显示加载状态
+    sidebar.classList.add("open");
+    updateSidebarContent(sidebar, null);
+
+    // 从右侧面板抓取信息
+    const title =
+      document.querySelector('h2[data-testid="jobsearch-JobInfoHeader-title"]')
+        ?.innerText || "";
+
+    const container = document.querySelector("#jobDescriptionText");
+
+    // Select all <p> and <li> tags inside
+    const textElements = container?.querySelectorAll("p, li");
+
+    const description = Array.from(textElements)
+      .map((el) => el.innerText.trim())
+      .filter((text) => text.length > 0)
+      .join("\n");
+
+    const jobData = {
+      title,
+      description: "Description: " + description,
+    };
+    console.log(`Sending job data: ${jobData.title}`);
+    //console.log(`Sending job data: ${jobData.description}`);
+
+    // 发送消息并处理响应
+    try {
+      chrome.runtime.sendMessage(
+        { type: "INDEED_JOB_DETAIL", job: jobData },
+        (response) => {
+          if (chrome.runtime.lastError) {
+            console.error(
+              "Extension context invalidated:",
+              chrome.runtime.lastError.message
+            );
+            updateSidebarContent(
+              sidebar,
+              null,
+              "Extension needs to be refreshed",
+              jobData
+            );
+            return;
+          }
+
+          console.log("Received response:", response);
+          if (response && response.success) {
+            updateSidebarContent(sidebar, response.extraction, null, jobData);
+          } else {
+            let error = response?.error || "Failed to extract job information";
+
+            // Add authentication prompt if auth is required
+            if (response?.requiresAuth) {
+              error += " Please use the Sign In button above.";
+              // Only update auth status if we don't already know the status
+              // This prevents overriding a known good status
+              if (currentAuthStatus !== false) {
+                console.log(
+                  "Job extraction requires auth, updating status to false"
+                );
+                updateAuthStatus(false);
+              }
+            }
+
+            updateSidebarContent(sidebar, null, error, jobData);
+          }
+        }
+      );
+    } catch (error) {
+      console.error("Extension context invalidated:", error);
+      updateSidebarContent(
+        sidebar,
+        null,
+        "Extension needs to be refreshed",
+        jobData
+      );
+    }
+  },
+  true
+); // Use capture phase to intercept before Indeed's handlers
 
 // Export for testing purposes when running in Node environment
 if (typeof module !== "undefined") {

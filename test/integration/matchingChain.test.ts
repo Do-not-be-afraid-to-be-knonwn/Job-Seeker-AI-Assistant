@@ -1,4 +1,4 @@
-import type { JobResumeMatchingInput } from '../src/matching/schemas/jobResumeMatching.schema';
+import type { JobResumeMatchingInput } from '../../src/matching/schemas/jobResumeMatching.schema';
 
 type AnyObject = Record<string, any>;
 
@@ -21,7 +21,7 @@ const resumeSectionsMock = {
 const preprocessJobMock = jest.fn(() => jobSectionsMock);
 const preprocessResumeMock = jest.fn(() => resumeSectionsMock);
 
-jest.mock('../src/matching/core/textPreprocessing.utils', () => ({
+jest.mock('../../src/matching/core/textPreprocessing.utils', () => ({
   preprocessJob: preprocessJobMock,
   preprocessResume: preprocessResumeMock,
   TextPreprocessingUtils: {
@@ -44,7 +44,7 @@ const featureExtractionServiceMock = {
 
 const FeatureExtractionServiceMock = jest.fn(() => featureExtractionServiceMock);
 
-jest.mock('../src/matching/core/featureExtraction.service', () => ({
+jest.mock('../../src/matching/core/featureExtraction.service', () => ({
   FeatureExtractionService: FeatureExtractionServiceMock
 }));
 
@@ -56,7 +56,7 @@ const hybridScoringEngineMock = {
 
 const HybridScoringEngineMock = jest.fn(() => hybridScoringEngineMock);
 
-jest.mock('../src/matching/core/hybridScoring.engine', () => ({
+jest.mock('../../src/matching/core/hybridScoring.engine', () => ({
   HybridScoringEngine: HybridScoringEngineMock,
   defaultScoringConfig: {
     weights: {},
@@ -75,7 +75,7 @@ const explanationEngineMock = {
 
 const ExplanationGenerationEngineMock = jest.fn(() => explanationEngineMock);
 
-jest.mock('../src/matching/core/explanationGeneration.engine', () => ({
+jest.mock('../../src/matching/core/explanationGeneration.engine', () => ({
   ExplanationGenerationEngine: ExplanationGenerationEngineMock
 }));
 
@@ -83,7 +83,7 @@ const calculateSimilarityMock = jest.fn();
 const clearCacheMock = jest.fn();
 const getCacheStatsMock = jest.fn();
 
-jest.mock('../src/matching/core/semanticSimilarity.engine', () => ({
+jest.mock('../../src/matching/core/semanticSimilarity.engine', () => ({
   semanticEngine: {
     calculateSimilarity: (...args: AnyObject[]) => calculateSimilarityMock(...args),
     calculateBatchSimilarity: jest.fn(),
@@ -102,13 +102,13 @@ const chainMonitorMock = {
   getMetrics: monitorGetMetricsMock
 };
 
-jest.mock('../src/monitor/ChainPerformanceMonitor', () => ({
+jest.mock('../../src/monitor/ChainPerformanceMonitor', () => ({
   ChainPerformanceMonitor: {
     getInstance: () => chainMonitorMock
   }
 }));
 
-const { JobResumeMatchingChain } = require('../src/matching/core/jobResumeMatching.chain') as typeof import('../src/matching/core/jobResumeMatching.chain');
+const { JobResumeMatchingChain } = require('../../src/matching/core/jobResumeMatching.chain') as typeof import('../../src/matching/core/jobResumeMatching.chain');
 
 const jobDescription =
   'We are looking for a senior platform engineer to own the developer productivity stack, ' +

@@ -1,5 +1,5 @@
 import request from 'supertest';
-import app from '../server';
+import app from '../../server';
 
 // Mock node-fetch for testing - done in setup.ts
 const mockFetch = jest.mocked(require('node-fetch'));

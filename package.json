@@ -6,6 +6,10 @@
   "type": "commonjs",
   "scripts": {
     "test": "jest",
+    "test:unit": "jest test/unit",
+    "test:integration": "jest test/integration",
+    "test:extension": "jest test/extension",
+    "test:all": "jest",
     "start": "ts-node server.ts",
     "dev": "ts-node --watch src/scripts/runExtractSkills.ts",
     "dev:years": "ts-node src/scripts/runExtractYears.ts",

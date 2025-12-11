@@ -1,10 +1,10 @@
 const path = require('path');
-const { loadBackgroundScript } = require('./chromeExtensionTestKit');
+const { loadBackgroundScript } = require('../fixtures/chromeExtensionTestKit');
 
 describe('USER_FEEDBACK queue', () => {
   test('queues feedback messages successfully', async () => {
     const { chrome, context } = loadBackgroundScript(
-      path.join(__dirname, '../src/chrome-extension-template/background.js')
+      path.join(__dirname, '../../../src/chrome-extension-template/background.js')
     );
 
     const res1 = await chrome.runtime.sendMessage({

@@ -2,11 +2,11 @@ import fs from 'fs/promises';
 import path from 'path';
 import request from 'supertest';
 import { beforeEach, describe, expect, test } from '@jest/globals';
-import app from '../server';
+import app from '../../server';
 
 process.env.NODE_ENV = 'test';
 
-const feedbackFile = path.join(__dirname, '..', 'feedback.jsonl');
+const feedbackFile = path.join(__dirname, '../..', 'feedback.jsonl');
 
 async function readEntries() {
   try {

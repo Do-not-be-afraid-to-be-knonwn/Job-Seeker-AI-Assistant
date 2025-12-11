@@ -35,13 +35,13 @@ describe("feedback end-to-end", () => {
   jest.setTimeout(20000);
 
   beforeAll(async () => {
-    const feedbackPath = path.join(__dirname, "..", "feedback.jsonl");
+    const feedbackPath = path.join(__dirname, "../../..", "feedback.jsonl");
     try {
       await fs.unlink(feedbackPath);
     } catch (_) {}
 
     serverProc = spawn("npx", ["ts-node", "server.ts"], {
-      cwd: path.join(__dirname, ".."),
+      cwd: path.join(__dirname, "../../.."),
       env: { ...process.env, NODE_ENV: "development" },
       shell: true,
     });
@@ -63,7 +63,7 @@ describe("feedback end-to-end", () => {
     const {
       enqueueFeedback,
       processQueue,
-    } = require("../src/chrome-extension-template/background.js");
+    } = require("../../../src/chrome-extension-template/background.js");
 
     const realFetch = global.fetch;
     global.fetch = async (url, options) => {
@@ -88,7 +88,7 @@ describe("feedback end-to-end", () => {
     await enqueueFeedback({ jobId: "456", feedback: "great job" });
     await processQueue();
 
-    const feedbackPath = path.join(__dirname, "..", "feedback.jsonl");
+    const feedbackPath = path.join(__dirname, "../../..", "feedback.jsonl");
     
     // The feedback file should either not exist or not contain our test data
     // because the requests were rejected due to missing authentication
